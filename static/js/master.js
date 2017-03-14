@@ -1,15 +1,23 @@
 $(function() {
 
+  // On récupère en instantanée la saisie de l'utilisateur
   $('#searchchar').keyup(function() {
     var saisieUser = $('#searchchar').val();
-    console.log(saisieUser);
+    $.ajax({
+      url: 'index.php',
+      method: 'GET',
+      data: {saisie: saisieUser},
+      success: function(data){
+        $('#message').html(saisieUser);
+      }
+    });
   });
 
 
-  $( "#searchchar" ).autocomplete({
+  $("#searchchar").autocomplete({
     source: 'index.php',
     minLength:2
-  });
+  })
 
 
 });

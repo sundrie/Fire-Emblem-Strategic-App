@@ -14,7 +14,8 @@ if ($_POST) {
 // Connexion à la BDD
   $instance = new PDO("mysql:host=localhost;dbname=fea", "root", "");
 
-  //$searchname = 
+  var_dump($_GET['saisie']);
+  //$searchname =
 
   $query = $instance->query("SELECT * FROM characters WHERE name LIKE '%".$searchname."%' ORDER BY name ASC");
 
@@ -23,7 +24,6 @@ if ($_POST) {
   }
 
   echo json_encode($data);
-
 ?>
 
 
@@ -41,6 +41,8 @@ if ($_POST) {
       <input type="text" id="searchchar" name="usersearch">
       <input type="submit">
     </form>
+
+    <div id="message"></div>
 
     <?php
       /* if ($_POST) {
