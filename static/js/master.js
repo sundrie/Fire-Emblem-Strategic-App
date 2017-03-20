@@ -19,5 +19,4 @@ $(function() {
     minLength: 2
   })
 
-
 });

@@ -37,12 +37,20 @@
           for ($i=0; $i < count($listeChar) ; $i++) {
             echo "<li><a href=#>".$listeChar[$i]['name']."</a></li>";
           }
+
+          // Les liens du wikia anglais (plus complet)
+          // http://fireemblem.wikia.com/wiki/Chrom
         ?>
       </ul>
       <input type="submit">
     </form>
 
     <div id="message"></div>
+
+    <div id="pageContent">
+      <object class="webpage" type="text/html" data="http://fireemblem.wikia.com/wiki/Chrom">
+      </object>
+    </div>
 
     <!-- Chargement de la librairie jQuery -->
      <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

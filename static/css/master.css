@@ -8,13 +8,25 @@
   padding: 0;
   width: 300px;
   list-style-type: none;
-  border: 1px solid black;
+  border: 1px solid #c3c3c3;
 }
 
 #charList li {
-  margin: 0;
+  padding: 5px;
+}
+
+#charList li:nth-child(even) {
+  background: rgb(207, 205, 201);
 }
 
 #charList a {
   text-decoration: none;
+}
+
+/* Le contenu wikia chargé */
+.webpage {
+  width:1000px;
+  height:600px;
+  /*style="overflow:auto;*/
+  /*border:5px ridge blue;*/
 }
