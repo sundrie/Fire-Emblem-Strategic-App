@@ -13,10 +13,14 @@ $(function() {
     });
   });
 
+  $('#charList li a').click(function() {
+    var persoChoisi = $(this).text();
+    $('#message').html(persoChoisi);
+  });
 
-  $("#searchchar").autocomplete({
-    source: 'index.php',
-    minLength: 2
-  })
+  // $("#searchchar").autocomplete({
+  //   source: 'index.php',
+  //   minLength: 2
+  // });
 
 });
