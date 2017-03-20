@@ -1,0 +1,20 @@
+#searchchar {
+  display: block;
+  width: 300px;
+}
+
+#charList {
+  margin-top: 0;
+  padding: 0;
+  width: 300px;
+  list-style-type: none;
+  border: 1px solid black;
+}
+
+#charList li {
+  margin: 0;
+}
+
+#charList a {
+  text-decoration: none;
+}
