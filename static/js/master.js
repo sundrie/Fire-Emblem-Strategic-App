@@ -5,7 +5,7 @@ $(function() {
     var saisieUser = $('#searchchar').val();
     $.ajax({
       url: 'index.php',
-      method: 'GET',
+      method: 'POST',
       data: {saisie: saisieUser},
       success: function(data){
         $('#message').html(saisieUser);
@@ -16,7 +16,7 @@ $(function() {
 
   $("#searchchar").autocomplete({
     source: 'index.php',
-    minLength:2
+    minLength: 2
   })
 
 
