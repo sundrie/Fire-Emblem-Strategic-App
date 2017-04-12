@@ -1,8 +1,10 @@
 $(function() {
 
+  var saisieUser;
+
   // On récupère en instantanée la saisie de l'utilisateur
   $('#searchchar').keyup(function() {
-    var saisieUser = $('#searchchar').val();
+    saisieUser = $('#searchchar').val();
     $.ajax({
       url: 'index.php',
       method: 'POST',
@@ -15,9 +17,6 @@ $(function() {
     interactiveList();
 
   });
-
-
-
 
   $('#charList li a').click(function(){
     var persoChoisi = $(this).text();
@@ -36,7 +35,6 @@ $(function() {
   function interactiveList(){
     // Pour chaque li (Perso)
     for (i = 0; i < $('#charList li').length; i++) {
-      console.log(saisieUser);
       var filter = saisieUser;
       a = $('#charList li')[i].getElementsByTagName("a")[0];
       if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
