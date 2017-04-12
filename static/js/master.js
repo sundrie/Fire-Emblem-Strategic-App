@@ -35,18 +35,17 @@ $(function() {
   function interactiveList(){
     // Pour chaque li (Perso)
     for (i = 0; i < $('#charList li').length; i++) {
+      // filter est bien synchrone avec la saisie utilisateur
       var filter = saisieUser;
       a = $('#charList li')[i].getElementsByTagName("a")[0];
-      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      // a renvoie <a href="#">Tharja</a>
+      if (a.innerHTML.indexOf(filter) > -1) {
         $('#charList li')[i].style.display = "";
       } else {
         $('#charList li')[i].style.display = "none";
       }
     }
   }
-
-
-
 
   // $("#searchchar").autocomplete({
   //   source: 'index.php',
