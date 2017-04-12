@@ -47,6 +47,7 @@
 
     <div id="message"></div>
 
+    <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
     <div id="pageContent">
     </div>
 

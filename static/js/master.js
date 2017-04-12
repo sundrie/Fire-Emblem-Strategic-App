@@ -11,12 +11,19 @@ $(function() {
         $('#message').html(saisieUser);
       }
     });
+
+    interactiveList();
+
   });
+
+
+
 
   $('#charList li a').click(function(){
     var persoChoisi = $(this).text();
-    // nous affiche le nom du perso choisi
-    $('#message').html(persoChoisi);
+    // nous affiche le nom du perso choisi dans la liste
+    //$('#message').html(persoChoisi);
+
     if (persoChoisi === "Vaike") {
       $("#pageContent").html("Vaike est un tank OP qui peut selon ses talents faire énormément de coup critique");
     } else if (persoChoisi === "Tharja") {
@@ -25,6 +32,21 @@ $(function() {
       $("#pageContent").html("Pas encore de top déso !");
     }
   });
+
+  function interactiveList(){
+    // Pour chaque li (Perso)
+    for (i = 0; i < $('#charList li').length; i++) {
+      console.log(saisieUser);
+      var filter = saisieUser;
+      a = $('#charList li')[i].getElementsByTagName("a")[0];
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        $('#charList li')[i].style.display = "";
+      } else {
+        $('#charList li')[i].style.display = "none";
+      }
+    }
+  }
+
 
 
 
