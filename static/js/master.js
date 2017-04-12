@@ -1,5 +1,7 @@
 $(function() {
 
+
+
   var saisieUser;
 
   // On récupère en instantanée la saisie de l'utilisateur
@@ -13,9 +15,8 @@ $(function() {
         $('#message').html(saisieUser);
       }
     });
-
+    // On appelle la fonction qui selon la saisie masque les choix qui ne correspondent pas
     interactiveList();
-
   });
 
   $('#charList li a').click(function(){

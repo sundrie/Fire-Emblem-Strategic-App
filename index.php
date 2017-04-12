@@ -31,7 +31,7 @@
   <body>
     <form action="index.php" method="post">
       <label for="searchchar">Heros à rechercher :</label>
-      <input type="text" id="searchchar" name="usersearch">
+      <input type="text" id="searchchar" name="usersearch" autocomplete="off">
       <ul id="charList">
         <?php
           for ($i=0; $i < count($listeChar) ; $i++) {
@@ -48,8 +48,7 @@
     <div id="message"></div>
 
     <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
-    <div id="pageContent">
-    </div>
+    <div id="pageContent"></div>
 
     <!-- Chargement de la librairie jQuery -->
      <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
