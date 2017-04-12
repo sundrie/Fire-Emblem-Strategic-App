@@ -48,8 +48,6 @@
     <div id="message"></div>
 
     <div id="pageContent">
-      <object class="webpage" type="text/html" data="http://fireemblem.wikia.com/wiki/Chrom">
-      </object>
     </div>
 
     <!-- Chargement de la librairie jQuery -->
