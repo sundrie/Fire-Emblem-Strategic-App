@@ -1,7 +1,5 @@
 $(function() {
 
-
-
   var saisieUser;
 
   // On récupère en instantanée la saisie de l'utilisateur
@@ -41,7 +39,7 @@ $(function() {
       a = $('#charList li')[i].getElementsByTagName("a")[0];
       // a renvoie <a href="#">Tharja</a> par exemple
       // le -1 est ce que renvoie la méthode indexof() si elle ne trouve rien
-      // to lowercase() règle les soucis de case 
+      // to lowercase() règle les soucis de case
       if (a.innerHTML.toLowerCase().indexOf(filter) > -1) {
         $('#charList li')[i].style.display = "";
       } else {
