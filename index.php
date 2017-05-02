@@ -48,7 +48,10 @@
     <div id="message"></div>
 
     <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
-    <div id="pageContent"></div>
+    <div id="pageContent">
+      <img src="" id="HeroImg">
+
+    </div>
 
     <!-- Chargement de la librairie jQuery -->
      <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
