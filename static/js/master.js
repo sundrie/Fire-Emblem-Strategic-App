@@ -39,7 +39,7 @@ $(function() {
       // filter est bien synchrone avec la saisie utilisateur
       var filter = saisieUser;
       a = $('#charList li')[i].getElementsByTagName("a")[0];
-      // a renvoie <a href="#">Tharja</a>
+      // a renvoie <a href="#">Tharja</a> par exemple
       if (a.innerHTML.indexOf(filter) > -1) {
         $('#charList li')[i].style.display = "";
       } else {
