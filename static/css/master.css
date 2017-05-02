@@ -23,7 +23,11 @@ body {
   background: rgb(207, 205, 201);
 }
 
-#charList a {
+#charList li a {
+  display: block;
+  font-family: Helvetica;
+  font-size: 20px;
+  color: rgb(18, 19, 17);
   text-decoration: none;
 }
 
