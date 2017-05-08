@@ -1,5 +1,4 @@
 <?php
-
 // AJAX nous envoie bien les datas (onglet network) XHR
 
 ?>
@@ -12,6 +11,9 @@
   //$searchname = $_POST['saisie'];
   $query = $instance->query("SELECT * FROM characters ORDER BY name ASC");
   $listeChar = $query->fetchAll();
+
+  // $listeChar nous renvoie tout ce qu'on a dans la BDD (id, name, description)
+
 ?>
 
 

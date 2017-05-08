@@ -19,9 +19,9 @@ $(function() {
 
   $('#charList li a').click(function(){
     var persoChoisi = $(this).text();
-    // nous affiche le nom du perso choisi dans la liste
-    //$('#message').html(persoChoisi);
-
+    // permet de copier coller le nom du perso dans l'input
+    $('#searchchar').val(persoChoisi);
+    // permet de dynamiquement afficher l'image du perso choisi
     $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
 
     // if (persoChoisi === "Vaike") {
