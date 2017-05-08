@@ -51,7 +51,7 @@
 
     <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
     <div id="pageContent">
-      <img src="" id="HeroImg">
+      <img src="" id="HeroImg" class="imageHeros">
 
     </div>
 

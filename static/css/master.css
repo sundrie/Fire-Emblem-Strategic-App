@@ -38,3 +38,9 @@ body {
   /*style="overflow:auto;*/
   /*border:5px ridge blue;*/
 }
+
+/* L'image du perso*/
+.imageHeros {
+  max-width: 200px;
+  max-height: 200px;
+}
