@@ -24,16 +24,7 @@ $(function() {
     // permet de dynamiquement afficher l'image du perso choisi
     $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
 
-    // if (persoChoisi === "Vaike") {
-    //   $("#pageContent").html("Vaike est un tank OP qui peut selon ses talents faire énormément de coup critique");
-    // } else if (persoChoisi === "Tharja") {
-    //   $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/Tharja.png');
-    //   // $("#pageContent").html("De grosse stats défensives une très bonne force de frappe magique seul bémol sa force est pas top");
-    // } else if (persoChoisi === "Chrom") {
-    //   $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/Chrom.png');
-    // } else {
-    //   $("#pageContent").html("Pas encore de top déso !");
-    // }
+    askInfoBDD(persoChoisi);
   });
 
   function interactiveList(){
@@ -53,9 +44,33 @@ $(function() {
     }
   }
 
-  // $("#searchchar").autocomplete({
-  //   source: 'index.php',
-  //   minLength: 2
-  // });
+  // Cette fonction va permettre de chercher dans la BDD toutes les infos concernant le perso à partir de son nom
+  function askInfoBDD(nomHeros){
+    $.ajax({
+      url : 'http://localhost/FEAcharapp/index.php', // On fait appel au script PHP
+      method : 'POST',
+      data : {
+        nom : nomHeros
+      }
+    });
+  }
+
+
+ //  $.ajax({
+ //     url : 'http://localhost/FEAcharapp/index.php',
+ //     type : 'POST',
+ //     dataType : 'json',
+ //     success : function (data) {
+ //        alert(result); // "Hello world!" alerted
+ //        console.log(data) // The value of your php $row['adverts'] will be displayed
+ //     },
+ //     error : function () {
+ //        alert("error");
+ //     }
+ // })
+
+
+  // ajax pour reload le result provenant de la BDD
+  //$("#pageContent").load("index.php #pageContent");
 
 });

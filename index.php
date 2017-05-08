@@ -6,14 +6,9 @@
 // Connexion à la BDD
   $instance = new PDO("mysql:host=localhost;dbname=fea", "root", "");
 
-
-  //var_dump($_POST['saisie']);
-  //$searchname = $_POST['saisie'];
-  $query = $instance->query("SELECT * FROM characters ORDER BY name ASC");
+  // On veut pour l'instant uniquement les noms des persos dans la BDD
+  $query = $instance->query("SELECT name FROM characters ORDER BY name ASC");
   $listeChar = $query->fetchAll();
-
-  // $listeChar nous renvoie tout ce qu'on a dans la BDD (id, name, description)
-
 ?>
 
 
@@ -40,8 +35,6 @@
             echo "<li><a href=#>".$listeChar[$i]['name']."</a></li>";
           }
 
-          // Les liens du wikia anglais (plus complet)
-          // http://fireemblem.wikia.com/wiki/Chrom
         ?>
       </ul>
       <input type="submit">
@@ -52,7 +45,20 @@
     <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
     <div id="pageContent">
       <img src="" id="HeroImg" class="imageHeros">
-
+      <p id="HeroDesc">
+        <?php
+          //si on reçoit du ajax
+          if($_POST){
+            // $_POST['nom'] provient du js il nous renvoie le nom sélectionné dans la liste
+            $nomHeros = $_POST['nom'];
+            $query = $instance->query("SELECT * FROM characters WHERE name = '".$nomHeros."'");
+            $infosPerso = $query->fetch();
+            echo $infosPerso['description'];
+            // $reloadMe = true;
+            // echo json_encode($reloadMe);
+          }
+        ?>
+      </p>
     </div>
 
     <!-- Chargement de la librairie jQuery -->
