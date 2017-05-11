@@ -46,18 +46,62 @@
     <div id="pageContent">
       <img src="" id="HeroImg" class="imageHeros">
       <p id="HeroDesc">
+
         <?php
-          //si on reçoit du ajax
-          if($_POST){
+          //si on reçoit du ajax le nom choisi
+          if (isset($_POST['nom'])){
             // $_POST['nom'] provient du js il nous renvoie le nom sélectionné dans la liste
             $nomHeros = $_POST['nom'];
             $query = $instance->query("SELECT * FROM characters WHERE name = '".$nomHeros."'");
             $infosPerso = $query->fetch();
-            echo $infosPerso['description'];
-            // $reloadMe = true;
-            // echo json_encode($reloadMe);
-          }
+
+            // A partir d'ici on génère du code js (mettre des balises script n'execute pas le code) pour envoyer le résultat de la BDD au js pour affichage
+
+            echo "<script>";
+              //envoi des datas au js
+              echo "var dataHeros = '<?php echo json_encode($infosPerso); ?>'";
+              echo "afficheDescription();";
+            echo "</script>";
+
         ?>
+          <script type="text/javascript">
+            <?php echo json_encode($infosPerso); ?>
+            <?php echo "afficheDescription();"; ?>
+            afficheDescription();
+          </script>
+        <?php
+
+            // On affiche la description du personnage depuis la BDD
+            echo json_encode($infosPerso);
+            echo $infosPerso['description'];
+
+            // variable pour executer le code en dessous
+            $go = true;
+          }
+
+        ?>
+
+        <script type="text/javascript">
+          <?php if (isset($go)){ ?>
+          <?php echo json_encode($infosPerso); ?>
+          <?php echo "afficheDescription();";
+            }
+          ?>
+        </script>
+        <script type="text/javascript">
+        // setInterval( function() { $('#HeroDesc').load('moreheroinfo.php').fadeIn("slow"); }, 1000); // refreshing after every 15000 milliseconds
+          function load(){
+            $('#HeroDesc').load('moreheroinfo.php');
+          }
+
+        $('#charList li a').click(function(){
+
+          setTimeout(load, 5000);
+
+          //$('#HeroDesc').load('moreheroinfo.php');
+        });
+        </script>
+
       </p>
     </div>
 

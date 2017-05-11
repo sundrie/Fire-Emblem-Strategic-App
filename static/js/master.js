@@ -25,6 +25,9 @@ $(function() {
     $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
 
     askInfoBDD(persoChoisi);
+
+    // Un essai avec une autre page executant le script de recherche
+    getBDDInfo(persoChoisi);
   });
 
   function interactiveList(){
@@ -47,7 +50,8 @@ $(function() {
   // Cette fonction va permettre de chercher dans la BDD toutes les infos concernant le perso à partir de son nom
   function askInfoBDD(nomHeros){
     $.ajax({
-      url : 'http://localhost/FEAcharapp/index.php', // On fait appel au script PHP
+      url : 'http://localhost/FEAcharapp/index.php',
+      //url : 'http://localhost/FEAcharapp/index.php', // On fait appel au script PHP
       method : 'POST',
       data : {
         nom : nomHeros
@@ -55,22 +59,51 @@ $(function() {
     });
   }
 
+  // $.ajax({
+  //       type: 'POST',
+  //       url: 'http://localhost/FEAcharapp/Herodesc.php',
+  //       dataType : 'json',
+  //       data: msg,
+  //       success: function(msg){
+  //         $("#HeroDesc").load("http://localhost/FEAcharapp/index.php #HeroDesc");
+  //       }
+  //   });
 
- //  $.ajax({
- //     url : 'http://localhost/FEAcharapp/index.php',
- //     type : 'POST',
- //     dataType : 'json',
- //     success : function (data) {
- //        alert(result); // "Hello world!" alerted
- //        console.log(data) // The value of your php $row['adverts'] will be displayed
- //     },
- //     error : function () {
- //        alert("error");
- //     }
- // })
+
+  // code pour "capter" un signal de reload de contenu émis par php via une variable $reloadMe
+  function afficheDescription() {
+    $.ajax({
+       url : 'http://localhost/FEAcharapp/index.php',
+       type : 'POST',
+       dataType : 'json',
+       data : data,
+       success : function (data) {
+         $("#HeroDesc").load("index.php #HeroDesc");
+         $("#HeroDesc").html(data);
+       },error : function (){
+         alert("error");
+       }
+    });
+  }
 
 
   // ajax pour reload le result provenant de la BDD
   //$("#pageContent").load("index.php #pageContent");
+
+
+  function getBDDInfo(nomHeros){
+    $.ajax({
+      url : 'http://localhost/FEAcharapp/moreheroinfo.php',
+      //url : 'http://localhost/FEAcharapp/index.php', // On fait appel au script PHP
+      method : 'POST',
+      data : {
+        nom : nomHeros
+      }
+    });
+
+  }
+
+
+
 
 });
