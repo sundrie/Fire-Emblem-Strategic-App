@@ -10,27 +10,14 @@ $(function() {
       method: 'POST',
       data: {saisie: saisieUser},
       success: function(data){
-        $('#message').html(saisieUser);
+        //$('#message').html(saisieUser); //Pour afficher ce que l'utilisateur tappe
       }
     });
     // On appelle la fonction qui selon la saisie masque les choix qui ne correspondent pas
     interactiveList();
   });
 
-  $('#charList li a').click(function(){
-    var persoChoisi = $(this).text();
-    // permet de copier coller le nom du perso dans l'input
-    $('#searchchar').val(persoChoisi);
-    // permet de dynamiquement afficher l'image du perso choisi
-    $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
-
-
-    $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
-        $('#HeroDesc').html(data);
-    }, 'text');
-    
-  });
-
+  // Fonction gérant l'affichage de la liste selon la saisie de l'utilisateur
   function interactiveList(){
     // Pour chaque li (Perso)
     for (i = 0; i < $('#charList li').length; i++) {
@@ -47,6 +34,31 @@ $(function() {
       }
     }
   }
+
+  // Fonction qui s'active lors d'un clic sur un personnage
+  $('#charList li a').click(function(){
+    var persoChoisi = $(this).text();
+    // permet de copier coller le nom du perso dans l'input
+    $('#searchchar').val(persoChoisi);
+    // permet de dynamiquement afficher l'image du perso choisi
+    $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
+
+    // On charge toutes les datas du perso
+    $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
+      gestionAffichageData(data);
+      //$('#HeroDesc').html(data);
+    }, 'text');
+  });
+
+
+  function gestionAffichageData(dataduHeros){
+    var dataduHerosSplit = dataduHeros.split('/');
+    var descriptionHeros = dataduHerosSplit[0];
+    $('#HeroDesc').html(descriptionHeros);
+    var listeClasses = dataduHerosSplit[1];
+
+  }
+
 
 
 });

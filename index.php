@@ -44,7 +44,7 @@
     <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
     <div id="pageContent">
       <img src="" id="HeroImg" class="imageHeros">
-      <p id="HeroDesc"></p>
+      <p id="HeroDesc"></p>      
     </div>
 
     <!-- Chargement de la librairie jQuery -->
