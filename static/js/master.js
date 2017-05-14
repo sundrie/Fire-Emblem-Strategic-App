@@ -24,6 +24,15 @@ $(function() {
     // permet de dynamiquement afficher l'image du perso choisi
     $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
 
+
+    $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
+        $('#HeroDesc').html(data);
+    }, 'text');
+
+
+
+
+
     askInfoBDD(persoChoisi);
 
     // Un essai avec une autre page executant le script de recherche
@@ -59,17 +68,6 @@ $(function() {
     });
   }
 
-  // $.ajax({
-  //       type: 'POST',
-  //       url: 'http://localhost/FEAcharapp/Herodesc.php',
-  //       dataType : 'json',
-  //       data: msg,
-  //       success: function(msg){
-  //         $("#HeroDesc").load("http://localhost/FEAcharapp/index.php #HeroDesc");
-  //       }
-  //   });
-
-
   // code pour "capter" un signal de reload de contenu émis par php via une variable $reloadMe
   function afficheDescription() {
     $.ajax({
@@ -93,17 +91,13 @@ $(function() {
 
   function getBDDInfo(nomHeros){
     $.ajax({
-      url : 'http://localhost/FEAcharapp/moreheroinfo.php',
+      url : 'http://localhost/FEAcharapp/index.php',
       //url : 'http://localhost/FEAcharapp/index.php', // On fait appel au script PHP
       method : 'POST',
       data : {
         nom : nomHeros
       }
     });
-
   }
-
-
-
 
 });
