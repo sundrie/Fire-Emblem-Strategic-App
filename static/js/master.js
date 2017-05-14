@@ -55,9 +55,19 @@ $(function() {
     $('.entete').show();  // On réaffiche les entetes vu que le contenu est chargé
     // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
     var dataduHerosSplit = dataduHeros.split('/');
+
+    /* -------- Affichage de la description -------- */
     var descriptionHeros = dataduHerosSplit[0];
     $('#HeroDesc').html(descriptionHeros);
-    var listeClasses = dataduHerosSplit[1];
+    /* -------- Affichage des classes -------- */
+    var listeClassesBrut = dataduHerosSplit[1];
+    // Dans le doc texte chaque classes est séparé par un '-'
+    var listeClasses = listeClassesBrut.split('-');
+    for (var i = 0; i < listeClasses.length; i++) {
+      $('.HeroClass tbody').append("<tr><td>"+listeClasses[i]+"</td></tr>");
+    }
+
+
 
   }
 

@@ -48,6 +48,16 @@
         <h2>Description : </h2>
       </div>
       <p id="HeroDesc"></p>
+      <table class="HeroClass">
+        <thead>
+          <tr>
+            <th>Classes</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
     </div>
 
     <!-- Chargement de la librairie jQuery -->
