@@ -60,6 +60,9 @@ $(function() {
     var descriptionHeros = dataduHerosSplit[0];
     $('#HeroDesc').html(descriptionHeros);
     /* -------- Affichage des classes -------- */
+    // On supprime les lignes du tableau généré avant execution sinon à chaque choix de Heros on ajoute des nouvelles lignes supplémentaire (donc le tableau grossit indéfiniment) 
+    $( ".HeroClass tbody tr" ).remove();
+
     var listeClassesBrut = dataduHerosSplit[1];
     // Dans le doc texte chaque classes est séparé par un '-'
     var listeClasses = listeClassesBrut.split('-');
