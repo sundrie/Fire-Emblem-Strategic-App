@@ -28,15 +28,7 @@ $(function() {
     $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
         $('#HeroDesc').html(data);
     }, 'text');
-
-
-
-
-
-    askInfoBDD(persoChoisi);
-
-    // Un essai avec une autre page executant le script de recherche
-    getBDDInfo(persoChoisi);
+    
   });
 
   function interactiveList(){
@@ -56,48 +48,5 @@ $(function() {
     }
   }
 
-  // Cette fonction va permettre de chercher dans la BDD toutes les infos concernant le perso à partir de son nom
-  function askInfoBDD(nomHeros){
-    $.ajax({
-      url : 'http://localhost/FEAcharapp/index.php',
-      //url : 'http://localhost/FEAcharapp/index.php', // On fait appel au script PHP
-      method : 'POST',
-      data : {
-        nom : nomHeros
-      }
-    });
-  }
-
-  // code pour "capter" un signal de reload de contenu émis par php via une variable $reloadMe
-  function afficheDescription() {
-    $.ajax({
-       url : 'http://localhost/FEAcharapp/index.php',
-       type : 'POST',
-       dataType : 'json',
-       data : data,
-       success : function (data) {
-         $("#HeroDesc").load("index.php #HeroDesc");
-         $("#HeroDesc").html(data);
-       },error : function (){
-         alert("error");
-       }
-    });
-  }
-
-
-  // ajax pour reload le result provenant de la BDD
-  //$("#pageContent").load("index.php #pageContent");
-
-
-  function getBDDInfo(nomHeros){
-    $.ajax({
-      url : 'http://localhost/FEAcharapp/index.php',
-      //url : 'http://localhost/FEAcharapp/index.php', // On fait appel au script PHP
-      method : 'POST',
-      data : {
-        nom : nomHeros
-      }
-    });
-  }
 
 });
