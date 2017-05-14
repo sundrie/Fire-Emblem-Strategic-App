@@ -50,8 +50,10 @@ $(function() {
     }, 'text');
   });
 
-
+  // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
   function gestionAffichageData(dataduHeros){
+    $('.entete').show();  // On réaffiche les entetes vu que le contenu est chargé
+    // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
     var dataduHerosSplit = dataduHeros.split('/');
     var descriptionHeros = dataduHerosSplit[0];
     $('#HeroDesc').html(descriptionHeros);
