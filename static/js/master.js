@@ -53,6 +53,7 @@ $(function() {
   // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
   function gestionAffichageData(dataduHeros){
     $('.entete').show();  // On réaffiche les entetes vu que le contenu est chargé
+    $('.enteteClass').show();
     // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
     var dataduHerosSplit = dataduHeros.split('/');
 
@@ -60,7 +61,7 @@ $(function() {
     var descriptionHeros = dataduHerosSplit[0];
     $('#HeroDesc').html(descriptionHeros);
     /* -------- Affichage des classes -------- */
-    // On supprime les lignes du tableau généré avant execution sinon à chaque choix de Heros on ajoute des nouvelles lignes supplémentaire (donc le tableau grossit indéfiniment) 
+    // On supprime les lignes du tableau généré avant execution sinon à chaque choix de Heros on ajoute des nouvelles lignes supplémentaire (donc le tableau grossit indéfiniment)
     $( ".HeroClass tbody tr" ).remove();
 
     var listeClassesBrut = dataduHerosSplit[1];

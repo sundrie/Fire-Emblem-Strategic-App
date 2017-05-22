@@ -51,7 +51,7 @@
       <table class="HeroClass">
         <thead>
           <tr>
-            <th>Classes</th>
+            <th class="enteteClass">Classes</th>
           </tr>
         </thead>
         <tbody>
