@@ -1,12 +1,3 @@
-<?php
-// Connexion à la BDD
-  $instance = new PDO("mysql:host=localhost;dbname=fea", "root", "");
-
-  // On veut pour l'instant uniquement les noms des persos dans la BDD
-  $query = $instance->query("SELECT name FROM characters ORDER BY name ASC");
-  $listeChar = $query->fetchAll();
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,16 +12,10 @@
   </head>
   <body>
     <div class="wrapper">
-      <form class="formulaireRecherche" action="index.php" method="post">
+      <form class="formulaireRecherche" action="index.html" method="post">
         <!-- <label for="searchchar">Heros à rechercher :</label> -->
         <input type="text" id="searchchar" name="usersearch" autocomplete="off">
-        <ul id="charList">
-          <?php
-            for ($i=0; $i < count($listeChar) ; $i++) {
-              echo "<li><a href=#>".$listeChar[$i]['name']."</a></li>";
-            }
-          ?>
-        </ul>
+        <ul id="charList"></ul>
         <!-- <input type="submit"> -->
       </form>
 
@@ -38,6 +23,7 @@
 
       <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
       <div id="pageContent">
+        <div id="fileNames"></div>
         <img src="" id="HeroImg" class="imageHeros">
         <div class="entete">
           <h2>Description : </h2>

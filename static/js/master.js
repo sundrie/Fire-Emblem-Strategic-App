@@ -1,12 +1,28 @@
 $(function() {
 
+  // code trouvé sur https://stackoverflow.com/questions/22061073/how-do-i-get-images-file-name-from-a-given-folder
+  //Ceci va générer notre liste de perso comme ça plus besoin de PHP qui n'était en soit suite aux changements plus très utile
+
+  $.ajax({
+    url: 'http://localhost/FEAcharapp/HeroesData/',
+    success: function(data) {
+       // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
+       $(data).find("a:contains(.txt)").each(function () {
+         //this correspond aux a href trouvé qui contiennent .txt
+         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+         var nomPerso = filename.split(/\W/g);
+         $("#charList").append("<li><a href=#>"+nomPerso[1]+"</a></li>");
+       });
+     }
+  });
+
   var saisieUser;
 
   // On récupère en instantanée la saisie de l'utilisateur
   $('#searchchar').keyup(function() {
     saisieUser = $('#searchchar').val();
     $.ajax({
-      url: 'index.php',
+      url: 'index.html',
       method: 'POST',
       data: {saisie: saisieUser},
       success: function(data){
@@ -36,7 +52,7 @@ $(function() {
   }
 
   // Fonction qui s'active lors d'un clic sur un personnage
-  $('#charList li a').click(function(){
+  $('#charList').on("click", "a", function(){
     var persoChoisi = $(this).text();
     // permet de copier coller le nom du perso dans l'input
     $('#searchchar').val(persoChoisi);
@@ -70,8 +86,6 @@ $(function() {
     for (var i = 0; i < listeClasses.length; i++) {
       $('.HeroClass tbody').append("<tr><td>"+listeClasses[i]+"</td></tr>");
     }
-
-
 
   }
 
