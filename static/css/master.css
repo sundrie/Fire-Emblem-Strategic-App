@@ -2,9 +2,22 @@ body {
   background-image: url("../img/backgroundFireEmblemAwakening.jpg");
 }
 
+.wrapper {
+  display : flex;
+  background: rgba(255, 255, 255, 0.60);
+}
+
+.formulaireRecherche {
+  padding-right: 20px;
+}
+
 #searchchar {
   display: block;
   width: 300px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 20px;
+  font-family: Helvetica;
 }
 
 #charList {
@@ -34,7 +47,7 @@ body {
   text-decoration: none;
 }
 
-/* Le contenu wikia chargé */
+/* Le contenu dynamiquement chargé */
 .webpage {
   width:1000px;
   height:600px;

@@ -1,8 +1,4 @@
 <?php
-// AJAX nous envoie bien les datas (onglet network) XHR
-
-?>
-<?php
 // Connexion à la BDD
   $instance = new PDO("mysql:host=localhost;dbname=fea", "root", "");
 
@@ -10,8 +6,6 @@
   $query = $instance->query("SELECT name FROM characters ORDER BY name ASC");
   $listeChar = $query->fetchAll();
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -26,38 +20,40 @@
 
   </head>
   <body>
-    <form action="index.php" method="post">
-      <label for="searchchar">Heros à rechercher :</label>
-      <input type="text" id="searchchar" name="usersearch" autocomplete="off">
-      <ul id="charList">
-        <?php
-          for ($i=0; $i < count($listeChar) ; $i++) {
-            echo "<li><a href=#>".$listeChar[$i]['name']."</a></li>";
-          }
-        ?>
-      </ul>
-      <!-- <input type="submit"> -->
-    </form>
+    <div class="wrapper">
+      <form class="formulaireRecherche" action="index.php" method="post">
+        <!-- <label for="searchchar">Heros à rechercher :</label> -->
+        <input type="text" id="searchchar" name="usersearch" autocomplete="off">
+        <ul id="charList">
+          <?php
+            for ($i=0; $i < count($listeChar) ; $i++) {
+              echo "<li><a href=#>".$listeChar[$i]['name']."</a></li>";
+            }
+          ?>
+        </ul>
+        <!-- <input type="submit"> -->
+      </form>
 
-    <div id="message"></div>
+      <div id="message"></div>
 
-    <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
-    <div id="pageContent">
-      <img src="" id="HeroImg" class="imageHeros">
-      <div class="entete">
-        <h2>Description : </h2>
+      <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
+      <div id="pageContent">
+        <img src="" id="HeroImg" class="imageHeros">
+        <div class="entete">
+          <h2>Description : </h2>
+        </div>
+        <p id="HeroDesc"></p>
+        <table class="HeroClass">
+          <thead>
+            <tr>
+              <th class="enteteClass">Classes</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
       </div>
-      <p id="HeroDesc"></p>
-      <table class="HeroClass">
-        <thead>
-          <tr>
-            <th class="enteteClass">Classes</th>
-          </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-      </table>
     </div>
 
     <!-- Chargement de la librairie jQuery -->
