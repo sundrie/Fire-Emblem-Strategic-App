@@ -13,6 +13,8 @@ body {
   width: 300px;
   list-style-type: none;
   border: 1px solid #c3c3c3;
+  max-height: 500px;
+  overflow: auto;
 }
 
 #charList li {
