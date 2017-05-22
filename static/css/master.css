@@ -17,11 +17,12 @@ body {
 
 #charList li {
   padding: 5px;
-}
-
-#charList li:nth-child(even) {
   background: rgb(207, 205, 201);
 }
+
+/*#charList li:nth-child(even) {
+  background: rgb(207, 205, 201);
+}*/
 
 #charList li a {
   display: block;
