@@ -10,7 +10,6 @@ $(function() {
        $(data).find("a:contains(.txt)").each(function () {
          //this correspond aux a href trouvé qui contiennent .txt
          var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-         console.log(filename);
          var nomPerso = filename.split(/[\/+.]/g);
          $("#charList").append("<li><a href=#>"+nomPerso[1]+"</a></li>");
        });
