@@ -6,6 +6,30 @@ body {
   background-image: url("../img/backgroundFireEmblemAwakening.jpg");
 }
 
+.headerwebsite{
+  margin: 0;
+  background: rgb(0, 65, 217);
+  padding-bottom: 50px;
+  /*margin-bottom: 50px;*/
+}
+
+.headerwebsite h1{
+  display: block;
+  color: rgb(245, 255, 130);
+  padding: 10px;
+  margin: 0;
+}
+
+.headerwebsite a {
+  padding-left: 10px;
+  text-decoration: none;
+  color: rgb(245, 255, 130);
+}
+
+.headerwebsite a:hover {
+  color: rgb(255, 255, 255);
+}
+
 .wrapper {
   display : flex;
   background: rgba(255, 255, 255, 0.80);
