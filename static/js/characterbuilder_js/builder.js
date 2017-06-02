@@ -17,7 +17,6 @@ $(function() {
          //this correspond aux a href trouvé qui contiennent .txt
          var filename = this.href.replace(window.location.host, "").replace("http:///", "");
          var nomPerso = filename.split(/[\/+.]/g);
-         console.log(nomPerso);
          $("#charList").append("<li><a href=#>"+nomPerso[2]+"</a></li>");
        });
      }
@@ -66,6 +65,36 @@ $(function() {
     // permet de dynamiquement afficher l'image du perso choisi
     $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
   });
+
+
+  // Fonction qui s'active lors d'un clic sur un personnage
+  $('#charList').on("click", "a", function(){
+    var persoChoisi = $(this).text();
+    // permet de copier coller le nom du perso dans l'input
+    $('#searchchar').val(persoChoisi);
+    // permet de dynamiquement afficher l'image du perso choisi
+    $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
+
+    // On charge toutes les datas du perso
+    $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
+      TraitementData(data);
+      //$('#message').html(data);
+    }, 'text');
+  });
+
+  // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
+  function TraitementData(dataduHeros){
+    // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
+    var dataduHerosSplit = dataduHeros.split('/');
+    var listeClassesBrut = dataduHerosSplit[1];
+    // Dans le doc texte chaque classes est séparé par un '-'
+    var listeClasses = listeClassesBrut.split('-');    
+  }
+
+
+
+
+
 
 
 
