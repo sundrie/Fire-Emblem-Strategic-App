@@ -88,7 +88,15 @@ $(function() {
     var dataduHerosSplit = dataduHeros.split('/');
     var listeClassesBrut = dataduHerosSplit[1];
     // Dans le doc texte chaque classes est séparé par un '-'
-    var listeClasses = listeClassesBrut.split('-');    
+    var listeClasses = listeClassesBrut.split('-');
+
+    $.ajax({
+      url: 'http://localhost/FEAcharapp/pages/class_talents_list.html',
+      type: 'GET',
+      success: function(res){
+        $('#message').append(res);
+      }
+    });
   }
 
 
