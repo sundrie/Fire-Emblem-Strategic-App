@@ -95,42 +95,20 @@ $(function() {
       url: 'http://localhost/FEAcharapp/pages/class_talents_list.html',
       type: 'GET',
       success: function(res){
-        // $(""+res+":contains('"+listeClasses[0]+"')").each(function(){
-        //   $('#message').append($(this));
-        // });
 
         var tableau = res
-        if ($(tableau).find("."+$.trim(listeClasses[0])+"")) {
-          $('#message').append(tableau);
-          $('table tr').not(".Lord").hide();
+        $('#message').append(tableau);
+        $("#message table tr").hide();
+
+        for (var i = 0; i < listeClasses.length; i++) {
+          if ($(tableau).find("."+$.trim(listeClasses[i])+"")) {
+            $('#message table .'+$.trim(listeClasses[i])+'').show();
+          }
         }
-
-        test(listeClasses);
-
       }
     });
 
   }
-
-  function test(myClass){
-    // Code qui colore bien en rouge toute la ligne Cavalier
-    // $('td:contains(Cavalier)').each(function(){
-    //   var lignefound = $(this).closest('tr')
-    //   $(lignefound).css("color", "red");
-    // })
-
-    for (var i = 0; i < $("table tr").length; i++) {
-      if ($("table tr:contains(#"+$.trim(myClass[0])+")")) {
-        $(this).closest('tr').css("color", "red");
-      }
-
-    }
-
-
-  }
-
-
-
 
 
 
