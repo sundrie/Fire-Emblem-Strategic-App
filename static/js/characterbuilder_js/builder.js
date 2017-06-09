@@ -99,12 +99,21 @@ $(function() {
         var tableau = res
         $('#message').append(tableau);
         $("#message table tr").hide();
+        var classe;
 
         for (var i = 0; i < listeClasses.length; i++) {
-          if ($(tableau).find("."+$.trim(listeClasses[i])+"")) {
-            $('#message table .'+$.trim(listeClasses[i])+'').show();
+          classe = listeClasses[i]
+          //console.log($.trim(listeClasses[i]));
+          // $("#message").append('<p>.'+$.trim(listeClasses[i])+'</p>')
+          // if ($(tableau).find("."+classe+"")){
+          if ($("tableau:contains('."+classe+"')")){
+            console.log("J'ai fonctionné pour : "+classe);
+            console.log($("#message ."+classe));
+
+            $("#message ."+classe).show();
           }
         }
+        console.log('------------------------')
       }
     });
 
