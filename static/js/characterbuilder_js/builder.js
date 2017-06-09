@@ -102,14 +102,9 @@ $(function() {
         var classe;
 
         for (var i = 0; i < listeClasses.length; i++) {
-          classe = listeClasses[i]
-          //console.log($.trim(listeClasses[i]));
-          // $("#message").append('<p>.'+$.trim(listeClasses[i])+'</p>')
-          // if ($(tableau).find("."+classe+"")){
+          classe = listeClasses[i].split(" ").join("");
           if ($("tableau:contains('."+classe+"')")){
-            console.log("J'ai fonctionné pour : "+classe);
-            console.log($("#message ."+classe));
-
+            //console.log($("#message ."+classe));
             $("#message ."+classe).show();
           }
         }
