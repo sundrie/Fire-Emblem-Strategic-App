@@ -90,25 +90,30 @@ $(function() {
     // Dans le doc texte chaque classes est séparé par un '-'
     var listeClasses = listeClassesBrut.split('-');
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
-    $("#message table").remove();
+    $("#TalentsList table").remove();
+    // On fait la requête pour récupérer la page html contenant le tableau des talents par classes
     $.ajax({
       url: 'http://localhost/FEAcharapp/pages/class_talents_list.html',
       type: 'GET',
       success: function(res){
-
         var tableau = res
-        $('#message').append(tableau);
-        $("#message table tr").hide();
+        // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
+        $('#TalentsList').append(tableau);
+        $("#TalentsList table tr").hide();
+        // la variable qui récupèrera les classes que le perso peut avoir
         var classe;
-
+        // Petite boucle pour parcourir le array des classes possibles pour le perso (souvent 9 classes excepté pour des persos spéciaux)
         for (var i = 0; i < listeClasses.length; i++) {
+          // ici on enlève les espaces de nos strings pour pouvoir rechercher la classes correspondante (ex: Great Knight dans la variable classe or la class en html se nomme GreatKnight)
           classe = listeClasses[i].split(" ").join("");
+          // Si notre page html contient une classe correspondant à la liste du perso alors on affichera cette classe qui était au départ masquée
           if ($("tableau:contains('."+classe+"')")){
             //console.log($("#message ."+classe));
-            $("#message ."+classe).show();
+            $("#TalentsList ."+classe).show();
           }
         }
-        console.log('------------------------')
+        //Utilisé lors du debug pour séparer les classes entre chaque perso
+        //console.log('------------------------')
       }
     });
 
