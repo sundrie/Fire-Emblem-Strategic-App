@@ -62,19 +62,12 @@ $(function() {
     var persoChoisi = $(this).text();
     // permet de copier coller le nom du perso dans l'input
     $('#searchchar').val(persoChoisi);
+    // On met ceci à la place de .show() sinon le display flex n'est pas remis ce qui fait gros bug d'affichage
+    $(".HeroBuildCard ").css("display","flex");
     // permet de dynamiquement afficher l'image du perso choisi
-    $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
-  });
-
-
-  // Fonction qui s'active lors d'un clic sur un personnage
-  $('#charList').on("click", "a", function(){
-    var persoChoisi = $(this).text();
-    // permet de copier coller le nom du perso dans l'input
-    $('#searchchar').val(persoChoisi);
-    // permet de dynamiquement afficher l'image du perso choisi
-    $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
-
+    $("#HeroImgBuilder").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
+    // On met le nom du perso dans l'étiquette du builder
+    $(".NomHerosBuilder").html(persoChoisi);
     // On charge toutes les datas du perso
     $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
       TraitementData(data);
@@ -118,7 +111,6 @@ $(function() {
     });
 
   }
-
 
 
 });

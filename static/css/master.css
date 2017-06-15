@@ -97,3 +97,62 @@ body {
 .enteteClass {
   display: none;
 }
+
+/*--------------------- Propre à la page Builder ----------------------*/
+
+/* La carte du builder au milieu */
+/* ont masque pour éviter que ça n'apparaissent au début vu que la sélection par l'utilisateur n'a pas été faite */
+.HeroBuildCard {
+  display: flex;
+  min-width: 600px;
+  max-width: 600px;
+  max-height: 400px;
+  background-color: #cca44f;
+  display: none;
+}
+
+.HeroImgBuilderContainer {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  min-height: 380px;
+  min-width: 150px;
+  max-width: 150px;
+  background-color: #ab7535;
+}
+
+.imageHerosBuilder {
+  max-width: 150px;
+}
+
+.NomHerosBuilder {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 20px;
+  min-width: 200px;
+  max-width: 200px;
+  max-height: 20px;
+  background-color: #021732;
+  color: #ede5d0;
+}
+
+/* Le tableau pour recevoir les talents choisis */
+.TalentsChoosenBuilder {
+  min-width: 415px;
+  max-width: 415px;
+}
+
+.TalentsChoosenBuilder td{
+  border: 0;
+  margin-bottom: 5px;
+  display: inline-block;
+  background-color: #f1daa8;
+  min-width: 415px;
+  max-width: 415px;
+  min-height: 55px;
+
+}
