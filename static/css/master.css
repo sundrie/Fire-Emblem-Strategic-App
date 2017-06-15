@@ -41,7 +41,7 @@ body {
 
 #searchchar {
   display: block;
-  width: 300px;
+  width: 200px;
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 20px;
@@ -51,7 +51,7 @@ body {
 #charList {
   margin-top: 0;
   padding: 0;
-  width: 300px;
+  width: 200px;
   list-style-type: none;
   border: 1px solid #c3c3c3;
   max-height: 500px;
