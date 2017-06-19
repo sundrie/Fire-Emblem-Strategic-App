@@ -103,6 +103,7 @@ $(function() {
           if ($("tableau:contains('."+classe+"')")){
             //console.log($("#message ."+classe));
             $("#TalentsList ."+classe).show();
+            $("#TalentsList ."+classe).addClass("drag");
           }
         }
         //Utilisé lors du debug pour séparer les classes entre chaque perso
