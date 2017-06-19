@@ -108,10 +108,25 @@ $(function() {
         }
         //Utilisé lors du debug pour séparer les classes entre chaque perso
         //console.log('------------------------')
+        //test pour drag
+        // $("#message").append("<div class='drag'>Je suis un test</div>");
       }
     });
-
   }
 
+
+
+  $('.drag').draggable({
+    start: function (){
+      $(this).animate({
+        opacity: '0.5'
+      }, 1000);
+    },
+    stop: function () {
+      $(this).animate({
+        opacity: '1'
+      }, 1000);
+    }
+  });
 
 });
