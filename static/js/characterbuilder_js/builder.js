@@ -103,7 +103,23 @@ $(function() {
           if ($("tableau:contains('."+classe+"')")){
             //console.log($("#message ."+classe));
             $("#TalentsList ."+classe).show();
+            // On ajoute la classe drag pour changer les icônes du pointeur de la souris dans notre master.css
             $("#TalentsList ."+classe).addClass("drag");
+            // Nous sommes obligé d'exécuter ce code ici au moment de la génération car en dehors ça ne fonctionne pas
+            $("#TalentsList ."+classe).draggable({
+              containment : '.wrapper',
+              helper: "clone",    // Ne pas supprimer sinon le drag ne fonctionne pas
+              start: function (){
+                $(this).animate({
+                  opacity: '0.5'
+                }, 1000);
+              },
+              stop: function () {
+                $(this).animate({
+                  opacity: '1'
+                }, 1000);
+              }
+            });
           }
         }
         //Utilisé lors du debug pour séparer les classes entre chaque perso
@@ -113,20 +129,5 @@ $(function() {
       }
     });
   }
-
-
-
-  $('.drag').draggable({
-    start: function (){
-      $(this).animate({
-        opacity: '0.5'
-      }, 1000);
-    },
-    stop: function () {
-      $(this).animate({
-        opacity: '1'
-      }, 1000);
-    }
-  });
 
 });
