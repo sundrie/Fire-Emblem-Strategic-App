@@ -158,13 +158,15 @@ body {
 
 /* Propre à la classe drag pour modifier le pointeur de la souris */
 .drag{
-  
+
 }
 
 .drag:hover {
   cursor : grab;
   cursor : -webkit-grab;
 }
+
+
 
 .drag:active {
   cursor : grabbing;

@@ -90,6 +90,14 @@ $(function() {
       type: 'GET',
       success: function(res){
         var tableau = res
+
+        // $("#message").append(tableau);
+        // $('table tr').each(function() {
+        //   $("#message td").slice(3,5).css("background-color","blue");
+        // });
+
+
+
         // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
         $('#TalentsList').append(tableau);
         $("#TalentsList table tr").hide();
@@ -129,5 +137,13 @@ $(function() {
       }
     });
   }
+
+  $('.drop').droppable({
+    accept: '.drag',
+    drop: function (event,ui) {
+      var draggable = ui.draggable;
+      $(this).replaceWith(draggable);
+    }
+  });
 
 });
