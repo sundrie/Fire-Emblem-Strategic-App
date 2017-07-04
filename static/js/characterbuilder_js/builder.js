@@ -101,34 +101,33 @@ $(function() {
 
 
 
-        
 
-        //$('table td').slice(3,5).css("background-color","blue");
-        $('body').append("<table class='tableskill2 drag'><tbody></tbody></table>");
-        $('body').append("<table class='tableskill1 drag'><tbody></tbody></table>");
 
-        $('table tr').each(function(){
-          // nous donne la class de la tr
-          //console.log($(this).attr('class'))
+        $('#TalentsList').append("<table class='tableskill2 drag'><tbody></tbody></table>");
+        $('#TalentsList').append("<table class='tableskill1 drag'><tbody></tbody></table>");
 
-          //Ok alors pour decrypter on a une liste des td de notre tr actuelle on sélectionne le 3 et 4 enfant grâce à eq()
-          var tdskill2 = $(this).children('td').eq(3);
-          var tdskill2desc = $(this).children('td').eq(4);
-
-          $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill2.html()+"</td><td>"+tdskill2desc.html()+"</td></tr>").appendTo(".tableskill2 tbody");
-
-          tdskill2.remove();
-          tdskill2desc.remove();
-
-          //Ok alors pour decrypter on a une liste des td de notre tr actuelle on sélectionne le 1 et 2 enfant grâce à eq()
-          var tdskill1 = $(this).children('td').eq(1);
-          var tdskill1desc = $(this).children('td').eq(2);
-
-          $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill1.html()+"</td><td>"+tdskill1desc.html()+"</td></tr>").appendTo(".tableskill1 tbody");
-
-          tdskill1.remove();
-          tdskill1desc.remove();
-        });
+        // $('table tr').each(function(){
+        //   // nous donne la class de la tr
+        //   //console.log($(this).attr('class'))
+        //
+        //   //Ok alors pour decrypter on a une liste des td de notre tr actuelle on sélectionne le 3 et 4 enfant grâce à eq()
+        //   var tdskill2 = $(this).children('td').eq(3);
+        //   var tdskill2desc = $(this).children('td').eq(4);
+        //
+        //   $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill2.html()+"</td><td>"+tdskill2desc.html()+"</td></tr>").appendTo(".tableskill2 tbody");
+        //
+        //   tdskill2.remove();
+        //   tdskill2desc.remove();
+        //
+        //   //Ok alors pour decrypter on a une liste des td de notre tr actuelle on sélectionne le 1 et 2 enfant grâce à eq()
+        //   var tdskill1 = $(this).children('td').eq(1);
+        //   var tdskill1desc = $(this).children('td').eq(2);
+        //
+        //   $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill1.html()+"</td><td>"+tdskill1desc.html()+"</td></tr>").appendTo(".tableskill1 tbody");
+        //
+        //   tdskill1.remove();
+        //   tdskill1desc.remove();
+        // });
 
 
 
