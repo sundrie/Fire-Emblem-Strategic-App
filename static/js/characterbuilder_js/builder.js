@@ -95,45 +95,39 @@ $(function() {
         // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
         $('#TalentsList').append(tableau);
 
-
-
-
-
-
-
-
-
+        //On créé 2 tableaux qui recevront les futurs skills 1 et 2
         $('#TalentsList').append("<table class='tableskill2 drag'><tbody></tbody></table>");
         $('#TalentsList').append("<table class='tableskill1 drag'><tbody></tbody></table>");
 
+        // Cette fonction nous permet de faire 2 tableaux 1 pour chaque skill 
         $('#TalentsList table tr').each(function(){
-          // nous donne la class de la tr
-          //console.log($(this).attr('class'))
 
-          //Ok alors pour decrypter on a une liste des td de notre tr actuelle on sélectionne le 3 et 4 enfant grâce à eq()
+          //Ok alors pour decrypter .children() nous renvoie un tableau contenant chaque td de notre tr actuelle on sélectionne le 3ème et 4ème enfant grâce à eq()
           var tdskill2 = $(this).children('td').eq(3);
           var tdskill2desc = $(this).children('td').eq(4);
 
+          // Pour info $(this).attr('class') nous donne la class de la tr en cours
           $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill2.html()+"</td><td>"+tdskill2desc.html()+"</td></tr>").appendTo(".tableskill2 tbody");
 
+          // On supprime les lignes du tableau original vu que le déplacement a été fait histoire de pas avoir de doublons
           tdskill2.remove();
           tdskill2desc.remove();
 
-          //Ok alors pour decrypter on a une liste des td de notre tr actuelle on sélectionne le 1 et 2 enfant grâce à eq()
+          // ~~~~~~ A partir d'ici on fait la même chose qu'au dessus mais pour le skill 1 cette fois. /!\ IMPORTANT /!\ On fait dans le sens inverse car dans l'autre sens le code fonctionnerait pas comme on le voudrait.
+
+          //Ok alors pour decrypter .children() nous renvoie un tableau contenant chaque td de notre tr actuelle on sélectionne le 1er et 2ème enfant grâce à eq()
           var tdskill1 = $(this).children('td').eq(1);
           var tdskill1desc = $(this).children('td').eq(2);
 
+          // Pour info $(this).attr('class') nous donne la class de la tr en cours
           $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill1.html()+"</td><td>"+tdskill1desc.html()+"</td></tr>").appendTo(".tableskill1 tbody");
 
+          // On supprime les lignes du tableau original vu que le déplacement a été fait histoire de pas avoir de doublons
           tdskill1.remove();
           tdskill1desc.remove();
         });
 
-
-
-
-
-
+        // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
         $("#TalentsList table tr").hide();
         // la variable qui récupèrera les classes que le perso peut avoir
         var classe;
