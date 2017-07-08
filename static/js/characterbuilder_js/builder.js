@@ -59,6 +59,21 @@ $(function() {
 
   // Fonction qui s'active lors d'un clic sur un personnage
   $('#charList').on("click", "a", function(){
+    // On vide les talents que l'utilisateur a possiblement déposer dans les réceptacles drop
+    $("#HeroBuild table tr td").empty();
+    // On redonne la classe drop pour contrer la methode replaceWith (voir droppable() juste en dessous)
+    $("#HeroBuild table tr").removeClass().addClass("drop");
+
+
+    // On est obligé de mettre notre bout de code là au lieu de sa place précédente (voir github commit) car sinon le code juste au dessus fait que l'effet drop ne les affecte pas donc on peut plus rien déposer dedans
+    $('.drop').droppable({
+      accept: '.drag',
+      drop: function (event,ui) {
+        var draggable = ui.draggable;
+        $(this).replaceWith(draggable);
+      }
+    });
+
     var persoChoisi = $(this).text();
     // permet de copier coller le nom du perso dans l'input
     $('#searchchar').val(persoChoisi);
@@ -99,7 +114,7 @@ $(function() {
         $('#TalentsList').append("<table class='tableskill2 drag'><tbody></tbody></table>");
         $('#TalentsList').append("<table class='tableskill1 drag'><tbody></tbody></table>");
 
-        // Cette fonction nous permet de faire 2 tableaux 1 pour chaque skill 
+        // Cette fonction nous permet de faire 2 tableaux 1 pour chaque skill
         $('#TalentsList table tr').each(function(){
 
           //Ok alors pour decrypter .children() nous renvoie un tableau contenant chaque td de notre tr actuelle on sélectionne le 3ème et 4ème enfant grâce à eq()
@@ -162,16 +177,12 @@ $(function() {
         //console.log('------------------------')
         //test pour drag
         // $("#message").append("<div class='drag'>Je suis un test</div>");
+        // On enlève le premier tableau contenant le nom des classes
+        $("#TalentsList table").first().remove();
+
       }
     });
   }
 
-  $('.drop').droppable({
-    accept: '.drag',
-    drop: function (event,ui) {
-      var draggable = ui.draggable;
-      $(this).replaceWith(draggable);
-    }
-  });
 
 });
