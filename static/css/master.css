@@ -173,17 +173,20 @@ body {
 /* C'est la div qui contient nos classes dispo pour le perso */
 .TalentsListclass {
   display: flex;
+  flex-direction: column;
 }
 
 .TalentsList table tr {
+  overflow : auto;
+  width: 415px;
   max-width: 415px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsChoosenBuilder td */
 }
 
 .TalentsListclass td{
+  font-size: 14px;
   height:50px;
   min-height: 50px;
   max-height: 50px;
-  overflow: auto;
 }
 
 /* Pour mettre le tableau skill 2 en dernier */
