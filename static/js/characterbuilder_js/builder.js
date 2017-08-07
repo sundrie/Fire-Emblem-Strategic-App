@@ -64,15 +64,8 @@ $(function() {
     // On redonne la classe drop pour contrer la methode replaceWith (voir droppable() juste en dessous)
     $("#HeroBuild table tr").removeClass().addClass("drop");
 
-
-    // On est obligé de mettre notre bout de code là au lieu de sa place précédente (voir github commit) car sinon le code juste au dessus fait que l'effet drop ne les affecte pas donc on peut plus rien déposer dedans
-    $('.drop').droppable({
-      accept: '.drag',
-      drop: function (event,ui) {
-        var draggable = ui.draggable;
-        $(this).replaceWith(draggable);
-      }
-    });
+    // On apelle la fonction nous permettant de rendre les zones droppables
+    dropTalents();
 
     var persoChoisi = $(this).text();
     // permet de copier coller le nom du perso dans l'input
@@ -161,6 +154,9 @@ $(function() {
               containment : '.wrapper',
               helper: "clone",    // Ne pas supprimer sinon le drag ne fonctionne pas
               start: function (){
+                var row_index1 = $(this).parent().index();
+                var col_index1 = $(this).index();
+                console.log("row_index1 : "+row_index1+" col_index1 : "+col_index1 )
                 $(this).animate({
                   opacity: '0.5'
                 }, 1000);
@@ -175,14 +171,28 @@ $(function() {
         }
         //Utilisé lors du debug pour séparer les classes entre chaque perso
         //console.log('------------------------')
-        //test pour drag
-        // $("#message").append("<div class='drag'>Je suis un test</div>");
         // On enlève le premier tableau contenant le nom des classes
         $("#TalentsList table").first().remove();
-
       }
     });
   }
 
+  // fonction nous permettant de rendre les zones droppables si la class est drop
+  function dropTalents(){
+    $('.drop').droppable({
+      accept: '.drag',
+      drop: function (event,ui) {
+        var draggable = ui.draggable;
+        var row_index = $(draggable).parent().index();
+        var col_index = $(draggable).index();
+        console.log("row_index : "+row_index+" col_index : "+col_index )
+        $(this).replaceWith(draggable);
+        // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
+        $(draggable).append("<button class='goback'>X</button>");
+        // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
+        $(draggable).removeClass("drag");
+      }
+    });
+  }
 
 });

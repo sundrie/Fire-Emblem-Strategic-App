@@ -146,7 +146,7 @@ body {
   max-width: 415px;
 }
 
-.TalentsChoosenBuilder tr {
+.TalentsChoosenBuilder tr{
   min-width: 415px;
   max-width: 415px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
   background-color: #f1daa8;
@@ -198,4 +198,10 @@ body {
 /* Pour mettre le tableau skill 2 en dernier */
 .tableskill2{
   order: 2;
+}
+
+/* Le style de la classe de la croix pour retirer le talent de la zone de drop */
+.goback{
+  color: rgb(209, 19, 1);
+  font-weight: bold;
 }
