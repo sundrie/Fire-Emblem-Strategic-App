@@ -92,6 +92,8 @@ $(function() {
     var listeClasses = listeClassesBrut.split('-');
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
     $("#TalentsList table").remove();
+    // On cache le bouton goback pour éviter les soucis
+    $(".goback").hide();
     // $(".TalentsChoosenBuilder").html('<tbody><tr class="drop"><td>Uno</td></tr><tr class="drop"><td>Dos</td></tr><tr class="drop"><td>Tres</td></tr><tr class="drop"><td>Quatro</td><tr class="drop"><td>Cinquo</td></tr></tbody>');
     // On fait la requête pour récupérer la page html contenant le tableau des talents par classes
     $.ajax({
@@ -189,10 +191,12 @@ $(function() {
         $(this).replaceWith(draggable);
         // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
         $(draggable).append("<button class='goback'>X</button>");
+        // On affiche le bouton goback précedemment masqué plus haut dans le code pour éviter qu'ils aparaissent lorsqu'on choisi un autre perso alors qu'on a pas vidé la zone de drop
+        $(".goback").show();
         // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
         $(draggable).removeClass("drag");
       }
     });
   }
-
+  
 });
