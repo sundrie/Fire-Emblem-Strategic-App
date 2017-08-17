@@ -185,19 +185,33 @@ $(function() {
       accept: '.drag',
       drop: function (event,ui) {
         var draggable = ui.draggable;
+
         var row_index = $(draggable).parent().index();
         var col_index = $(draggable).index();
-        console.log("row_index : "+row_index+" col_index : "+col_index )
+        // Nous donne la classe de la table d'où provient l'élément
+        var tableOrigin = $(draggable).closest('table').attr('class').split(' ')[0];
+        console.log(tableOrigin);
+        console.log("row_index : "+row_index+" col_index : "+col_index);
+
         $(this).replaceWith(draggable);
+
+        // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
+        $(draggable).removeClass("drag");
+
         // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
         $(draggable).append("<button class='goback'>X</button>");
         // On affiche le bouton goback précedemment masqué plus haut dans le code pour éviter qu'ils aparaissent lorsqu'on choisi un autre perso alors qu'on a pas vidé la zone de drop
         $(".goback").show();
-        // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
-        $(draggable).removeClass("drag");
+
         // Fonction qui s'active lors d'un clic sur la classe goback (qui sert à enlever un talent de la zone de drop pour qu'il revienne dans le tableau avec tous les autres talents)
         $(".goback").on("click",function(){
-          $(this).parent().remove();
+          //$(this).parent().remove();
+
+          var trVoyager = $(this).parent();
+          console.log(trVoyager);
+          console.log(("."+tableOrigin+" tbody"))
+          $("."+tableOrigin+" tbody").append(trVoyager[0]);
+          $()
         });
       }
     });
