@@ -195,8 +195,15 @@ $(function() {
         $(".goback").show();
         // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
         $(draggable).removeClass("drag");
+        // Fonction qui s'active lors d'un clic sur la classe goback (qui sert à enlever un talent de la zone de drop pour qu'il revienne dans le tableau avec tous les autres talents)
+        $(".goback").on("click",function(){
+          $(this).parent().remove();
+        });
       }
     });
   }
-  
+
+
+
+
 });
