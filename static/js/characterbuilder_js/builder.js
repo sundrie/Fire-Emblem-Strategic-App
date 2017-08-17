@@ -207,11 +207,16 @@ $(function() {
         $(".goback").on("click",function(){
           //$(this).parent().remove();
 
+          // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
+          // console.log(tableOrigin2);
           var trVoyager = $(this).parent();
-          console.log(trVoyager);
-          console.log(("."+tableOrigin+" tbody"))
+
+          //supprime le bouton goback
+          $(this).remove();
+          
+          //console.log(trVoyager);
+          // console.log(("."+tableOrigin+" tbody"))
           $("."+tableOrigin+" tbody").append(trVoyager[0]);
-          $()
         });
       }
     });
