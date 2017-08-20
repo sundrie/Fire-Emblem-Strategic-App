@@ -5,7 +5,6 @@ Code js spécifique à la page character builder
 */
 
 $(function() {
-
   // code trouvé sur https://stackoverflow.com/questions/22061073/how-do-i-get-images-file-name-from-a-given-folder
   //Ceci va générer notre liste de perso comme ça plus besoin de PHP qui n'était en soit suite aux changements plus très utile
 
@@ -190,8 +189,8 @@ $(function() {
         var col_index = $(draggable).index();
         // Nous donne la classe de la table d'où provient l'élément
         var tableOrigin = $(draggable).closest('table').attr('class').split(' ')[0];
-        console.log(tableOrigin);
-        console.log("row_index : "+row_index+" col_index : "+col_index);
+        //console.log(tableOrigin);
+        //console.log("row_index : "+row_index+" col_index : "+col_index);
 
         $(this).replaceWith(draggable);
 
@@ -213,16 +212,34 @@ $(function() {
 
           //supprime le bouton goback
           $(this).remove();
-          
-          //console.log(trVoyager);
+
+          // console.log(trVoyager);
           // console.log(("."+tableOrigin+" tbody"))
           $("."+tableOrigin+" tbody").append(trVoyager[0]);
+          // $(".TalentsChoosenBuilder tbody").append('<tr class="drop"><td></td></tr>')
+          checkDropZone();
         });
       }
     });
   }
 
+  // Vérifie si il y a toujours 5 zones de drop
+  function checkDropZone(){
+    var rowCount = $('.TalentsChoosenBuilder tbody tr').length;
+    //console.log(rowCount);
+    ajouteDropZone(rowCount);
+  }
 
-
+  // Si le nombre de zone de drop est inférieur à 5 nous les recréons
+  function ajouteDropZone(DropZoneleft){
+    // console.log(DropZoneleft);
+    if (DropZoneleft<5) {
+      $(".TalentsChoosenBuilder tbody").append($('<tr class="drop"><td>LUL</td></tr>').droppable()).droppable();
+      //$('.drop').droppable();
+      // $('<tr class="drop"><td>LUL</td></tr>').appendTo('.TalentsChoosenBuilder tbody').droppable();
+    }
+    // On ajoute 1 puisque le code au dessus (if) viens de créer une zone
+    DropZoneleft+1;
+  }
 
 });
