@@ -183,57 +183,60 @@ $(function() {
     $('.drop').droppable({
       accept: '.drag',
       drop: function (event,ui) {
-        var draggable = ui.draggable;
-
-        var row_index = $(draggable).parent().index();
-        var col_index = $(draggable).index();
-        // Nous donne la classe de la table d'où provient l'élément
-        var tableOrigin = $(draggable).closest('table').attr('class').split(' ')[0];
-        //console.log(tableOrigin);
-        //console.log("row_index : "+row_index+" col_index : "+col_index);
-
-        // $(this).replaceWith(draggable);
-
-
         var droppable = $(this);
         // console.log(droppable);
         var draggable = ui.draggable;
         // console.log(draggable);
-        // Move draggable into droppable
-        $(droppable).find('td').remove()
-        draggable.appendTo(droppable);
+        var droppablechild = $(droppable).children();
+        // console.log(droppablechild);
 
-        // On desactive le draggable pour éviter les soucis
-        $(draggable).draggable('disable');
-        // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
-        $(draggable).removeClass("drag");
 
-        // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
-        $(draggable).append("<button class='goback'>X</button>");
-        // On affiche le bouton goback précedemment masqué plus haut dans le code pour éviter qu'ils aparaissent lorsqu'on choisi un autre perso alors qu'on a pas vidé la zone de drop
-        $(".goback").show();
+        // Si la zone de drop contient un td (donc aucun autre talent(pour rappel sans ce test on pouvait mettre plusieurs talents dans une seule zone de drop ce qui était très problématique)) alors tout s'effectue normalement sinon et bien le talent retourne avec les autres, si on voulait gérer le sinon alors il faut ajouter ceci if ($(droppablechild[0]).is(':not(td)'))
+        if($(droppablechild[0]).is('td')){
 
-        // Fonction qui s'active lors d'un clic sur la classe goback (qui sert à enlever un talent de la zone de drop pour qu'il revienne dans le tableau avec tous les autres talents)
-        $(".goback").on("click",function(){
+          var row_index = $(draggable).parent().index();
+          var col_index = $(draggable).index();
+          // Nous donne la classe de la table d'où provient l'élément
+          var tableOrigin = $(draggable).closest('table').attr('class').split(' ')[0];
+          //console.log(tableOrigin);
+          //console.log("row_index : "+row_index+" col_index : "+col_index);
 
-          // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
-          // console.log(tableOrigin2);
-          var trVoyager = $(this).parent();
-          var trDropOriginelle = $(this).parent().parent();
+          // Move draggable into droppable
+          $(droppable).find('td').remove()
+          draggable.appendTo(droppable);
 
-          //supprime le bouton goback
-          $(this).remove();
+          // On desactive le draggable pour éviter les soucis
+          $(draggable).draggable('disable');
+          // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
+          $(draggable).removeClass("drag");
 
-          //console.log(trVoyager);
-          // console.log(("."+tableOrigin+" tbody"))
+          // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
+          $(draggable).append("<button class='goback'>X</button>");
+          // On affiche le bouton goback précedemment masqué plus haut dans le code pour éviter qu'ils aparaissent lorsqu'on choisi un autre perso alors qu'on a pas vidé la zone de drop
+          $(".goback").show();
 
-          $("."+tableOrigin+" tbody").after(trVoyager[0]);
-          // On réactive la fonction draggable après que celui ci soit retourné avec ses autres amis talents
-          $(trVoyager[0]).draggable('enable');
-          $(draggable).addClass("drag");
-          // Nous permet de remplir la zone de drop une fois le transfert fait pour éviter la dsparition vu que tr vide
-          $(trDropOriginelle).append('<td>Kappa</td>');
-        });
+          // Fonction qui s'active lors d'un clic sur la classe goback (qui sert à enlever un talent de la zone de drop pour qu'il revienne dans le tableau avec tous les autres talents)
+          $(".goback").on("click",function(){
+
+            // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
+            // console.log(tableOrigin2);
+            var trVoyager = $(this).parent();
+            var trDropOriginelle = $(this).parent().parent();
+
+            //supprime le bouton goback
+            $(this).remove();
+
+            //console.log(trVoyager);
+            // console.log(("."+tableOrigin+" tbody"))
+
+            $("."+tableOrigin+" tbody").after(trVoyager[0]);
+            // On réactive la fonction draggable après que celui ci soit retourné avec ses autres amis talents
+            $(trVoyager[0]).draggable('enable');
+            $(draggable).addClass("drag");
+            // Nous permet de remplir la zone de drop une fois le transfert fait pour éviter la dsparition vu que tr vide
+            $(trDropOriginelle).append('<td>Kappa</td>');
+          });
+        }
       }
     });
   }
