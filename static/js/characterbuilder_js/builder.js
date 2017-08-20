@@ -203,8 +203,10 @@ $(function() {
         $(droppable).find('td').remove()
         draggable.appendTo(droppable);
 
+        // On desactive le draggable pour éviter les soucis
+        $(draggable).draggable('disable');
         // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
-        //$(draggable).removeClass("drag");
+        $(draggable).removeClass("drag");
 
         // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
         $(draggable).append("<button class='goback'>X</button>");
@@ -213,7 +215,6 @@ $(function() {
 
         // Fonction qui s'active lors d'un clic sur la classe goback (qui sert à enlever un talent de la zone de drop pour qu'il revienne dans le tableau avec tous les autres talents)
         $(".goback").on("click",function(){
-          //$(this).parent().remove();
 
           // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
           // console.log(tableOrigin2);
@@ -226,8 +227,10 @@ $(function() {
           //console.log(trVoyager);
           // console.log(("."+tableOrigin+" tbody"))
 
-
           $("."+tableOrigin+" tbody").after(trVoyager[0]);
+          // On réactive la fonction draggable après que celui ci soit retourné avec ses autres amis talents
+          $(trVoyager[0]).draggable('enable');
+          $(draggable).addClass("drag");
           // Nous permet de remplir la zone de drop une fois le transfert fait pour éviter la dsparition vu que tr vide
           $(trDropOriginelle).append('<td>Kappa</td>');
         });
