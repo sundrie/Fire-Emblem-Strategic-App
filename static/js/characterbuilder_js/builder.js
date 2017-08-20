@@ -157,7 +157,7 @@ $(function() {
               start: function (){
                 var row_index1 = $(this).parent().index();
                 var col_index1 = $(this).index();
-                console.log("row_index1 : "+row_index1+" col_index1 : "+col_index1 )
+                //console.log("row_index1 : "+row_index1+" col_index1 : "+col_index1 )
                 $(this).animate({
                   opacity: '0.5'
                 }, 1000);
@@ -204,7 +204,7 @@ $(function() {
         draggable.appendTo(droppable);
 
         // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
-        $(draggable).removeClass("drag");
+        //$(draggable).removeClass("drag");
 
         // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
         $(draggable).append("<button class='goback'>X</button>");
@@ -225,32 +225,14 @@ $(function() {
 
           //console.log(trVoyager);
           // console.log(("."+tableOrigin+" tbody"))
-          // $("."+tableOrigin+" tbody").append(trVoyager[0]);
+
+
+          $("."+tableOrigin+" tbody").after(trVoyager[0]);
+          // Nous permet de remplir la zone de drop une fois le transfert fait pour éviter la dsparition vu que tr vide
           $(trDropOriginelle).append('<td>Kappa</td>');
-          // $(".TalentsChoosenBuilder tbody").append('<tr class="drop"><td></td></tr>')
-          checkDropZone();
         });
       }
     });
-  }
-
-  // Vérifie si il y a toujours 5 zones de drop
-  function checkDropZone(){
-    var rowCount = $('.TalentsChoosenBuilder tbody tr').length;
-    //console.log(rowCount);
-    ajouteDropZone(rowCount);
-  }
-
-  // Si le nombre de zone de drop est inférieur à 5 nous les recréons
-  function ajouteDropZone(DropZoneleft){
-    // console.log(DropZoneleft);
-    if (DropZoneleft<5) {
-      $(".TalentsChoosenBuilder tbody").append($('<tr class="drop"><td>LUL</td></tr>').droppable()).droppable();
-      //$('.drop').droppable();
-      // $('<tr class="drop"><td>LUL</td></tr>').appendTo('.TalentsChoosenBuilder tbody').droppable();
-    }
-    // On ajoute 1 puisque le code au dessus (if) viens de créer une zone
-    DropZoneleft+1;
   }
 
 });
