@@ -192,7 +192,16 @@ $(function() {
         //console.log(tableOrigin);
         //console.log("row_index : "+row_index+" col_index : "+col_index);
 
-        $(this).replaceWith(draggable);
+        // $(this).replaceWith(draggable);
+
+
+        var droppable = $(this);
+        // console.log(droppable);
+        var draggable = ui.draggable;
+        // console.log(draggable);
+        // Move draggable into droppable
+        $(droppable).find('td').remove()
+        draggable.appendTo(droppable);
 
         // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
         $(draggable).removeClass("drag");
@@ -209,13 +218,15 @@ $(function() {
           // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
           // console.log(tableOrigin2);
           var trVoyager = $(this).parent();
+          var trDropOriginelle = $(this).parent().parent();
 
           //supprime le bouton goback
           $(this).remove();
 
-          // console.log(trVoyager);
+          //console.log(trVoyager);
           // console.log(("."+tableOrigin+" tbody"))
-          $("."+tableOrigin+" tbody").append(trVoyager[0]);
+          // $("."+tableOrigin+" tbody").append(trVoyager[0]);
+          $(trDropOriginelle).append('<td>Kappa</td>');
           // $(".TalentsChoosenBuilder tbody").append('<tr class="drop"><td></td></tr>')
           checkDropZone();
         });

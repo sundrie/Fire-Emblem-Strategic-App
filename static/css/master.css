@@ -167,6 +167,10 @@ body {
 
 }
 
+.drag td{
+  margin:0;
+}
+
 .drag:hover {
   cursor : grab;
   cursor : -webkit-grab;
