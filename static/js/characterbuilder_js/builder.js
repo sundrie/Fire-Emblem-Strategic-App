@@ -24,7 +24,7 @@ $(function() {
   var saisieUser;
 
   // On récupère en instantanée la saisie de l'utilisateur
-  $('#searchchar').keyup(function() {
+  $('#searchchar').keyup(function(){
     saisieUser = $('#searchchar').val();
     $.ajax({
       url: 'characterbuilder.html',
@@ -80,6 +80,9 @@ $(function() {
       TraitementData(data);
       //$('#message').html(data);
     }, 'text');
+
+    // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
+    $('.wrapper').append('<button class="buildsave">Sauvegarder mon build</button>');
   });
 
   // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
@@ -234,11 +237,16 @@ $(function() {
             $(trVoyager[0]).draggable('enable');
             $(draggable).addClass("drag");
             // Nous permet de remplir la zone de drop une fois le transfert fait pour éviter la dsparition vu que tr vide
-            $(trDropOriginelle).append('<td>Kappa</td>');
+            $(trDropOriginelle).append('<td></td>');
           });
         }
       }
     });
+  }
+
+  // Fonction nous permettant de sauvegarder le build du personnage
+  function saveMyBuild(){
+
   }
 
 });

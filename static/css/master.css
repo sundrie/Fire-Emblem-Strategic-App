@@ -209,3 +209,8 @@ body {
   color: rgb(209, 19, 1);
   font-weight: bold;
 }
+
+/* Bouton nous permettant de sauvegarder */
+.buildsave{
+  max-height: 50px;
+}
