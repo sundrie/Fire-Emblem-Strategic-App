@@ -60,6 +60,8 @@ $(function() {
   $('#charList').on("click", "a", function(){
     // On vide les talents que l'utilisateur a possiblement déposer dans les réceptacles drop
     $("#HeroBuild table tr td").empty();
+    $("#HeroBuild table tr").find("tr").replaceWith('<td></td>');
+
     // On redonne la classe drop pour contrer la methode replaceWith (voir droppable() juste en dessous)
     $("#HeroBuild table tr").removeClass().addClass("drop");
 
@@ -248,10 +250,17 @@ $(function() {
     });
   }
 
-  // Fonction nous permettant de sauvegarder le build du personnage
+  // Fonction nous permettant de sauvegarder le build du personnage lors du clic sur le bouton
   function saveMyBuild(){
     $('.buildsave').on("click",function(){
-      
+      // var chosenOnes = $(".TalentsChoosenBuilder tbody tr tr");
+      var chosenOnes = $(".TalentsChoosenBuilder tbody tr")
+
+
+      //
+
+      // console.log(chosenOnes);
+
     });
   }
 
