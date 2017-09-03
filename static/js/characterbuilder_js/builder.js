@@ -60,6 +60,7 @@ $(function() {
   $('#charList').on("click", "a", function(){
     // On vide les talents que l'utilisateur a possiblement déposer dans les réceptacles drop
     $("#HeroBuild table tr td").empty();
+    // Corrige ce problème (Si on change de perso alors qu'un talent ou plusieurs talent sont encore dedans ça bug (impossibilité d'utiliser la zone et si on drop dans une autre case le bouton go back apparait et une fois clické la zone redeviens utilisable)
     $("#HeroBuild table tr").find("tr").replaceWith('<td></td>');
 
     // On redonne la classe drop pour contrer la methode replaceWith (voir droppable() juste en dessous)
