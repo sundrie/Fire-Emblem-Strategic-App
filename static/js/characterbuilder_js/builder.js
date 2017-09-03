@@ -81,8 +81,12 @@ $(function() {
       //$('#message').html(data);
     }, 'text');
 
+    // On évite la multiplication des boutons
+    $('.buildsave').remove();
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
     $('.wrapper').append('<button class="buildsave">Sauvegarder mon build</button>');
+    // On appelle la fonction à ce moment pour que celle ci fonctionne sur l'élément généré via code
+    saveMyBuild();
   });
 
   // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
@@ -246,7 +250,9 @@ $(function() {
 
   // Fonction nous permettant de sauvegarder le build du personnage
   function saveMyBuild(){
-
+    $('.buildsave').on("click",function(){
+      
+    });
   }
 
 });
