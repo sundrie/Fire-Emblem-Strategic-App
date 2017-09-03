@@ -24,7 +24,7 @@ $(function() {
   var saisieUser;
 
   // On récupère en instantanée la saisie de l'utilisateur
-  $('#searchchar').keyup(function() {
+  $('#searchchar').keyup(function(){
     saisieUser = $('#searchchar').val();
     $.ajax({
       url: 'characterbuilder.html',
@@ -60,6 +60,9 @@ $(function() {
   $('#charList').on("click", "a", function(){
     // On vide les talents que l'utilisateur a possiblement déposer dans les réceptacles drop
     $("#HeroBuild table tr td").empty();
+    // Corrige ce problème (Si on change de perso alors qu'un talent ou plusieurs talent sont encore dedans ça bug (impossibilité d'utiliser la zone et si on drop dans une autre case le bouton go back apparait et une fois clické la zone redeviens utilisable)
+    $("#HeroBuild table tr").find("tr").replaceWith('<td></td>');
+
     // On redonne la classe drop pour contrer la methode replaceWith (voir droppable() juste en dessous)
     $("#HeroBuild table tr").removeClass().addClass("drop");
 
@@ -80,6 +83,13 @@ $(function() {
       TraitementData(data);
       //$('#message').html(data);
     }, 'text');
+
+    // On évite la multiplication des boutons
+    $('.buildsave').remove();
+    // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
+    $('.wrapper').append('<button class="buildsave">Sauvegarder mon build</button>');
+    // On appelle la fonction à ce moment pour que celle ci fonctionne sur l'élément généré via code
+    saveMyBuild();
   });
 
   // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
@@ -157,7 +167,7 @@ $(function() {
               start: function (){
                 var row_index1 = $(this).parent().index();
                 var col_index1 = $(this).index();
-                console.log("row_index1 : "+row_index1+" col_index1 : "+col_index1 )
+                //console.log("row_index1 : "+row_index1+" col_index1 : "+col_index1 )
                 $(this).animate({
                   opacity: '0.5'
                 }, 1000);
@@ -183,74 +193,76 @@ $(function() {
     $('.drop').droppable({
       accept: '.drag',
       drop: function (event,ui) {
-        var draggable = ui.draggable;
-
-        var row_index = $(draggable).parent().index();
-        var col_index = $(draggable).index();
-        // Nous donne la classe de la table d'où provient l'élément
-        var tableOrigin = $(draggable).closest('table').attr('class').split(' ')[0];
-        //console.log(tableOrigin);
-        //console.log("row_index : "+row_index+" col_index : "+col_index);
-
-        // $(this).replaceWith(draggable);
-
-
         var droppable = $(this);
         // console.log(droppable);
         var draggable = ui.draggable;
         // console.log(draggable);
-        // Move draggable into droppable
-        $(droppable).find('td').remove()
-        draggable.appendTo(droppable);
+        var droppablechild = $(droppable).children();
+        // console.log(droppablechild);
 
-        // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
-        $(draggable).removeClass("drag");
 
-        // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
-        $(draggable).append("<button class='goback'>X</button>");
-        // On affiche le bouton goback précedemment masqué plus haut dans le code pour éviter qu'ils aparaissent lorsqu'on choisi un autre perso alors qu'on a pas vidé la zone de drop
-        $(".goback").show();
+        // Si la zone de drop contient un td (donc aucun autre talent(pour rappel sans ce test on pouvait mettre plusieurs talents dans une seule zone de drop ce qui était très problématique)) alors tout s'effectue normalement sinon et bien le talent retourne avec les autres, si on voulait gérer le sinon alors il faut ajouter ceci if ($(droppablechild[0]).is(':not(td)'))
+        if($(droppablechild[0]).is('td')){
 
-        // Fonction qui s'active lors d'un clic sur la classe goback (qui sert à enlever un talent de la zone de drop pour qu'il revienne dans le tableau avec tous les autres talents)
-        $(".goback").on("click",function(){
-          //$(this).parent().remove();
+          var row_index = $(draggable).parent().index();
+          var col_index = $(draggable).index();
+          // Nous donne la classe de la table d'où provient l'élément
+          var tableOrigin = $(draggable).closest('table').attr('class').split(' ')[0];
+          //console.log(tableOrigin);
+          //console.log("row_index : "+row_index+" col_index : "+col_index);
 
-          // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
-          // console.log(tableOrigin2);
-          var trVoyager = $(this).parent();
-          var trDropOriginelle = $(this).parent().parent();
+          // Move draggable into droppable
+          $(droppable).find('td').remove()
+          draggable.appendTo(droppable);
 
-          //supprime le bouton goback
-          $(this).remove();
+          // On desactive le draggable pour éviter les soucis
+          $(draggable).draggable('disable');
+          // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
+          $(draggable).removeClass("drag");
 
-          //console.log(trVoyager);
-          // console.log(("."+tableOrigin+" tbody"))
-          // $("."+tableOrigin+" tbody").append(trVoyager[0]);
-          $(trDropOriginelle).append('<td>Kappa</td>');
-          // $(".TalentsChoosenBuilder tbody").append('<tr class="drop"><td></td></tr>')
-          checkDropZone();
-        });
+          // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
+          $(draggable).append("<button class='goback'>X</button>");
+          // On affiche le bouton goback précedemment masqué plus haut dans le code pour éviter qu'ils aparaissent lorsqu'on choisi un autre perso alors qu'on a pas vidé la zone de drop
+          $(".goback").show();
+
+          // Fonction qui s'active lors d'un clic sur la classe goback (qui sert à enlever un talent de la zone de drop pour qu'il revienne dans le tableau avec tous les autres talents)
+          $(".goback").on("click",function(){
+
+            // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
+            // console.log(tableOrigin2);
+            var trVoyager = $(this).parent();
+            var trDropOriginelle = $(this).parent().parent();
+
+            //supprime le bouton goback
+            $(this).remove();
+
+            //console.log(trVoyager);
+            // console.log(("."+tableOrigin+" tbody"))
+
+            $("."+tableOrigin+" tbody").after(trVoyager[0]);
+            // On réactive la fonction draggable après que celui ci soit retourné avec ses autres amis talents
+            $(trVoyager[0]).draggable('enable');
+            $(draggable).addClass("drag");
+            // Nous permet de remplir la zone de drop une fois le transfert fait pour éviter la dsparition vu que tr vide
+            $(trDropOriginelle).append('<td></td>');
+          });
+        }
       }
     });
   }
 
-  // Vérifie si il y a toujours 5 zones de drop
-  function checkDropZone(){
-    var rowCount = $('.TalentsChoosenBuilder tbody tr').length;
-    //console.log(rowCount);
-    ajouteDropZone(rowCount);
-  }
+  // Fonction nous permettant de sauvegarder le build du personnage lors du clic sur le bouton
+  function saveMyBuild(){
+    $('.buildsave').on("click",function(){
+      // var chosenOnes = $(".TalentsChoosenBuilder tbody tr tr");
+      var chosenOnes = $(".TalentsChoosenBuilder tbody tr")
 
-  // Si le nombre de zone de drop est inférieur à 5 nous les recréons
-  function ajouteDropZone(DropZoneleft){
-    // console.log(DropZoneleft);
-    if (DropZoneleft<5) {
-      $(".TalentsChoosenBuilder tbody").append($('<tr class="drop"><td>LUL</td></tr>').droppable()).droppable();
-      //$('.drop').droppable();
-      // $('<tr class="drop"><td>LUL</td></tr>').appendTo('.TalentsChoosenBuilder tbody').droppable();
-    }
-    // On ajoute 1 puisque le code au dessus (if) viens de créer une zone
-    DropZoneleft+1;
+
+      //
+
+      // console.log(chosenOnes);
+
+    });
   }
 
 });
