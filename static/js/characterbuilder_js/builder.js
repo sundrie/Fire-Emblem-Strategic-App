@@ -254,13 +254,11 @@ $(function() {
   // Fonction nous permettant de sauvegarder le build du personnage lors du clic sur le bouton
   function saveMyBuild(){
     $('.buildsave').on("click",function(){
-      // var chosenOnes = $(".TalentsChoosenBuilder tbody tr tr");
-      var chosenOnes = $(".TalentsChoosenBuilder tbody tr")
+      var alltr = $(".TalentsChoosenBuilder tbody tr");
 
+      var chosenOnes = alltr.filter(':not(.drop)');
 
-      //
-
-      // console.log(chosenOnes);
+      //console.log(chosenOnes);
 
     });
   }
