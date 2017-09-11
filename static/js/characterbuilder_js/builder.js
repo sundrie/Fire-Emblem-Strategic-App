@@ -254,12 +254,27 @@ $(function() {
   // Fonction nous permettant de sauvegarder le build du personnage lors du clic sur le bouton
   function saveMyBuild(){
     $('.buildsave').on("click",function(){
+      // On récupère tous les tr(talents) que l'utilisateur a mit dans les zones de drop
       var alltr = $(".TalentsChoosenBuilder tbody tr");
-
+      // Ceci nous permet de ne pas récupérer les zones de drop (voir fonctionnement du code)(remplir les 5 zones et vous verrez 10 éléments dans la variable (c'est normal nous n'effacons rien voir commits précédents pour comprendre))
       var chosenOnes = alltr.filter(':not(.drop)');
+      //console.log($(chosenOnes.children('td')));
 
-      //console.log(chosenOnes);
+      // On créé une variable qui contiendra le texte de chaque élément dans la zone de drop pour que AJAX puisse comprendre
+      var encoderforAJAX = [];
+      $(chosenOnes.children('td')).each(function() {
+        encoderforAJAX.push($(this).text());
+      });
 
+      // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
+      $.ajax({
+        url: 'http://localhost/FEAcharapp/php/savebuild.php',
+        method: 'POST',
+        data:{build : encoderforAJAX},
+        success : function(data){
+          $('#message').html('voilà ce qui a été envoyé : '+ data);
+        }
+      });
     });
   }
 
