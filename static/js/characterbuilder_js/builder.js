@@ -262,6 +262,9 @@ $(function() {
 
       // On créé une variable qui contiendra le texte de chaque élément dans la zone de drop pour que AJAX puisse comprendre
       var encoderforAJAX = [];
+      // On ajoute le nom du perso pour que PHP sache de qui il s'agit
+      encoderforAJAX.push($('.NomHerosBuilder').text());
+
       $(chosenOnes.children('td')).each(function() {
         encoderforAJAX.push($(this).text());
       });
