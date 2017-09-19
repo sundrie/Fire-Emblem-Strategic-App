@@ -1,5 +1,11 @@
+/*On charge notre police qui est celle du jeu*/
+@font-face {
+  font-family: FireEmblemFont;
+  src: url('http://localhost/FEAcharapp/fonts/FOT-ChiaroStd-B.otf');
+}
+
 html {
-  font-family: Helvetica;
+  font-family: FireEmblemFont, Helvetica;
 }
 
 body {
@@ -45,7 +51,8 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
   font-size: 20px;
-  font-family: Helvetica;
+  line-height: 20px;
+  /*font-family: Helvetica;*/
 }
 
 #charList {
@@ -69,7 +76,8 @@ body {
 
 #charList li a {
   display: block;
-  font-family: Helvetica;
+  /*font-family: Helvetica;*/
+  line-height: 20px;
   font-size: 20px;
   color: rgb(18, 19, 17);
   text-decoration: none;
