@@ -36,6 +36,11 @@ body {
   color: rgb(255, 255, 255);
 }
 
+.ImgBackHome {
+  max-width: 200px;
+  padding-top: 10px;
+}
+
 .wrapper {
   display : flex;
   background: rgba(255, 255, 255, 0.80);
