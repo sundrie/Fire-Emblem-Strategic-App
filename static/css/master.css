@@ -14,31 +14,46 @@ body {
 
 .headerwebsite{
   margin: 0;
-  background: rgb(0, 65, 217);
-  padding-bottom: 50px;
-  /*margin-bottom: 50px;*/
+  background: rgb(42, 33, 18);
 }
 
-.headerwebsite h1{
-  display: block;
-  color: rgb(245, 255, 130);
-  padding: 10px;
-  margin: 0;
-}
-
-.headerwebsite a {
-  padding-left: 10px;
-  text-decoration: none;
-  color: rgb(245, 255, 130);
-}
-
-.headerwebsite a:hover {
-  color: rgb(255, 255, 255);
-}
-
+/*L'image utilisée pour revenir à l'accueil*/
 .ImgBackHome {
   max-width: 200px;
   padding-top: 10px;
+}
+
+.headerwebsite h1{
+  display: inline-block;
+  color: rgb(252, 240, 187);
+  padding: 10px;
+  margin: 0;
+  position: absolute;
+  top: 40px;
+}
+
+.headerwebsite a{
+  padding-left: 10px;
+  text-decoration: none;
+  color: rgb(252, 240, 187);
+}
+
+.headerwebsite nav a:hover {
+  background-color: rgb(252, 240, 187);
+  color: rgb(71, 54, 28);
+  border-color: rgb(106, 79, 49);
+}
+
+.headerwebsite nav{
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.headerwebsite nav a{
+  padding: 5px;
+  text-decoration: none;
+  color: rgb(252, 240, 187);
+  border: 1px solid rgb(252, 240, 187);
 }
 
 .wrapper {
