@@ -20,7 +20,7 @@
     <div class="wrapper">
       <form class="formulaireRecherche" action="index.html" method="post">
         <!-- <label for="searchchar">Heros à rechercher :</label> -->
-        <input type="text" id="searchchar" name="usersearch" autocomplete="off">
+        <input type="text" id="searchchar" class="charaSearch" name="usersearch" placeholder="Nom du Héros ?" autocomplete="off">
         <ul id="charList"></ul>
         <!-- <input type="submit"> -->
       </form>
@@ -28,7 +28,7 @@
       <div id="message"></div>
 
       <!-- le contenu dynamique à afficher selon le choix de l'utilisateur -->
-      <div id="pageContent">
+      <div id="pageContent" class="dynamicContent">
         <img src="" id="HeroImg" class="imageHeros">
         <div class="entete">
           <h2>Description : </h2>

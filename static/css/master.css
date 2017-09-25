@@ -6,10 +6,11 @@
 
 html {
   font-family: FireEmblemFont, Helvetica;
+  background: rgb(242, 217, 176);
 }
 
 body {
-  background-image: url("../img/backgroundFireEmblemAwakening.jpg");
+  /*background-image: url("../img/backgroundFireEmblemAwakening.jpg");*/
 }
 
 .headerwebsite{
@@ -58,10 +59,10 @@ body {
 
 .wrapper {
   display : flex;
-  background: rgba(255, 255, 255, 0.80);
 }
 
 .formulaireRecherche {
+  padding-top: 20px;
   padding-right: 20px;
 }
 
@@ -72,6 +73,8 @@ body {
   padding-bottom: 5px;
   font-size: 20px;
   line-height: 20px;
+  background: rgb(251, 241, 216);
+  color: rgb(62, 41, 12);
   /*font-family: Helvetica;*/
 }
 
@@ -87,7 +90,7 @@ body {
 
 #charList li {
   padding: 5px;
-  background: rgb(207, 205, 201);
+  background: rgb(251, 241, 216);
 }
 
 /*#charList li:nth-child(even) {
@@ -99,7 +102,7 @@ body {
   /*font-family: Helvetica;*/
   line-height: 20px;
   font-size: 20px;
-  color: rgb(18, 19, 17);
+  color: rgb(62, 41, 12);
   text-decoration: none;
 }
 
@@ -126,6 +129,10 @@ body {
   display: none;
 }
 
+/* Le contenu généré dynamiquement grâce à jQuery qui donne la description du perso, ses classes */
+.dynamicContent {
+  color: rgb(62, 41, 12);
+}
 /*--------------------- Propre à la page Builder ----------------------*/
 
 /* La carte du builder au milieu */
