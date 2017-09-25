@@ -79,6 +79,7 @@ body {
   background: rgb(251, 241, 216);
   color: rgb(62, 41, 12);
   border-color: rgb(110, 108, 93);
+  border-bottom: 0; /* Petit fix pour éviter le stack de border */
   /*font-family: Helvetica;*/
 }
 
@@ -240,17 +241,28 @@ body {
   flex-direction: column;
 }
 
-.TalentsList table tr {
+.TalentsListclass table tr {
   overflow: auto;
   min-width: 415px;
   max-width: 415px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsChoosenBuilder td */
 }
 
+/* Ceci cible la première td de chaque tr dans la colonne de droite (l'image et nom du talent)*/
+.TalentsListclass tr td:first-child{
+  min-width: 130px;
+}
+
 .TalentsListclass td{
+  vertical-align: middle;
   font-size: 14px;
   height: 50px;
   min-height: 50px;
   max-height: 50px;
+  line-height: 20px;
+}
+
+.TalentsListclass img{
+  vertical-align: middle;
 }
 
 /* Pour mettre le tableau skill 2 en dernier */
