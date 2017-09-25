@@ -75,15 +75,40 @@ body {
   line-height: 20px;
   background: rgb(251, 241, 216);
   color: rgb(62, 41, 12);
+  border-color: rgb(110, 108, 93);
   /*font-family: Helvetica;*/
 }
+
+/* ~~~~~~~ modifie le style de la scrollbar ~~~~~~~~~~~~*/
+/* Code de base trouvé ici : https://codepen.io/devstreak/pen/dMYgeO*/
+
+#charList::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);	
+	background-color: #F5F5F5;
+}
+
+#charList::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#charList::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgb(42, 33, 18);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 #charList {
   margin-top: 0;
   padding: 0;
   width: 200px;
   list-style-type: none;
-  border: 1px solid #c3c3c3;
+  border: 2px solid rgb(110, 108, 93);;
   max-height: 500px;
   overflow: auto;
 }
