@@ -146,6 +146,7 @@ body {
   max-height: 20px;
   background-color: #021732;
   color: #ede5d0;
+  line-height: 20px;
 }
 
 /* Le tableau pour recevoir les talents choisis */
