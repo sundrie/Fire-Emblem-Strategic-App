@@ -11,11 +11,13 @@ html {
 
 body {
   /*background-image: url("../img/backgroundFireEmblemAwakening.jpg");*/
+  margin: 0;
 }
 
 .headerwebsite{
   margin: 0;
   background: rgb(42, 33, 18);
+  padding: 10px;
 }
 
 /*L'image utilisée pour revenir à l'accueil*/
@@ -59,6 +61,7 @@ body {
 
 .wrapper {
   display : flex;
+  padding: 10px;
 }
 
 .formulaireRecherche {
@@ -84,7 +87,7 @@ body {
 
 #charList::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);	
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 }
 
@@ -111,16 +114,14 @@ body {
   border: 2px solid rgb(110, 108, 93);;
   max-height: 500px;
   overflow: auto;
+  border-collapse: collapse;
 }
 
 #charList li {
   padding: 5px;
   background: rgb(251, 241, 216);
+  border : 1px solid rgb(110, 108, 93);
 }
-
-/*#charList li:nth-child(even) {
-  background: rgb(207, 205, 201);
-}*/
 
 #charList li a {
   display: block;
@@ -129,14 +130,6 @@ body {
   font-size: 20px;
   color: rgb(62, 41, 12);
   text-decoration: none;
-}
-
-/* Le contenu dynamiquement chargé */
-.webpage {
-  width:1000px;
-  height:600px;
-  /*style="overflow:auto;*/
-  /*border:5px ridge blue;*/
 }
 
 /* L'image du perso*/
