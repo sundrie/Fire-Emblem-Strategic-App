@@ -86,6 +86,8 @@ $(function() {
 
     // On évite la multiplication des boutons
     $('.buildsave').remove();
+    // On ajoute une zone pour que l'utilisateur nomme son build
+    $('.OptionsMenu').append('<input type="text" name="filenamebyuser" class="namefilebuildsave" placeholder="nom du build">');
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
     $('.OptionsMenu').append('<button class="buildsave">Sauvegarder mon build</button>');
     // On appelle la fonction à ce moment pour que celle ci fonctionne sur l'élément généré via code
