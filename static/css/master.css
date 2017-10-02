@@ -305,7 +305,25 @@ body {
   margin-right: 10px;
 }
 
+.OptionsMenu {
+  padding-top: 50px;
+}
+
 /* Bouton nous permettant de sauvegarder */
 .buildsave{
+  display: block;
+  margin: 0 auto;
   max-height: 50px;
+  text-align: center;
+  border: 0;
+  border-radius: 5px;
+  font-family: FireEmblemFont;
+  font-size: 20px;
+  background: rgb(117, 219, 27);
+  color: rgb(85, 57, 36);
+  transition: all .2s ease-in-out;
+}
+
+.buildsave:hover{
+  transform: scale(1.1);
 }
