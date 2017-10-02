@@ -87,7 +87,7 @@ $(function() {
     // On évite la multiplication des boutons
     $('.buildsave').remove();
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
-    $('.wrapper').append('<button class="buildsave">Sauvegarder mon build</button>');
+    $('.OptionsMenu').append('<button class="buildsave">Sauvegarder mon build</button>');
     // On appelle la fonction à ce moment pour que celle ci fonctionne sur l'élément généré via code
     saveMyBuild();
   });

@@ -163,6 +163,7 @@ body {
   max-height: 400px;
   background-color: #cca44f;
   display: none;
+  line-height: 20px;
 }
 
 .HeroImgBuilderContainer {
