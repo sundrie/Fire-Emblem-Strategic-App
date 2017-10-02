@@ -158,8 +158,8 @@ body {
 /* ont masque pour éviter que ça n'apparaissent au début vu que la sélection par l'utilisateur n'a pas été faite */
 .HeroBuildCard {
   display: flex;
-  min-width: 600px;
-  max-width: 600px;
+  min-width: 780px;
+  max-width: 780px;
   max-height: 400px;
   background-color: #cca44f;
   display: none;
@@ -180,6 +180,11 @@ body {
   max-width: 150px;
 }
 
+/*Contiens le span et le tableau des talents choisis*/
+.TalentsCardContainer{
+  margin-right: 10px;
+}
+
 .NomHerosBuilder {
   display: block;
   margin: 0 auto;
@@ -197,15 +202,22 @@ body {
 
 /* Le tableau pour recevoir les talents choisis */
 .TalentsChoosenBuilder {
-  min-width: 415px;
-  max-width: 415px;
+  min-width: 600px;
+  max-width: 600px;
+  vertical-align: middle;
+  line-height: 20px;
 }
 
 .TalentsChoosenBuilder tr{
-  min-width: 415px;
-  max-width: 415px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+  min-width: 600px;
+  max-width: 600px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
   background-color: #f1daa8;
-  overflow : auto;
+  overflow: auto;
+  max-height: 52px;
+}
+
+.drop {
+  max-height: 52px;
 }
 
 .TalentsChoosenBuilder td{
@@ -215,6 +227,17 @@ body {
   margin-bottom: 5px;
   display: inline-block;
   min-height: 50px;
+}
+
+/* Ceci cible la première td de chaque tr (l'image et nom du talent)*/
+.TalentsChoosenBuilder tr td:first-child{
+  min-width: 130px;
+}
+
+.TalentsChoosenBuilder td:nth-child(2){
+  padding-left: 5px;
+  max-width: 400px;
+  min-width: 400px;
 }
 
 /* Propre à la classe drag pour modifier le pointeur de la souris */
@@ -239,6 +262,7 @@ body {
 .TalentsListclass {
   display: flex;
   flex-direction: column;
+  max-width: 600px;
 }
 
 .TalentsListclass table tr {
@@ -259,6 +283,7 @@ body {
   min-height: 50px;
   max-height: 50px;
   line-height: 20px;
+  max-width: 420px;
 }
 
 .TalentsListclass img{
@@ -273,7 +298,10 @@ body {
 /* Le style de la classe de la croix pour retirer le talent de la zone de drop */
 .goback{
   color: rgb(209, 19, 1);
+  width: 25px;
   font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* Bouton nous permettant de sauvegarder */
