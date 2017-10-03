@@ -270,6 +270,8 @@ $(function() {
       $(chosenOnes.children('td')).each(function() {
         encoderforAJAX.push($(this).text());
       });
+      // Le nom du fichier choisi par l'utilisateur
+      encoderforAJAX.push($(".namefilebuildsave").val());
 
       // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
       $.ajax({
