@@ -9,7 +9,7 @@ if($_POST){
   var_dump($build);
   // code w3C à modifié plus tard
   //******** La localisation sera a changer (propre à ma config PC) c'est juste pour le confort des tests
-  $myfile = fopen("E://Downloads/test.txt", "w") or die("Unable to open file!");
+  $myfile = fopen("E://Downloads/[".$build[0]."] ".$build[11].".txt", "w") or die("Unable to open file!");
 
   // On écrit le nom et tous les talents du perso PHP_EOL permet de sauter une ligne (voir https://stackoverflow.com/questions/15130289/php-fwrite-new-line)
   $txt = $build[0]. PHP_EOL .$build[1]. PHP_EOL .$build[2]. PHP_EOL .$build[3]. PHP_EOL .$build[4]. PHP_EOL .$build[5]. PHP_EOL .$build[6]. PHP_EOL .$build[7]. PHP_EOL .$build[8]. PHP_EOL .$build[9]. PHP_EOL .$build[10];
