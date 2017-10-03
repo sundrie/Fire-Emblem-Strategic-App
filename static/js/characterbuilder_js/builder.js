@@ -270,8 +270,15 @@ $(function() {
       $(chosenOnes.children('td')).each(function() {
         encoderforAJAX.push($(this).text());
       });
-      // Le nom du fichier choisi par l'utilisateur
-      encoderforAJAX.push($(".namefilebuildsave").val());
+
+      // Si l'utilisateur n'a pas mis de nom de build on met le jour et date
+      if ($(".namefilebuildsave").val()=="") {
+        var Zawarudo = new Date($.now());
+        var defaultfilename = Zawarudo.getDate() +"/"+ Zawarudo.getMonth() +"/"+ Zawarudo.getFullYear() +"-"+ Zawarudo.getHours() + ":" + Zawarudo.getMinutes() + ":" + Zawarudo.getSeconds();
+      } else {
+        // Sinon le nom du fichier entré par l'utilisateur a la place de la date
+        encoderforAJAX.push($(".namefilebuildsave").val());
+      }
 
       // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
       $.ajax({
