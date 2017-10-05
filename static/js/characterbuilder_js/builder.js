@@ -75,7 +75,7 @@ $(function() {
     // On met ceci à la place de .show() sinon le display flex n'est pas remis ce qui fait gros bug d'affichage
     $(".HeroBuildCard ").css("display","flex");
     // permet de dynamiquement afficher l'image du perso choisi
-    $("#HeroImgBuilder").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
+    $("#HeroImgBuilder").attr('src','http://localhost/FEAcharapp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
     // On met le nom du perso dans l'étiquette du builder
     $(".NomHerosBuilder").html(persoChoisi);
     // On charge toutes les datas du perso
