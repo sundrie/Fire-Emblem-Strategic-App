@@ -86,6 +86,8 @@ $(function() {
 
     // On évite la multiplication des boutons
     $('.buildsave').remove();
+    // On évite la multiplication des input
+    $('.OptionsMenu input').remove();
     // On ajoute une zone pour que l'utilisateur nomme son build
     $('.OptionsMenu').append('<input type="text" name="filenamebyuser" class="namefilebuildsave" placeholder="nom du build">');
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
@@ -119,7 +121,6 @@ $(function() {
         //On créé 2 tableaux qui recevront les futurs skills 1 et 2
         $('#TalentsList').append("<table class='tableskill2 drag'><tbody></tbody></table>");
         $('#TalentsList').append("<table class='tableskill1 drag'><tbody></tbody></table>");
-
         // Cette fonction nous permet de faire 2 tableaux 1 pour chaque skill
         $('#TalentsList table tr').each(function(){
 

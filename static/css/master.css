@@ -261,6 +261,7 @@ body {
 }
 /* C'est la div qui contient nos classes dispo pour le perso */
 .TalentsListclass {
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
   max-width: 600px;
