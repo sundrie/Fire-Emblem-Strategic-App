@@ -31,9 +31,9 @@ $(function() {
   $("#searchchar").on("keyup", function(){
     // On passe la saisie en minuscule pour éviter les soucis
     var saisieUser = $(this).val().toLowerCase();
-    // Cette boucle va masquer les noms qui ne correspondent pas à la saisie de l'utilisateur    
+    // Cette boucle va masquer les noms qui ne correspondent pas à la saisie de l'utilisateur
     $("#charList li a").each(function(index){
-      if($(this).text().indexOf(saisieUser) === -1){
+      if($(this).text().toLowerCase().indexOf(saisieUser) === -1){
         $(this).parent().hide();
       }
       else{
