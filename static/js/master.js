@@ -18,38 +18,26 @@ $(function() {
 
   var saisieUser;
 
-  // On récupère en instantanée la saisie de l'utilisateur
-  $('#searchchar').keyup(function() {
-    saisieUser = $('#searchchar').val();
-    $.ajax({
-      url: 'index.html',
-      method: 'POST',
-      data: {saisie: saisieUser},
-      success: function(data){
-        //$('#message').html(saisieUser); //Pour afficher ce que l'utilisateur tappe
-      }
-    });
-    // On appelle la fonction qui selon la saisie masque les choix qui ne correspondent pas
-    interactiveList();
+  $("#searchchar").on("click",function(){
+    // On "nettoie" l'input
+    $('#searchchar').val('');
+    // On remontre toute la liste qui aurait pût être diminué selon la saisie de l'utilisateur
+    $("#charList li").show();
   });
 
-  // Fonction gérant l'affichage de la liste selon la saisie de l'utilisateur
-  function interactiveList(){
-    // Pour chaque li (Perso)
-    for (i = 0; i < $('#charList li').length; i++) {
-      // filter est bien synchrone avec la saisie utilisateur
-      var filter = saisieUser;
-      a = $('#charList li')[i].getElementsByTagName("a")[0];
-      // a renvoie <a href="#">Tharja</a> par exemple
-      // le -1 est ce que renvoie la méthode indexof() si elle ne trouve rien
-      // to lowercase() règle les soucis de case
-      if (a.innerHTML.toLowerCase().indexOf(filter) > -1) {
-        $('#charList li')[i].style.display = "";
-      } else {
-        $('#charList li')[i].style.display = "none";
+  $("#searchchar").on("keyup", function(){
+    // On passe la saisie en minuscule pour éviter les soucis
+    var saisieUser = $(this).val().toLowerCase();
+    // Cette boucle va masquer les noms qui ne correspondent pas à la saisie de l'utilisateur
+    $("#charList li a").each(function(index){
+      if($(this).text().toLowerCase().indexOf(saisieUser) === -1){
+        $(this).parent().hide();
       }
-    }
-  }
+      else{
+        $(this).parent().show();
+      }
+    });
+  });
 
   // Fonction qui s'active lors d'un clic sur un personnage
   $('#charList').on("click", "a", function(){
