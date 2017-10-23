@@ -273,7 +273,8 @@ $(function() {
         method: 'POST',
         data:{build : encoderforAJAX},
         success : function(data){
-          $('#message').html('voilà ce qui a été envoyé : '+ data);
+          window.location.replace("http://localhost/FEAcharapp/php/userdownloadfile.php");
+          // $('#message').html('voilà ce qui a été envoyé : '+ data);
         }
       });
     });

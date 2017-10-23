@@ -1,0 +1,11 @@
+Basilio
+Sol
+(Tec)% de régénérer ses HP de la moitié des dégats infligés
+Aggressor
+Attaque+10 pendant le tour du joueur
+Gamble
+Précision -5 et Critique +10
+Zeal
+Critique+5
+Resistance+10
+Resistance+10
