@@ -267,26 +267,32 @@ $(function() {
         encoderforAJAX.push($(".namefilebuildsave").val());
       }
 
-      // Une seconde requête juste pour que l'autre script connaisse le nom du fichier qu'il aura a lire
-      $.ajax({
-        url: 'http://localhost/FEAcharapp/php/userdownloadfile.php',
-        method: 'POST',
-        data:{build : encoderforAJAX},
-        success : function(data){
-          $('#message').html('voilà ce qui a été envoyé : '+ data);
-        }
-      });
-
       // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
       $.ajax({
         url: 'http://localhost/FEAcharapp/php/savebuild.php',
         method: 'POST',
         data:{build : encoderforAJAX},
         success : function(data){
+          // On créé un cookie pour la page php afin qu'il connaisse le nom du fihier qu'il devra lire
+
+          var date = new Date();
+          // (expire dans 30 sec)
+          date.setTime(date.getTime()+(30*1000));
+          var expires = "; expires="+date.toGMTString();
+
+          // ATTENTION A MODIFIER EN UTILISANT LE TEST DU DESSUS POUR GENERER LE NOM
+          // console.log('filename=["'+encoderforAJAX[0]+'"] '+$(".namefilebuildsave").val()+'".txt"')
+          document.cookie = 'filename=["'+encoderforAJAX[0]+'"] '+$(".namefilebuildsave").val()+'".txt";'+date.toGMTString()+';path=/';
+
+
+
           window.location.replace("http://localhost/FEAcharapp/php/userdownloadfile.php");
+
           // $('#message').html('voilà ce qui a été envoyé : '+ data);
         }
       });
+
+
 
 
     });
