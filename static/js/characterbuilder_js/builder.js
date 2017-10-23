@@ -267,6 +267,16 @@ $(function() {
         encoderforAJAX.push($(".namefilebuildsave").val());
       }
 
+      // Une seconde requête juste pour que l'autre script connaisse le nom du fichier qu'il aura a lire
+      $.ajax({
+        url: 'http://localhost/FEAcharapp/php/userdownloadfile.php',
+        method: 'POST',
+        data:{build : encoderforAJAX},
+        success : function(data){
+          $('#message').html('voilà ce qui a été envoyé : '+ data);
+        }
+      });
+
       // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
       $.ajax({
         url: 'http://localhost/FEAcharapp/php/savebuild.php',
@@ -277,6 +287,8 @@ $(function() {
           // $('#message').html('voilà ce qui a été envoyé : '+ data);
         }
       });
+
+
     });
   }
 
