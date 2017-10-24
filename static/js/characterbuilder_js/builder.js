@@ -3,7 +3,6 @@
 Code js spécifique à la page character builder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-
 $(function() {
   // code trouvé sur https://stackoverflow.com/questions/22061073/how-do-i-get-images-file-name-from-a-given-folder
   //Ceci va générer notre liste de perso comme ça plus besoin de PHP qui n'était en soit suite aux changements plus très utile
@@ -254,10 +253,6 @@ $(function() {
       // On ajoute le nom du perso pour que PHP sache de qui il s'agit
       encoderforAJAX.push($('.NomHerosBuilder').text());
 
-      $(chosenOnes.children('td')).each(function() {
-        encoderforAJAX.push($(this).text());
-      });
-
       // Si l'utilisateur n'a pas mis de nom de build on met le jour et date
       if ($(".namefilebuildsave").val()=="") {
         var Zawarudo = new Date($.now());
@@ -266,6 +261,13 @@ $(function() {
         // Sinon le nom du fichier entré par l'utilisateur a la place de la date
         encoderforAJAX.push($(".namefilebuildsave").val());
       }
+
+      // Pour chaque talents choisis on push dans le tableau qui sera envoyé
+      $(chosenOnes.children('td')).each(function() {
+        encoderforAJAX.push($(this).text());
+      });
+
+
 
       // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
       $.ajax({
@@ -281,14 +283,15 @@ $(function() {
           var expires = "; expires="+date.toGMTString();
 
           // ATTENTION A MODIFIER EN UTILISANT LE TEST DU DESSUS POUR GENERER LE NOM
+          // eraseCookie('filename');
+
           // console.log('filename=["'+encoderforAJAX[0]+'"] '+$(".namefilebuildsave").val()+'".txt"')
-          document.cookie = 'filename=["'+encoderforAJAX[0]+'"] '+$(".namefilebuildsave").val()+'".txt";'+date.toGMTString()+';path=/';
-
-
+          document.cookie = 'filename=['+encoderforAJAX[0]+'] '+$(".namefilebuildsave").val()+';'+date.toGMTString()+';path=/';
 
           window.location.replace("http://localhost/FEAcharapp/php/userdownloadfile.php");
 
-          // $('#message').html('voilà ce qui a été envoyé : '+ data);
+          // Pour avoir un retour du script php
+          //$('#message').html('voilà ce qui a été envoyé : '+ data);
         }
       });
 

@@ -1,0 +1,11 @@
+Gangrel
+Locktouch
+Permet de déverouiller les coffres et portes sans utiliser de clés
+Lethality
+(Tec/4)% Tue instantanément un ennemi
+Wrath
+Si HP < 50% Critique+20
+Hex
+Esquive -15 aux ennemis adjacents
+Slow Burn
+Précision et Esquive +1 pour chaque tour jusqu'à un maximum de +15

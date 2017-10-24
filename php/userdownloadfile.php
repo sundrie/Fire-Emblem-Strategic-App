@@ -1,8 +1,9 @@
 <?php
         // if the cookie "myCookie" is set
         if(isset($_COOKIE['filename'])){
-            echo "<p><b>PHP found this value for <i>filename</i>: " .  $_COOKIE['filename'] . "</b></p>";
-            $file = $_COOKIE['filename'];
+            echo "<p><b>PHP found this value for <i>filename</i>: " .  $_COOKIE['filename']."</b></p>";
+            $file = $_COOKIE['filename'].".txt";
+            echo $file;
         }
         else{
             echo "<p><b>PHP did not find a value for <i>filename</i>. Give it a value below.<b></p>";
