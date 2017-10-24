@@ -1,19 +1,14 @@
 <?php
-        // if the cookie "myCookie" is set
-        if(isset($_COOKIE['filename'])){
-            echo "<p><b>PHP found this value for <i>filename</i>: " .  $_COOKIE['filename']."</b></p>";
-            $file = $_COOKIE['filename'].".txt";
-            echo $file;
-        }
-        else{
-            echo "<p><b>PHP did not find a value for <i>filename</i>. Give it a value below.<b></p>";
-        }
+  // Si js a créé le cookie on récupère le nom du fichier
+  if(isset($_COOKIE['filename'])){
+    $file = $_COOKIE['filename'].".txt";
+  }
+  else{
+    echo "Une erreur est survenue assurez vous que votre navigateur accepte bien les cookies sur ce site";
+    die;
+  }
 
-
-  // var_dump($file);
-  // var_dump($_POST['build']);
-  // $file = ''"[".$_POST['build'][0]."] ".$_POST['build'][11].".txt";
-  //
+  // Si savebuild.php a bien fait son boulot alors on peut accéder au fichier qu'il a créé
   if (file_exists($file)) {
     header('Content-Description: File Transfer');
     header('Content-Type: application/octet-stream');
@@ -24,6 +19,9 @@
     header('Content-Length: ' . filesize($file));
     readfile($file);
     exit;
+  } else {
+    echo "Une erreur est survenue veuillez réessayer de recréer votre build. Si le problème persiste veuillez contacter l'admin";
+    die;
   }
 
- ?>
+?>

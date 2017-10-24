@@ -1,11 +1,11 @@
 Gangrel
-Locktouch
-Permet de déverouiller les coffres et portes sans utiliser de clés
-Lethality
-(Tec/4)% Tue instantanément un ennemi
-Wrath
-Si HP < 50% Critique+20
-Hex
-Esquive -15 aux ennemis adjacents
-Slow Burn
-Précision et Esquive +1 pour chaque tour jusqu'à un maximum de +15
+Resistance+10
+Resistance+10
+Lucky Seven
+Pendant les 7 premiers tours Précision et Esquive +20
+Aggressor
+Attaque+10 pendant le tour du joueur
+Lifetaker
+L'utilisateur regagne 50% de ses max HP s'il bat un ennemi ne marche pas lors du tour ennemi ou si l'unité est supportrice en Duo
+Gamble
+Précision -5 et Critique +10
