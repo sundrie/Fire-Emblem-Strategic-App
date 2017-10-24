@@ -1,11 +1,11 @@
-Olivia
+Say'ri
 Astra
 (Tec/2)% Permet de faire 5 attaques d'affillées mais avec les dégâts /2
-Galeforce
-Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu
-Swordfaire
-Force+5 tant qu'une épée est équipée
 Vantage
 Permet d'attaquer en premier durant le tour de l'ennemi si les HP sont inférieurs à la moitié
+Galeforce
+Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu
+Lancebreaker
+Précision et Esquive +50 si ennemi équipé d'une lance
 Relief
 Régénère 20% des HP si aucune unité n'est 3 cases autour
