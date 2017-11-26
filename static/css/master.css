@@ -258,6 +258,29 @@ body {
   cursor: grabbing;
   cursor: -webkit-grabbing;
 }
+
+/* ~~~~~~~ modifie le style de la scrollbar ~~~~~~~~~~~~*/
+/* Code de base trouvé ici : https://codepen.io/devstreak/pen/dMYgeO*/
+
+#TalentsList::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#TalentsList::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#TalentsList::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgb(42, 33, 18);
+}
+
 /* C'est la div qui contient nos classes dispo pour le perso */
 .TalentsListclass {
   margin-left: 10px;
@@ -266,7 +289,7 @@ body {
   max-width: 600px;
   max-height: 550px;
   overflow: auto;
-  border-collapse: collapse;  
+  border-collapse: collapse;
 }
 
 .TalentsListclass table tr {
