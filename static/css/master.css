@@ -264,6 +264,9 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 600px;
+  max-height: 550px;
+  overflow: auto;
+  border-collapse: collapse;  
 }
 
 .TalentsListclass table tr {
