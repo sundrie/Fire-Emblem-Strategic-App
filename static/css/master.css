@@ -298,7 +298,6 @@ body {
   max-height: 550px;
   overflow: auto;
   border-collapse: collapse;
-  overflow-y: scroll;
 }
 
 .TalentsListclass table tr {
