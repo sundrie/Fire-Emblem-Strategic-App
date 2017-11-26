@@ -295,9 +295,9 @@ $(function() {
           //$('#message').html('voilà ce qui a été envoyé : '+ data);
         }
       });
-
-
-
+      // On appel notre script pour qu'il nettoie les fichiers txt (à voir une fois en ligne si cette méthode ne pose pas des problèmes mais en local ça fonctionne correctement). En l'état actuel seul le fichier que l'on créé juste après le clic reste sur le serveur
+      $.get("http://localhost/FEAcharapp/php/cleartxt.php");
+      return false;
 
     });
   }
