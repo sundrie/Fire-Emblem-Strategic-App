@@ -106,9 +106,11 @@ $(function() {
         //On créé 2 tableaux qui recevront les futurs skills 1 et 2
         $('#TalentsList').append("<table class='tableskill2 drag'><tbody></tbody></table>");
         $('#TalentsList').append("<table class='tableskill1 drag'><tbody></tbody></table>");
+        // On ajoute une bordure pour bien identifier la zone où on peut interragir
+        $(".TalentsListclass").css("border","2px solid rgb(110, 108, 93)");
+
         // Cette fonction nous permet de faire 2 tableaux 1 pour chaque skill
         $('#TalentsList table tr').each(function(){
-
           //Ok alors pour decrypter .children() nous renvoie un tableau contenant chaque td de notre tr actuelle on sélectionne le 3ème et 4ème enfant grâce à eq()
           var tdskill2 = $(this).children('td').eq(3);
           var tdskill2desc = $(this).children('td').eq(4);

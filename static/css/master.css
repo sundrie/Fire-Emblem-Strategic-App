@@ -111,7 +111,7 @@ body {
   padding: 0;
   width: 200px;
   list-style-type: none;
-  border: 2px solid rgb(110, 108, 93);;
+  border: 2px solid rgb(110, 108, 93);
   max-height: 500px;
   overflow: auto;
   border-collapse: collapse;
@@ -281,15 +281,24 @@ body {
 	background-color: rgb(42, 33, 18);
 }
 
+.TalentsListclass .drag {
+  display: inline-block;
+  border : 1px solid rgb(110, 108, 93);
+  border-top: 0; /* Evite la superposition des borders */
+  border-left: 0; /* Evite la superposition des borders */
+  border-collapse: collapse;
+}
+
 /* C'est la div qui contient nos classes dispo pour le perso */
 .TalentsListclass {
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 428px;
   max-height: 550px;
   overflow: auto;
   border-collapse: collapse;
+  overflow-y: scroll;
 }
 
 .TalentsListclass table tr {
