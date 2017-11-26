@@ -3,7 +3,6 @@
 Code js spécifique à la page character builder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-
 $(function() {
   // code trouvé sur https://stackoverflow.com/questions/22061073/how-do-i-get-images-file-name-from-a-given-folder
   //Ceci va générer notre liste de perso comme ça plus besoin de PHP qui n'était en soit suite aux changements plus très utile
@@ -251,21 +250,37 @@ $(function() {
 
       // On créé une variable qui contiendra le texte de chaque élément dans la zone de drop pour que AJAX puisse comprendre
       var encoderforAJAX = [];
+
+      // Ceci est utilisé pour définir le expires du cookie généré plus bas
+      var date = new Date();
+      // (expire dans 30 sec)
+      date.setTime(date.getTime()+(30*1000));
+      var expires = "; expires="+date.toGMTString();
+
       // On ajoute le nom du perso pour que PHP sache de qui il s'agit
       encoderforAJAX.push($('.NomHerosBuilder').text());
-
-      $(chosenOnes.children('td')).each(function() {
-        encoderforAJAX.push($(this).text());
-      });
 
       // Si l'utilisateur n'a pas mis de nom de build on met le jour et date
       if ($(".namefilebuildsave").val()=="") {
         var Zawarudo = new Date($.now());
         var defaultfilename = Zawarudo.getDate() +"/"+ Zawarudo.getMonth() +"/"+ Zawarudo.getFullYear() +"-"+ Zawarudo.getHours() + ":" + Zawarudo.getMinutes() + ":" + Zawarudo.getSeconds();
+        var reg = /([^a-zA-Z0-9_])/g;
+        var validdefaultfilename = defaultfilename.replace(reg,"");
+        encoderforAJAX.push(validdefaultfilename);
+
+        // On créé un cookie avec le nom du fichier pour le script PHP userdownloadfile
+        document.cookie = 'filename=['+encoderforAJAX[0]+'] '+validdefaultfilename+';'+date.toGMTString()+';path=/';
       } else {
         // Sinon le nom du fichier entré par l'utilisateur a la place de la date
         encoderforAJAX.push($(".namefilebuildsave").val());
+        // On créé un cookie avec le nom du fichier pour le script PHP userdownloadfile
+        document.cookie = 'filename=['+encoderforAJAX[0]+'] '+$(".namefilebuildsave").val()+';'+date.toGMTString()+';path=/';
       }
+
+      // Pour chaque talents choisis on push dans le tableau qui sera envoyé
+      $(chosenOnes.children('td')).each(function() {
+        encoderforAJAX.push($(this).text());
+      });
 
       // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
       $.ajax({
@@ -273,9 +288,17 @@ $(function() {
         method: 'POST',
         data:{build : encoderforAJAX},
         success : function(data){
-          $('#message').html('voilà ce qui a été envoyé : '+ data);
+          // Ceci est nécessaire pour que l'utilisateur sache que son build a été téléchargé sous format texte
+          window.location.replace("http://localhost/FEAcharapp/php/userdownloadfile.php");
+
+          // Pour avoir un retour du script php
+          //$('#message').html('voilà ce qui a été envoyé : '+ data);
         }
       });
+      // On appel notre script pour qu'il nettoie les fichiers txt (à voir une fois en ligne si cette méthode ne pose pas des problèmes mais en local ça fonctionne correctement). En l'état actuel seul le fichier que l'on créé juste après le clic reste sur le serveur
+      $.get("http://localhost/FEAcharapp/php/cleartxt.php");
+      return false;
+
     });
   }
 
