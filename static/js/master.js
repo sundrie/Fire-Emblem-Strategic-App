@@ -44,6 +44,9 @@ $(function() {
     var persoChoisi = $(this).text();
     // permet de copier coller le nom du perso dans l'input
     $('#searchchar').val(persoChoisi);
+
+    //On affiche notre image précedemment caché car pas de source (icone img link perdu)
+    $(".imageHeros").css("display","block");
     // permet de dynamiquement afficher l'image du perso choisi
     $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
 
