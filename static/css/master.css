@@ -14,6 +14,11 @@ body {
   margin: 0;
 }
 
+.wrapper {
+  display : flex;
+  padding: 10px;
+}
+
 .headerwebsite{
   margin: 0;
   background: rgb(42, 33, 18);
@@ -25,6 +30,43 @@ body {
   max-width: 200px;
   padding-top: 10px;
 }
+
+/*---------------- Concerne Index.html -----------------*/
+
+/* Logo principal */
+.FELogo{
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.IndexContent {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.MainIntro {
+  text-align: center;
+}
+
+.GameChooser {
+  padding: 20px;
+}
+
+.FireEmblemThumbnail {
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px grey;
+  transition: 0.5s ease-out;
+}
+
+.FireEmblemThumbnail:hover {
+  transform: scale(1.1);
+  transition: 0.5s ease-out;
+}
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .headerwebsite h1{
   display: inline-block;
@@ -57,11 +99,6 @@ body {
   text-decoration: none;
   color: rgb(252, 240, 187);
   border: 1px solid rgb(252, 240, 187);
-}
-
-.wrapper {
-  display : flex;
-  padding: 10px;
 }
 
 .formulaireRecherche {
