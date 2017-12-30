@@ -25,6 +25,8 @@ body {
   padding: 10px;
 }
 
+
+
 /*L'image utilisée pour revenir à l'accueil*/
 .ImgBackHome {
   max-width: 200px;
@@ -67,6 +69,13 @@ body {
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*------------------ Concerne FEAHome.html --------------------*/
+
+.feahomecontent {
+  flex-direction: column;
+}
+
 
 .headerwebsite h1{
   display: inline-block;
