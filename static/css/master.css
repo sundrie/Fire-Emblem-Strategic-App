@@ -77,11 +77,21 @@ body {
   text-align: center;
 }
 
+.FEAhomecontent_p{
+  margin-top: 100px;
+}
+
 .categoriechoice{
   text-decoration: none;
   color: rgb(71, 54, 28);
   border: 1px solid rgb(110, 108, 93);
   padding: 10px;
+  margin-right: 20px;
+}
+
+.categoriechoice:hover{
+  background: rgb(42, 33, 18);
+  color: rgb(252, 240, 187);
 }
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
