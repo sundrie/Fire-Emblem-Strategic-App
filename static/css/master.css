@@ -77,8 +77,8 @@ body {
   text-align: center;
 }
 
-.FEAhomecontent_p{
-  margin-top: 100px;
+.categoriechoicecontainer{
+  margin-top: 50px;
 }
 
 .categoriechoice{
@@ -93,6 +93,11 @@ body {
   background: rgb(42, 33, 18);
   color: rgb(252, 240, 187);
 }
+
+.FEAhomecontent_p{
+  margin-top: 100px;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .headerwebsite h1{
