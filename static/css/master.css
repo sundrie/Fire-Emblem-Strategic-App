@@ -66,16 +66,18 @@ body {
   transform: scale(1.1);
   transition: 0.5s ease-out;
 }
-}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*------------------ Concerne FEAHome.html --------------------*/
 
-.feahomecontent {
+.FEAhomecontent{
   flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .headerwebsite h1{
   display: inline-block;
