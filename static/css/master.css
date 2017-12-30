@@ -77,6 +77,12 @@ body {
   text-align: center;
 }
 
+.categoriechoice{
+  text-decoration: none;
+  color: rgb(71, 54, 28);
+  border: 1px solid rgb(110, 108, 93);
+  padding: 10px;
+}
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .headerwebsite h1{
