@@ -476,5 +476,8 @@ body {
 }
 
 footer {
+  margin-top: 50px;
   background: rgb(42, 33, 18);
+  padding: 20px;
+  color: rgb(252, 240, 187);
 }
