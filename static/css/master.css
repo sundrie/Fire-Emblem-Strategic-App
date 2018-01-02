@@ -109,7 +109,7 @@ body {
   padding: 10px;
   margin: 0;
   position: absolute;
-  top: 40px;
+  top: 50px;
 }
 
 .headerwebsite a{
@@ -449,11 +449,15 @@ body {
 /*--------------------- Propre à la page about.html ----------------------*/
 
 .headerwebsiteabout{
-  height: 144px;
+  height: 164px;
 }
 
 .about_me {
   margin-left: 50px;
   padding: 10px;
   border: 1px solid rgb(110, 108, 93);
+}
+
+.about_1_text {
+  padding: 10px;
 }
