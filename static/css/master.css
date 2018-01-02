@@ -31,6 +31,7 @@ body {
 .ImgBackHome {
   max-width: 200px;
   padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 /*---------------- Concerne Index.html -----------------*/
@@ -44,6 +45,7 @@ body {
 
 .IndexContent {
   margin: 0 auto;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -75,6 +77,7 @@ body {
   flex-direction: column;
   margin: 0 auto;
   text-align: center;
+  padding-top: 40px;
 }
 
 .categoriechoicecontainer{
@@ -95,7 +98,7 @@ body {
 }
 
 .FEAhomecontent_p{
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -113,6 +116,7 @@ body {
   padding-left: 10px;
   text-decoration: none;
   color: rgb(252, 240, 187);
+  margin-left: 20px;
 }
 
 .headerwebsite nav a:hover {
@@ -442,7 +446,11 @@ body {
   font-size: 16px;
 }
 
-/*--------------------- Propre à la page About ----------------------*/
+/*--------------------- Propre à la page about.html ----------------------*/
+
+.headerwebsiteabout{
+  height: 144px;
+}
 
 .about_me {
   margin-left: 50px;
