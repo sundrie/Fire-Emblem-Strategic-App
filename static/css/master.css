@@ -458,6 +458,19 @@ body {
   border: 1px solid rgb(110, 108, 93);
 }
 
+.about_me h2{
+  font-family: Verdana;
+  font-weight: 100;
+  padding-bottom: 20px;
+}
+
 .about_1_text {
   padding: 10px;
+  padding-bottom: 50px;
+}
+
+.about_1_text h2 {
+  font-family: Verdana;
+  font-weight: 100;
+  padding-bottom: 20px;
 }
