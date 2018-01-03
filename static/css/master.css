@@ -44,6 +44,7 @@ body {
 }
 
 .IndexContent {
+  color: rgb(62, 41, 12);
   margin: 0 auto;
   margin-top: 40px;
   text-align: center;
@@ -51,6 +52,7 @@ body {
 
 .MainIntro {
   text-align: center;
+  color: rgb(38, 31, 29);
 }
 
 .GameChooser {
@@ -80,6 +82,10 @@ body {
   padding-top: 40px;
 }
 
+.FEAhomecontent h2{
+  color: rgb(38, 31, 29);
+}
+
 .categoriechoicecontainer{
   margin-top: 50px;
 }
@@ -98,6 +104,7 @@ body {
 }
 
 .FEAhomecontent_p{
+  color: rgb(62, 41, 12);
   margin-top: 150px;
 }
 
@@ -453,23 +460,27 @@ body {
 }
 
 .about_me {
+  color: rgb(62, 41, 12);
   margin-left: 50px;
   padding: 10px;
   border: 1px solid rgb(110, 108, 93);
 }
 
 .about_me h2{
+  color: rgb(38, 31, 29);
   font-family: Verdana;
   font-weight: 100;
   padding-bottom: 20px;
 }
 
 .about_1_text {
+  color: rgb(62, 41, 12);
   padding: 10px;
   padding-bottom: 50px;
 }
 
 .about_1_text h2 {
+  color: rgb(38, 31, 29);
   font-family: Verdana;
   font-weight: 100;
   padding-bottom: 20px;
