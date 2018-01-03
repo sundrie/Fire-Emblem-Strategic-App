@@ -6,13 +6,25 @@ $(function() {
   $.ajax({
     url: 'http://localhost/FEAcharapp/HeroesData/',
     success: function(data) {
-      console.log(data)
        // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
        $(data).find("a:contains(.txt)").each(function () {
          //this correspond aux a href trouvé qui contiennent .txt
          var filename = this.href.replace(window.location.host, "").replace("http:///", "");
          var nomPerso = filename.split(/[\/+.]/g);
-         console.log(nomPerso)
+         $("#charList").append("<li><a href=#>"+nomPerso[2]+"</a></li>");
+       });
+     }
+  });
+
+  //Concerne les enfants qui sont un cas à part
+  $.ajax({
+    url: 'http://localhost/FEAcharapp/HeroesData/Childrens',
+    success: function(data) {
+       // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
+       $(data).find("a:contains(.txt)").each(function () {
+         //this correspond aux a href trouvé qui contiennent .txt
+         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+         var nomPerso = filename.split(/[\/+.]/g);
          $("#charList").append("<li><a href=#>"+nomPerso[2]+"</a></li>");
        });
      }
