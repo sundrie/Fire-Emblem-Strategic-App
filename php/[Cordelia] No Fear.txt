@@ -1,0 +1,11 @@
+Cordelia
+Armsthrift
+(Cha*2)% de ne pas utiliser une charge d'arme
+Sol
+(Tec)% de régénérer ses HP de la moitié des dégats infligés
+Galeforce
+Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu
+Bowbreaker
+Précision et Esquive +50 si ennemi équipé d'un arc
+Tomebreaker
+Précision et Esquive +50 si ennemi équipé d'un tome

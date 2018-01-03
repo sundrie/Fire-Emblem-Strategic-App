@@ -437,6 +437,7 @@ body {
   background: rgb(117, 219, 27);
   color: rgb(85, 57, 36);
   transition: all .2s ease-in-out;
+  padding: 10px;
 }
 
 .buildsave:hover{
