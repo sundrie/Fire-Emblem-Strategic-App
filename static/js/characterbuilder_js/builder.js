@@ -82,11 +82,20 @@ $(function() {
     $("#HeroImgBuilder").attr('src','http://localhost/FEAcharapp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
     // On met le nom du perso dans l'étiquette du builder
     $(".NomHerosBuilder").html(persoChoisi);
-    // On charge toutes les datas du perso
-    $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
-      TraitementData(data);
-      //$('#message').html(data);
-    }, 'text');
+    // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
+    if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
+      // On charge toutes les datas du perso (enfant)
+      $.get('http://localhost/FEAcharapp/HeroesData/Childrens/'+persoChoisi+'.txt', function(data) {
+        TraitementData(data);
+        //$('#HeroDesc').html(data);
+      }, 'text');
+    }else{
+      // On charge toutes les datas du perso
+      $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
+        TraitementData(data);
+        //$('#HeroDesc').html(data);
+      }, 'text');
+    }
 
     // On évite la multiplication des boutons
     $('.buildsave').remove();
