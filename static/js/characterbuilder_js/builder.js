@@ -101,7 +101,7 @@ $(function() {
     }
 
     // On évite la multiplication des select
-    $("#myDady").remove();
+    $("#myParent").remove();
     // On évite la multiplication des boutons
     $('.buildsave').remove();
     // On évite la multiplication des input
@@ -119,7 +119,7 @@ $(function() {
     // Si le perso est un enfant
     if (Child == true){
       // On ajoute un select permettant de choisir le parent
-      $('.formulaireRecherche').append("<select id='myDady'><option value='default' selected>Choisissez un parent</option></select>");
+      $('.formulaireRecherche').append("<select id='myParent'><option value='default' selected>Choisissez un parent</option></select>");
       // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
       fillParentList(nameChild);
     }
@@ -345,17 +345,28 @@ $(function() {
     });
   }
 
+  // Cette fonction va nous extraire les parents du fichier parentsList.txt pour remplir le select sous la liste des personnages
   function fillParentList(nameChild){
+    var Parents;
     $.get('http://localhost/FEAcharapp/HeroesData/Tools/parentsList.txt', function(data) {
+      // On sépare chaque ligne du doc txt
       var lignes = data.split("+")
       for (var i = 0; i < lignes.length; i++) {
+        // Si on trouve le prénom du Héros parmis le tableau des lignes du doc txt
         if (lignes[i].indexOf(nameChild) !== -1){
-          console.log(lignes[i])
           // Dans le doc texte chaque parent est séparé par un '-'
-          var lesParents = lignes[i].split('-');
-          console.log(lesParents)
+          Parents = lignes[i].split('-');
         }
       }
+      // Petit fix pour enlever ce qui précède le ":" (le nom du perso) (par exemple avant ça nous faisait Lucina:Avatar(F))
+      var removeMyName = Parents[0].split(":");
+      // On écrase le contenu par notre fix
+      Parents[0] = removeMyName[1];
+
+      // Pour chaque parent on créé une option dans notre liste
+      $.each((Parents), function(i){
+        $("#myParent").append("<option value="+Parents[i]+">"+Parents[i]+"</option>")
+      })
     }, 'text');
   }
 
