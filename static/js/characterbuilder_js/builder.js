@@ -86,9 +86,10 @@ $(function() {
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
       // Pour dire à la suite du programme que c'est un enfant
       var Child = true;
+      var nameChild = persoChoisi
       // On charge toutes les datas du perso (enfant)
       $.get('http://localhost/FEAcharapp/HeroesData/Childrens/'+persoChoisi+'.txt', function(data) {
-        TraitementData(data,Child);
+        TraitementData(data,nameChild,Child);
         //$('#HeroDesc').html(data);
       }, 'text');
     }else{
@@ -114,10 +115,13 @@ $(function() {
   });
 
   // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
-  function TraitementData(dataduHeros,Child){
+  function TraitementData(dataduHeros,nameChild,Child){
     // Si le perso est un enfant
     if (Child == true){
-      $('.formulaireRecherche').append("<select id='myDady'><option value='default' selected>Choisissez un parent</option></select> ");
+      // On ajoute un select permettant de choisir le parent
+      $('.formulaireRecherche').append("<select id='myDady'><option value='default' selected>Choisissez un parent</option></select>");
+      // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
+      fillParentList(nameChild);
     }
     // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
     var dataduHerosSplit = dataduHeros.split('/');
@@ -340,5 +344,10 @@ $(function() {
 
     });
   }
+
+  function fillParentList(nameChild){
+    console.log(nameChild);
+  }
+
 
 });
