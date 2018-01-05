@@ -35,7 +35,6 @@ $(function() {
        });
      }
   });
-  console.log(itsAChild);
 
   // Ceci va gèrer l'affichage de la liste en fonction de ce que l'utilisateur tape
   var saisieUser;
@@ -72,8 +71,7 @@ $(function() {
 
     // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
-      console.log("tu est un enfant du futur :o");
-      // On charge toutes les datas du perso
+      // On charge toutes les datas du perso (enfant)
       $.get('http://localhost/FEAcharapp/HeroesData/Childrens/'+persoChoisi+'.txt', function(data) {
         gestionAffichageData(data);
         //$('#HeroDesc').html(data);
