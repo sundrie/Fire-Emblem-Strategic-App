@@ -70,9 +70,14 @@ $(function() {
     // permet de dynamiquement afficher l'image du perso choisi
     $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
 
-
-    if (persoChoisi = itsAChild){
-      
+    // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
+    if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
+      console.log("tu est un enfant du futur :o");
+      // On charge toutes les datas du perso
+      $.get('http://localhost/FEAcharapp/HeroesData/Childrens/'+persoChoisi+'.txt', function(data) {
+        gestionAffichageData(data);
+        //$('#HeroDesc').html(data);
+      }, 'text');
     }else{
       // On charge toutes les datas du perso
       $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
