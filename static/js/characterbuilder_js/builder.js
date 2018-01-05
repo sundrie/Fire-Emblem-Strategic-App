@@ -84,9 +84,11 @@ $(function() {
     $(".NomHerosBuilder").html(persoChoisi);
     // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
+      // Pour dire à la suite du programme que c'est un enfant
+      var Child = true;
       // On charge toutes les datas du perso (enfant)
       $.get('http://localhost/FEAcharapp/HeroesData/Childrens/'+persoChoisi+'.txt', function(data) {
-        TraitementData(data);
+        TraitementData(data,Child);
         //$('#HeroDesc').html(data);
       }, 'text');
     }else{
@@ -97,6 +99,8 @@ $(function() {
       }, 'text');
     }
 
+    // On évite la multiplication des select
+    $("#myDady").remove();
     // On évite la multiplication des boutons
     $('.buildsave').remove();
     // On évite la multiplication des input
@@ -110,7 +114,11 @@ $(function() {
   });
 
   // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
-  function TraitementData(dataduHeros){
+  function TraitementData(dataduHeros,Child){
+    // Si le perso est un enfant
+    if (Child == true){
+      $('.formulaireRecherche').append("<select id='myDady'><option value='default' selected>Choisissez un parent</option></select> ");
+    }
     // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
     var dataduHerosSplit = dataduHeros.split('/');
     var listeClassesBrut = dataduHerosSplit[1];
@@ -127,7 +135,6 @@ $(function() {
       type: 'GET',
       success: function(res){
         var tableau = res
-
         // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
         $('#TalentsList').append(tableau);
 
