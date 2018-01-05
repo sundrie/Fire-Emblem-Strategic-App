@@ -347,6 +347,9 @@ $(function() {
 
   function fillParentList(nameChild){
     console.log(nameChild);
+    $.get('http://localhost/FEAcharapp/HeroesData/Tools/parentsList.txt', function(data) {
+      console.log(data);
+    }, 'text');
   }
 
 
