@@ -346,9 +346,16 @@ $(function() {
   }
 
   function fillParentList(nameChild){
-    console.log(nameChild);
     $.get('http://localhost/FEAcharapp/HeroesData/Tools/parentsList.txt', function(data) {
-      console.log(data);
+      var lignes = data.split("+")
+      for (var i = 0; i < lignes.length; i++) {
+        if (lignes[i].indexOf(nameChild) !== -1){
+          console.log(lignes[i])
+          // Dans le doc texte chaque parent est séparé par un '-'
+          var lesParents = lignes[i].split('-');
+          console.log(lesParents)
+        }
+      }
     }, 'text');
   }
 
