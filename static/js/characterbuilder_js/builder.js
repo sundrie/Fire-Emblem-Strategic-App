@@ -82,16 +82,16 @@ $(function() {
     $("#HeroImgBuilder").attr('src','http://localhost/FEAcharapp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
     // On met le nom du perso dans l'étiquette du builder
     $(".NomHerosBuilder").html(persoChoisi);
+
+    // On évite la multiplication des select
+    $("#myParent").remove();
     // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
-      // Pour dire à la suite du programme que c'est un enfant
-      var Child = true;
-      var nameChild = persoChoisi
-      // On charge toutes les datas du perso (enfant)
-      $.get('http://localhost/FEAcharapp/HeroesData/Childrens/'+persoChoisi+'.txt', function(data) {
-        TraitementData(data,nameChild,Child);
-        //$('#HeroDesc').html(data);
-      }, 'text');
+      var nameChild = persoChoisi;
+      // On ajoute un select permettant de choisir le parent
+      $('.formulaireRecherche').append("<select id='myParent'><option value='default' selected>Choisissez un parent</option></select>");
+      // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
+      fillParentList(nameChild);
     }else{
       // On charge toutes les datas du perso
       $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
@@ -100,8 +100,6 @@ $(function() {
       }, 'text');
     }
 
-    // On évite la multiplication des select
-    $("#myParent").remove();
     // On évite la multiplication des boutons
     $('.buildsave').remove();
     // On évite la multiplication des input
@@ -115,17 +113,11 @@ $(function() {
   });
 
   // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
-  function TraitementData(dataduHeros,nameChild,Child){
-    // Si le perso est un enfant
-    if (Child == true){
-      // On ajoute un select permettant de choisir le parent
-      $('.formulaireRecherche').append("<select id='myParent'><option value='default' selected>Choisissez un parent</option></select>");
-      // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
-      fillParentList(nameChild);
-    }
+  function TraitementData(dataduHeros){
     // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
     var dataduHerosSplit = dataduHeros.split('/');
     var listeClassesBrut = dataduHerosSplit[1];
+
     // Dans le doc texte chaque classes est séparé par un '-'
     var listeClasses = listeClassesBrut.split('-');
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
@@ -374,21 +366,34 @@ $(function() {
   $(".formulaireRecherche").on('change','#myParent',function() {
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
-    // On envoie le nom à notre fonction pour récupérer ses data
-    getParentData(parentName);
+    // On stocke le nom de l'enfant pour charger ses datas
+    var childName = $('.NomHerosBuilder').text();
+    // On charge toutes les datas du perso (enfant)
+    $.get('http://localhost/FEAcharapp/HeroesData/Childrens/'+childName+'.txt', function(data){
+      data = data.split("/");
+      var childClass = data[1];
+      // On envoie le nom du parent, les classes de l'enfant à notre fonction pour récupérer les data du parent par la suite (à cause du asynchronous on charge les datas de l'enfant maintenant car pour l'instant nous ne l'avions pas fait (changement ordre code suite à la gestion des enfants (voir commits de la branch childrens_arc)))
+      getParentData(parentName,childClass);
+    }, 'text');
   });
 
   // Cette fonction se chargera de récupérer les data du parent choisi depuis son text file
-  function getParentData(parentName){
-    console.log(parentName);
-    // On charge toutes les datas du perso
+  function getParentData(parentName,childClass){
+    // On charge toutes les datas du parent
     $.get('http://localhost/FEAcharapp/HeroesData/'+parentName+'.txt', function(data) {
       // On sépare le data brut du txt à l'endroit du / et on écrase le data pour le transformer en tableau
       data = data.split("/");
       // De ce tableau on prend la 2ème partie qui contient nos classes
       var parentClass = data[1];
-      console.log(parentClass);
+      // On envoie les 2 listes à notre fonction
+      completeChildTalent(childClass,parentClass);
     }, 'text');
+  }
+
+  // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
+  function completeChildTalent(rawChildClass, rawParentClass){
+    console.log(rawChildClass);
+    console.log(rawParentClass);
   }
 
 });
