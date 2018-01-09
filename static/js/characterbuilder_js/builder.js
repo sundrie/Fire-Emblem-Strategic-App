@@ -374,7 +374,13 @@ $(function() {
   $(".formulaireRecherche").on('change','#myParent',function() {
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
-    console.log(parentName);
+    // On envoie le nom à notre fonction pour récupérer ses data
+    getParentData(parentName);
   });
+
+  // Cette fonction se chargera de récupérer les data du parent choisi depuis son text file
+  function getParentData(parentName){
+    console.log(parentName);
+  }
 
 });
