@@ -381,6 +381,14 @@ $(function() {
   // Cette fonction se chargera de récupérer les data du parent choisi depuis son text file
   function getParentData(parentName){
     console.log(parentName);
+    // On charge toutes les datas du perso
+    $.get('http://localhost/FEAcharapp/HeroesData/'+parentName+'.txt', function(data) {
+      // On sépare le data brut du txt à l'endroit du / et on écrase le data pour le transformer en tableau
+      data = data.split("/");
+      // De ce tableau on prend la 2ème partie qui contient nos classes
+      var parentClass = data[1];
+      console.log(parentClass);
+    }, 'text');
   }
 
 });
