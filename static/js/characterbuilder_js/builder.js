@@ -370,5 +370,9 @@ $(function() {
     }, 'text');
   }
 
+  // Lors d'un changement dans le select pour choisir le parent sous la liste des persos
+  $(".formulaireRecherche").on('change','#myParent',function() {
+    console.log("Change !");
+  });
 
 });
