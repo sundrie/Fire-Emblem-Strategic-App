@@ -83,6 +83,10 @@ $(function() {
     // On met le nom du perso dans l'étiquette du builder
     $(".NomHerosBuilder").html(persoChoisi);
 
+    // !!!!!! Pour éviter liste infinie !!!!!!!!!
+    $("#TalentsList table").remove();
+    // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
+    $("#TalentsList").hide();
     // On évite la multiplication des select
     $("#myParent").remove();
     // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
@@ -95,7 +99,13 @@ $(function() {
     }else{
       // On charge toutes les datas du perso
       $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
-        TraitementData(data);
+        // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
+        var dataduHerosSplit = data.split('/');
+        var listeClassesBrut = dataduHerosSplit[1];
+
+        // Dans le doc texte chaque classes est séparé par un '-'
+        var listeClasses = listeClassesBrut.split('-');
+        TraitementData(listeClasses);
         //$('#HeroDesc').html(data);
       }, 'text');
     }
@@ -113,15 +123,7 @@ $(function() {
   });
 
   // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
-  function TraitementData(dataduHeros){
-    // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
-    var dataduHerosSplit = dataduHeros.split('/');
-    var listeClassesBrut = dataduHerosSplit[1];
-
-    // Dans le doc texte chaque classes est séparé par un '-'
-    var listeClasses = listeClassesBrut.split('-');
-    // !!!!!! Pour éviter liste infinie !!!!!!!!!
-    $("#TalentsList table").remove();
+  function TraitementData(listeClasses){
     // On cache le bouton goback pour éviter les soucis
     $(".goback").hide();
     // $(".TalentsChoosenBuilder").html('<tbody><tr class="drop"><td>Uno</td></tr><tr class="drop"><td>Dos</td></tr><tr class="drop"><td>Tres</td></tr><tr class="drop"><td>Quatro</td><tr class="drop"><td>Cinquo</td></tr></tbody>');
@@ -133,7 +135,7 @@ $(function() {
         var tableau = res
         // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
         $('#TalentsList').append(tableau);
-
+        $('#TalentsList').show();
         //On créé 2 tableaux qui recevront les futurs skills 1 et 2
         $('#TalentsList').append("<table class='tableskill2 drag'><tbody></tbody></table>");
         $('#TalentsList').append("<table class='tableskill1 drag'><tbody></tbody></table>");
@@ -394,6 +396,9 @@ $(function() {
   function completeChildTalent(rawChildClass, rawParentClass){
     console.log(rawChildClass);
     console.log(rawParentClass);
+
+    //Une fois le traitement fini ont enverra notre liste de classe finale de l'enfant à la fonction TraitementData()
+    // TraitementData(listeClassesEnfantsFinale);
   }
 
 });
