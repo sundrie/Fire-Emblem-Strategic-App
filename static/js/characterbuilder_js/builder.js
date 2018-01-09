@@ -394,8 +394,12 @@ $(function() {
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
   function completeChildTalent(rawChildClass, rawParentClass){
-    console.log(rawChildClass);
-    console.log(rawParentClass);
+    // On stocke chaque classes séparé par - dans un tableau
+    var listeClassesChild = rawChildClass.split('-');
+    var listeClassesParent = rawParentClass.split('-');
+
+    console.log(listeClassesChild);
+    console.log(listeClassesParent);
 
     //Une fois le traitement fini ont enverra notre liste de classe finale de l'enfant à la fonction TraitementData()
     // TraitementData(listeClassesEnfantsFinale);
