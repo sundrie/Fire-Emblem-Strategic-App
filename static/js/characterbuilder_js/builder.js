@@ -372,7 +372,9 @@ $(function() {
 
   // Lors d'un changement dans le select pour choisir le parent sous la liste des persos
   $(".formulaireRecherche").on('change','#myParent',function() {
-    console.log("Change !");
+    // On récupère le nom du parent choisi dans la liste
+    var parentName = $(this).val();
+    console.log(parentName);
   });
 
 });
