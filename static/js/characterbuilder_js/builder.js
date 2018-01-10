@@ -431,7 +431,7 @@ $(function() {
     console.log(listeClassesParent);
 
     // On transmet notre liste à notre fonction fait tout qui va faire du nettoyage
-    var parentClassClean = listCleaner(listeClassesParent);
+    var parentClassClean = listCleaner(listeClassesParent,childMale,childFemale,parentMale,parentFemale);
 
     console.log(parentClassClean)
 
@@ -449,11 +449,33 @@ $(function() {
   }
 
   // Cette fonction va s'occuper de nettoyer les incohérences dût au règles du jeu (Une femme dans le jeu ne peut devenir barbarian par exemple) et nous renvoyer la liste corrigée
-  function listCleaner(listParent){
-    if (listParent.indexOf("Priest")>=0){
-      listParent.splice($.inArray("Priest", listParent),1);
-      listParent.push("Cleric");
+  function listCleaner(listParent,childMale,childFemale,parentMale,parentFemale){
+    /**
+     * liste des classes à Changer :
+     Priest <=> Cleric , War Monk <=> War Cleric
+     * liste des classes M only :
+     Barbarian , Berserker , Fighter , Warrior , Villager , Dread Fighter
+     * liste des classes F only :
+     Troubadour , Valkyrie , Pegasus Knight , Falcon Knight , Dark Flier , Manakete , Bride
+    */
+    // Ceci va supprimer la dernière classe (Bride pour parent F et Dread Fighter pour parent M) car on les a déjà inclus dans les classes de base des enfants
+    listParent.splice(-1,1);
+
+    if (parentMale == true){
+      if (childFemale == true){
+        if (listParent.indexOf("Priest")>=0 && listParent.indexOf("War Monk")>=0){
+          // On recherche les mot Priest et War Monk (vu qu'elles sont liées War Monk est l'une des upgrades possible de Priest) dans notre tableau pour les supprimer et push la valeur Cleric et War Cleric en remplacement
+          listParent.splice($.inArray("Priest", listParent),1);
+          listParent.push("Cleric");
+          listParent.splice($.inArray("War Monk", listParent),1);
+          listParent.push("War Cleric");
+        }
+      }
     }
+    if (parentFemale == true){
+
+    }
+
     return listParent;
 
 
