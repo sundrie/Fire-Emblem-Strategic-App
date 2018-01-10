@@ -375,12 +375,12 @@ $(function() {
       data = data.split("/");
       var childClass = data[1];
       // On envoie le nom du parent, les classes de l'enfant à notre fonction pour récupérer les data du parent par la suite (à cause du asynchronous on charge les datas de l'enfant maintenant car pour l'instant nous ne l'avions pas fait (changement ordre code suite à la gestion des enfants (voir commits de la branch childrens_arc)))
-      getParentData(parentName,childClass);
+      getParentData(childName,parentName,childClass);
     }, 'text');
   });
 
   // Cette fonction se chargera de récupérer les data du parent choisi depuis son text file
-  function getParentData(parentName,childClass){
+  function getParentData(childName,parentName,childClass){
     // On charge toutes les datas du parent
     $.get('http://localhost/FEAcharapp/HeroesData/'+parentName+'.txt', function(data) {
       // On sépare le data brut du txt à l'endroit du / et on écrase le data pour le transformer en tableau
@@ -388,12 +388,36 @@ $(function() {
       // De ce tableau on prend la 2ème partie qui contient nos classes
       var parentClass = data[1];
       // On envoie les 2 listes à notre fonction
-      completeChildTalent(childClass,parentClass);
+      completeChildTalent(childName,parentName,childClass,parentClass);
     }, 'text');
   }
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
-  function completeChildTalent(rawChildClass, rawParentClass){
+  function completeChildTalent(childName,parentName,rawChildClass, rawParentClass){
+    // Ces variables servent à déterminer qui est un Homme ou une Femme
+    var FEAMale = "Avatar(M),Basilio,Chrom,Donnel,Frederick,Gaius,Gangrel,Gregor,Henry,Kellam,Libra,Lon'zu,Priam,Ricken,Stahl,Vaike,Virion,Walhart,Yen'fay";
+    var FEAFemale = "Severa,Lucina,Noire=";
+    console.log('Nom enfant : '+childName+" - Nom parent : "+parentName);
+
+    var childMale = false;
+    var childFemale = false;
+    if((FEAMale.indexOf(childName))>=0){
+      childMale = true;
+    }else if ((FEAFemale.indexOf(childName))>=0){
+      childFemale = true;
+    }
+
+    var parentMale = false;
+    var parentFemale = false;
+    if((FEAMale.indexOf(parentName))>=0){
+      parentMale = true;
+    }else if ((FEAFemale.indexOf(parentName))>=0){
+      parentFemale = true;
+    }
+
+    console.log("parent M ? : "+parentMale+" - parent F ? : "+parentFemale);
+    console.log("enfant M ? : "+childMale+" - enfant F ? : "+childFemale);
+
     // On stocke chaque classes séparé par - dans un tableau
     var listeClassesChild = rawChildClass.split('-');
     var listeClassesParent = rawParentClass.split('-');
