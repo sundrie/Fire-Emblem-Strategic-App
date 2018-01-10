@@ -427,22 +427,22 @@ $(function() {
     // On stocke chaque classes séparé par - dans un tableau
     var listeClassesChild = rawChildClass.split('-');
     var listeClassesParent = rawParentClass.split('-');
-    console.log(listeClassesChild);
-    console.log(listeClassesParent);
+    // console.log(listeClassesChild);
+    // console.log(listeClassesParent);
 
     // On transmet notre liste à notre fonction fait tout qui va faire du nettoyage
     var parentClassClean = listCleaner(listeClassesParent,childMale,childFemale,parentMale,parentFemale);
 
-    console.log(parentClassClean)
+    //console.log(parentClassClean)
 
     for (var i = 0; i < listeClassesParent.length; i++){
       // Si la classe n'est pas déjà dans la liste des classes de l'enfant
-      if (listeClassesChild.indexOf(listeClassesParent[i])=== -1){
+      if (listeClassesChild.indexOf(parentClassClean[i])=== -1){
         // On push la classe dans les classes de l'enfant
-        listeClassesChild.push(listeClassesParent[i]);
+        listeClassesChild.push(parentClassClean[i]);
       }
     }
-    // console.log(listeClassesChild)
+    console.log(listeClassesChild)
 
     //Une fois le traitement fini ont enverra notre liste de classe finale de l'enfant à la fonction TraitementData()
     // TraitementData(listeClassesEnfantsFinale);
