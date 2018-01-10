@@ -444,8 +444,10 @@ $(function() {
     }
     console.log(listeClassesChild)
 
-    //Une fois le traitement fini ont enverra notre liste de classe finale de l'enfant à la fonction TraitementData()
-    // TraitementData(listeClassesEnfantsFinale);
+    // !!!!!! Pour éviter liste infinie !!!!!!!!!
+    $("#TalentsList table").remove();
+    //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
+    TraitementData(listeClassesChild);
   }
 
   // Cette fonction va s'occuper de nettoyer les incohérences dût au règles du jeu (Une femme dans le jeu ne peut devenir barbarian par exemple) et nous renvoyer la liste corrigée
