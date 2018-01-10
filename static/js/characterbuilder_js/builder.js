@@ -394,37 +394,52 @@ $(function() {
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
   function completeChildTalent(childName,parentName,rawChildClass, rawParentClass){
-    // Ces variables servent à déterminer qui est un Homme ou une Femme
+    // Ces variables servent à déterminer qui est un Homme ou une Femme parmis tous les personnages de Fire Emblem Awakening
     var FEAMale = "Avatar(M),Basilio,Chrom,Donnel,Frederick,Gaius,Gangrel,Gregor,Henry,Kellam,Libra,Lon'zu,Priam,Ricken,Stahl,Vaike,Virion,Walhart,Yen'fay";
     var FEAFemale = "Severa,Lucina,Noire=";
+    // Pour avoir un retour des noms et vérifier si il n'y a pas d'erreurs
     console.log('Nom enfant : '+childName+" - Nom parent : "+parentName);
 
+    // On initalise ces variables à faux, elles passeront à vrai grâce aux if et nous indiquerons si l'enfant est M ou F
     var childMale = false;
     var childFemale = false;
+
+    // On vérifie si le nom de l'enfant est dans la liste des personnages M ou F
     if((FEAMale.indexOf(childName))>=0){
       childMale = true;
-    }else if ((FEAFemale.indexOf(childName))>=0){
+    }else if((FEAFemale.indexOf(childName))>=0){
       childFemale = true;
     }
 
+    // On initalise ces variables à faux, elles passeront à vrai grâce aux if et nous indiquerons si le parent est M ou F
     var parentMale = false;
     var parentFemale = false;
+    // On vérifie si le nom du parent est dans la liste des personnages M ou F
     if((FEAMale.indexOf(parentName))>=0){
       parentMale = true;
-    }else if ((FEAFemale.indexOf(parentName))>=0){
+    }else if((FEAFemale.indexOf(parentName))>=0){
       parentFemale = true;
     }
-
+    // Pour avoir un retour et vérifier si pas de fautes
     console.log("parent M ? : "+parentMale+" - parent F ? : "+parentFemale);
     console.log("enfant M ? : "+childMale+" - enfant F ? : "+childFemale);
+
 
     // On stocke chaque classes séparé par - dans un tableau
     var listeClassesChild = rawChildClass.split('-');
     var listeClassesParent = rawParentClass.split('-');
-
     console.log(listeClassesChild);
     console.log(listeClassesParent);
+    for (var i = 0; i < listeClassesParent.length; i++){
+      // Si la classe n'est pas déjà dans la liste des classes de l'enfant
+      if (listeClassesChild.indexOf(listeClassesParent[i])=== -1){
+        // On push la classe dans les classes de l'enfant
+        listeClassesChild.push(listeClassesParent[i]);
+      }
+    }
 
+
+    console.log(listeClassesChild)
     //Une fois le traitement fini ont enverra notre liste de classe finale de l'enfant à la fonction TraitementData()
     // TraitementData(listeClassesEnfantsFinale);
   }
