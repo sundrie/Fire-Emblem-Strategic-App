@@ -424,12 +424,17 @@ $(function() {
     console.log("parent M ? : "+parentMale+" - parent F ? : "+parentFemale);
     console.log("enfant M ? : "+childMale+" - enfant F ? : "+childFemale);
 
-
     // On stocke chaque classes séparé par - dans un tableau
     var listeClassesChild = rawChildClass.split('-');
     var listeClassesParent = rawParentClass.split('-');
     console.log(listeClassesChild);
     console.log(listeClassesParent);
+
+    // On transmet notre liste à notre fonction fait tout qui va faire du nettoyage
+    var parentClassClean = listCleaner(listeClassesParent);
+
+    console.log(parentClassClean)
+
     for (var i = 0; i < listeClassesParent.length; i++){
       // Si la classe n'est pas déjà dans la liste des classes de l'enfant
       if (listeClassesChild.indexOf(listeClassesParent[i])=== -1){
@@ -437,11 +442,21 @@ $(function() {
         listeClassesChild.push(listeClassesParent[i]);
       }
     }
+    // console.log(listeClassesChild)
 
-
-    console.log(listeClassesChild)
     //Une fois le traitement fini ont enverra notre liste de classe finale de l'enfant à la fonction TraitementData()
     // TraitementData(listeClassesEnfantsFinale);
+  }
+
+  // Cette fonction va s'occuper de nettoyer les incohérences dût au règles du jeu (Une femme dans le jeu ne peut devenir barbarian par exemple) et nous renvoyer la liste corrigée
+  function listCleaner(listParent){
+    if (listParent.indexOf("Priest")>=0){
+      listParent.splice($.inArray("Priest", listParent),1);
+      listParent.push("Cleric");
+    }
+    return listParent;
+
+
   }
 
 });
