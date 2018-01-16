@@ -442,10 +442,12 @@ $(function() {
         listeClassesChild.push(parentClassClean[i]);
       }
     }
-    console.log(listeClassesChild)
+    console.log(listeClassesChild);
 
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
     $("#TalentsList table").remove();
+    // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
+    $("#TalentsList").hide();
     //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
     TraitementData(listeClassesChild);
   }
