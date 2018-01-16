@@ -352,6 +352,7 @@ $(function() {
           Parents = lignes[i].split('-');
         }
       }
+
       // Petit fix pour enlever ce qui précède le ":" (le nom du perso) (par exemple avant ça nous faisait Lucina:Avatar(F))
       var removeMyName = Parents[0].split(":");
       // On écrase le contenu par notre fix
@@ -395,8 +396,8 @@ $(function() {
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
   function completeChildTalent(childName,parentName,rawChildClass, rawParentClass){
     // Ces variables servent à déterminer qui est un Homme ou une Femme parmis tous les personnages de Fire Emblem Awakening
-    var FEAMale = "Avatar(M),Basilio,Chrom,Donnel,Frederick,Gaius,Gangrel,Gregor,Henry,Kellam,Libra,Lon'zu,Priam,Ricken,Stahl,Vaike,Virion,Walhart,Yen'fay";
-    var FEAFemale = "Severa,Lucina,Noire=";
+    var FEAMale = "Avatar(M),Basilio,Brady,Chrom,Donnel,Frederick,Gaius,Gangrel,Gerome,Gregor,Henry,Inigo,Kellam,Laurent,Libra,Lon'zu,Owain,Priam,Ricken,Stahl,Vaike,Virion,Walhart,Yarne,Yen'fay";
+    var FEAFemale = "Cynthia,Kjelle,Lucina,Nah,Noire,Severa";
     // Pour avoir un retour des noms et vérifier si il n'y a pas d'erreurs
     console.log('Nom enfant : '+childName+" - Nom parent : "+parentName);
 
