@@ -67,7 +67,7 @@ $(function() {
     //On affiche notre image précedemment caché car pas de source (icone img link perdu)
     $(".imageHeros").css("display","block");
     // permet de dynamiquement afficher l'image du perso choisi
-    $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character/'+persoChoisi+'.png');
+    $("#HeroImg").attr('src','http://localhost/FEAcharapp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
 
     // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){

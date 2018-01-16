@@ -6,7 +6,7 @@
 
 html {
   font-family: FireEmblemFont, Helvetica;
-  background: rgb(242, 217, 176);
+  background: rgb(230, 226, 226);
 }
 
 body {
@@ -215,8 +215,6 @@ body {
 /* L'image du perso*/
 .imageHeros {
   display: none;
-  max-width: 200px;
-  max-height: 200px;
 }
 
 /* Les entêtes de chaque catégories ont les masques pour éviter quels n'apparaissent au début vu que la sélection par l'utilisateur n'a pas été faite */
@@ -364,7 +362,7 @@ body {
 
 /* Customise le message qui apparait pour indiquer à l'utilisateur ce qu'il doit faire */
 .messageChooseParent{
-  font-size: 24px; 
+  font-size: 24px;
   color: rgb(85, 57, 36);
   padding: 20px 0px 20px 20px;
 }
