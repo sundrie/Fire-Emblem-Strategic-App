@@ -1,0 +1,12 @@
++Brady:Avatar(M)-Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
++Cynthia:Avatar(M)-Chrom-Frederick-Gaius-Henry
++Gerome:Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
++Inigo:Avatar(M)-Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
++Kjelle:Avatar(M)-Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
++Laurent:Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
++Lucina:Avatar(F)-Sumia-Maribelle-Sully-Olivia
++Nah:Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
++Noire:Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
++Owain:Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
++Severa:Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
++Yarne:Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry

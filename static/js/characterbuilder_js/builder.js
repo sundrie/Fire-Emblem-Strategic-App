@@ -20,6 +20,25 @@ $(function() {
      }
   });
 
+  // stocke tous les noms provenant du folder Childrens
+  var itsAChild = [];
+
+  //Concerne les enfants qui sont un cas à part
+  $.ajax({
+    url: 'http://localhost/FEAcharapp/HeroesData/Childrens',
+    success: function(data) {
+       // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
+       $(data).find("a:contains(.txt)").each(function () {
+         //this correspond aux a href trouvé qui contiennent .txt
+         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+         var nomPerso = filename.split(/[\/+.]/g);
+         $("#charList").append("<li><a href=#>"+nomPerso[2]+"</a></li>");
+         //On push le nom de l'enfant dans la variable définie plus haut
+         itsAChild.push(nomPerso[2]);
+       });
+     }
+  });
+
   $("#searchchar").on("click",function(){
     // On "nettoie" l'input
     $('#searchchar').val('');
@@ -63,11 +82,33 @@ $(function() {
     $("#HeroImgBuilder").attr('src','http://localhost/FEAcharapp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
     // On met le nom du perso dans l'étiquette du builder
     $(".NomHerosBuilder").html(persoChoisi);
-    // On charge toutes les datas du perso
-    $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
-      TraitementData(data);
-      //$('#message').html(data);
-    }, 'text');
+
+    // !!!!!! Pour éviter liste infinie !!!!!!!!!
+    $("#TalentsList table").remove();
+    // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
+    $("#TalentsList").hide();
+    // On évite la multiplication des select
+    $("#myParent").remove();
+    // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
+    if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
+      var nameChild = persoChoisi;
+      // On ajoute un select permettant de choisir le parent
+      $('.formulaireRecherche').append("<select id='myParent'><option value='default' selected>Choisissez un parent</option></select>");
+      // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
+      fillParentList(nameChild);
+    }else{
+      // On charge toutes les datas du perso
+      $.get('http://localhost/FEAcharapp/HeroesData/'+persoChoisi+'.txt', function(data) {
+        // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
+        var dataduHerosSplit = data.split('/');
+        var listeClassesBrut = dataduHerosSplit[1];
+
+        // Dans le doc texte chaque classes est séparé par un '-'
+        var listeClasses = listeClassesBrut.split('-');
+        TraitementData(listeClasses);
+        //$('#HeroDesc').html(data);
+      }, 'text');
+    }
 
     // On évite la multiplication des boutons
     $('.buildsave').remove();
@@ -82,14 +123,7 @@ $(function() {
   });
 
   // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
-  function TraitementData(dataduHeros){
-    // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
-    var dataduHerosSplit = dataduHeros.split('/');
-    var listeClassesBrut = dataduHerosSplit[1];
-    // Dans le doc texte chaque classes est séparé par un '-'
-    var listeClasses = listeClassesBrut.split('-');
-    // !!!!!! Pour éviter liste infinie !!!!!!!!!
-    $("#TalentsList table").remove();
+  function TraitementData(listeClasses){
     // On cache le bouton goback pour éviter les soucis
     $(".goback").hide();
     // $(".TalentsChoosenBuilder").html('<tbody><tr class="drop"><td>Uno</td></tr><tr class="drop"><td>Dos</td></tr><tr class="drop"><td>Tres</td></tr><tr class="drop"><td>Quatro</td><tr class="drop"><td>Cinquo</td></tr></tbody>');
@@ -99,10 +133,9 @@ $(function() {
       type: 'GET',
       success: function(res){
         var tableau = res
-
         // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
         $('#TalentsList').append(tableau);
-
+        $('#TalentsList').show();
         //On créé 2 tableaux qui recevront les futurs skills 1 et 2
         $('#TalentsList').append("<table class='tableskill2 drag'><tbody></tbody></table>");
         $('#TalentsList').append("<table class='tableskill1 drag'><tbody></tbody></table>");
@@ -304,6 +337,164 @@ $(function() {
       return false;
 
     });
+  }
+
+  // Cette fonction va nous extraire les parents du fichier parentsList.txt pour remplir le select sous la liste des personnages
+  function fillParentList(nameChild){
+    var Parents;
+    $.get('http://localhost/FEAcharapp/HeroesData/Tools/parentsList.txt', function(data) {
+      // On sépare chaque ligne du doc txt
+      var lignes = data.split("+")
+      for (var i = 0; i < lignes.length; i++) {
+        // Si on trouve le prénom du Héros parmis le tableau des lignes du doc txt
+        if (lignes[i].indexOf(nameChild) !== -1){
+          // Dans le doc texte chaque parent est séparé par un '-'
+          Parents = lignes[i].split('-');
+        }
+      }
+
+      // Petit fix pour enlever ce qui précède le ":" (le nom du perso) (par exemple avant ça nous faisait Lucina:Avatar(F))
+      var removeMyName = Parents[0].split(":");
+      // On écrase le contenu par notre fix
+      Parents[0] = removeMyName[1];
+
+      // Pour chaque parent on créé une option dans notre liste
+      $.each((Parents), function(i){
+        $("#myParent").append("<option value="+Parents[i]+">"+Parents[i]+"</option>")
+      })
+    }, 'text');
+  }
+
+  // Lors d'un changement dans le select pour choisir le parent sous la liste des persos
+  $(".formulaireRecherche").on('change','#myParent',function() {
+    // On récupère le nom du parent choisi dans la liste
+    var parentName = $(this).val();
+    // On stocke le nom de l'enfant pour charger ses datas
+    var childName = $('.NomHerosBuilder').text();
+    // On charge toutes les datas du perso (enfant)
+    $.get('http://localhost/FEAcharapp/HeroesData/Childrens/'+childName+'.txt', function(data){
+      data = data.split("/");
+      var childClass = data[1];
+      // On envoie le nom du parent, les classes de l'enfant à notre fonction pour récupérer les data du parent par la suite (à cause du asynchronous on charge les datas de l'enfant maintenant car pour l'instant nous ne l'avions pas fait (changement ordre code suite à la gestion des enfants (voir commits de la branch childrens_arc)))
+      getParentData(childName,parentName,childClass);
+    }, 'text');
+  });
+
+  // Cette fonction se chargera de récupérer les data du parent choisi depuis son text file
+  function getParentData(childName,parentName,childClass){
+    // On charge toutes les datas du parent
+    $.get('http://localhost/FEAcharapp/HeroesData/'+parentName+'.txt', function(data) {
+      // On sépare le data brut du txt à l'endroit du / et on écrase le data pour le transformer en tableau
+      data = data.split("/");
+      // De ce tableau on prend la 2ème partie qui contient nos classes
+      var parentClass = data[1];
+      // On envoie les 2 listes à notre fonction
+      completeChildTalent(childName,parentName,childClass,parentClass);
+    }, 'text');
+  }
+
+  // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
+  function completeChildTalent(childName,parentName,rawChildClass, rawParentClass){
+    // Ces variables servent à déterminer qui est un Homme ou une Femme parmis tous les personnages de Fire Emblem Awakening
+    var FEAMale = "Avatar(M),Basilio,Brady,Chrom,Donnel,Frederick,Gaius,Gangrel,Gerome,Gregor,Henry,Inigo,Kellam,Laurent,Libra,Lon'zu,Owain,Priam,Ricken,Stahl,Vaike,Virion,Walhart,Yarne,Yen'fay";
+    var FEAFemale = "Cynthia,Kjelle,Lucina,Nah,Noire,Severa";
+    // Pour avoir un retour des noms et vérifier si il n'y a pas d'erreurs
+    console.log('Nom enfant : '+childName+" - Nom parent : "+parentName);
+
+    // On initalise ces variables à faux, elles passeront à vrai grâce aux if et nous indiquerons si l'enfant est M ou F
+    var childMale = false;
+    var childFemale = false;
+
+    // On vérifie si le nom de l'enfant est dans la liste des personnages M ou F
+    if((FEAMale.indexOf(childName))>=0){
+      childMale = true;
+    }else if((FEAFemale.indexOf(childName))>=0){
+      childFemale = true;
+    }
+
+    // On initalise ces variables à faux, elles passeront à vrai grâce aux if et nous indiquerons si le parent est M ou F
+    var parentMale = false;
+    var parentFemale = false;
+    // On vérifie si le nom du parent est dans la liste des personnages M ou F
+    if((FEAMale.indexOf(parentName))>=0){
+      parentMale = true;
+    }else if((FEAFemale.indexOf(parentName))>=0){
+      parentFemale = true;
+    }
+    // Pour avoir un retour et vérifier si pas de fautes
+    console.log("parent M ? : "+parentMale+" - parent F ? : "+parentFemale);
+    console.log("enfant M ? : "+childMale+" - enfant F ? : "+childFemale);
+
+    // On stocke chaque classes séparé par - dans un tableau
+    var listeClassesChild = rawChildClass.split('-');
+    var listeClassesParent = rawParentClass.split('-');
+    // console.log(listeClassesChild);
+    // console.log(listeClassesParent);
+
+    // On transmet notre liste à notre fonction fait tout qui va faire du nettoyage
+    var parentClassClean = listCleaner(listeClassesParent,childMale,childFemale,parentMale,parentFemale);
+
+    //console.log(parentClassClean)
+
+    for (var i = 0; i < listeClassesParent.length; i++){
+      // Si la classe n'est pas déjà dans la liste des classes de l'enfant
+      if (listeClassesChild.indexOf(parentClassClean[i])=== -1){
+        // On push la classe dans les classes de l'enfant
+        listeClassesChild.push(parentClassClean[i]);
+      }
+    }
+    console.log(listeClassesChild);
+
+    // !!!!!! Pour éviter liste infinie !!!!!!!!!
+    $("#TalentsList table").remove();
+    // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
+    $("#TalentsList").hide();
+    //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
+    TraitementData(listeClassesChild);
+  }
+
+  // Cette fonction va s'occuper de nettoyer les incohérences dût au règles du jeu (Une femme dans le jeu ne peut devenir barbarian par exemple) et nous renvoyer la liste corrigée
+  function listCleaner(listParent,childMale,childFemale,parentMale,parentFemale){
+    /**
+     * liste des classes à Changer :
+     Priest <=> Cleric , War Monk <=> War Cleric
+     * liste des classes M only :
+     Barbarian , Berserker , Fighter , Warrior , Villager , Dread Fighter
+     * liste des classes F only :
+     Troubadour , Valkyrie , Pegasus Knight , Falcon Knight , Dark Flier , Manakete , Bride
+    */
+    // Ceci va supprimer la dernière classe (Bride pour parent F et Dread Fighter pour parent M) car on les a déjà inclus dans les classes de base des enfants
+    listParent.splice(-1,1);
+
+    if (parentMale == true){
+      if (childFemale == true){
+        if(listParent.indexOf("Priest")>=0){
+          // On recherche les mot Priest et War Monk (vu qu'elles sont liées War Monk est l'une des upgrades possible de Priest) dans notre tableau pour les supprimer et push la valeur Cleric et War Cleric en remplacement
+          listParent.splice($.inArray("Priest", listParent),1);
+          listParent.push("Cleric");
+          listParent.splice($.inArray("War Monk", listParent),1);
+          listParent.push("War Cleric");
+        }
+        if(listParent.indexOf("Barbarian")>=0){
+          listParent.splice($.inArray("Barbarian", listParent),1);
+          listParent.splice($.inArray("Berserker", listParent),1);
+        }
+        if (listParent.indexOf("Fighter")>=0){
+          listParent.splice($.inArray("Fighter", listParent),1);
+        }
+        // Cas spécial Warrior est une classe accessible à la fois par Barbarian et Fighter pour éviter les soucis on fait sa suppression à part plutôt que de faire comme les cas précédents
+        if (listParent.indexOf("Warrior")>=0) {
+          listParent.splice($.inArray("Warrior", listParent),1);
+        }
+      }
+    }
+    if (parentFemale == true){
+
+    }
+
+    return listParent;
+
+
   }
 
 });
