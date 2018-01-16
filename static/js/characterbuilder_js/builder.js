@@ -89,11 +89,20 @@ $(function() {
     $("#TalentsList").hide();
     // On évite la multiplication des select
     $("#myParent").remove();
+    // On évite la multiplication du message
+    $('.chooseAParent').hide();
+    $('.chooseAParent p').remove();
+
     // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
       var nameChild = persoChoisi;
       // On ajoute un select permettant de choisir le parent
       $('.formulaireRecherche').append("<select id='myParent'><option value='default' selected>Choisissez un parent</option></select>");
+
+      /* Un message qui apparait pour indiquer à l'utilisateur ce qu'il doit faire */
+      $('.chooseAParent').show();
+      $('.chooseAParent').append("<p class='messageChooseParent'>Veuillez choisir un parent dans la liste qui se trouve sous la liste des personnages pour continuer</p>");
+
       // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
       fillParentList(nameChild);
     }else{
@@ -367,6 +376,8 @@ $(function() {
 
   // Lors d'un changement dans le select pour choisir le parent sous la liste des persos
   $(".formulaireRecherche").on('change','#myParent',function() {
+
+    $('.chooseAParent').hide();
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
     // On stocke le nom de l'enfant pour charger ses datas

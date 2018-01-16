@@ -362,6 +362,13 @@ body {
 	background-color: rgb(42, 33, 18);
 }
 
+/* Customise le message qui apparait pour indiquer à l'utilisateur ce qu'il doit faire */
+.messageChooseParent{
+  font-size: 24px; 
+  color: rgb(85, 57, 36);
+  padding: 20px 0px 20px 20px;
+}
+
 .TalentsListclass .drag {
   display: inline-block;
   border : 1px solid rgb(110, 108, 93);
