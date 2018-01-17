@@ -1,10 +1,16 @@
 <?php
+  // Cette variable en cas d'erreur va contenir le message d'erreur à transmettre à l'utilisateur
+  $message;
   // Si js a créé le cookie on récupère le nom du fichier
   if(isset($_COOKIE['filename'])){
     $file = $_COOKIE['filename'].".txt";
   }
   else{
-    echo "Une erreur est survenue assurez vous que votre navigateur accepte bien les cookies sur ce site";
+    // On transmet à la page d'erreur que c'est une erreur liée aux cookies
+    $message = "error=Cookies Error";
+    // On utilise la methode GET pour transmettre notre code d'erreur
+    // code trouvé sur https://stackoverflow.com/questions/8227844/pass-data-from-one-php-page-to-another-using-header
+    header('Location: http://localhost/FEAcharapp/pages/errorpage.php?'.$message.'');
     die;
   }
 
@@ -18,10 +24,16 @@
     header('Pragma: public');
     header('Content-Length: ' . filesize($file));
     readfile($file);
+    //exécute le fichier cleartxt.php pour supprimer le fichier et éviter de surcharger notre espace avec des milliards de fichiers txt
+    include("cleartxt.php");
     exit;
   } else {
-    echo "Une erreur est survenue veuillez réessayer de recréer votre build. Si le problème persiste veuillez contacter l'admin";
+    // On transmet à la page d'erreur que c'est une erreur liée au fichier créé en lui même
+    $message = "error=Fatal error";
+    // On utilise la methode GET pour transmettre notre code d'erreur
+    // code trouvé sur https://stackoverflow.com/questions/8227844/pass-data-from-one-php-page-to-another-using-header
+    header('Location: http://localhost/FEAcharapp/pages/errorpage.php?'.$message.'');
+    die;
     die;
   }
-
 ?>

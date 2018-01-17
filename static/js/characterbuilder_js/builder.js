@@ -327,7 +327,6 @@ $(function() {
       $(chosenOnes.children('td')).each(function() {
         encoderforAJAX.push($(this).text());
       });
-
       // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
       $.ajax({
         url: 'http://localhost/FEAcharapp/php/savebuild.php',
@@ -338,13 +337,9 @@ $(function() {
           window.location.replace("http://localhost/FEAcharapp/php/userdownloadfile.php");
 
           // Pour avoir un retour du script php
-          //$('#message').html('voilà ce qui a été envoyé : '+ data);
+          // $('#message').html('voilà ce qui a été envoyé : '+ data);
         }
       });
-      // On appel notre script pour qu'il nettoie les fichiers txt (à voir une fois en ligne si cette méthode ne pose pas des problèmes mais en local ça fonctionne correctement). En l'état actuel seul le fichier que l'on créé juste après le clic reste sur le serveur
-      $.get("http://localhost/FEAcharapp/php/cleartxt.php");
-      return false;
-
     });
   }
 
