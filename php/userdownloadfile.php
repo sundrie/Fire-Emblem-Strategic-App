@@ -1,12 +1,15 @@
 <?php
+  // Cette variable en cas d'erreur va contenir le message d'erreur à transmettre à l'utilisateur
   $message;
   // Si js a créé le cookie on récupère le nom du fichier
   if(isset($_COOKIE['filename'])){
     $file = $_COOKIE['filename'].".txt";
   }
   else{
+    // On transmet à la page d'erreur que c'est une erreur liée aux cookies
     $message = "error=Cookies Error";
-    header('Location: http://localhost/FEAcharapp/pages/errorpage.php?'.$message.'');    
+    // On utilise la methode GET pour transmettre notre code d'erreur
+    header('Location: http://localhost/FEAcharapp/pages/errorpage.php?'.$message.'');
     die;
   }
 
@@ -24,7 +27,11 @@
     include("cleartxt.php");
     exit;
   } else {
-    echo "Une erreur est survenue veuillez réessayer de recréer votre build. Si le problème persiste veuillez contacter l'admin";
+    // On transmet à la page d'erreur que c'est une erreur liée au fichier créé en lui même
+    $message = "error=Fatal error";
+    // On utilise la methode GET pour transmettre notre code d'erreur
+    header('Location: http://localhost/FEAcharapp/pages/errorpage.php?'.$message.'');
+    die;
     die;
   }
 ?>

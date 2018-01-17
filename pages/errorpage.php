@@ -17,14 +17,18 @@
       </nav>
     </header>
     <div class="wrapper">
-      <p><?php
-			// var_dump($_GET);
-			if ($_GET['error']=='Cookies Error') {
-				echo "Une erreur est survenue assurez vous que votre navigateur accepte bien les cookies sur ce site.";
-			}else{
-				die;
-			}
-			?></p>
-    </div>
+      <p>
+				<?php
+					// Si notre page php userdownloadfile.php nous a transmis que l'erreur venait des cookies alors on affiche le message d'erreur si dessous
+					if ($_GET['error']=='Cookies Error') {
+						echo "Une erreur est survenue assurez vous que votre navigateur accepte bien les cookies sur ce site.";
+					}elseif ($_GET['error']=='Fatal error') {
+						echo "Une erreur est survenue lors de la génération de votre fichier. Réessayez si le problème persiste à ce moment contactez l'admin du site";
+					}else{
+						die;
+					}
+				?>
+			</p>
+  	</div>
 	</body>
 </html>
