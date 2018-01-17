@@ -1,10 +1,12 @@
 <?php
+  $message;
   // Si js a créé le cookie on récupère le nom du fichier
   if(isset($_COOKIE['filename'])){
     $file = $_COOKIE['filename'].".txt";
   }
   else{
-    echo "Une erreur est survenue assurez vous que votre navigateur accepte bien les cookies sur ce site";
+    $message = "error=Cookies Error";
+    header('Location: http://localhost/FEAcharapp/pages/errorpage.php?'.$message.'');    
     die;
   }
 
