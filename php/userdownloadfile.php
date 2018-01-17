@@ -18,10 +18,11 @@
     header('Pragma: public');
     header('Content-Length: ' . filesize($file));
     readfile($file);
+    //exécute le fichier cleartxt.php pour supprimer le fichier et éviter de surcharger notre espace avec des milliards de fichiers txt
+    include("cleartxt.php");
     exit;
   } else {
     echo "Une erreur est survenue veuillez réessayer de recréer votre build. Si le problème persiste veuillez contacter l'admin";
     die;
   }
-
 ?>
