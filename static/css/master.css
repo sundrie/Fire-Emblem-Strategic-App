@@ -514,3 +514,13 @@ footer a{
   font-family: Helvetica;
   font-weight: 100;
 }
+
+/* ------------------ Propre à la page errorpage.php -------------------------*/
+
+.errormessage{
+  padding-top: 100px;
+  /* margin: 0 auto; */
+  text-align: center;
+  font-size: 24px;
+  color: red;
+}

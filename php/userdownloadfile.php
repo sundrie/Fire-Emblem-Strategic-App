@@ -9,6 +9,7 @@
     // On transmet à la page d'erreur que c'est une erreur liée aux cookies
     $message = "error=Cookies Error";
     // On utilise la methode GET pour transmettre notre code d'erreur
+    // code trouvé sur https://stackoverflow.com/questions/8227844/pass-data-from-one-php-page-to-another-using-header
     header('Location: http://localhost/FEAcharapp/pages/errorpage.php?'.$message.'');
     die;
   }
@@ -30,6 +31,7 @@
     // On transmet à la page d'erreur que c'est une erreur liée au fichier créé en lui même
     $message = "error=Fatal error";
     // On utilise la methode GET pour transmettre notre code d'erreur
+    // code trouvé sur https://stackoverflow.com/questions/8227844/pass-data-from-one-php-page-to-another-using-header
     header('Location: http://localhost/FEAcharapp/pages/errorpage.php?'.$message.'');
     die;
     die;
