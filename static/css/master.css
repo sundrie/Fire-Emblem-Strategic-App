@@ -215,6 +215,13 @@ body {
 /* L'image du perso*/
 .imageHeros {
   display: none;
+  width: 150px;
+  height: 380px;
+}
+
+.HeroText{
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* Les entêtes de chaque catégories ont les masques pour éviter quels n'apparaissent au début vu que la sélection par l'utilisateur n'a pas été faite */
@@ -228,6 +235,7 @@ body {
 
 /* Le contenu généré dynamiquement grâce à jQuery qui donne la description du perso, ses classes */
 .dynamicContent {
+  display: flex;
   color: rgb(62, 41, 12);
 }
 /*--------------------- Propre à la page Builder ----------------------*/
