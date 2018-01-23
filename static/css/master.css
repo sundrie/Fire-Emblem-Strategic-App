@@ -17,6 +17,7 @@ body {
 .wrapper {
   display : flex;
   padding: 10px;
+  justify-content: center;
 }
 
 .headerwebsite{
@@ -145,7 +146,7 @@ body {
 }
 
 .formulaireRecherche {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .charaSearch {
@@ -375,14 +376,6 @@ body {
   padding: 20px 0px 20px 20px;
 }
 
-.TalentsListclass .drag {
-  display: inline-block;
-  border : 1px solid rgb(110, 108, 93);
-  border-top: 0; /* Evite la superposition des borders */
-  border-left: 0; /* Evite la superposition des borders */
-  border-collapse: collapse;
-}
-
 /* C'est la div qui contient nos classes dispo pour le perso */
 .TalentsListclass {
   margin-left: 10px;
@@ -393,6 +386,14 @@ body {
   overflow: auto;
   border-collapse: collapse;
   background: rgb(252, 240, 187);
+}
+
+.TalentsListclass .drag {
+  display: inline-block;
+  border : 1px solid rgb(110, 108, 93);
+  border-top: 0; /* Evite la superposition des borders */
+  border-left: 0; /* Evite la superposition des borders */
+  border-collapse: collapse;
 }
 
 .TalentsListclass table tr {
@@ -423,6 +424,10 @@ body {
 /* Pour mettre le tableau skill 2 en dernier */
 .tableskill2{
   order: 2;
+}
+
+.tableskill1 .drag:last-child{
+  border-bottom: 0; /* Empêche le stack des borders */
 }
 
 /* Le style de la classe de la croix pour retirer le talent de la zone de drop */
@@ -531,8 +536,12 @@ footer a{
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 */
 
-/* C'est à partir de 1465px que la barre horizontale apparait sur notre liste des talents ce qui indique que à partir de là notre liste va avoir des soucis */
-/* (A vérifier une fois sur plus grand écran) */
+/*
+-------------------------------------------------
+ deuxième level affichage Le 640px est purement arbitraire pour l'instant
+-------------------------------------------------
+*/
+/* C'est à partir de 1465px que la barre horizontale apparait sur notre liste des talents ce qui indique que à partir de là notre liste va avoir des soucis (A vérifier une fois sur plus grand écran) */
 @media (min-width: 1070px) and (max-width: 1465px){
 
   html{
@@ -540,16 +549,12 @@ footer a{
     background:rgb(98, 198, 105);
   }
 
-  .wrapper{
-    justify-content: center;
-  }
-
   .charaSearch {
-    width: 125px;
+    width: 130px;
   }
 
   .listeHeros {
-    width: 125px;
+    width: 130px;
   }
 
   .HeroImgBuilderContainer{
@@ -593,6 +598,27 @@ footer a{
 
   .TalentsCardContainer{
     margin-right: 10px;
+  }
+
+  .TalentsListclass{
+    max-width: 395px;
+  }
+}
+
+
+/*
+-------------------------------------------------
+ troisième level affichage Le 640px est purement arbitraire pour l'instant
+-------------------------------------------------
+*/
+@media (min-width: 640px) and (max-width: 1069px) {
+
+  html {
+    background: rgb(241, 142, 94);
+  }
+
+  .wrapper{
+    flex-direction: column;
   }
 
 }
