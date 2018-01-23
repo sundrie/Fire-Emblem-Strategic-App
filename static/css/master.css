@@ -533,7 +533,7 @@ footer a{
 
 /* C'est à partir de 1465px que la barre horizontale apparait sur notre liste des talents ce qui indique que à partir de là notre liste va avoir des soucis */
 /* (A vérifier une fois sur plus grand écran) */
-@media (max-width:1465px) {
+@media (min-width: 1070px) and (max-width: 1465px){
 
   html{
     /* Juste pour avoir un retour plus explicite */
