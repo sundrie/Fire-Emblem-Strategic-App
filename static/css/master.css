@@ -621,4 +621,15 @@ footer a{
     flex-direction: column;
   }
 
+  /* On modifie l'ordre pour que les 2 listes se regroupent */
+  .TalentsListclass{
+    order: 1;
+  }
+  .MainContent{
+    order: 2;
+  }
+
+  .formulaireRecherche {
+    width: 250px;
+  }  
 }
