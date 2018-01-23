@@ -540,6 +540,10 @@ footer a{
     background:rgb(98, 198, 105);
   }
 
+  .wrapper{
+    justify-content: center;
+  }
+
   .charaSearch {
     width: 125px;
   }
@@ -547,5 +551,48 @@ footer a{
   .listeHeros {
     width: 125px;
   }
-  
+
+  .HeroImgBuilderContainer{
+    min-width: 100px;
+    min-height: 250px;
+    max-height: 250px;
+    /* display: none; */
+  }
+
+  .imageHerosBuilder {
+    max-width: 100px;
+  }
+
+  .HeroBuildCard{
+    min-width: 500px;
+    max-width: 500px;
+    max-height: 1080px;
+  }
+
+  /* Le tableau pour recevoir les talents choisis */
+  .TalentsChoosenBuilder {
+    min-width: 375px;
+    max-width: 375px;
+  }
+
+  .TalentsChoosenBuilder tr{
+    min-width: 375px;
+    max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+  }
+
+  .TalentsListclass table tr {
+    min-width: 375px;
+    max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsChoosenBuilder td */
+  }
+
+  .TalentsChoosenBuilder td:nth-child(2){
+    padding-left: 5px;
+    max-width: 360px;
+    min-width: 360px;
+  }
+
+  .TalentsCardContainer{
+    margin-right: 10px;
+  }
+
 }
