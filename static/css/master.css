@@ -557,6 +557,10 @@ footer a{
     width: 130px;
   }
 
+  .myParentclass {
+    width: 130px;
+  }
+
   .HeroImgBuilderContainer{
     min-width: 100px;
     min-height: 250px;
@@ -631,5 +635,11 @@ footer a{
 
   .formulaireRecherche {
     width: 250px;
-  }  
+  }
+
+  .formulaireRecherche *, .TalentsListclass{
+    background: hotpink;
+    flex-direction: row;
+  }
+
 }

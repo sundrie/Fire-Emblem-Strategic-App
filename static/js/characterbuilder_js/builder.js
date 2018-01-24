@@ -97,7 +97,7 @@ $(function() {
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
       var nameChild = persoChoisi;
       // On ajoute un select permettant de choisir le parent
-      $('.formulaireRecherche').append("<select id='myParent'><option value='default' selected>Choisissez un parent</option></select>");
+      $('.formulaireRecherche').append("<select id='myParent' class='myParentclass'><option value='default' selected>Choisir parent</option></select>");
 
       /* Un message qui apparait pour indiquer à l'utilisateur ce qu'il doit faire */
       $('.chooseAParent').show();
