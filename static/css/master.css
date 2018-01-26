@@ -626,6 +626,7 @@ footer a{
   /* On modifie l'ordre pour que les 2 listes se regroupent */
   .TalentsListclass{
     order: 1;
+    margin: 0 auto;
   }
   .MainContent{
     order: 2;
@@ -634,11 +635,6 @@ footer a{
   .formulaireRecherche {
     width: 200px;
     margin: 0 auto;
-  }
-
-  .formulaireRecherche *, .TalentsListclass{
-    background: hotpink;
-    flex-direction: row;
   }
   .HeroBuildCard{
     margin: 0 auto;
