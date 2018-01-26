@@ -608,7 +608,7 @@ footer a{
  troisième level affichage Le 400px est purement arbitraire pour l'instant et sert juste de test
 -------------------------------------------------
 */
-/* Changer à 520px */
+/* Changer à 520px une fois test finis */
 @media (min-width: 400px) and (max-width: 1069px) {
 
   html {
@@ -640,6 +640,11 @@ footer a{
     background: hotpink;
     flex-direction: row;
   }
+  .HeroBuildCard{
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
   /* A partir de cette taille notre carte Heros non réduite ne passe plus donc on switch à celle faite précedemment */
   @media (max-width: 800px){
     /* La carte où on place les talents choisis */
