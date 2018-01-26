@@ -549,73 +549,67 @@ footer a{
     background:rgb(98, 198, 105);
   }
 
+  /* concerne le champ de recherche, la liste des héros et le select du choix de parent */
   .charaSearch {
     width: 130px;
   }
-
   .listeHeros {
     width: 130px;
   }
-
   .myParentclass {
     width: 130px;
   }
 
-  .HeroImgBuilderContainer{
-    min-width: 100px;
-    min-height: 250px;
-    max-height: 250px;
-    /* display: none; */
-  }
-
-  .imageHerosBuilder {
-    max-width: 100px;
-  }
-
+  /* La carte où on place les talents choisis */
   .HeroBuildCard{
     min-width: 500px;
     max-width: 500px;
     max-height: 1080px;
   }
-
+  .HeroImgBuilderContainer{
+    min-width: 100px;
+    min-height: 250px;
+    max-height: 250px;
+  }
+  .imageHerosBuilder {
+    max-width: 100px;
+  }
+  .TalentsCardContainer{
+    margin-right: 10px;
+  }
   /* Le tableau pour recevoir les talents choisis */
   .TalentsChoosenBuilder {
     min-width: 375px;
     max-width: 375px;
   }
-
   .TalentsChoosenBuilder tr{
     min-width: 375px;
     max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
   }
-
-  .TalentsListclass table tr {
-    min-width: 375px;
-    max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsChoosenBuilder td */
-  }
-
   .TalentsChoosenBuilder td:nth-child(2){
     padding-left: 5px;
     max-width: 360px;
     min-width: 360px;
   }
 
-  .TalentsCardContainer{
-    margin-right: 10px;
-  }
-
+  /* Le tableau listant les talents choisissables */
   .TalentsListclass{
     max-width: 395px;
+  }
+  .TalentsListclass table tr {
+    min-width: 375px;
+    max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsChoosenBuilder td */
   }
 }
 
 
 /*
 -------------------------------------------------
- troisième level affichage Le 640px est purement arbitraire pour l'instant
+ troisième level affichage Le 400px est purement arbitraire pour l'instant et sert juste de test
 -------------------------------------------------
 */
-@media (min-width: 640px) and (max-width: 1069px) {
+/* Changer à 520px */
+@media (min-width: 400px) and (max-width: 1069px) {
 
   html {
     background: rgb(241, 142, 94);
@@ -645,6 +639,42 @@ footer a{
   .formulaireRecherche *, .TalentsListclass{
     background: hotpink;
     flex-direction: row;
+  }
+  /* A partir de cette taille notre carte Heros non réduite ne passe plus donc on switch à celle faite précedemment */
+  @media (max-width: 800px){
+    /* La carte où on place les talents choisis */
+    .HeroBuildCard{
+      min-width: 500px;
+      max-width: 500px;
+      max-height: 1080px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .HeroImgBuilderContainer{
+      min-width: 100px;
+      min-height: 250px;
+      max-height: 250px;
+    }
+    .imageHerosBuilder {
+      max-width: 100px;
+    }
+    .TalentsCardContainer{
+      margin-right: 10px;
+    }
+    /* Le tableau pour recevoir les talents choisis */
+    .TalentsChoosenBuilder {
+      min-width: 375px;
+      max-width: 375px;
+    }
+    .TalentsChoosenBuilder tr{
+      min-width: 375px;
+      max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+    }
+    .TalentsChoosenBuilder td:nth-child(2){
+      padding-left: 5px;
+      max-width: 360px;
+      min-width: 360px;
+    }
   }
 
   /* ~~~~~~~~~ page about.html ~~~~~~~~~~*/
