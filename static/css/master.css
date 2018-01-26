@@ -621,6 +621,10 @@ footer a{
     background: rgb(241, 142, 94);
   }
 
+  .headerwebsite {
+    font-size: 14px;
+  }
+
   .wrapper{
     flex-direction: column;
   }
@@ -634,7 +638,8 @@ footer a{
   }
 
   .formulaireRecherche {
-    width: 250px;
+    width: 200px;
+    margin: 0 auto;
   }
 
   .formulaireRecherche *, .TalentsListclass{
