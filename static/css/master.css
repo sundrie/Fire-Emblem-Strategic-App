@@ -618,6 +618,12 @@ footer a{
   .headerwebsite {
     font-size: 14px;
   }
+  /* C'est à partir de cette résolution que la localisation de la page touche la navigation */
+  @media (max-width: 625px){
+    .headerwebsite nav{
+      margin-top: 40px;
+    }
+  }
 
   .wrapper{
     flex-direction: column;
