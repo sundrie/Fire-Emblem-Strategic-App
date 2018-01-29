@@ -623,11 +623,10 @@ footer a{
 
 /*
 -------------------------------------------------
- troisième level affichage Le 400px est purement arbitraire pour l'instant et sert juste de test
+ troisième level affichage
 -------------------------------------------------
 */
-/* Changer à 520px une fois test finis */
-@media (min-width: 400px) and (max-width: 1069px) {
+@media (min-width: 520px) and (max-width: 1069px) {
 
   html {
     background: rgb(241, 142, 94);
@@ -726,5 +725,32 @@ footer a{
     max-width: 600px;
     margin: 0 auto;
   }
+
+}
+
+/*
+-------------------------------------------------
+ quatrième level affichage
+-------------------------------------------------
+*/
+/* Résolution smartphone*/
+@media (min-width: 300px) and (max-width: 519px) {
+  html{
+    background: rgb(224, 89, 89);
+  }
+  
+  /* Concerne index.html */
+  .FELogo{
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .IndexContent{
+    max-width: 300px;
+  }
+  .FireEmblemThumbnail {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
 
 }
