@@ -849,5 +849,37 @@ footer a{
     min-width: 360px;
   }
 
+  @media (max-width:510px){
+    /* La carte où on place les talents choisis */
+    .HeroBuildCard{
+      min-width: 200px;
+      max-width: 320px;
+      max-height: 1080px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .HeroImgBuilderContainer{
+      /* On masque l'image pour économiser 100px (ce qui n'est pas rien quand on a vraiment pas grande largeur)*/
+      display: none;
+    }
+    .TalentsCardContainer{
+      margin-right: 10px;
+    }
+    /* Le tableau pour recevoir les talents choisis */
+    .TalentsChoosenBuilder {
+      min-width: 320px;
+      max-width: 320px;
+    }
+    .TalentsChoosenBuilder tr{
+      min-width: 320px;
+      max-width: 320px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+    }
+    .TalentsChoosenBuilder td:nth-child(2){
+      padding-left: 5px;
+      max-width: 320px;
+      min-width: 320px;
+    }
+  }
+
 
 }
