@@ -594,7 +594,6 @@ footer a{
     max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
   }
   .TalentsChoosenBuilder td:nth-child(2){
-    padding-left: 5px;
     max-width: 360px;
     min-width: 360px;
   }
@@ -706,7 +705,6 @@ footer a{
       max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
     }
     .TalentsChoosenBuilder td:nth-child(2){
-      padding-left: 5px;
       max-width: 360px;
       min-width: 360px;
     }
@@ -844,7 +842,6 @@ footer a{
     max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
   }
   .TalentsChoosenBuilder td:nth-child(2){
-    padding-left: 5px;
     max-width: 360px;
     min-width: 360px;
   }
@@ -875,9 +872,44 @@ footer a{
       max-width: 320px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
     }
     .TalentsChoosenBuilder td:nth-child(2){
-      padding-left: 5px;
       max-width: 320px;
       min-width: 320px;
+    }
+    /* Pour gérer l'affichage du tableau listant tous les talents*/
+    @media (max-width:440px) {
+      /* C'est la div qui contient nos classes dispo pour le perso */
+      .TalentsListclass {
+        max-width: 320px;
+        max-height: 550px;
+      }
+      .TalentsListclass .drag *{
+        font-size: 10px;
+      }
+      /* Ceci cible la première td de chaque tr dans la colonne de droite (l'image et nom du talent)*/
+      .TalentsListclass tr td:first-child{
+        min-width: 105px;
+      }
+      .TalentsListclass table tr {
+        min-width: 320px;
+        max-width: 320px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsChoosenBuilder td */
+      }
+
+      /* Le tableau pour recevoir les talents choisis */
+      .TalentsChoosenBuilder {
+        min-width: 300px;
+        max-width: 300px;
+      }
+      .TalentsChoosenBuilder td{
+        font-size: 10px;
+      }
+      .TalentsChoosenBuilder td:nth-child(2){
+        padding-left: 0px;
+        max-width: 150px;
+        min-width: 150px;
+      }
+      .namefilebuildsave {
+        width: 280px;
+      }
     }
   }
 
