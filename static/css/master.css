@@ -784,7 +784,13 @@ footer a{
     }
   }
 
-  
+  /* Concerne la page about.html */
+  .wrapperabout {
+    flex-direction: column;
+  }
+  .about_me {
+    margin-left: 0;
+  }
 
 
 
