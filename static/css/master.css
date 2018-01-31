@@ -550,12 +550,6 @@ footer a{
 */
 /* C'est à partir de 1465px que la barre horizontale apparait sur notre liste des talents ce qui indique que à partir de là notre liste va avoir des soucis (A vérifier une fois sur plus grand écran) */
 @media (min-width: 1070px) and (max-width: 1465px){
-
-  html{
-    /* Juste pour avoir un retour plus explicite */
-    background:rgb(98, 198, 105);
-  }
-
   /* concerne le champ de recherche, la liste des héros et le select du choix de parent */
   .charaSearch {
     width: 130px;
@@ -626,11 +620,6 @@ footer a{
 -------------------------------------------------
 */
 @media (min-width: 520px) and (max-width: 1069px) {
-
-  html {
-    background: rgb(241, 142, 94);
-  }
-
   .headerwebsite {
     font-size: 14px;
   }
@@ -733,10 +722,6 @@ footer a{
 */
 /* Résolution smartphone*/
 @media (min-width: 300px) and (max-width: 519px) {
-  html{
-    background: rgb(224, 89, 89);
-  }
-
   .headerwebsite {
     display: flex;
     flex-direction: column;

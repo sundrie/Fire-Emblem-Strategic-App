@@ -405,7 +405,7 @@ $(function() {
     var FEAMale = "Avatar(M),Basilio,Brady,Chrom,Donnel,Frederick,Gaius,Gangrel,Gerome,Gregor,Henry,Inigo,Kellam,Laurent,Libra,Lon'zu,Owain,Priam,Ricken,Stahl,Vaike,Virion,Walhart,Yarne,Yen'fay";
     var FEAFemale = "Cynthia,Kjelle,Lucina,Nah,Noire,Severa";
     // Pour avoir un retour des noms et vérifier si il n'y a pas d'erreurs
-    console.log('Nom enfant : '+childName+" - Nom parent : "+parentName);
+    // console.log('Nom enfant : '+childName+" - Nom parent : "+parentName);
 
     // On initalise ces variables à faux, elles passeront à vrai grâce aux if et nous indiquerons si l'enfant est M ou F
     var childMale = false;
@@ -428,8 +428,8 @@ $(function() {
       parentFemale = true;
     }
     // Pour avoir un retour et vérifier si pas de fautes
-    console.log("parent M ? : "+parentMale+" - parent F ? : "+parentFemale);
-    console.log("enfant M ? : "+childMale+" - enfant F ? : "+childFemale);
+    // console.log("parent M ? : "+parentMale+" - parent F ? : "+parentFemale);
+    // console.log("enfant M ? : "+childMale+" - enfant F ? : "+childFemale);
 
     // On stocke chaque classes séparé par - dans un tableau
     var listeClassesChild = rawChildClass.split('-');
@@ -449,7 +449,7 @@ $(function() {
         listeClassesChild.push(parentClassClean[i]);
       }
     }
-    console.log(listeClassesChild);
+    // console.log(listeClassesChild);
 
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
     $("#TalentsList table").remove();
