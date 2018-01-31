@@ -738,7 +738,29 @@ footer a{
   html{
     background: rgb(224, 89, 89);
   }
-  
+
+  .headerwebsite {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+  }
+  .ImgBackHome {
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .headerwebsite h1 {
+    position: inherit; /* Plus tôt dans le code on avait mis un absolute de top:50px  */
+  }
+  .headerwebsite nav {
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+  .headerwebsite a{
+    margin: 0;
+  }
+
   /* Concerne index.html */
   .FELogo{
     max-width: 300px;
@@ -751,6 +773,8 @@ footer a{
     max-width: 250px;
     margin: 0 auto;
   }
+
+
 
 
 }
