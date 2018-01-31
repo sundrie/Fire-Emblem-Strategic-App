@@ -774,6 +774,17 @@ footer a{
     margin: 0 auto;
   }
 
+  /* Concerne la page FEAHome.html */
+  /* A partir de cette taille nos liens se chevauchent, donc on les mets en affichage colonne plutôt que en ligne (en vrai c'est à 403 mais c'est classe de mettre 404)*/
+  @media (max-width: 404px){
+    .categoriechoicecontainer a {
+      display: block;
+      margin-bottom: 10px;
+      margin: 0 auto;
+    }
+  }
+
+  
 
 
 
