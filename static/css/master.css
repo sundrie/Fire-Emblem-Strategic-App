@@ -767,7 +767,8 @@ footer a{
     margin: 0 auto;
   }
   .IndexContent{
-    max-width: 300px;
+    display: flex;
+    flex-direction: column;
   }
   .FireEmblemThumbnail {
     max-width: 250px;
@@ -779,8 +780,8 @@ footer a{
   @media (max-width: 404px){
     .categoriechoicecontainer a {
       display: block;
-      margin-bottom: 10px;
       margin: 0 auto;
+      margin-bottom: 10px;
     }
   }
 
@@ -792,6 +793,61 @@ footer a{
     margin-left: 0;
   }
 
+  /* Concerne la page characterbuilder.html */
+  .wrapper{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .formulaireRecherche {
+    margin: 0 auto;
+  }
+  .myParentclass {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  /* On modifie l'ordre pour que les 2 listes se regroupent */
+  .TalentsListclass{
+    order: 1;
+    margin: 0 auto;
+  }
+  .MainContent{
+    order: 2;
+  }
+
+  /* La carte où on place les talents choisis */
+  .HeroBuildCard{
+    min-width: 500px;
+    max-width: 500px;
+    max-height: 1080px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .HeroImgBuilderContainer{
+    min-width: 100px;
+    min-height: 250px;
+    max-height: 250px;
+  }
+  .imageHerosBuilder {
+    max-width: 100px;
+  }
+  .TalentsCardContainer{
+    margin-right: 10px;
+  }
+  /* Le tableau pour recevoir les talents choisis */
+  .TalentsChoosenBuilder {
+    min-width: 375px;
+    max-width: 375px;
+  }
+  .TalentsChoosenBuilder tr{
+    min-width: 375px;
+    max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+  }
+  .TalentsChoosenBuilder td:nth-child(2){
+    padding-left: 5px;
+    max-width: 360px;
+    min-width: 360px;
+  }
 
 
 }
