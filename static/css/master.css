@@ -912,6 +912,15 @@ footer a{
       }
     }
   }
-
+  /* Concerne la page characterinfo.html */
+  /* Au delà de 420px la lecture devient difficile avec l'image prenant presque la moitié de l'écran*/
+  @media (max-width:420px) {
+    .dynamicContent{
+      flex-direction: column;
+    }
+    .imageHeros{
+      margin: 0 auto;
+    }
+  }
 
 }
