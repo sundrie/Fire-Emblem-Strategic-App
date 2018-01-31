@@ -17,6 +17,7 @@ body {
 .wrapper {
   display : flex;
   padding: 10px;
+  justify-content: center;
 }
 
 .headerwebsite{
@@ -145,10 +146,10 @@ body {
 }
 
 .formulaireRecherche {
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
-#searchchar {
+.charaSearch {
   display: block;
   width: 200px;
   padding-top: 5px;
@@ -165,19 +166,19 @@ body {
 /* ~~~~~~~ modifie le style de la scrollbar ~~~~~~~~~~~~*/
 /* Code de base trouvé ici : https://codepen.io/devstreak/pen/dMYgeO*/
 
-#charList::-webkit-scrollbar-track
+.listeHeros::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 }
 
-#charList::-webkit-scrollbar
+.listeHeros::-webkit-scrollbar
 {
 	width: 12px;
 	background-color: #F5F5F5;
 }
 
-#charList::-webkit-scrollbar-thumb
+.listeHeros::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
@@ -186,7 +187,7 @@ body {
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-#charList {
+.listeHeros {
   margin-top: 0;
   padding: 0;
   width: 200px;
@@ -197,13 +198,13 @@ body {
   border-collapse: collapse;
 }
 
-#charList li {
+.listeHeros li {
   padding: 5px;
   background: rgb(251, 241, 216);
   border : 1px solid rgb(110, 108, 93);
 }
 
-#charList li a {
+.listeHeros li a {
   display: block;
   /*font-family: Helvetica;*/
   line-height: 20px;
@@ -237,6 +238,7 @@ body {
 .dynamicContent {
   display: flex;
   color: rgb(62, 41, 12);
+  max-width: 1000px;
 }
 /*--------------------- Propre à la page Builder ----------------------*/
 
@@ -349,19 +351,19 @@ body {
 /* ~~~~~~~ modifie le style de la scrollbar ~~~~~~~~~~~~*/
 /* Code de base trouvé ici : https://codepen.io/devstreak/pen/dMYgeO*/
 
-#TalentsList::-webkit-scrollbar-track
+.TalentsListclass::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 }
 
-#TalentsList::-webkit-scrollbar
+.TalentsListclass::-webkit-scrollbar
 {
 	width: 12px;
 	background-color: #F5F5F5;
 }
 
-#TalentsList::-webkit-scrollbar-thumb
+.TalentsListclass::-webkit-scrollbar-thumb
 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
@@ -375,14 +377,6 @@ body {
   padding: 20px 0px 20px 20px;
 }
 
-.TalentsListclass .drag {
-  display: inline-block;
-  border : 1px solid rgb(110, 108, 93);
-  border-top: 0; /* Evite la superposition des borders */
-  border-left: 0; /* Evite la superposition des borders */
-  border-collapse: collapse;
-}
-
 /* C'est la div qui contient nos classes dispo pour le perso */
 .TalentsListclass {
   margin-left: 10px;
@@ -393,6 +387,14 @@ body {
   overflow: auto;
   border-collapse: collapse;
   background: rgb(252, 240, 187);
+}
+
+.TalentsListclass .drag {
+  display: inline-block;
+  border : 1px solid rgb(110, 108, 93);
+  border-top: 0; /* Evite la superposition des borders */
+  border-left: 0; /* Evite la superposition des borders */
+  border-collapse: collapse;
 }
 
 .TalentsListclass table tr {
@@ -423,6 +425,10 @@ body {
 /* Pour mettre le tableau skill 2 en dernier */
 .tableskill2{
   order: 2;
+}
+
+.tableskill1 .drag:last-child{
+  border-bottom: 0; /* Empêche le stack des borders */
 }
 
 /* Le style de la classe de la croix pour retirer le talent de la zone de drop */
@@ -474,11 +480,15 @@ body {
   height: 164px;
 }
 
+.wrapperabout{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .about_me {
   color: rgb(62, 41, 12);
-  margin-left: 50px;
+  margin-left: 80px;
   padding: 10px;
-  border: 1px solid rgb(110, 108, 93);
 }
 
 .about_me h2{
@@ -487,7 +497,9 @@ body {
   font-weight: 100;
   padding-bottom: 20px;
 }
-
+.about_1 {
+  max-width: 1000px;
+}
 .about_1_text {
   color: rgb(62, 41, 12);
   padding: 10px;
@@ -523,4 +535,377 @@ footer a{
   text-align: center;
   font-size: 24px;
   color: red;
+}
+
+/*
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                                    RESPONSIVE
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+*/
+
+/*
+-------------------------------------------------
+ deuxième level affichage Le 640px est purement arbitraire pour l'instant
+-------------------------------------------------
+*/
+/* C'est à partir de 1465px que la barre horizontale apparait sur notre liste des talents ce qui indique que à partir de là notre liste va avoir des soucis (A vérifier une fois sur plus grand écran) */
+@media (min-width: 1070px) and (max-width: 1465px){
+  /* concerne le champ de recherche, la liste des héros et le select du choix de parent */
+  .charaSearch {
+    width: 130px;
+  }
+  .listeHeros {
+    width: 130px;
+  }
+  .myParentclass {
+    width: 130px;
+  }
+
+  /* La carte où on place les talents choisis */
+  .HeroBuildCard{
+    min-width: 500px;
+    max-width: 500px;
+    max-height: 1080px;
+  }
+  .HeroImgBuilderContainer{
+    min-width: 100px;
+    min-height: 250px;
+    max-height: 250px;
+  }
+  .imageHerosBuilder {
+    max-width: 100px;
+  }
+  .TalentsCardContainer{
+    margin-right: 10px;
+  }
+  /* Le tableau pour recevoir les talents choisis */
+  .TalentsChoosenBuilder {
+    min-width: 375px;
+    max-width: 375px;
+  }
+  .TalentsChoosenBuilder tr{
+    min-width: 375px;
+    max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+  }
+  .TalentsChoosenBuilder td:nth-child(2){
+    max-width: 360px;
+    min-width: 360px;
+  }
+
+  /* Le tableau listant les talents choisissables */
+  .TalentsListclass{
+    max-width: 395px;
+  }
+  .TalentsListclass table tr {
+    min-width: 375px;
+    max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsChoosenBuilder td */
+  }
+
+  .formulaireRecherche {
+    justify-content: center;
+  }
+  .dynamicContent {
+    max-width: 800px;
+  }
+  .wrapperabout{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+
+/*
+-------------------------------------------------
+ troisième level affichage
+-------------------------------------------------
+*/
+@media (min-width: 520px) and (max-width: 1069px) {
+  .headerwebsite {
+    font-size: 14px;
+  }
+  /* C'est à partir de cette résolution que la localisation de la page touche la navigation */
+  @media (max-width: 625px){
+    .headerwebsite nav{
+      margin-top: 40px;
+    }
+  }
+
+  .wrapper{
+    flex-direction: column;
+  }
+
+  /* On modifie l'ordre pour que les 2 listes se regroupent */
+  .TalentsListclass{
+    order: 1;
+    margin: 0 auto;
+  }
+  .MainContent{
+    order: 2;
+  }
+
+  .formulaireRecherche {
+    width: 200px;
+    margin: 0 auto;
+  }
+  .myParentclass {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .HeroBuildCard{
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .dynamicContent {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* A partir de cette taille notre carte Heros non réduite ne passe plus donc on switch à celle faite précedemment */
+  @media (max-width: 800px){
+    /* La carte où on place les talents choisis */
+    .HeroBuildCard{
+      min-width: 500px;
+      max-width: 500px;
+      max-height: 1080px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .HeroImgBuilderContainer{
+      min-width: 100px;
+      min-height: 250px;
+      max-height: 250px;
+    }
+    .imageHerosBuilder {
+      max-width: 100px;
+    }
+    .TalentsCardContainer{
+      margin-right: 10px;
+    }
+    /* Le tableau pour recevoir les talents choisis */
+    .TalentsChoosenBuilder {
+      min-width: 375px;
+      max-width: 375px;
+    }
+    .TalentsChoosenBuilder tr{
+      min-width: 375px;
+      max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+    }
+    .TalentsChoosenBuilder td:nth-child(2){
+      max-width: 360px;
+      min-width: 360px;
+    }
+  }
+
+  /* ~~~~~~~~~ page about.html ~~~~~~~~~~*/
+
+  .wrapperabout{
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about_me {
+    margin-left: 0px;
+    padding: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+}
+
+/*
+-------------------------------------------------
+ quatrième level affichage
+-------------------------------------------------
+*/
+/* Résolution smartphone*/
+@media (min-width: 300px) and (max-width: 519px) {
+  .headerwebsite {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+  }
+  .ImgBackHome {
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .headerwebsite h1 {
+    position: inherit; /* Plus tôt dans le code on avait mis un absolute de top:50px  */
+  }
+  .headerwebsite nav {
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+  .headerwebsite a{
+    margin: 0;
+  }
+
+  /* Concerne index.html */
+  .FELogo{
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .IndexContent{
+    display: flex;
+    flex-direction: column;
+  }
+  .FireEmblemThumbnail {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  /* Concerne la page FEAHome.html */
+  /* A partir de cette taille nos liens se chevauchent, donc on les mets en affichage colonne plutôt que en ligne (en vrai c'est à 403 mais c'est classe de mettre 404)*/
+  @media (max-width: 404px){
+    .categoriechoicecontainer a {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Concerne la page about.html */
+  .wrapperabout {
+    flex-direction: column;
+  }
+  .about_me {
+    margin-left: 0;
+  }
+
+  /* Concerne la page characterbuilder.html */
+  .wrapper{
+    flex-direction: column;
+    justify-content: center;
+  }
+  .formulaireRecherche {
+    margin: 0 auto;
+  }
+  .myParentclass {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  /* On modifie l'ordre pour que les 2 listes se regroupent */
+  .TalentsListclass{
+    order: 1;
+    margin: 0 auto;
+  }
+  .MainContent{
+    order: 2;
+  }
+
+  /* La carte où on place les talents choisis */
+  .HeroBuildCard{
+    min-width: 500px;
+    max-width: 500px;
+    max-height: 1080px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .HeroImgBuilderContainer{
+    min-width: 100px;
+    min-height: 250px;
+    max-height: 250px;
+  }
+  .imageHerosBuilder {
+    max-width: 100px;
+  }
+  .TalentsCardContainer{
+    margin-right: 10px;
+  }
+  /* Le tableau pour recevoir les talents choisis */
+  .TalentsChoosenBuilder {
+    min-width: 375px;
+    max-width: 375px;
+  }
+  .TalentsChoosenBuilder tr{
+    min-width: 375px;
+    max-width: 375px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+  }
+  .TalentsChoosenBuilder td:nth-child(2){
+    max-width: 360px;
+    min-width: 360px;
+  }
+
+  @media (max-width:510px){
+    /* La carte où on place les talents choisis */
+    .HeroBuildCard{
+      min-width: 200px;
+      max-width: 320px;
+      max-height: 1080px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+    .HeroImgBuilderContainer{
+      /* On masque l'image pour économiser 100px (ce qui n'est pas rien quand on a vraiment pas grande largeur)*/
+      display: none;
+    }
+    .TalentsCardContainer{
+      margin-right: 10px;
+    }
+    /* Le tableau pour recevoir les talents choisis */
+    .TalentsChoosenBuilder {
+      min-width: 320px;
+      max-width: 320px;
+    }
+    .TalentsChoosenBuilder tr{
+      min-width: 320px;
+      max-width: 320px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+    }
+    .TalentsChoosenBuilder td:nth-child(2){
+      max-width: 320px;
+      min-width: 320px;
+    }
+    /* Pour gérer l'affichage du tableau listant tous les talents*/
+    @media (max-width:440px) {
+      /* C'est la div qui contient nos classes dispo pour le perso */
+      .TalentsListclass {
+        max-width: 320px;
+        max-height: 550px;
+      }
+      .TalentsListclass .drag *{
+        font-size: 10px;
+      }
+      /* Ceci cible la première td de chaque tr dans la colonne de droite (l'image et nom du talent)*/
+      .TalentsListclass tr td:first-child{
+        min-width: 105px;
+      }
+      .TalentsListclass table tr {
+        min-width: 320px;
+        max-width: 320px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsChoosenBuilder td */
+      }
+
+      /* Le tableau pour recevoir les talents choisis */
+      .TalentsChoosenBuilder {
+        min-width: 300px;
+        max-width: 300px;
+      }
+      .TalentsChoosenBuilder td{
+        font-size: 10px;
+      }
+      .TalentsChoosenBuilder td:nth-child(2){
+        padding-left: 0px;
+        max-width: 150px;
+        min-width: 150px;
+      }
+      .namefilebuildsave {
+        width: 280px;
+      }
+    }
+  }
+  /* Concerne la page characterinfo.html */
+  /* Au delà de 420px la lecture devient difficile avec l'image prenant presque la moitié de l'écran*/
+  @media (max-width:420px) {
+    .dynamicContent{
+      flex-direction: column;
+    }
+    .imageHeros{
+      margin: 0 auto;
+    }
+  }
+
 }
