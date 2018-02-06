@@ -1,6 +1,6 @@
 <?php
 if($_POST){
-  // On récupère les datas venant de l'ajax de builder.js
+  // On récupère les datas venant de l'ajax de builder.min.js
   $build = $_POST['build'];
   $myfile = fopen("[".$build[0]."] ".$build[1].".txt", "w") or die("Unable to open file!");
 
