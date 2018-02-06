@@ -192,7 +192,7 @@ $(function() {
           if ($("tableau:contains('."+classe+"')")){
             //console.log($("#message ."+classe));
             $("#TalentsList ."+classe).show();
-            // On ajoute la classe drag pour changer les icônes du pointeur de la souris dans notre master.css
+            // On ajoute la classe drag pour changer les icônes du pointeur de la souris dans notre master.min.css
             $("#TalentsList ."+classe).addClass("drag");
             // Nous sommes obligé d'exécuter ce code ici au moment de la génération car en dehors ça ne fonctionne pas
             $("#TalentsList ."+classe).draggable({
