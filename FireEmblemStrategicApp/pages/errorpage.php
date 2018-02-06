@@ -3,18 +3,18 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="http://localhost/FEAcharapp/static/css/normalize.css">
-		<link rel="stylesheet" href="http://localhost/FEAcharapp/static/css/master.css">
+		<link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/normalize.css">
+		<link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/master.css">
 		<title></title>
 	</head>
 	<body>
     <header class="headerwebsite">
-      <a href="http://localhost/FEAcharapp/pages/FEAHome.html"><img src="http://localhost/FEAcharapp/static/img/FireEmblemAwakeningLogo.png" alt="Retour Accueil" class="ImgBackHome"></a>
+      <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/FEAHome.html"><img src="http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/FireEmblemAwakeningLogo.png" alt="Retour Accueil" class="ImgBackHome"></a>
       <h1>Fire Emblem Strategic App \ Fire Emblem Awakening \ Builder Error</h1>
       <nav>
-				<a href="http://localhost/FEAcharapp/pages/characterbuilder.html">Character Builder</a>
-        <a href="http://localhost/FEAcharapp/pages/characterinfos.html">Character Infos</a>
-        <a href="http://localhost/FEAcharapp/pages/about.html">À propos</a>
+				<a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/characterbuilder.html">Character Builder</a>
+        <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/characterinfos.html">Character Infos</a>
+        <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/about.html">À propos</a>
       </nav>
     </header>
     <div class="wrapper">
