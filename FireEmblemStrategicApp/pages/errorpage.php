@@ -33,7 +33,10 @@
 			</p>
   	</div>
 		<footer>
-      <p>Made with love by <a href="https://www.linkedin.com/in/alexandre-blin-bb637ab7/">Alexandre Blin</a></p>
+      <p>Made with love by Alexandre Blin</p>
+      <p>
+        <a href="https://www.linkedin.com/in/alexandre-blin-bb637ab7/"><i class="fab fa-linkedin"></i></a>
+      </p>
     </footer>
 	</body>
 </html>
