@@ -26,6 +26,24 @@ body {
   padding: 10px;
 }
 
+footer {
+  margin-top: 100px;
+  background: rgb(42, 33, 18);
+  padding: 20px;
+  color: rgb(252, 240, 187);
+}
+footer a{
+  text-decoration: none;
+  color: rgb(252, 240, 187);
+  font-family: Helvetica;
+  font-weight: 100;
+}
+footer i{
+  font-size: 30px;
+  padding-right: 5px;
+}
+
+
 
 
 /*L'image utilisée pour revenir à l'accueil*/
@@ -518,20 +536,6 @@ body {
   font-family: Verdana;
   font-weight: 100;
   padding-bottom: 20px;
-}
-
-footer {
-  margin-top: 100px;
-  background: rgb(42, 33, 18);
-  padding: 20px;
-  color: rgb(252, 240, 187);
-}
-
-footer a{
-  text-decoration: none;
-  color: rgb(252, 240, 187);
-  font-family: Helvetica;
-  font-weight: 100;
 }
 
 /* ------------------ Propre à la page errorpage.php -------------------------*/
