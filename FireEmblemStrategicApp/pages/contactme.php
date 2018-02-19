@@ -14,7 +14,13 @@
       <h1>Fire Emblem Strategic App \ Me contacter</h1>
     </header>
     <div class="wrapper">
-      
+      <p>Vous souhaitez me contacter directement, remplissez le formulaire ci-dessous.</p>
+      <p>N'oubliez pas d'indiquer votre adresse mail ou autres en fin de votre message pour que je puisse vous recontacter si besoin.</p>
+      <form action="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php" method="post">
+        <p>Objet de votre message : <input type="text" name="objectmsg" /></p>
+        <p>Votre message : <textarea name="textmsg" rows="8" cols="80"></textarea></p>
+        <p><input type="submit" value="OK"></p>
+      </form>
     </div>
 		<footer>
       <p>Made with love by Alexandre Blin</p>
@@ -28,3 +34,8 @@
     </footer>
 	</body>
 </html>
+<?php
+  var_dump([$_POST]);
+
+
+?>
