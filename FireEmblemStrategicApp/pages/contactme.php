@@ -36,6 +36,9 @@
 </html>
 <?php
   var_dump([$_POST]);
-
+  $to = "blin.alexandre76@gmail.com";
+  $subject = $_POST["objectmsg"];
+  $message = $_POST["textmsg"];
+  mail($to, $subject, $message);
 
 ?>
