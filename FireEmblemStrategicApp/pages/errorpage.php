@@ -40,7 +40,7 @@
 				<a href="https://github.com/sundrie"><i class="fab fa-github-square"></i></a>
 				<a href="https://www.facebook.com/alexandre.blin.18"><i class="fab fa-facebook-square"></i></a>
       </p>
-			<p><a href="#">Me contacter</a></p>
+			<p><a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php">Me contacter</a></p>
     </footer>
 	</body>
 </html>
