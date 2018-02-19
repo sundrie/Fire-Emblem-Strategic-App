@@ -42,7 +42,7 @@ footer i{
   font-size: 30px;
   padding-right: 5px;
 }
-footer i:hover{
+footer a:hover{
   color: rgba(252, 240, 187, 0.7);
 }
 
