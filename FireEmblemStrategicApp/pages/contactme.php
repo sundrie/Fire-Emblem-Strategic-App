@@ -15,9 +15,9 @@
     </header>
     <div class="wrapper">
       <p>Vous souhaitez me contacter directement, remplissez le formulaire ci-dessous.</p>
-      <p>N'oubliez pas d'indiquer votre adresse mail ou autres en fin de votre message pour que je puisse vous recontacter si besoin.</p>
       <form action="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php" method="post">
         <p>Objet de votre message : <input type="text" name="objectmsg" /></p>
+				<p>Votre adresse mail pour que je vous recontacte si besoin : <input type="email" name="email" /></p>
         <p>Votre message : <textarea name="textmsg" rows="8" cols="80"></textarea></p>
         <p><input type="submit" value="OK"></p>
       </form>
@@ -35,10 +35,13 @@
 	</body>
 </html>
 <?php
-  var_dump([$_POST]);
-  $to = "blin.alexandre76@gmail.com";
-  $subject = $_POST["objectmsg"];
-  $message = $_POST["textmsg"];
-  mail($to, $subject, $message);
+	if ($_POST) {
+		var_dump([$_POST]);
+	  $to = "blin.alexandre76@gmail.com";
+	  $subject = $_POST["objectmsg"];
+	  $message = $_POST["textmsg"];
+	  mail($to, $subject, $message);
+	}
+
 
 ?>
