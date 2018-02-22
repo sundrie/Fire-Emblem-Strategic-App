@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/normalize.css">
 		<link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/master.css">
 		<link href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/fontawesome-all.min.css" rel="stylesheet">
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<title>Fire Emblem Strategic App | Me contacter</title>
 	</head>
 	<body>
@@ -21,6 +22,7 @@
         <p>Votre message : <textarea name="textmsg" rows="8" cols="80" required></textarea></p>
         <p><input type="submit" value="Envoyer"></p>
       </form>
+			<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
     </div>
 		<footer>
       <p>Made with love by Alexandre Blin</p>
