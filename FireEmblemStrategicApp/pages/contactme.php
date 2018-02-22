@@ -20,9 +20,10 @@
         <p>Objet de votre message : <input type="text" name="objectmsg" required></p>
 				<p>Votre adresse mail pour que je vous recontacte si besoin : <input type="email" name="email" required></p>
         <p>Votre message : <textarea name="textmsg" rows="8" cols="80" required></textarea></p>
+				<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
         <p><input type="submit" value="Envoyer"></p>
       </form>
-			<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
+
     </div>
 		<footer>
       <p>Made with love by Alexandre Blin</p>
@@ -34,6 +35,11 @@
       </p>
 			<p><a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php">Me contacter</a></p>
     </footer>
+		<!-- Chargement de la librairie jQuery -->
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Chargement de la librairie jQuery UI -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<script src="http://alexandreblin.ovh/FireEmblemStrategicApp/static/js/formValidator.js" charset="utf-8"></script>
 	</body>
 </html>
 <?php
@@ -44,6 +50,8 @@
 	  $message = $_POST["textmsg"];
 		$headers = 'From: '.$_POST["email"];
 	  mail($to, $subject, $message, $headers);
+		// la réponse reCAPTCHA si l'user n'a pas cliqué et passé le test alors ça renvoie ''
+		$_POST["response"];
 	}
 
 
