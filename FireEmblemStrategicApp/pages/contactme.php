@@ -21,8 +21,10 @@
 	        <p class="p-objectmsg">Objet de votre message : <input type="text" name="objectmsg" class="class-objectmsg" required></p>
 					<p class="p-email">Votre adresse mail pour que je vous recontacte si besoin : <input type="email" name="email" class="class-email" required></p>
 	        <p class="p-textmsg">Votre message : <textarea name="textmsg" class="class-textmsg" rows="8" cols="80" required></textarea></p>
-					<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
-	        <p><input type="submit" value="Envoyer"></p>
+					<div class="validationform">
+						<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
+					</div>
+		      <p><input type="submit" value="Envoyer"></p>					
 	      </form>
 				<div id="message"></div>
 			</div>

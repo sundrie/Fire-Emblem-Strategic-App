@@ -562,7 +562,6 @@ footer a:hover{
 .contactmeexplain{
   text-align: center;
   font-size: 20px;
-  font-weight: 100;
   padding-bottom: 60px;
   padding-top: 40px;
 }
@@ -575,6 +574,10 @@ footer a:hover{
 }
 .class-textmsg{
   max-width: 600px;
+}
+.validationform{
+  display:flex;
+  justify-content: center;
 }
 
 
