@@ -559,7 +559,6 @@ footer a:hover{
   flex-direction: column;
   justify-content: center;
 }
-
 .contactmeexplain{
   text-align: center;
   font-size: 20px;
@@ -567,6 +566,15 @@ footer a:hover{
   padding-bottom: 60px;
   padding-top: 40px;
 }
+.p-objectmsg{
+  text-align: center;
+}
+.class-objectmsg{
+  min-width: 350px;
+  max-width: 350px;
+}
+
+
 
 /*
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
