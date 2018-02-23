@@ -16,7 +16,7 @@
     </header>
     <div class="wrapper">
 			<div class="contactpagemaincontent">
-	      <p>Vous souhaitez me contacter directement, remplissez le formulaire ci-dessous.</p>
+	      <p class="contactmeexplain">Vous souhaitez me contacter directement, remplissez le formulaire ci-dessous.</p>
 	      <form action="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php" method="post" id="contactForm" class="formulaireContact">
 	        <p>Objet de votre message : <input type="text" name="objectmsg" required></p>
 					<p>Votre adresse mail pour que je vous recontacte si besoin : <input type="email" name="email" required></p>
