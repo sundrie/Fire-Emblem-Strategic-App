@@ -565,7 +565,7 @@ footer a:hover{
   padding-bottom: 60px;
   padding-top: 40px;
 }
-.p-objectmsg, .p-email, .p-textmsg{
+.p-objectmsg, .p-email, .p-textmsg, .p-submitemail{
   text-align: center;
 }
 .class-objectmsg, .class-email{
@@ -578,6 +578,18 @@ footer a:hover{
 .validationform{
   display:flex;
   justify-content: center;
+}
+.submitemail{
+  padding: 20px 40px; /* 20px top et bot, 40px left et right */
+  background: rgb(252, 240, 187);
+  border: 2px solid rgb(42, 33, 18);
+  font-size: 20px;
+  color: rgb(42, 33, 18);
+}
+.submitemail:hover{
+  background: rgb(42, 33, 18);
+  color: rgb(252, 240, 187);
+  cursor: pointer;
 }
 
 

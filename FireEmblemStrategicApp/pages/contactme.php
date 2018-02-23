@@ -24,7 +24,7 @@
 					<div class="validationform">
 						<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
 					</div>
-		      <p><input type="submit" value="Envoyer"></p>					
+		      <p class="p-submitemail"><input type="submit" value="Envoyer" class="submitemail"></p>					
 	      </form>
 				<div id="message"></div>
 			</div>
