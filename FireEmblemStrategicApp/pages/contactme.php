@@ -23,10 +23,7 @@
 				<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
         <p><input type="submit" value="Envoyer"></p>
       </form>
-			<div id="message">
-
-			</div>
-
+			<div id="message"></div>
     </div>
 		<footer>
       <p>Made with love by Alexandre Blin</p>
@@ -49,12 +46,10 @@
 	if ($_POST) {
 		var_dump([$_POST]);
 	  $to = "blin.alexandre76@gmail.com";
-	  $subject = $_POST["objectmsg"];
+	  $subject = $_POST["objmsg"];
 	  $message = $_POST["textmsg"];
 		$headers = 'From: '.$_POST["email"];
 	  mail($to, $subject, $message, $headers);
-		// la réponse reCAPTCHA si l'user n'a pas cliqué et passé le test alors ça renvoie ''
-		$_POST["response"];
 	}
 
 
