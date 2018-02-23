@@ -15,15 +15,17 @@
       <h1>Fire Emblem Strategic App \ Me contacter</h1>
     </header>
     <div class="wrapper">
-      <p>Vous souhaitez me contacter directement, remplissez le formulaire ci-dessous.</p>
-      <form action="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php" method="post" id="contactForm" class="formulaireContact">
-        <p>Objet de votre message : <input type="text" name="objectmsg" required></p>
-				<p>Votre adresse mail pour que je vous recontacte si besoin : <input type="email" name="email" required></p>
-        <p>Votre message : <textarea name="textmsg" rows="8" cols="80" required></textarea></p>
-				<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
-        <p><input type="submit" value="Envoyer"></p>
-      </form>
-			<div id="message"></div>
+			<div class="contactpagemaincontent">
+	      <p>Vous souhaitez me contacter directement, remplissez le formulaire ci-dessous.</p>
+	      <form action="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php" method="post" id="contactForm" class="formulaireContact">
+	        <p>Objet de votre message : <input type="text" name="objectmsg" required></p>
+					<p>Votre adresse mail pour que je vous recontacte si besoin : <input type="email" name="email" required></p>
+	        <p>Votre message : <textarea name="textmsg" rows="8" cols="80" required></textarea></p>
+					<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
+	        <p><input type="submit" value="Envoyer"></p>
+	      </form>
+				<div id="message"></div>
+			</div>
     </div>
 		<footer>
       <p>Made with love by Alexandre Blin</p>

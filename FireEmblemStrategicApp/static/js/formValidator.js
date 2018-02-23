@@ -27,12 +27,8 @@ $(function() {
           }
         });
       }
-
-    });
     } else {
       $("#message").html("<p><h2>Adresse email invalide</h2></p>");
     }
-
-
-
+  });
 });

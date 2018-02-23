@@ -551,6 +551,15 @@ footer a:hover{
   color: red;
 }
 
+/* ------------------ Propre à la page contactme.php -------------------------*/
+
+/* Tout le contenu de la page contactme.php (texte explicatif + formulaire)*/
+.contactpagemaincontent{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /*
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
                                     RESPONSIVE
