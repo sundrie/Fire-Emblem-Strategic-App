@@ -566,12 +566,15 @@ footer a:hover{
   padding-bottom: 60px;
   padding-top: 40px;
 }
-.p-objectmsg, .p-email{
+.p-objectmsg, .p-email, .p-textmsg{
   text-align: center;
 }
 .class-objectmsg, .class-email{
   min-width: 350px;
   max-width: 350px;
+}
+.class-textmsg{
+  max-width: 600px;
 }
 
 
