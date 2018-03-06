@@ -568,6 +568,15 @@ footer a:hover{
 .p-objectmsg, .p-email, .p-textmsg, .p-submitemail{
   text-align: center;
 }
+/* Les textes devant les inputs (votre adresse email, etc)*/
+.inputdesc{
+  display: inline-block;
+  min-width: 200px;
+  text-align: right;
+}
+.inputdescemail{
+  text-align: right;
+}
 .class-objectmsg, .class-email{
   min-width: 350px;
   max-width: 350px;
@@ -590,6 +599,10 @@ footer a:hover{
   background: rgb(42, 33, 18);
   color: rgb(252, 240, 187);
   cursor: pointer;
+}
+
+.emailmessage{
+  text-align: center;
 }
 
 
