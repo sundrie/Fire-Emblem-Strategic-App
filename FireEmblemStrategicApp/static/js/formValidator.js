@@ -3,7 +3,7 @@ $(function() {
   $("#contactForm").submit(function(e){
     // On empêche l'envoi du formulaire
     e.preventDefault();
-    // code obtenu sur http://emailregex.com/ qui nous permets une meilleure vérif car l'input type email acceptait tata@gmail par exemple
+    // code obtenu sur https://emailregex.com/ qui nous permets une meilleure vérif car l'input type email acceptait tata@gmail par exemple
     var emailcheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     // Si l'adresse mail est bonne
     if (emailcheck.test($("input[name='email']").val())==true) {
@@ -14,7 +14,7 @@ $(function() {
         $("#message").html("<p><h2>Veuillez valider le reCAPTCHA pour vérifier que vous n'êtes pas un robot s'il vous plaît</h2></p>");
       } else {
         $.ajax({
-          url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php',
+          url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php',
           method: 'POST',
           data:{
             objmsg: $("input[name='objectmsg']").val(),

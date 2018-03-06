@@ -1,7 +1,7 @@
 /*On charge notre police qui est celle du jeu*/
 @font-face {
   font-family: FireEmblemFont;
-  src: url('http://alexandreblin.ovh/FireEmblemStrategicApp/fonts/FOT-ChiaroStd-B.otf');
+  src: url('https://alexandreblin.ovh/FireEmblemStrategicApp/fonts/FOT-ChiaroStd-B.otf');
 }
 
 html {
@@ -1004,7 +1004,6 @@ footer a:hover{
       min-width: 300px; /* Pour écraser la valeur fixée au début à 350px */
       max-width: 300px;
     }
-
   }
 
 }
