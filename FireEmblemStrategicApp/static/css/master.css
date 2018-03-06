@@ -784,23 +784,21 @@ footer a:hover{
     max-width: 600px;
     margin: 0 auto;
   }
-
-  /* ~~~~~~~~~~~ page contactme.php ~~~~~~~~~~~*/
-  /* A partir de cette taille le textarea n'entre plus */
-  @media (max-width:625px) {
-    .class-textmsg{
-      max-width: 400px;
-      display: block;
-      margin: 0 auto;
-    }
+}
+/* ~~~~~~~~~~~ page contactme.php ~~~~~~~~~~~*/
+/* A partir de cette taille le textarea n'entre plus */
+@media (max-width:625px) {
+  .class-textmsg{
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
   }
-  /* Concerne uniquement le texte "votre adresse email :" pour recentrer comme l'autre une fois que l'input passe en dessous de ces textes */
-  @media (max-width:575px) {
-    .inputdescemail{
-      text-align: center;
-    }
+}
+/* Concerne uniquement le texte "votre adresse email :" pour recentrer comme l'autre une fois que l'input passe en dessous de ces textes */
+@media (max-width:575px) {
+  .inputdescemail{
+    text-align: center;
   }
-
 }
 
 /*
@@ -995,6 +993,18 @@ footer a:hover{
     .imageHeros{
       margin: 0 auto;
     }
+  }
+  /* Page Contactme.php */
+  /* A partir d'ici les inputs et le textarea vont commencer à être trop grand */
+  @media (max-width:444px) {
+    .class-textmsg{
+      max-width: 300px;
+    }
+    .class-objectmsg, .class-email{
+      min-width: 300px; /* Pour écraser la valeur fixée au début à 350px */
+      max-width: 300px;
+    }
+
   }
 
 }
