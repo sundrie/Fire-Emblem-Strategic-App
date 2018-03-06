@@ -793,6 +793,9 @@ footer a:hover{
       display: block;
       margin: 0 auto;
     }
+  }
+  /* Concerne uniquement le texte "votre adresse email :" pour recentrer comme l'autre une fois que l'input passe en dessous de ces textes */
+  @media (max-width:575px) {
     .inputdescemail{
       text-align: center;
     }
