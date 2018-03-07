@@ -317,10 +317,13 @@ $(function() {
         // On créé un cookie avec le nom du fichier pour le script PHP userdownloadfile
         document.cookie = 'filename=['+encoderforAJAX[0]+'] '+validdefaultfilename+';'+date.toGMTString()+';path=/';
       } else {
-        // Sinon le nom du fichier entré par l'utilisateur a la place de la date
-        encoderforAJAX.push($(".namefilebuildsave").val());
+        // Corrige le bug qui lorsqu'on mettait un espace au début et/ou la fin de ce qui était tappé pour le nom de fichier nous renvoyais vers la page erreur fatale 
+        var stringWhitespaceToClean = $(".namefilebuildsave").val();
+        var userFilename = $.trim(stringWhitespaceToClean);
+        // Sinon le nom du fichier entré par l'utilisateur à la place de la date
+        encoderforAJAX.push(userFilename);
         // On créé un cookie avec le nom du fichier pour le script PHP userdownloadfile
-        document.cookie = 'filename=['+encoderforAJAX[0]+'] '+$(".namefilebuildsave").val()+';'+date.toGMTString()+';path=/';
+        document.cookie = 'filename=['+encoderforAJAX[0]+'] '+userFilename+';'+date.toGMTString()+';path=/';
       }
 
       // Pour chaque talents choisis on push dans le tableau qui sera envoyé

@@ -7,7 +7,7 @@ $(function() {
     var emailcheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     // Si l'adresse mail est bonne
     if (emailcheck.test($("input[name='email']").val())==true) {
-      console.log("adresse mail valide");
+      // console.log("adresse mail valide");
       // Si l'utilisateur n'a pas fait le test on lui affiche un message l'invitant à faire le test
       // Renvoie '' (rien) si test pas fait ou la clé reCAPTCHA de notre site si test fait
       if (grecaptcha.getResponse() === '') {
@@ -22,7 +22,7 @@ $(function() {
             textmsg: $("textarea[name='textmsg']").val()
           },
           success: function(data){
-            console.log(data);
+            // console.log(data);
             $("#message").html("<p><h2>Votre message a été correctement envoyé</h2></p>");
           }
         });

@@ -48,7 +48,7 @@
 </html>
 <?php
 	if ($_POST) {
-		var_dump([$_POST]);
+		// var_dump([$_POST]);
 	  $to = "blin.alexandre76@gmail.com";
 	  $subject = $_POST["objmsg"];
 	  $message = $_POST["textmsg"];
