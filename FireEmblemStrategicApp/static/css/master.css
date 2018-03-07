@@ -80,6 +80,10 @@ footer a:hover{
 .GameChooser {
   padding: 20px;
 }
+.GameChooser a{
+  display: inline-block;
+  padding: 20px;
+}
 
 .FireEmblemThumbnail {
   max-width: 350px;
@@ -842,6 +846,9 @@ footer a:hover{
   .FireEmblemThumbnail {
     max-width: 250px;
     margin: 0 auto;
+  }
+  .GameChooser{
+    padding: 0;
   }
 
   /* Concerne la page FEAHome.html */
