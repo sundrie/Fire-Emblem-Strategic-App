@@ -127,8 +127,14 @@ $(function() {
     $('.OptionsMenu').append('<input type="text" name="filenamebyuser" class="namefilebuildsave" placeholder="nom du build">');
     // On fait l'appel de notre fonction pour vérifier qu'un charactère spécial n'est pas rentré pour éviter au script de bug et renvoyer vers la page errorpage avec erreur fatale.
     $('.namefilebuildsave').on("keyup", function(){
+      // Cette variable récupère ce que l'utilisateur tappe pour faire son nom de fichier
       var UserTyping = $(this).val();
-      console.log(UserTyping);  		
+      console.log(UserTyping);
+      // Cette regex cherche si les charactères suivants /\:*?"<>| ont été tappé car ils ne peuvent être utilisés pour un nom de fichier dans notre cas
+      var reg = /([/\\:*?"<>|])/g;
+      // Cette variable renvoie true si un caractère spécial est dans le string tappé par l'utilisateur et restera true tant qu'un caractère y sera
+  		var isASpecialCharacter = reg.test(UserTyping);
+      console.log(isSplChar);  		
     });
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
     $('.OptionsMenu').append('<button class="buildsave">Sauvegarder mon build</button>');
