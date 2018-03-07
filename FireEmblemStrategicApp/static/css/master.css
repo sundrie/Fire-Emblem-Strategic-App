@@ -96,6 +96,10 @@ footer a:hover{
   transform: scale(1.1);
   transition: 0.5s ease-out;
 }
+/* Pour désactiver l'effet hover sur l'image teaser montrant ainsi que c'est pas accessible encore */
+.turnedoff{
+  pointer-events: none;
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
