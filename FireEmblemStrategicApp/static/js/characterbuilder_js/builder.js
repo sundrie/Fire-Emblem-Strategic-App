@@ -125,6 +125,11 @@ $(function() {
     $('.OptionsMenu input').remove();
     // On ajoute une zone pour que l'utilisateur nomme son build
     $('.OptionsMenu').append('<input type="text" name="filenamebyuser" class="namefilebuildsave" placeholder="nom du build">');
+    // On fait l'appel de notre fonction pour vérifier qu'un charactère spécial n'est pas rentré pour éviter au script de bug et renvoyer vers la page errorpage avec erreur fatale.
+    $('.namefilebuildsave').on("keyup", function(){
+      var UserTyping = $(this).val();
+      console.log(UserTyping);  		
+    });
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
     $('.OptionsMenu').append('<button class="buildsave">Sauvegarder mon build</button>');
     // On appelle la fonction à ce moment pour que celle ci fonctionne sur l'élément généré via code
@@ -317,7 +322,7 @@ $(function() {
         // On créé un cookie avec le nom du fichier pour le script PHP userdownloadfile
         document.cookie = 'filename=['+encoderforAJAX[0]+'] '+validdefaultfilename+';'+date.toGMTString()+';path=/';
       } else {
-        // Corrige le bug qui lorsqu'on mettait un espace au début et/ou la fin de ce qui était tappé pour le nom de fichier nous renvoyais vers la page erreur fatale 
+        // Corrige le bug qui lorsqu'on mettait un espace au début et/ou la fin de ce qui était tappé pour le nom de fichier nous renvoyais vers la page erreur fatale
         var stringWhitespaceToClean = $(".namefilebuildsave").val();
         var userFilename = $.trim(stringWhitespaceToClean);
         // Sinon le nom du fichier entré par l'utilisateur à la place de la date
