@@ -126,6 +126,7 @@ $(function() {
     // On ajoute une zone pour que l'utilisateur nomme son build
     $('.OptionsMenu').append('<input type="text" name="filenamebyuser" class="namefilebuildsave" placeholder="nom du build">');
     // On fait l'appel de notre fonction pour vérifier qu'un charactère spécial n'est pas rentré pour éviter au script de bug et renvoyer vers la page errorpage avec erreur fatale.
+    // code de base trouvé sur http://www.tutorialsmade.com/restrict-special-characters-textbox-jquery/ mais que j'ai modifié et adapté à mon cas (changement regex, suppression variable inutile dans le if, etc.)
     $('.namefilebuildsave').on("keyup", function(){
       // Cette variable récupère ce que l'utilisateur tappe pour faire son nom de fichier
       var UserTyping = $(this).val();
@@ -134,7 +135,12 @@ $(function() {
       var reg = /([/\\:*?"<>|])/g;
       // Cette variable renvoie true si un caractère spécial est dans le string tappé par l'utilisateur et restera true tant qu'un caractère y sera
   		var isASpecialCharacter = reg.test(UserTyping);
-      console.log(isSplChar);  		
+      //console.log(isASpecialCharacter);
+      // Dès que notre variable passe à true
+      if(isASpecialCharacter){
+        // On supprime le caractère entré
+  			$(this).val(UserTyping.replace(reg, ''));
+      }
     });
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
     $('.OptionsMenu').append('<button class="buildsave">Sauvegarder mon build</button>');
