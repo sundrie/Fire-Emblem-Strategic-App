@@ -140,14 +140,10 @@ $(function() {
       if(isASpecialCharacter){
         // On supprime le caractère entré
   			$(this).val(UserTyping.replace(reg, ''));
-        $('.namefilebuildsave').css({
-          "border-style":"solid",
-          "border-width":"3px",
-          "border-color":"rgb(255, 27, 0)"
-        });
-        // $('.namefilebuildsave').fadeIn( "slow", function(){
-        //   $('.namefilebuildsave').delay(800).css("border-color","initial");
-        // });
+        $('.namefilebuildsave').css("border","3px solid rgb(255, 27, 0)");
+        setTimeout(function(){
+          $('.namefilebuildsave').css("border","1px solid rgb(85, 57, 36)");
+        },3000);
       }
     });
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
