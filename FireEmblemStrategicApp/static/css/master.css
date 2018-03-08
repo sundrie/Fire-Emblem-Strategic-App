@@ -501,7 +501,17 @@ footer a:hover{
   margin-bottom: 10px;
   padding: 5px;
   font-size: 16px;
-  border: 1px solid rgb(85, 57, 36); 
+  border: 1px solid rgb(85, 57, 36);
+}
+/* Le message d'erreur quand un caractère spécial a été entré */
+.specialChara p{
+  max-width: 300px;
+  margin: 0 auto;
+  background: rgb(213, 50, 50);
+  padding: 10px;
+  color: rgb(227, 227, 227);
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 /*--------------------- Propre à la page about.html ----------------------*/

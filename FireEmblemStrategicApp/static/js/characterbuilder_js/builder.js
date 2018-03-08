@@ -146,7 +146,7 @@ $(function() {
   			$(this).val(UserTyping.replace(reg, ''));
         // Ce qui suit est uniquement pour avertir que l'utilisateur a fait une erreur
         $('.namefilebuildsave').css("border","3px solid rgb(255, 27, 0)");
-        $('.specialChara').append("<p>Vous avez entré un caractère qui ne peut être utilisé pour un nom de fichier");
+        $('.specialChara').append("<p>Vous avez entré un caractère spécial qui ne peut être utilisé pour un nom de fichier");
         // Si il y a déjà un message on supprime ceux qui sont plus grand que 0 (1 en vrai vu que en informatique ont commence à compter à partir de 0 et non 1)
         // Sinon si il n'y a pas de message supplémentaire le setTimeout s'execute et le message disparait bien au bout de 3 sec peut importe le spam sa ne "reset" pas le timer
         if ($(".specialChara p").length > 1) {
