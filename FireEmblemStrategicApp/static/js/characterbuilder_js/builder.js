@@ -123,6 +123,10 @@ $(function() {
     $('.buildsave').remove();
     // On évite la multiplication des input
     $('.OptionsMenu input').remove();
+    // On évite la multiplication de la div
+    $('.specialChara').remove();
+    // Sert pour si un caractère spécial a été entré à afficher un message d'erreur
+    $('.OptionsMenu').append('<div class="specialChara"></div>');
     // On ajoute une zone pour que l'utilisateur nomme son build
     $('.OptionsMenu').append('<input type="text" name="filenamebyuser" class="namefilebuildsave" placeholder="nom du build">');
     // On fait l'appel de notre fonction pour vérifier qu'un charactère spécial n'est pas rentré pour éviter au script de bug et renvoyer vers la page errorpage avec erreur fatale.
@@ -140,9 +144,15 @@ $(function() {
       if(isASpecialCharacter){
         // On supprime le caractère entré
   			$(this).val(UserTyping.replace(reg, ''));
+        // Ce qui suit est uniquement pour avertir que l'utilisateur a fait une erreur
         $('.namefilebuildsave').css("border","3px solid rgb(255, 27, 0)");
+        $('.specialChara').append("<p>Vous avez entré un caractère qui ne peut être utilisé pour un nom de fichier");
+        // après 3 secondes ont supprime le message en même temps que remettre les bordures normales
         setTimeout(function(){
           $('.namefilebuildsave').css("border","1px solid rgb(85, 57, 36)");
+          $('.specialChara p').fadeOut('slow', function() {
+            $('.specialChara p').remove();
+          });
         },3000);
       }
     });
