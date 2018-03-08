@@ -147,13 +147,19 @@ $(function() {
         // Ce qui suit est uniquement pour avertir que l'utilisateur a fait une erreur
         $('.namefilebuildsave').css("border","3px solid rgb(255, 27, 0)");
         $('.specialChara').append("<p>Vous avez entré un caractère qui ne peut être utilisé pour un nom de fichier");
-        // après 3 secondes ont supprime le message en même temps que remettre les bordures normales
-        setTimeout(function(){
-          $('.namefilebuildsave').css("border","1px solid rgb(85, 57, 36)");
-          $('.specialChara p').fadeOut('slow', function() {
-            $('.specialChara p').remove();
-          });
-        },3000);
+        // Si il y a déjà un message on supprime ceux qui sont plus grand que 0 (1 en vrai vu que en informatique ont commence à compter à partir de 0 et non 1)
+        // Sinon si il n'y a pas de message supplémentaire le setTimeout s'execute et le message disparait bien au bout de 3 sec peut importe le spam sa ne "reset" pas le timer
+        if ($(".specialChara p").length > 1) {
+          $('.specialChara p:gt(0)').remove();
+        }else{
+          // après 3 secondes ont supprime le message en même temps que remettre les bordures normales
+          setTimeout(function(){
+            $('.namefilebuildsave').css("border","1px solid rgb(85, 57, 36)");
+            $('.specialChara p').fadeOut('slow', function() {
+              $('.specialChara p').remove();
+            });
+          },3000);
+        }
       }
     });
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
