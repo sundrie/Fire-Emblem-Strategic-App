@@ -8,12 +8,12 @@ $(function() {
   //Ceci va générer notre liste de perso comme ça plus besoin de PHP qui n'était en soit suite aux changements plus très utile
 
   $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/',
+    url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/',
     success: function(data) {
        // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
        $(data).find("a:contains(.txt)").each(function () {
          //this correspond aux a href trouvé qui contiennent .txt
-         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+         var filename = this.href.replace(window.location.host, "").replace("https:///", "");
          var nomPerso = filename.split(/[\/+.]/g);
          $("#charList").append("<li><a href=#>"+nomPerso[2]+"</a></li>");
        });
@@ -25,7 +25,7 @@ $(function() {
 
   //Concerne les enfants qui sont un cas à part
   $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens',
+    url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens',
     success: function(data) {
        // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
        $(data).find("a:contains(.txt)").each(function () {
@@ -77,9 +77,9 @@ $(function() {
     // permet de copier coller le nom du perso dans l'input
     $('#searchchar').val(persoChoisi);
     // On met ceci à la place de .show() sinon le display flex n'est pas remis ce qui fait gros bug d'affichage
-    $(".HeroBuildCard ").css("display","flex");
+    $(".HeroBuildCard").css("display","flex");
     // permet de dynamiquement afficher l'image du perso choisi
-    $("#HeroImgBuilder").attr('src','http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
+    $("#HeroImgBuilder").attr('src','https://alexandreblin.ovh/FireEmblemStrategicApp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
     // On met le nom du perso dans l'étiquette du builder
     $(".NomHerosBuilder").html(persoChoisi);
 
@@ -107,7 +107,7 @@ $(function() {
       fillParentList(nameChild);
     }else{
       // On charge toutes les datas du perso
-      $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+persoChoisi+'.txt', function(data) {
+      $.get('https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+persoChoisi+'.txt', function(data) {
         // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
         var dataduHerosSplit = data.split('/');
         var listeClassesBrut = dataduHerosSplit[1];
@@ -130,7 +130,7 @@ $(function() {
     $('.namefilebuildsave').on("keyup", function(){
       // Cette variable récupère ce que l'utilisateur tappe pour faire son nom de fichier
       var UserTyping = $(this).val();
-      console.log(UserTyping);
+      // console.log(UserTyping);
       // Cette regex cherche si les charactères suivants /\:*?"<>| ont été tappé car ils ne peuvent être utilisés pour un nom de fichier dans notre cas
       var reg = /([/\\:*?"<>|])/g;
       // Cette variable renvoie true si un caractère spécial est dans le string tappé par l'utilisateur et restera true tant qu'un caractère y sera
@@ -140,6 +140,11 @@ $(function() {
       if(isASpecialCharacter){
         // On supprime le caractère entré
   			$(this).val(UserTyping.replace(reg, ''));
+        // $()
+        // $('.namefilebuildsave').css("border-color","rgb(255, 27, 0)");
+        // $('.namefilebuildsave').fadeIn( "slow", function() {
+        //   $('.namefilebuildsave').delay("slow").css("border-color","initial");
+        // });
       }
     });
     // Nous ajoutons un bouton pour que l'utilisateur puisse sauvegarder son build
@@ -155,7 +160,7 @@ $(function() {
     // $(".TalentsChoosenBuilder").html('<tbody><tr class="drop"><td>Uno</td></tr><tr class="drop"><td>Dos</td></tr><tr class="drop"><td>Tres</td></tr><tr class="drop"><td>Quatro</td><tr class="drop"><td>Cinquo</td></tr></tbody>');
     // On fait la requête pour récupérer la page html contenant le tableau des talents par classes
     $.ajax({
-      url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/pages/class_talents_list.html',
+      url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/pages/class_talents_list.html',
       type: 'GET',
       success: function(res){
         var tableau = res
@@ -349,12 +354,12 @@ $(function() {
       });
       // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
       $.ajax({
-        url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/php/savebuild.php',
+        url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/php/savebuild.php',
         method: 'POST',
         data:{build : encoderforAJAX},
         success : function(data){
           // Ceci est nécessaire pour que l'utilisateur sache que son build a été téléchargé sous format texte
-          window.location.replace("http://alexandreblin.ovh/FireEmblemStrategicApp/php/userdownloadfile.php");
+          window.location.replace("https://alexandreblin.ovh/FireEmblemStrategicApp/php/userdownloadfile.php");
 
           // Pour avoir un retour du script php
           // $('#message').html('voilà ce qui a été envoyé : '+ data);
@@ -366,7 +371,7 @@ $(function() {
   // Cette fonction va nous extraire les parents du fichier parentsList.txt pour remplir le select sous la liste des personnages
   function fillParentList(nameChild){
     var Parents;
-    $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Tools/parentsList.txt', function(data) {
+    $.get('https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Tools/parentsList.txt', function(data) {
       // On sépare chaque ligne du doc txt
       var lignes = data.split("+")
       for (var i = 0; i < lignes.length; i++) {
@@ -398,7 +403,7 @@ $(function() {
     // On stocke le nom de l'enfant pour charger ses datas
     var childName = $('.NomHerosBuilder').text();
     // On charge toutes les datas du perso (enfant)
-    $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens/'+childName+'.txt', function(data){
+    $.get('https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens/'+childName+'.txt', function(data){
       data = data.split("/");
       var childClass = data[1];
       // On envoie le nom du parent, les classes de l'enfant à notre fonction pour récupérer les data du parent par la suite (à cause du asynchronous on charge les datas de l'enfant maintenant car pour l'instant nous ne l'avions pas fait (changement ordre code suite à la gestion des enfants (voir commits de la branch childrens_arc)))
@@ -409,7 +414,7 @@ $(function() {
   // Cette fonction se chargera de récupérer les data du parent choisi depuis son text file
   function getParentData(childName,parentName,childClass){
     // On charge toutes les datas du parent
-    $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+parentName+'.txt', function(data) {
+    $.get('https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+parentName+'.txt', function(data) {
       // On sépare le data brut du txt à l'endroit du / et on écrase le data pour le transformer en tableau
       data = data.split("/");
       // De ce tableau on prend la 2ème partie qui contient nos classes
