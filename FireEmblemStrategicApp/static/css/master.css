@@ -468,6 +468,9 @@ footer a:hover{
   margin-left: 10px;
   margin-right: 10px;
 }
+.goback:hover{
+  cursor: pointer;
+}
 
 .OptionsMenu {
   padding-top: 50px;
