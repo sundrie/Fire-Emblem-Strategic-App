@@ -89,6 +89,7 @@ $(function() {
     $("#TalentsList").hide();
     // On évite la multiplication des select
     $("#myParent").remove();
+    $("#myParentLegacy").remove();
     // On évite la multiplication du message
     $('.chooseAParent').hide();
     $('.chooseAParent p').remove();
@@ -439,7 +440,7 @@ $(function() {
     }, 'text');
   }
 
-  function legacy_of_Parent(parentName,parentClass) {    
+  function legacy_of_Parent(parentName,parentClass) {
     $('.formulaireRecherche').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
   }
 
