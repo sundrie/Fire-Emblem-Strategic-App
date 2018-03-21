@@ -441,6 +441,10 @@ $(function() {
   }
 
   function legacy_of_Parent(parentName,parentClass) {
+    // Si il y a plus d'un seul select pour sélectionner le talent du parent alors on supprime le select (la multiplication des select arrivait si on changait de parent tout en restant sur le même perso)
+    if ($("#myParentLegacy").length > 0) {
+      $("#myParentLegacy").remove();
+    }
     $('.formulaireRecherche').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
   }
 
