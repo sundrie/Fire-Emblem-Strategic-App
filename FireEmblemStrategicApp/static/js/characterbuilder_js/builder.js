@@ -310,7 +310,7 @@ $(function() {
             //console.log(trVoyager);
             // console.log(("."+tableOrigin+" tbody"))
 
-            $("."+tableOrigin+" tbody").after(trVoyager[0]);
+            $("."+tableOrigin+" tbody").append(trVoyager[0]);
             // On réactive la fonction draggable après que celui ci soit retourné avec ses autres amis talents
             $(trVoyager[0]).draggable('enable');
             $(draggable).addClass("drag");
