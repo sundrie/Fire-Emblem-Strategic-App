@@ -302,7 +302,7 @@ $(function() {
             // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
             // console.log(tableOrigin2);
             var trVoyager = $(this).parent().parent();
-            var trDropOriginelle = $(this).parent().parent();
+            var trDropOriginelle = $(this).parent().parent().parent();
 
             //supprime le bouton goback
             $(this).remove();
