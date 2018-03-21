@@ -290,9 +290,9 @@ $(function() {
           $(draggable).draggable('disable');
           // On retire la classe drag pour qu'on ne puisse plus bouger le talent une fois dans la zone de drop.
           $(draggable).removeClass("drag");
-
           // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
-          $(draggable).append("<i class='fas fa-times goback'></i>");
+          $($(draggable).children().first()).append("<i class='fas fa-times goback'></i>");
+          //$("<i class='fas fa-times goback'></i>").insertAfter($());
           // On affiche le bouton goback précedemment masqué plus haut dans le code pour éviter qu'ils aparaissent lorsqu'on choisi un autre perso alors qu'on a pas vidé la zone de drop
           $(".goback").show();
 

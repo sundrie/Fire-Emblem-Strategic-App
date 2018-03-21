@@ -463,8 +463,6 @@ footer a:hover{
 /* Le style de la classe de la croix pour retirer le talent de la zone de drop */
 .goback{
   color: rgb(209, 19, 1);
-  width: 25px;
-  font-weight: bold;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -494,6 +492,7 @@ footer a:hover{
 
 .buildsave:hover{
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .namefilebuildsave {
