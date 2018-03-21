@@ -409,8 +409,7 @@ $(function() {
   }
 
   // Lors d'un changement dans le select pour choisir le parent sous la liste des persos
-  $(".formulaireRecherche").on('change','#myParent',function() {
-
+  $(".formulaireRecherche").on('change','#myParent',function(){
     $('.chooseAParent').hide();
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
@@ -433,9 +432,15 @@ $(function() {
       data = data.split("/");
       // De ce tableau on prend la 2ème partie qui contient nos classes
       var parentClass = data[1];
+      // On appelle notre fonction qui se chargera de donner un talent en héritage à l'enfant
+      legacy_of_Parent(parentName,parentClass);
       // On envoie les 2 listes à notre fonction
       completeChildTalent(childName,parentName,childClass,parentClass);
     }, 'text');
+  }
+
+  function legacy_of_Parent(parentName,parentClass) {    
+    $('.formulaireRecherche').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
   }
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage

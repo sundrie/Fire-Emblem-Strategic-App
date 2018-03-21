@@ -357,12 +357,13 @@ footer a:hover{
   max-width: 400px;
   min-width: 400px;
 }
-
+/* logo et nom du talent drop */
 .TalentsChoosenBuilder .drop tr td:first-child {
   min-height: 25px;
 }
+/* Cible le logo du talent drop */
  .TalentsChoosenBuilder .drop img{
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 /* Propre à la classe drag pour modifier le pointeur de la souris */
