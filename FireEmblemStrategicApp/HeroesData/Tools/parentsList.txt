@@ -1,4 +1,5 @@
-+Morgan(M):Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Gregor-Libra-Henry-Basilio-Donnel-Owain-Inigo-Brady-Gerome-Yarne-Laurent-Gangrel-Walhart-Yen'fay-Priam
++Morgan(M):Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Donnel-Lon'zu-Ricken-Gaius-Gregor-Libra-Henry-Basilio-Owain-Inigo-Brady-Gerome-Yarne-Laurent-Gangrel-Walhart-Yen'fay-Priam
++Morgan(F):Lissa-Sully-Miriel-Sumia-Maribelle-Palne-Cordelia-Nowi-Tharja-Anna-Olivia-Zelcher-Lucina-Say'ri-Tiki-Flavia-Kjelle-Cynthia-Severa-Noire-Nah-Emmeryn-Aversa
 +Brady:Avatar(M)-Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
 +Cynthia:Avatar(M)-Chrom-Frederick-Gaius-Henry
 +Gerome:Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry
