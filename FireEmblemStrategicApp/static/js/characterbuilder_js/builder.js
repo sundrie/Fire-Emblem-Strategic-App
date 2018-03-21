@@ -274,7 +274,6 @@ $(function() {
 
         // Si la zone de drop contient un td (donc aucun autre talent(pour rappel sans ce test on pouvait mettre plusieurs talents dans une seule zone de drop ce qui était très problématique)) alors tout s'effectue normalement sinon et bien le talent retourne avec les autres, si on voulait gérer le sinon alors il faut ajouter ceci if ($(droppablechild[0]).is(':not(td)'))
         if($(droppablechild[0]).is('td')){
-
           var row_index = $(draggable).parent().index();
           var col_index = $(draggable).index();
           // Nous donne la classe de la table d'où provient l'élément

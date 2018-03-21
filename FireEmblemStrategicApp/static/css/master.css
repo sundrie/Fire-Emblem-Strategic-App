@@ -358,6 +358,13 @@ footer a:hover{
   min-width: 400px;
 }
 
+.TalentsChoosenBuilder .drop tr td:first-child {
+  min-height: 25px;
+}
+ .TalentsChoosenBuilder .drop img{
+    vertical-align: middle;
+}
+
 /* Propre à la classe drag pour modifier le pointeur de la souris */
 .drag{
 
