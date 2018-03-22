@@ -10,7 +10,7 @@
      <description>Toutes les unités alliées à 3 cases gagne +5% en précision et esquive</description>
    </talent2>
   </class>
-  <class name="GreatLord">
+  <class name="Great Lord">
    <talent1 name="Aether">
      <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Aether.png</imagelink>
      <description>(Tec/2)% de faire 2 attaques consécutives, la première bénéficie de Sol et la seconde de Luna</description>
