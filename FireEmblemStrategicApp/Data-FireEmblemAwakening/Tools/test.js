@@ -15,9 +15,14 @@ $(document).ready(function(){
       $(allclasses).each(function(i) {
         // Si il trouve l'attribut name (correspond dans le fichier xml à <class name="">) alors il le stocke dans la variable classes
         if($.inArray($(this).attr("name"), HeroClassList) !== -1) {
-          console.log($(this))
           classes.push($(this));
         }
+      });
+
+      // Fonction qui va afficher les talents dans notre page pour cela on boucle sur notre variable array
+      console.log(classes[0].attr("name"))
+      $(classes).each(function(i) {
+        $(".wrapper table tbody").append("<tr class="+classes[i].attr("name")+"></tr>")
       });
       // var classes = $(data).find('[name="Lord"]');
       // Si il trouve l'attribut name (correspond dans le fichier xml à <class name="">) alors il le stocke dans la variable
