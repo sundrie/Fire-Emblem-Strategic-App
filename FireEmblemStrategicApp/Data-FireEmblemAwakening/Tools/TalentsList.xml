@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassList>
+  <class name="Lord">
+   <talent1 name="Dual Strike+">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Dual Strike+.png</imagelink>
+     <description>Augmente de 10% les chances de frappes combinées</description>
+   </talent1>
+   <talent2 name="Charm">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Charm.png</imagelink>
+     <description>Toutes les unités alliées à 3 cases gagne +5% en précision et esquive</description>
+   </talent2>
+  </class>
+  <class name="GreatLord">
+   <talent1 name="Aether">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Aether.png</imagelink>
+     <description>(Tec/2)% de faire 2 attaques consécutives, la première bénéficie de Sol et la seconde de Luna</description>
+   </talent1>
+   <talent2 name="Rightful King">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rightful King.png</imagelink>
+     <description>Augmente de 10% les chances d'activer les talents</description>
+   </talent2>
+  </class>
+  <class name="Tactician">
+   <talent1 name="Veteran">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Veteran.png</imagelink>
+     <description>Si en Duo +50% expérience gagné</description>
+   </talent1>
+   <talent2 name="Solidarity">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Solidarity.png</imagelink>
+     <description>+10% en critique et esquive critique aux alliés adjacents</description>
+   </talent2>
+  </class>
+  <class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class><class name="">
+   <talent1 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent1>
+   <talent2 name="">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/.png</imagelink>
+     <description></description>
+   </talent2>
+  </class>
+</ClassList>
