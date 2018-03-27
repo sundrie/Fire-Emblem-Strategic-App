@@ -20,7 +20,7 @@ $(document).ready(function(){
       });
 
       // Fonction qui va afficher les talents dans notre page pour cela on boucle sur notre variable array
-      console.log(classes[0].attr("name"))
+      // console.log(classes[0].attr("name"))
       $(classes).each(function(i) {
         // Si le nom de la classe issue du jeu contient un espace alors on supprime cet espace pour faire une seule classe et non 2 ou plus (ex : Great Knight donne normalement 2 class Great et Knight alors que l'on veut que ça soit une class unique GreatKnight)
         // Sinon et bien on ajoute tout simplement sans traitement anti espace
@@ -29,16 +29,18 @@ $(document).ready(function(){
           // On enlève les whitespace entre les mots (trim ne fonctionne qu'aux début et fin des strings)
           removeSpace = removeSpace.replace(/\s/, '');
           $(".wrapper table tbody").append("<tr class="+removeSpace+"></tr>")
+          $("."+removeSpace).append("<td>"+ classes[i].children().text() +"</td>")
         } else {
           $(".wrapper table tbody").append("<tr class="+classes[i].attr("name")+"></tr>")
+          $("."+classes[i].attr("name")).append("<td>"+ classes[i].children().text() +"</td>")
         }
       });
       // console.log(classes)
       var talents = classes.children();
       var talent1 = talents[0];
       var talent2 = talents[1];
-      console.log(talent1)
-      console.log(talent2)
+      // console.log(talent1)
+      // console.log(talent2)
     }
   });
 });
