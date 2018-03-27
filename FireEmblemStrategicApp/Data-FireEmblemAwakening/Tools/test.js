@@ -26,6 +26,7 @@ $(document).ready(function(){
       var talent1;
       var talent2;
       var imagelink;
+      var descTalent
       $(classes).each(function(i) {
         // Si le nom de la classe issue du jeu contient un espace alors on supprime cet espace pour faire une seule classe et non 2 ou plus (ex : Great Knight donne normalement 2 class Great et Knight alors que l'on veut que ça soit une class unique GreatKnight)
         // Sinon et bien on ajoute tout simplement sans traitement anti espace
@@ -37,32 +38,47 @@ $(document).ready(function(){
           talents = classes[i].children();
           talent1 = talents[0];
           talent2 = talents[1];
-          // // console.log(talents)
-          // console.log(talent1)
-          // console.log(talent2)
           // On ajoute une row avec le nom de la classe du jeu en class
           $(".wrapper table tbody").append("<tr class="+removeSpace+"></tr>");
-          // Le $(talent1) est essentiel pour pouvoir intéragir avec cette variable objet
+
           // On attribue a imagelink la première "case" de notre variable qui contient l'url de l'image ,pareil que $(talent1) on fait ceci pour pouvoir utiliser .text() sinon $(talent1).children()[0].text() nous renverrait une erreur
           imagelink = $(talent1).children()[0];
-          $("."+removeSpace).append("<td'><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td>");
+          // Le $(talent1) est essentiel pour pouvoir intéragir avec cette variable objet
+          // Affiche l'image et nom du 1er talent de la classe du personnage
+          $("."+removeSpace).append("<td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td>");
+          // Affiche la description du talent
+          // On reprends le même principe que pour imagelink
+          descTalent = $(talent1).children()[1];
+          $("."+removeSpace).append("<td>"+$(descTalent).text()+"</td>");
+
           // On change juste le selecteur pour éviter de créer 2 variables imagelink
           imagelink = $(talent2).children()[0];
+          // Affiche l'image et nom du 2ème talent de la classe du personnage
           $("."+removeSpace).append("<td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td>");
+          // Affiche la description du talent
+          descTalent = $(talent2).children()[1];
+          $("."+removeSpace).append("<td>"+$(descTalent).text()+"</td>");
         } else {
           // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
           talents = classes[i].children();
           talent1 = talents[0];
           talent2 = talents[1];
-          // console.log(talents)
-          // console.log(talent1)
-          // console.log(talent2)
           // On ajoute une row avec le nom de la classe du jeu en class
           $(".wrapper table tbody").append("<tr class="+classes[i].attr("name")+"></tr>");
+
+          // Affiche l'image et nom du 1er talent de la classe du personnage
           imagelink = $(talent1).children()[0];
-          $("."+classes[i].attr("name")).append("<td'><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td>");
+          $("."+classes[i].attr("name")).append("<td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td>");
+          // Affiche la description du talent
+          descTalent = $(talent1).children()[1];
+          $("."+classes[i].attr("name")).append("<td>"+$(descTalent).text()+"</td>");
+
+          // Affiche l'image et nom du 2ème talent de la classe du personnage
           imagelink = $(talent2).children()[0];
-          $("."+classes[i].attr("name")).append("<td'><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td>");
+          $("."+classes[i].attr("name")).append("<td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td>");
+          // Affiche la description du talent
+          descTalent = $(talent2).children()[1];
+          $("."+classes[i].attr("name")).append("<td>"+$(descTalent).text()+"</td>");
         }
       });
     }
