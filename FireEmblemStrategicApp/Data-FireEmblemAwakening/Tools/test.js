@@ -29,27 +29,33 @@ $(document).ready(function(){
         // Si le nom de la classe issue du jeu contient un espace alors on supprime cet espace pour faire une seule classe et non 2 ou plus (ex : Great Knight donne normalement 2 class Great et Knight alors que l'on veut que ça soit une class unique GreatKnight)
         // Sinon et bien on ajoute tout simplement sans traitement anti espace
         if (/\s/.test(classes[i].attr("name"))) {
-          var removeSpace = classes[i].attr("name")
+          var removeSpace = classes[i].attr("name");
           // On enlève les whitespace entre les mots (trim ne fonctionne qu'aux début et fin des strings)
           removeSpace = removeSpace.replace(/\s/, '');
+          // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
+          talents = classes[i].children();
+          talent1 = talents[0];
+          talent2 = talents[1];
+          // console.log(talents)
+          console.log(talent1)
+          console.log(talent2)
+          // On ajoute une row avec le nom de la classe du jeu en class
           $(".wrapper table tbody").append("<tr class="+removeSpace+"></tr>")
-          $("."+removeSpace).append("<td class="+classes[i].children()[0]+">"+ classes[i].children() +"</td>")
-          // console.log(classes[i].children()[0])
-          talents = classes[i].children();
-          console.log(talents)
-          talent1 = talents[0];
-          console.log(talent1)
-          talent2 = talents[1];
-          console.log(talent2)
+          // Le $(talent1) est essentiel pour pouvoir intéragir avec cette variable objet
+          $("."+removeSpace).append("<td>"+$(talent1).attr("name")+"</td>")
+          $("."+removeSpace).append("<td>"+$(talent2).attr("name")+"</td>");
         } else {
-          $(".wrapper table tbody").append("<tr class="+classes[i].attr("name")+"></tr>")
-          $("."+classes[i].attr("name")).append("<td>"+ classes[i].children() +"</td>")
+          // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
           talents = classes[i].children();
-          console.log(talents)
           talent1 = talents[0];
-          console.log(talent1)
           talent2 = talents[1];
+          // console.log(talents)
+          console.log(talent1)
           console.log(talent2)
+          // On ajoute une row avec le nom de la classe du jeu en class
+          $(".wrapper table tbody").append("<tr class="+classes[i].attr("name")+"></tr>")
+          $("."+classes[i].attr("name")).append("<td>"+$(talent1).attr("name")+"</td>");
+          $("."+classes[i].attr("name")).append("<td>"+$(talent2).attr("name")+"</td>");
         }
       });
       // console.log(classes)
