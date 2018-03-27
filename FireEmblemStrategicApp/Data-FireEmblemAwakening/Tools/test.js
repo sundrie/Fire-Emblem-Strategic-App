@@ -83,4 +83,15 @@ $(document).ready(function(){
       });
     }
   });
+
+
+  // Ce qui va charger toutes les datas des personnages 
+  $.ajax({
+    url: 'PersosList.xml',
+    datatype : 'xml',
+    success: function(data){
+      console.log(data)
+    }
+  });
+
 });

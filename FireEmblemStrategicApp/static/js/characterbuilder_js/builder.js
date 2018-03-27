@@ -107,6 +107,9 @@ $(function() {
       // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
       fillParentList(nameChild);
     }else{
+
+      // A MODIFIER :3
+
       // On charge toutes les datas du perso
       $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+persoChoisi+'.txt', function(data) {
         // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
