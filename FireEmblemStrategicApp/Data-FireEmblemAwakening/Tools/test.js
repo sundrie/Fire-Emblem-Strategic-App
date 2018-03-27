@@ -25,6 +25,7 @@ $(document).ready(function(){
       var talents;
       var talent1;
       var talent2;
+      var imagelink;
       $(classes).each(function(i) {
         // Si le nom de la classe issue du jeu contient un espace alors on supprime cet espace pour faire une seule classe et non 2 ou plus (ex : Great Knight donne normalement 2 class Great et Knight alors que l'on veut que ça soit une class unique GreatKnight)
         // Sinon et bien on ajoute tout simplement sans traitement anti espace
@@ -36,34 +37,34 @@ $(document).ready(function(){
           talents = classes[i].children();
           talent1 = talents[0];
           talent2 = talents[1];
-          // console.log(talents)
-          console.log(talent1)
-          console.log(talent2)
+          // // console.log(talents)
+          // console.log(talent1)
+          // console.log(talent2)
           // On ajoute une row avec le nom de la classe du jeu en class
-          $(".wrapper table tbody").append("<tr class="+removeSpace+"></tr>")
+          $(".wrapper table tbody").append("<tr class="+removeSpace+"></tr>");
           // Le $(talent1) est essentiel pour pouvoir intéragir avec cette variable objet
-          $("."+removeSpace).append("<td>"+$(talent1).attr("name")+"</td>")
-          $("."+removeSpace).append("<td>"+$(talent2).attr("name")+"</td>");
+          // On attribue a imagelink la première "case" de notre variable qui contient l'url de l'image ,pareil que $(talent1) on fait ceci pour pouvoir utiliser .text() sinon $(talent1).children()[0].text() nous renverrait une erreur
+          imagelink = $(talent1).children()[0];
+          $("."+removeSpace).append("<td'><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td>");
+          // On change juste le selecteur pour éviter de créer 2 variables imagelink
+          imagelink = $(talent2).children()[0];
+          $("."+removeSpace).append("<td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td>");
         } else {
           // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
           talents = classes[i].children();
           talent1 = talents[0];
           talent2 = talents[1];
           // console.log(talents)
-          console.log(talent1)
-          console.log(talent2)
+          // console.log(talent1)
+          // console.log(talent2)
           // On ajoute une row avec le nom de la classe du jeu en class
-          $(".wrapper table tbody").append("<tr class="+classes[i].attr("name")+"></tr>")
-          $("."+classes[i].attr("name")).append("<td>"+$(talent1).attr("name")+"</td>");
-          $("."+classes[i].attr("name")).append("<td>"+$(talent2).attr("name")+"</td>");
+          $(".wrapper table tbody").append("<tr class="+classes[i].attr("name")+"></tr>");
+          imagelink = $(talent1).children()[0];
+          $("."+classes[i].attr("name")).append("<td'><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td>");
+          imagelink = $(talent2).children()[0];
+          $("."+classes[i].attr("name")).append("<td'><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td>");
         }
       });
-      // console.log(classes)
-      // var talents = classes.children();
-      // var talent1 = talents[0];
-      // var talent2 = talents[1];
-      // console.log(talent1)
-      // console.log(talent2)
     }
   });
 });
