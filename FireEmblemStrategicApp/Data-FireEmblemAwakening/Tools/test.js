@@ -90,7 +90,16 @@ $(document).ready(function(){
     url: 'PersosList.xml',
     datatype : 'xml',
     success: function(data){
-      console.log(data);
+      // Liste de tous les personnages
+      var characterList = $(data).children().children();
+      console.log(characterList);
+      // fonction pour chercher un nom dans notre liste de personnages fournie par le xml
+      $(characterList).each(function(i) {
+        if ($(this).attr("name") === "Anna") {
+          console.log($(this).attr("name"))
+          console.log($(this))
+        }
+      })
     }
   });
 
