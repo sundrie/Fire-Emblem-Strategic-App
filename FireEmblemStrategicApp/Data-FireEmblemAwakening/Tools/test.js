@@ -48,14 +48,14 @@ $(document).ready(function(){
             classes.push($(this));
           }
         });
+        displayHeroData(classes);
       }
     });
   }
 
 
-
-  function functionName() {
-    // Fonction qui va afficher les talents dans notre page pour cela on boucle sur notre variable array
+  // Fonction qui va afficher les talents dans notre page pour cela on boucle sur notre variable array
+  function displayHeroData(classes) {
     // console.log(classes[0].attr("name"))
     // On déclare nos variables ici en dehors de la boucle pour éviter de la génération inutile de variable en boucle et consommer inutilement nos ressources en calcul
     var talents;
