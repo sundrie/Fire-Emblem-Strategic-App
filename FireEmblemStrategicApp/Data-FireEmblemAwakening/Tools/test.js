@@ -1,5 +1,38 @@
 $(document).ready(function(){
 
+  // Ce qui va charger toutes les datas des personnages
+  $.ajax({
+    url: 'PersosList.xml',
+    datatype : 'xml',
+    success: function(data){
+      var chosenOne;
+      // Liste de tous les personnages
+      var characterList = $(data).children().children();
+      // fonction pour chercher un nom dans notre liste de personnages fournie par le xml
+      $(characterList).each(function(i) {
+        if ($(this).attr("name") === "Anna") {
+          chosenOne = $(this);
+          searchMyData(chosenOne);
+          // console.log($(this).attr("name"))
+          // console.log($(this))
+        }
+      });
+    }
+  });
+
+  // fonction qui va s'occuper de récupérer les datas du perso choisi
+  function searchMyData(theChosen){
+    console.log(theChosen);
+    console.log(theChosen.attr("name"))
+    var classList = theChosen.children()[3];
+    console.log(classList)
+    console.log($(classList).text())
+    // On stocke dans une var chaque classe séparée par un -
+    var splittedClassList = $(classList).text().split("-")
+    console.log(splittedClassList)
+  }
+
+
   $.ajax({
     url: 'TalentsList.xml',
     datatype : 'xml',
@@ -81,25 +114,6 @@ $(document).ready(function(){
           $("."+classes[i].attr("name")).append("<td>"+$(descTalent).text()+"</td>");
         }
       });
-    }
-  });
-
-
-  // Ce qui va charger toutes les datas des personnages
-  $.ajax({
-    url: 'PersosList.xml',
-    datatype : 'xml',
-    success: function(data){
-      // Liste de tous les personnages
-      var characterList = $(data).children().children();
-      console.log(characterList);
-      // fonction pour chercher un nom dans notre liste de personnages fournie par le xml
-      $(characterList).each(function(i) {
-        if ($(this).attr("name") === "Anna") {
-          console.log($(this).attr("name"))
-          console.log($(this))
-        }
-      })
     }
   });
 
