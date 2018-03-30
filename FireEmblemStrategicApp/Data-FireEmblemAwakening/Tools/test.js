@@ -51,6 +51,10 @@ $(document).ready(function(){
         // Cette variable contiens le nom du genitor dans notre PersosList.xml
         var genitorName = theChosen.children()[2]
         console.log($(genitorName).text())
+        // Cette variable contiens les noms des parents possibles pour le personnage choisi
+        var parentsList = theChosen.children()[1]
+        var splittedParentsList = $(parentsList).text().split("-");
+        console.log(splittedParentsList)
         // Si c'est vide alors ça veut dire que le personnage n'est pas un enfant car sinon il aurait le nom de sa mère généralement (par exemple le genitor de Severa est Cordelia, celui de Noire Tharja, celui de Yarne Palne, etc)
         if ($(genitorName).text() === "") {
           console.log("C'est pas un enfant !")
@@ -60,7 +64,6 @@ $(document).ready(function(){
           console.log("C'est un enfant :o")
           // Alors on va devoir check l'héritage des classes, talents que le perso aura reçu de ses parents pour celà on va attendre une réponse de l'utilisateur car on ne peut pas deviner ce qu'il a choisi
         }
-        console.log(theChosen.children()[1])
       }
     });
   }
