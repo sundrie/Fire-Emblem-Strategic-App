@@ -4,41 +4,25 @@ Code js spécifique à la page character builder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 $(function() {
-  // code trouvé sur http://stackoverflow.com/questions/22061073/how-do-i-get-images-file-name-from-a-given-folder
-  //Ceci va générer notre liste de perso comme ça plus besoin de PHP qui n'était en soit suite aux changements plus très utile
 
+  // Ce qui va charger et nous sortir une liste des personnages avec toutes leurs datas (sexe,parents,genitor,classlist,description)
   $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/',
-    success: function(data) {
-       // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
-       $(data).find("a:contains(.txt)").each(function () {
-         //this correspond aux a href trouvé qui contiennent .txt
-         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-         var nomPerso = filename.split(/[\/+.]/g);
-         $("#charList").append("<li><a href=#>"+nomPerso[2]+"</a></li>");
-       });
-     }
+    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/PersosList.xml',
+    datatype : 'xml',
+    success: function(data){
+      var chosenOne;
+      // Liste de tous les personnages
+      var characterList = $(data).children().children();
+      //Ceci va générer notre liste de perso
+      $(characterList).each(function(i) {
+        $("#charList").append("<li><a href=#>"+$(this).attr("name")+"</a></li>");
+      });
+    }
   });
 
   // stocke tous les noms provenant du folder Childrens
   var itsAChild = [];
-
-  //Concerne les enfants qui sont un cas à part
-  $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens',
-    success: function(data) {
-       // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
-       $(data).find("a:contains(.txt)").each(function () {
-         //this correspond aux a href trouvé qui contiennent .txt
-         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-         var nomPerso = filename.split(/[\/+.]/g);
-         $("#charList").append("<li><a href=#>"+nomPerso[2]+"</a></li>");
-         //On push le nom de l'enfant dans la variable définie plus haut
-         itsAChild.push(nomPerso[2]);
-       });
-     }
-  });
-
+  
   $("#searchchar").on("click",function(){
     // On "nettoie" l'input
     $('#searchchar').val('');

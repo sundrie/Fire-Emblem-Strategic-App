@@ -1,6 +1,5 @@
 $(document).ready(function(){
-
-  // Ce qui va charger toutes les datas des personnages
+  // Ce qui va charger et nous sortir une liste des personnages avec toutes leurs datas (sexe,parents,genitor,classlist,description)
   $.ajax({
     url: 'PersosList.xml',
     datatype : 'xml',
@@ -10,7 +9,7 @@ $(document).ready(function(){
       var characterList = $(data).children().children();
       // fonction pour chercher un nom dans notre liste de personnages fournie par le xml
       $(characterList).each(function(i) {
-        if ($(this).attr("name") === "Anna") {
+        if ($(this).attr("name") === "Owain") {
           chosenOne = $(this);
           searchMyData(chosenOne);
           // console.log($(this).attr("name"))
@@ -48,7 +47,7 @@ $(document).ready(function(){
             classes.push($(this));
           }
         });
-        // Cette variable contiens le nom du genitor dans notre PersosList.xml
+        // Cette variable contiens le nom du genitor dans notre PersosList.xml (souvent la mère)
         var genitorName = theChosen.children()[2]
         console.log($(genitorName).text())
         // Cette variable contiens les noms des parents possibles pour le personnage choisi
@@ -62,6 +61,7 @@ $(document).ready(function(){
           displayHeroData(classes);
         } else {
           console.log("C'est un enfant :o")
+          displayHeroData(classes);
           // Alors on va devoir check l'héritage des classes, talents que le perso aura reçu de ses parents pour celà on va attendre une réponse de l'utilisateur car on ne peut pas deviner ce qu'il a choisi
         }
       }
