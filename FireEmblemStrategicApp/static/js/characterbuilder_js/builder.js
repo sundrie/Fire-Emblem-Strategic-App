@@ -78,7 +78,8 @@ $(function() {
     }
   }
 
-
+  // C'est le contenu xml correspondant au personnage choisi par l'utilisateur
+  var theChosenOne;
 
   // Fonction qui s'active lors d'un clic sur un personnage
   $('#charList').on("click", "a", function(){
@@ -117,17 +118,14 @@ $(function() {
     // fonction qui va parcourir la liste des personnages et trouver celui sélectionné par l'utilisateur
     $(heroesList).each(function(i) {
       if ($(this).attr("name") === persoChoisi) {
-        var theChosenOne = $(this);
+        theChosenOne = $(this);
         // On appelle la fonction qui va tester si le personnage est un enfant ou non et on stocke le résultat dans la variable
         childTestResult = childOrNot(theChosenOne);
       }
     });
 
-    console.log(childTestResult);
-
-    // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
-    if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
-      var nameChild = persoChoisi;
+    // On test si le personnage cliqué par l'utilisateur est un enfant
+    if (childTestResult === true){
       // On ajoute un select permettant de choisir le parent
       $('.formulaireRecherche').append("<select id='myParent' class='myParentclass'><option value='default' selected>Choisir parent</option></select>");
 
@@ -136,20 +134,12 @@ $(function() {
       $('.chooseAParent').append("<p class='messageChooseParent'>Veuillez choisir un parent dans la liste qui se trouve sous la liste des personnages pour continuer</p>");
 
       // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
-      fillParentList(nameChild);
+      fillParentList(persoChoisi);
     }else{
-
-      // On charge toutes les datas du perso
-      $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+persoChoisi+'.txt', function(data) {
-        // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
-        var dataduHerosSplit = data.split('/');
-        var listeClassesBrut = dataduHerosSplit[1];
-
-        // Dans le doc texte chaque classes est séparé par un '-'
-        var listeClasses = listeClassesBrut.split('-');
-        TraitementData(listeClasses);
-        //$('#HeroDesc').html(data);
-      }, 'text');
+      var classList = theChosenOne.children()[3];
+      // On stocke dans une var chaque classe séparée par un -
+      var splittedClassList = $(classList).text().split("-");
+      TraitementData(splittedClassList);
     }
 
     // On évite la multiplication des boutons
