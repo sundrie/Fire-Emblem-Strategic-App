@@ -11,6 +11,7 @@ $(document).ready(function(){
       $(characterList).each(function(i) {
         if ($(this).attr("name") === "Owain") {
           chosenOne = $(this);
+          console.log(chosenOne)
           searchMyData(chosenOne);
           // console.log($(this).attr("name"))
           // console.log($(this))
@@ -35,7 +36,7 @@ $(document).ready(function(){
       success: function(data){
         // Variable qui liste toutes les classes
         var allclasses = $(data).children().children();
-        // console.log(allclasses)
+         console.log(allclasses)
         // On déclare une variable de type Array pour pouvoir utiliser la méthode push()
         var classes = [];
         // On boucle sur chaque classes
@@ -76,6 +77,7 @@ $(document).ready(function(){
     var talent2;
     var imagelink;
     var descTalent
+    console.log(classes)
     $(classes).each(function(i) {
       // Si le nom de la classe issue du jeu contient un espace alors on supprime cet espace pour faire une seule classe et non 2 ou plus (ex : Great Knight donne normalement 2 class Great et Knight alors que l'on veut que ça soit une class unique GreatKnight)
       // Sinon et bien on ajoute tout simplement sans traitement anti espace
