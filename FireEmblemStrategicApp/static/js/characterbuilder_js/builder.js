@@ -232,28 +232,20 @@ $(function() {
         talents = classes[i].children();
         talent1 = talents[0];
         talent2 = talents[1];
-        // On ajoute une row avec le nom de la classe du jeu en class
-        $("#TalentsList table tbody").append("<tr class="+removeSpace+"></tr>");
-
         // On attribue a imagelink la première "case" de notre variable qui contient l'url de l'image ,pareil que $(talent1) on fait ceci pour pouvoir utiliser .text() sinon $(talent1).children()[0].text() nous renverrait une erreur
         imagelink = $(talent1).children()[0];
-        // Le $(talent1) est essentiel pour pouvoir intéragir avec cette variable objet
-        // Affiche l'image et nom du 1er talent de la classe du personnage
-        $("."+removeSpace).append("<td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td>");
         // Affiche la description du talent
         // On reprends le même principe que pour imagelink
         descTalent = $(talent1).children()[1];
-        $("."+removeSpace).append("<td>"+$(descTalent).text()+"</td>");
+        // Le $(talent1) est essentiel pour pouvoir intéragir avec cette variable objet
+        $("#TalentsList table tbody").append("<tr class="+removeSpace+"><td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
 
-        // On ajoute une row avec le nom de la classe du jeu en class
-        $("#TalentsList table tbody").append("<tr class="+removeSpace+"></tr>");
         // On change juste le selecteur pour éviter de créer 2 variables imagelink
         imagelink = $(talent2).children()[0];
-        // Affiche l'image et nom du 2ème talent de la classe du personnage
-        $("."+removeSpace).append("<td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td>");
         // Affiche la description du talent
         descTalent = $(talent2).children()[1];
-        $("."+removeSpace).append("<td>"+$(descTalent).text()+"</td>");
+        // Affiche l'image et nom du 2ème talent de la classe du personnage
+        $("#TalentsList table tbody").append("<tr class="+removeSpace+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
       } else {
         // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
         talents = classes[i].children();
