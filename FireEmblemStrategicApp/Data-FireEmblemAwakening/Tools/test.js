@@ -21,8 +21,6 @@ $(document).ready(function(){
 
   // fonction qui va s'occuper de récupérer les datas du perso choisi
   function searchMyData(theChosen){
-    // console.log(theChosen);
-    // console.log(theChosen.attr("name"))
     var classList = theChosen.children()[3];
     // console.log(classList)
     // console.log($(classList).text())

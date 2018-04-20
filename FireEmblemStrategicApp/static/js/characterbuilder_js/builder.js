@@ -5,31 +5,45 @@ Code js spécifique à la page character builder
 */
 $(function() {
 
+  // On récupère dans ces variables la liste des personnages pour heroesList et la liste des classes (et ce qu'elles contiennent à savoir des talents) pour allclassesList. attention ajax est async donc il peut arriver que undefined arrive selon l'endroit où on utilise ces variables
+  var heroesList;
+  var allclassesList;
+
   // Ce qui va charger et nous sortir une liste des personnages avec toutes leurs datas (sexe,parents,genitor,classlist,description)
   $.ajax({
     url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/PersosList.xml',
     datatype : 'xml',
     success: function(data){
-      var chosenOne;
       // Liste de tous les personnages
       var characterList = $(data).children().children();
       //Ceci va générer notre liste de perso
       $(characterList).each(function(i) {
         $("#charList").append("<li><a href=#>"+$(this).attr("name")+"</a></li>");
       });
+      // On rend "global" le résultat de notre requête ajax
+      heroesList = characterList;
     }
   });
 
-  // stocke tous les noms provenant du folder Childrens
-  var itsAChild = [];
-  
+  // On charge notre document xml listant tous les talents
+  $.ajax({
+    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/TalentsList.xml',
+    datatype : 'xml',
+    success: function(data){
+      // Variable qui liste toutes les classes
+      var allclasses = $(data).children().children();
+      // On rend "global" le résultat de notre requête ajax
+      allclassesList = allclasses;
+    }
+  });
+
+  // Le code suivant gère la saisie dans le champ de recherche au dessus de la liste des personnages
   $("#searchchar").on("click",function(){
     // On "nettoie" l'input
     $('#searchchar').val('');
     // On remontre toute la liste qui aurait pût être diminué selon la saisie de l'utilisateur
     $("#charList li").show();
   });
-
   $("#searchchar").on("keyup", function(){
     // On passe la saisie en minuscule pour éviter les soucis
     var saisieUser = $(this).val().toLowerCase();
@@ -43,6 +57,26 @@ $(function() {
       }
     });
   });
+
+  // retourne un booléen pour si le personnage cliqué est un enfant ou non
+  function childOrNot (chosenOne) {
+    console.log(chosenOne)
+    // Cette variable contiens le nom du genitor dans notre PersosList.xml (souvent la mère)
+    // var genitorName = heroesList.children()[2]
+    // console.log($(genitorName).text())
+    // Cette variable contiens les noms des parents possibles pour le personnage choisi
+    // var parentsList = theChosen.children()[1]
+    // var splittedParentsList = $(parentsList).text().split("-");
+    // console.log(splittedParentsList)
+    // Si c'est vide alors ça veut dire que le personnage n'est pas un enfant car sinon il aurait le nom de sa mère généralement (par exemple le genitor de Severa est Cordelia, celui de Noire Tharja, celui de Yarne Palne, etc)
+    // if ($(genitorName).text() === "") {
+    //   console.log("C'est pas un enfant !")
+    // } else {
+    //   console.log("C'est un enfant :o")
+    // }
+  }
+
+
 
   // Fonction qui s'active lors d'un clic sur un personnage
   $('#charList').on("click", "a", function(){
@@ -78,6 +112,17 @@ $(function() {
     $('.chooseAParent').hide();
     $('.chooseAParent p').remove();
 
+    // fonction qui va parcourir la liste des personnages et trouver celui sélectionné par l'utilisateur
+    $(heroesList).each(function(i) {
+      if ($(this).attr("name") === persoChoisi) {
+        var theChosenOne = $(this);
+        // fonction qui va tester si le personnage est un enfant ou non
+        childOrNot(theChosenOne);
+      }
+    });
+
+
+
     // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
       var nameChild = persoChoisi;
@@ -91,8 +136,6 @@ $(function() {
       // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
       fillParentList(nameChild);
     }else{
-
-      // A MODIFIER :3
 
       // On charge toutes les datas du perso
       $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+persoChoisi+'.txt', function(data) {
@@ -160,7 +203,6 @@ $(function() {
   function TraitementData(listeClasses){
     // On cache le bouton goback pour éviter les soucis
     $(".goback").hide();
-    // $(".TalentsChoosenBuilder").html('<tbody><tr class="drop"><td>Uno</td></tr><tr class="drop"><td>Dos</td></tr><tr class="drop"><td>Tres</td></tr><tr class="drop"><td>Quatro</td><tr class="drop"><td>Cinquo</td></tr></tbody>');
     // On fait la requête pour récupérer la page html contenant le tableau des talents par classes
     $.ajax({
       url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/pages/class_talents_list.html',
