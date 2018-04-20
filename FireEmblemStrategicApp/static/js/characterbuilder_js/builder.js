@@ -246,6 +246,7 @@ $(function() {
         descTalent = $(talent2).children()[1];
         // Affiche l'image et nom du 2ème talent de la classe du personnage
         $("#TalentsList table tbody").append("<tr class="+removeSpace+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
+        $("#TalentsList ."+removeSpace).addClass("drag");
       } else {
         // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
         talents = classes[i].children();
@@ -264,6 +265,25 @@ $(function() {
         descTalent = $(talent2).children()[1];
         $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
       }
+      $("#TalentsList ."+classes[i].attr("name")).addClass("drag");
+      // Nous sommes obligé d'exécuter ce code ici au moment de la génération car en dehors ça ne fonctionne pas
+      $("#TalentsList table tbody .drag").draggable({
+        containment : '.wrapper',
+        helper: "clone",    // Ne pas supprimer sinon le drag ne fonctionne pas
+        start: function (){
+          var row_index1 = $(this).parent().index();
+          var col_index1 = $(this).index();
+          //console.log("row_index1 : "+row_index1+" col_index1 : "+col_index1 )
+          $(this).animate({
+            opacity: '0.5'
+          }, 1000);
+        },
+        stop: function () {
+          $(this).animate({
+            opacity: '1'
+          }, 1000);
+        }
+      });
     });
   }
 
