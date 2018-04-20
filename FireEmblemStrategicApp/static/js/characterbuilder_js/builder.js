@@ -245,6 +245,8 @@ $(function() {
         descTalent = $(talent1).children()[1];
         $("."+removeSpace).append("<td>"+$(descTalent).text()+"</td>");
 
+        // On ajoute une row avec le nom de la classe du jeu en class
+        $("#TalentsList table tbody").append("<tr class="+removeSpace+"></tr>");
         // On change juste le selecteur pour éviter de créer 2 variables imagelink
         imagelink = $(talent2).children()[0];
         // Affiche l'image et nom du 2ème talent de la classe du personnage
@@ -257,22 +259,18 @@ $(function() {
         talents = classes[i].children();
         talent1 = talents[0];
         talent2 = talents[1];
-        // On ajoute une row avec le nom de la classe du jeu en class
-        $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"></tr>");
 
         // Affiche l'image et nom du 1er talent de la classe du personnage
         imagelink = $(talent1).children()[0];
-        $("."+classes[i].attr("name")).append("<td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td>");
         // Affiche la description du talent
         descTalent = $(talent1).children()[1];
-        $("."+classes[i].attr("name")).append("<td>"+$(descTalent).text()+"</td>");
+        $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
 
         // Affiche l'image et nom du 2ème talent de la classe du personnage
         imagelink = $(talent2).children()[0];
-        $("."+classes[i].attr("name")).append("<td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td>");
         // Affiche la description du talent
         descTalent = $(talent2).children()[1];
-        $("."+classes[i].attr("name")).append("<td>"+$(descTalent).text()+"</td>");
+        $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
       }
     });
   }
