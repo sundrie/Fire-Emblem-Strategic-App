@@ -58,21 +58,23 @@ $(function() {
     });
   });
 
+  // Cette variable contiens le nom du genitor dans notre PersosList.xml (souvent la mère)
+  var genitorName;
+  // Cette variable contiens les noms des parents possibles pour le personnage choisi
+  var splittedParentsList;
+  // stocke le booléen nous indiquant si c'est un enfant (true) ou pas un enfant (false)
+  var childTestResult;
+
   // retourne un booléen pour si le personnage cliqué est un enfant ou non
   function childOrNot (TheChosenOne) {
-    console.log(TheChosenOne)
-    // Cette variable contiens le nom du genitor dans notre PersosList.xml (souvent la mère)
-    var genitorName = TheChosenOne.children()[2]
-    console.log($(genitorName).text())
-    // Cette variable contiens les noms des parents possibles pour le personnage choisi
+    genitorName = TheChosenOne.children()[2]
     var parentsList = TheChosenOne.children()[1]
-    var splittedParentsList = $(parentsList).text().split("-");
-    console.log(splittedParentsList)
+    splittedParentsList = $(parentsList).text().split("-");
     // Si c'est vide alors ça veut dire que le personnage n'est pas un enfant car sinon il aurait le nom de sa mère généralement (par exemple le genitor de Severa est Cordelia, celui de Noire Tharja, celui de Yarne Palne, etc)
     if ($(genitorName).text() === "") {
-      console.log("C'est pas un enfant !")
+      return false
     } else {
-      console.log("C'est un enfant :o")
+      return true
     }
   }
 
@@ -116,12 +118,12 @@ $(function() {
     $(heroesList).each(function(i) {
       if ($(this).attr("name") === persoChoisi) {
         var theChosenOne = $(this);
-        // fonction qui va tester si le personnage est un enfant ou non
-        childOrNot(theChosenOne);
+        // On appelle la fonction qui va tester si le personnage est un enfant ou non et on stocke le résultat dans la variable
+        childTestResult = childOrNot(theChosenOne);
       }
     });
 
-
+    console.log(childTestResult);
 
     // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
