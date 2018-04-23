@@ -420,24 +420,26 @@ $(function() {
     $('.chooseAParent').hide();
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
-
+    legacy_of_Parent(parentName)
   });
 
-  // Cette fonction se chargera de récupérer les data du parent choisi
-  function getParentData(parentName){
-    console.log(heroesList)
-  // On appelle notre fonction qui se chargera de donner un talent en héritage à l'enfant
-  //     legacy_of_Parent(parentName,parentClass);
-  //     // On envoie les 2 listes à notre fonction
-  //     completeChildTalent(childName,parentName,childClass,parentClass);  
-  }
+  // Cette fonction va créer un select pour permettre de choisir le talent hérité du parent
+  function legacy_of_Parent(parentName) {
+    // On stocke les datas du parent
+    var dataParent = searchThisName(parentName);
 
-  function legacy_of_Parent(parentName,parentClass) {
+
     // Si il y a plus d'un seul select pour sélectionner le talent du parent alors on supprime le select (la multiplication des select arrivait si on changait de parent tout en restant sur le même perso)
     if ($("#myParentLegacy").length > 0) {
       $("#myParentLegacy").remove();
     }
+    // On utilise cette fonction qui renvoie a chaque fois les talents disponibles pour le personnage entré et on stocke le retour dans une variable
+    var parentTalents = searchMyData(dataParent);
     $('.formulaireRecherche').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
+    // Pour chaque talent du parent on créé une option dans notre liste
+    $.each((x), function(i){
+      $("#myParentLegacy").append("<option value="+x[i]+">"+x[i]+"</option>")
+    })
   }
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
