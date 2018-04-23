@@ -67,11 +67,12 @@ $(function() {
 
   // retourne un booléen pour si le personnage cliqué est un enfant ou non
   function childOrNot (TheChosenOne) {
-    genitorName = TheChosenOne.children()[2]
+    var genitor = TheChosenOne.children()[2]
+    genitorName = $(genitor).text();
     var parentsList = TheChosenOne.children()[1]
     splittedParentsList = $(parentsList).text().split("-");
     // Si c'est vide alors ça veut dire que le personnage n'est pas un enfant car sinon il aurait le nom de sa mère généralement (par exemple le genitor de Severa est Cordelia, celui de Noire Tharja, celui de Yarne Palne, etc)
-    if ($(genitorName).text() === "") {
+    if (genitorName === "") {
       return false
     } else {
       return true
@@ -155,9 +156,9 @@ $(function() {
 
     // On test si le personnage cliqué par l'utilisateur est un enfant
     if (childTestResult === true){
-
       // On ajoute un select permettant de choisir 1er talent d'héritage (celui du parent inchangeable Cordelia pour Severa, Chrom pour Lucina, etc)
       $('.formulaireRecherche').append("<select id='myGenitorLegacy' class='myParentclass myGenitorLegacyclass'><option value='default' selected>1er talent hérité</option></select>");
+      legacy_of_Parent(genitorName,"myGenitorLegacy")
 
       // On ajoute un select permettant de choisir le parent
       $('.formulaireRecherche').append("<select id='myParent' class='myParentclass'><option value='default' selected>Choisir parent</option></select>");
@@ -413,47 +414,40 @@ $(function() {
       $("#myParent").append("<option value="+splittedParentsList[i]+">"+splittedParentsList[i]+"</option>")
     })
   }
-
   // Lors d'un changement dans le select pour choisir le parent sous la liste des persos
   $(".formulaireRecherche").on('change','#myParent',function(){
+    $("#myParentLegacy").remove();
     // masque le message nous demandant de choisir un parent
     $('.chooseAParent').hide();
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
-    legacy_of_Parent(parentName)
+    $('.formulaireRecherche').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
+    legacy_of_Parent(parentName,"myParentLegacy");
+    // Si il y a plus d'un seul select pour sélectionner le talent du parent alors on supprime le select (la multiplication des select arrivait si on changait de parent tout en restant sur le même perso)
   });
 
   // Cette fonction va créer un select pour permettre de choisir le talent hérité du parent
-  function legacy_of_Parent(parentName) {
+  function legacy_of_Parent(parentName,selectId) {
     // On stocke les datas du parent
     var dataParent = searchThisName(parentName);
-
-
-    // Si il y a plus d'un seul select pour sélectionner le talent du parent alors on supprime le select (la multiplication des select arrivait si on changait de parent tout en restant sur le même perso)
-    if ($("#myParentLegacy").length > 0) {
-      $("#myParentLegacy").remove();
-    }
     // On utilise cette fonction qui renvoie a chaque fois les talents disponibles pour le personnage entré et on stocke le retour dans une variable
     var parentTalents = searchMyData(dataParent);
-    $('.formulaireRecherche').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
-      var talent1;
-      var talent2;
-      // pour donner plus d'infos à l'utilisateur concernant les talents et ce qu'ils font
-      var talentdesc;
+    var talent1;
+    var talent2;
+    // pour donner plus d'infos à l'utilisateur concernant les talents et ce qu'ils font
+    var talentdesc;
     $.each((parentTalents), function(i){
-      talent1 = $(parentTalents)[i].children()[0]
-      talent2 = $(parentTalents)[i].children()[1]
+      talent1 = $(parentTalents)[i].children()[0];
+      talent2 = $(parentTalents)[i].children()[1];
 
-      talentdesc = $(talent1).children()[1]
+      talentdesc = $(talent1).children()[1];
       // Pour chaque talent du parent on créé une option dans notre liste
-      $("#myParentLegacy").append("<option value="+$(talent1).attr("name")+">"+$(talent1).attr("name")+" - "+$(talentdesc).text()+"</option>")
+      $("#"+selectId).append("<option value="+$(talent1).attr("name")+">"+$(talent1).attr("name")+" - "+$(talentdesc).text()+"</option>");
 
-      talentdesc = $(talent2).children()[1]
+      talentdesc = $(talent2).children()[1];
       // Pour chaque talent du parent on créé une option dans notre liste
-      $("#myParentLegacy").append("<option value="+$(talent2).attr("name")+">"+$(talent2).attr("name")+" - "+$(talentdesc).text()+"</option>")
+      $("#"+selectId).append("<option value="+$(talent2).attr("name")+">"+$(talent2).attr("name")+" - "+$(talentdesc).text()+"</option>");
     })
-
-
   }
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
@@ -515,6 +509,7 @@ $(function() {
     //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
     TraitementData(listeClassesChild);
   }
+
 
   // Cette fonction va s'occuper de nettoyer les incohérences dût au règles du jeu (Une femme dans le jeu ne peut devenir barbarian par exemple) et nous renvoyer la liste corrigée
   function listCleaner(listParent,childMale,childFemale,parentMale,parentFemale){
