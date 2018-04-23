@@ -423,7 +423,6 @@ $(function() {
     var parentName = $(this).val();
     $('.formulaireRecherche').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
     legacy_of_Parent(parentName,"myParentLegacy");
-    // Si il y a plus d'un seul select pour sélectionner le talent du parent alors on supprime le select (la multiplication des select arrivait si on changait de parent tout en restant sur le même perso)
   });
 
   // Cette fonction va créer un select pour permettre de choisir le talent hérité du parent
@@ -448,6 +447,21 @@ $(function() {
       // Pour chaque talent du parent on créé une option dans notre liste
       $("#"+selectId).append("<option value="+$(talent2).attr("name")+">"+$(talent2).attr("name")+" - "+$(talentdesc).text()+"</option>");
     })
+  }
+
+  $(".formulaireRecherche").on('change','#myGenitorLegacy',function(){
+    // On appelle cette fonction a chaque changement pour qu'elle "écoute" les 2 select
+    getBothSelectValue()
+  })
+  $(".formulaireRecherche").on('change','#myParentLegacy',function(){
+    // On appelle cette fonction a chaque changement pour qu'elle "écoute" les 2 select
+    getBothSelectValue()
+  })
+
+  // Permet de récupérer les 2 valeurs choisies de select pour appeler la fonction completeChildTalent
+  function getBothSelectValue() {
+    console.log("#myGenitorLegacy : "+ $("#myGenitorLegacy option:selected").text())
+    console.log("#myparentLegacy : " + $("#myParentLegacy option:selected").text())
   }
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
