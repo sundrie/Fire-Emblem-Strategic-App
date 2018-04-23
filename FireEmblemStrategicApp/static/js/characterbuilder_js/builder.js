@@ -128,6 +128,7 @@ $(function() {
     // On évite la multiplication des select
     $("#myParent").remove();
     $("#myParentLegacy").remove();
+    $("#myGenitorLegacy").remove();
     // On évite la multiplication du message
     $('.chooseAParent').hide();
     $('.chooseAParent p').remove();
@@ -143,6 +144,10 @@ $(function() {
 
     // On test si le personnage cliqué par l'utilisateur est un enfant
     if (childTestResult === true){
+
+      // On ajoute un select permettant de choisir 1er talent d'héritage (celui du parent inchangeable Cordelia pour Severa, Chrom pour Lucina, etc)
+      $('.formulaireRecherche').append("<select id='myGenitorLegacy' class='myParentclass myGenitorLegacyclass'><option value='default' selected>1er talent hérité</option></select>");
+
       // On ajoute un select permettant de choisir le parent
       $('.formulaireRecherche').append("<select id='myParent' class='myParentclass'><option value='default' selected>Choisir parent</option></select>");
 
@@ -271,9 +276,6 @@ $(function() {
         containment : '.wrapper',
         helper: "clone",    // Ne pas supprimer sinon le drag ne fonctionne pas
         start: function (){
-          var row_index1 = $(this).parent().index();
-          var col_index1 = $(this).index();
-          //console.log("row_index1 : "+row_index1+" col_index1 : "+col_index1 )
           $(this).animate({
             opacity: '0.5'
           }, 1000);
@@ -287,95 +289,6 @@ $(function() {
     });
   }
 
-  // // Cette fonction s'occupe d'afficher tous les talents que peut avoir un personnage dans un tableau
-  // function TraitementData(listeClasses){
-  //   // On cache le bouton goback pour éviter les soucis
-  //   $(".goback").hide();
-  //   // On fait la requête pour récupérer la page html contenant le tableau des talents par classes
-  //   $.ajax({
-  //     url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/pages/class_talents_list.html',
-  //     type: 'GET',
-  //     success: function(res){
-  //       var tableau = res
-  //       // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
-  //       $('#TalentsList').append(tableau);
-  //       $('#TalentsList').show();
-  //       //On créé 2 tableaux qui recevront les futurs skills 1 et 2
-  //       $('#TalentsList').append("<table class='tableskill2 drag'><tbody></tbody></table>");
-  //       $('#TalentsList').append("<table class='tableskill1 drag'><tbody></tbody></table>");
-  //       // On ajoute une bordure pour bien identifier la zone où on peut interragir
-  //       $(".TalentsListclass").css("border","2px solid rgb(110, 108, 93)");
-  //       // Pour éviter qu'on voit les 12 px manquant une fois la barre disparant du coup bah elle disparait plus comme ça
-  //       $(".TalentsListclass").css("overflow-y", "scroll");
-  //
-  //       // Cette fonction nous permet de faire 2 tableaux 1 pour chaque skill
-  //       $('#TalentsList table tr').each(function(){
-  //         //Ok alors pour decrypter .children() nous renvoie un tableau contenant chaque td de notre tr actuelle on sélectionne le 3ème et 4ème enfant grâce à eq()
-  //         var tdskill2 = $(this).children('td').eq(3);
-  //         var tdskill2desc = $(this).children('td').eq(4);
-  //
-  //         // Pour info $(this).attr('class') nous donne la class de la tr en cours
-  //         $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill2.html()+"</td><td>"+tdskill2desc.html()+"</td></tr>").appendTo(".tableskill2 tbody");
-  //
-  //         // On supprime les lignes du tableau original vu que le déplacement a été fait histoire de pas avoir de doublons
-  //         tdskill2.remove();
-  //         tdskill2desc.remove();
-  //
-  //         // ~~~~~~ A partir d'ici on fait la même chose qu'au dessus mais pour le skill 1 cette fois. /!\ IMPORTANT /!\ On fait dans le sens inverse car dans l'autre sens le code fonctionnerait pas comme on le voudrait.
-  //
-  //         //Ok alors pour decrypter .children() nous renvoie un tableau contenant chaque td de notre tr actuelle on sélectionne le 1er et 2ème enfant grâce à eq()
-  //         var tdskill1 = $(this).children('td').eq(1);
-  //         var tdskill1desc = $(this).children('td').eq(2);
-  //
-  //         // Pour info $(this).attr('class') nous donne la class de la tr en cours
-  //         $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill1.html()+"</td><td>"+tdskill1desc.html()+"</td></tr>").appendTo(".tableskill1 tbody");
-  //
-  //         // On supprime les lignes du tableau original vu que le déplacement a été fait histoire de pas avoir de doublons
-  //         tdskill1.remove();
-  //         tdskill1desc.remove();
-  //       });
-  //
-  //       // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
-  //       $("#TalentsList table tr").hide();
-  //       // la variable qui récupèrera les classes que le perso peut avoir
-  //       var classe;
-  //       // Petite boucle pour parcourir le array des classes possibles pour le perso (souvent 9 classes excepté pour des persos spéciaux)
-  //       for (var i = 0; i < listeClasses.length; i++) {
-  //         // ici on enlève les espaces de nos strings pour pouvoir rechercher la classes correspondante (ex: Great Knight dans la variable classe or la class en html se nomme GreatKnight)
-  //         classe = listeClasses[i].split(" ").join("");
-  //         // Si notre page html contient une classe correspondant à la liste du perso alors on affichera cette classe qui était au départ masquée
-  //         if ($("tableau:contains('."+classe+"')")){
-  //           //console.log($("#message ."+classe));
-  //           $("#TalentsList ."+classe).show();
-  //           // On ajoute la classe drag pour changer les icônes du pointeur de la souris dans notre master.css
-  //           $("#TalentsList ."+classe).addClass("drag");
-  //           // Nous sommes obligé d'exécuter ce code ici au moment de la génération car en dehors ça ne fonctionne pas
-  //           $("#TalentsList ."+classe).draggable({
-  //             containment : '.wrapper',
-  //             helper: "clone",    // Ne pas supprimer sinon le drag ne fonctionne pas
-  //             start: function (){
-  //               var row_index1 = $(this).parent().index();
-  //               var col_index1 = $(this).index();
-  //               //console.log("row_index1 : "+row_index1+" col_index1 : "+col_index1 )
-  //               $(this).animate({
-  //                 opacity: '0.5'
-  //               }, 1000);
-  //             },
-  //             stop: function () {
-  //               $(this).animate({
-  //                 opacity: '1'
-  //               }, 1000);
-  //             }
-  //           });
-  //         }
-  //       }
-  //       //Utilisé lors du debug pour séparer les classes entre chaque perso
-  //       //console.log('------------------------')
-  //       // On enlève le premier tableau contenant le nom des classes
-  //       $("#TalentsList table").first().remove();
-  //     }
-  //   });
-  // }
 
   // fonction nous permettant de rendre les zones droppables si la class est drop
   function dropTalents(){
@@ -383,22 +296,11 @@ $(function() {
       accept: '.drag',
       drop: function (event,ui) {
         var droppable = $(this);
-        // console.log(droppable);
         var draggable = ui.draggable;
-        // console.log(draggable);
         var droppablechild = $(droppable).children();
-        // console.log(droppablechild);
-
 
         // Si la zone de drop contient un td (donc aucun autre talent(pour rappel sans ce test on pouvait mettre plusieurs talents dans une seule zone de drop ce qui était très problématique)) alors tout s'effectue normalement sinon et bien le talent retourne avec les autres, si on voulait gérer le sinon alors il faut ajouter ceci if ($(droppablechild[0]).is(':not(td)'))
         if($(droppablechild[0]).is('td')){
-          var row_index = $(draggable).parent().index();
-          var col_index = $(draggable).index();
-          // Nous donne la classe de la table d'où provient l'élément
-          var tableOrigin = $(draggable).closest('table').attr('class').split(' ')[0];
-          //console.log(tableOrigin);
-          //console.log("row_index : "+row_index+" col_index : "+col_index);
-
           // Move draggable into droppable
           $(droppable).find('td').remove()
           draggable.appendTo(droppable);
@@ -409,25 +311,18 @@ $(function() {
           $(draggable).removeClass("drag");
           // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
           $($(draggable).children().first()).append("<i class='fas fa-times goback'></i>");
-          //$("<i class='fas fa-times goback'></i>").insertAfter($());
           // On affiche le bouton goback précedemment masqué plus haut dans le code pour éviter qu'ils aparaissent lorsqu'on choisi un autre perso alors qu'on a pas vidé la zone de drop
           $(".goback").show();
 
           // Fonction qui s'active lors d'un clic sur la classe goback (qui sert à enlever un talent de la zone de drop pour qu'il revienne dans le tableau avec tous les autres talents)
           $(".goback").on("click",function(){
-
-            // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
-            // console.log(tableOrigin2);
             var trVoyager = $(this).parent().parent();
             var trDropOriginelle = $(this).parent().parent().parent();
 
             //supprime le bouton goback
             $(this).remove();
 
-            //console.log(trVoyager);
-            // console.log(("."+tableOrigin+" tbody"))
-
-            $("."+tableOrigin+" tbody").append(trVoyager[0]);
+            $(".drag tbody").append(trVoyager[0]);
             // On réactive la fonction draggable après que celui ci soit retourné avec ses autres amis talents
             $(trVoyager[0]).draggable('enable');
             $(draggable).addClass("drag");
