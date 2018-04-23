@@ -470,30 +470,34 @@ $(function() {
 
   // Permet de récupérer les 2 valeurs choisies de select pour appeler la fonction completeChildTalent
   function getBothSelectValue() {
-    // console.log("#myGenitorLegacy : "+ $("#myGenitorLegacy option:selected").text())
-    // console.log("#myparentLegacy : " + $("#myParentLegacy option:selected").text())
-    console.log($("#myGenitorLegacy").val())
-    console.log($("#myParentLegacy").val())
+    // On récupère le nom du talent choisi
+    var tmp = $("#myGenitorLegacy option:selected").text().split('-');
+    var genitorTalentGift = tmp[0];
+    var tmp = $("#myParentLegacy option:selected").text().split('-');
+    var secondParentTalentGift = tmp[0];
 
     // Toutes les datas des personnages impliqués dans la conception de l'enfant sont récupérées
-
-    // Toutes les infos sur l'enfant
-    console.log(theChosenOne)
     var genitorData = searchThisName(genitorName)
-    console.log(genitorData)
     var secondParentData = searchThisName($("#myParent").val())
-    console.log(secondParentData);
 
     // Si les 2 select ont une valeur et qu'ils ne sont pas sur le choix par default
     if (($("#myGenitorLegacy option:selected").text() !="")&&!($("#myGenitorLegacy").val() === "default")&&($("#myParentLegacy option:selected").text() !="")&&!($("#myParentLegacy").val()==="default")){
-      console.log("Les 2 sont remplies");
-
+      completeChildTalent(genitorTalentGift,$("#myGenitorLegacy").val(),genitorData,secondParentTalentGift,$("#myParentLegacy").val(),secondParentData)
     }
 
   }
 
-  // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
-  function completeChildTalent(childName,parentName,rawChildClass, rawParentClass){
+  // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui de ses parents qui donnent leurs classes et 1 talent chacun en héritage
+  function completeChildTalent(genitorTalentGift,genitorTalentOrigin,genitorData,secondParentTalentGift,secondParentTalentOrigin,secondParentData){
+    
+    console.log(theChosenOne)
+    console.log(genitorTalentGift);
+    console.log(genitorTalentOrigin);
+    console.log(genitorData);
+    console.log(secondParentTalentGift);
+    console.log(secondParentTalentOrigin);
+    console.log(secondParentData);
+
     // Ces variables servent à déterminer qui est un Homme ou une Femme parmis tous les personnages de Fire Emblem Awakening
     var FEAMale = "Avatar(M),Basilio,Brady,Chrom,Donnel,Frederick,Gaius,Gangrel,Gerome,Gregor,Henry,Inigo,Kellam,Laurent,Libra,Lon'zu,Owain,Priam,Ricken,Stahl,Vaike,Virion,Walhart,Yarne,Yen'fay";
     var FEAFemale = "Cynthia,Kjelle,Lucina,Nah,Noire,Severa";
