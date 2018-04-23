@@ -98,6 +98,20 @@ $(function() {
   // C'est le contenu xml correspondant au personnage choisi par l'utilisateur
   var theChosenOne;
 
+  // fonction qui parcourt la variable heroesList qui a été alimentée par notre requête ajax
+  function searchThisName(findhim) {
+    // Va contenir toutes les infos sur le personnage a trouver
+    var targetLocked;
+    // fonction qui va parcourir la liste des personnages et sauvegarder toutes ses données
+    $(heroesList).each(function(i) {
+      if ($(this).attr("name") === findhim) {
+        targetLocked = $(this);
+      }
+    });
+    return targetLocked;
+  }
+
+
   // Fonction qui s'active lors d'un clic sur un personnage
   $('#charList').on("click", "a", function(){
     // On vide les talents que l'utilisateur a possiblement déposer dans les réceptacles drop
@@ -133,14 +147,11 @@ $(function() {
     $('.chooseAParent').hide();
     $('.chooseAParent p').remove();
 
-    // fonction qui va parcourir la liste des personnages et trouver celui sélectionné par l'utilisateur
-    $(heroesList).each(function(i) {
-      if ($(this).attr("name") === persoChoisi) {
-        theChosenOne = $(this);
-        // On appelle la fonction qui va tester si le personnage est un enfant ou non et on stocke le résultat dans la variable
-        childTestResult = childOrNot(theChosenOne);
-      }
-    });
+    // On appelle la fonction qui va chercher le personnage choisi dans la liste et on stocke le résultat dans la variable
+    theChosenOne = searchThisName(persoChoisi);
+
+    // On appelle la fonction qui va tester si le personnage est un enfant ou non et on stocke le résultat dans la variable
+    childTestResult = childOrNot(theChosenOne);
 
     // On test si le personnage cliqué par l'utilisateur est un enfant
     if (childTestResult === true){
@@ -409,23 +420,17 @@ $(function() {
     $('.chooseAParent').hide();
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
-    getParentData(parentName);
+
   });
 
-  // Cette fonction se chargera de récupérer les data du parent choisi depuis son text file
-  // function getParentData(childName,parentName,childClass){
-  //   // On charge toutes les datas du parent
-  //   $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+parentName+'.txt', function(data) {
-  //     // On sépare le data brut du txt à l'endroit du / et on écrase le data pour le transformer en tableau
-  //     data = data.split("/");
-  //     // De ce tableau on prend la 2ème partie qui contient nos classes
-  //     var parentClass = data[1];
-  //     // On appelle notre fonction qui se chargera de donner un talent en héritage à l'enfant
+  // Cette fonction se chargera de récupérer les data du parent choisi
+  function getParentData(parentName){
+    console.log(heroesList)
+  // On appelle notre fonction qui se chargera de donner un talent en héritage à l'enfant
   //     legacy_of_Parent(parentName,parentClass);
   //     // On envoie les 2 listes à notre fonction
-  //     completeChildTalent(childName,parentName,childClass,parentClass);
-  //   }, 'text');
-  // }
+  //     completeChildTalent(childName,parentName,childClass,parentClass);  
+  }
 
   function legacy_of_Parent(parentName,parentClass) {
     // Si il y a plus d'un seul select pour sélectionner le talent du parent alors on supprime le select (la multiplication des select arrivait si on changait de parent tout en restant sur le même perso)
