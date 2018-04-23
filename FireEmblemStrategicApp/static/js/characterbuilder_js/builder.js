@@ -9,6 +9,7 @@ $(function() {
   var heroesList;
   var allclassesList;
 
+
   // Ce qui va charger et nous sortir une liste des personnages avec toutes leurs datas (sexe,parents,genitor,classlist,description)
   $.ajax({
     url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/PersosList.xml',
@@ -425,27 +426,36 @@ $(function() {
     legacy_of_Parent(parentName,"myParentLegacy");
   });
 
+  var parentTalents;
   // Cette fonction va créer un select pour permettre de choisir le talent hérité du parent
   function legacy_of_Parent(parentName,selectId) {
     // On stocke les datas du parent
     var dataParent = searchThisName(parentName);
     // On utilise cette fonction qui renvoie a chaque fois les talents disponibles pour le personnage entré et on stocke le retour dans une variable
-    var parentTalents = searchMyData(dataParent);
+    parentTalents = searchMyData(dataParent);
     var talent1;
     var talent2;
     // pour donner plus d'infos à l'utilisateur concernant les talents et ce qu'ils font
     var talentdesc;
+    var removeSpace;
     $.each((parentTalents), function(i){
       talent1 = $(parentTalents)[i].children()[0];
       talent2 = $(parentTalents)[i].children()[1];
 
       talentdesc = $(talent1).children()[1];
+      if (/\s/.test($(parentTalents)[i].attr("name"))) {
+        removeSpace = $(parentTalents)[i].attr("name");
+        removeSpace = removeSpace.replace(/\s/, '');
+      } else {
+        removeSpace = $(parentTalents)[i].attr("name");
+      }
       // Pour chaque talent du parent on créé une option dans notre liste
-      $("#"+selectId).append("<option value="+$(talent1).attr("name")+">"+$(talent1).attr("name")+" - "+$(talentdesc).text()+"</option>");
+      $("#"+selectId).append("<option value="+removeSpace+">"+$(talent1).attr("name")+" - "+$(talentdesc).text()+"</option>");
 
       talentdesc = $(talent2).children()[1];
       // Pour chaque talent du parent on créé une option dans notre liste
-      $("#"+selectId).append("<option value="+$(talent2).attr("name")+">"+$(talent2).attr("name")+" - "+$(talentdesc).text()+"</option>");
+      $("#"+selectId).append("<option value="+removeSpace+">"+$(talent2).attr("name")+" - "+$(talentdesc).text()+"</option>");
+
     })
   }
 
@@ -462,12 +472,24 @@ $(function() {
   function getBothSelectValue() {
     // console.log("#myGenitorLegacy : "+ $("#myGenitorLegacy option:selected").text())
     // console.log("#myparentLegacy : " + $("#myParentLegacy option:selected").text())
-    // console.log($("#myGenitorLegacy").val())
-    // console.log($("#myParentLegacy").val())
+    console.log($("#myGenitorLegacy").val())
+    console.log($("#myParentLegacy").val())
+
+    // Toutes les datas des personnages impliqués dans la conception de l'enfant sont récupérées
+
+    // Toutes les infos sur l'enfant
+    console.log(theChosenOne)
+    var genitorData = searchThisName(genitorName)
+    console.log(genitorData)
+    var secondParentData = searchThisName($("#myParent").val())
+    console.log(secondParentData);
+
     // Si les 2 select ont une valeur et qu'ils ne sont pas sur le choix par default
     if (($("#myGenitorLegacy option:selected").text() !="")&&!($("#myGenitorLegacy").val() === "default")&&($("#myParentLegacy option:selected").text() !="")&&!($("#myParentLegacy").val()==="default")){
       console.log("Les 2 sont remplies");
+
     }
+
   }
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
