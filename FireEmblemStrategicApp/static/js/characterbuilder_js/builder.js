@@ -436,10 +436,24 @@ $(function() {
     // On utilise cette fonction qui renvoie a chaque fois les talents disponibles pour le personnage entré et on stocke le retour dans une variable
     var parentTalents = searchMyData(dataParent);
     $('.formulaireRecherche').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
-    // Pour chaque talent du parent on créé une option dans notre liste
-    $.each((x), function(i){
-      $("#myParentLegacy").append("<option value="+x[i]+">"+x[i]+"</option>")
+      var talent1;
+      var talent2;
+      // pour donner plus d'infos à l'utilisateur concernant les talents et ce qu'ils font
+      var talentdesc;
+    $.each((parentTalents), function(i){
+      talent1 = $(parentTalents)[i].children()[0]
+      talent2 = $(parentTalents)[i].children()[1]
+
+      talentdesc = $(talent1).children()[1]
+      // Pour chaque talent du parent on créé une option dans notre liste
+      $("#myParentLegacy").append("<option value="+$(talent1).attr("name")+">"+$(talent1).attr("name")+" - "+$(talentdesc).text()+"</option>")
+
+      talentdesc = $(talent2).children()[1]
+      // Pour chaque talent du parent on créé une option dans notre liste
+      $("#myParentLegacy").append("<option value="+$(talent2).attr("name")+">"+$(talent2).attr("name")+" - "+$(talentdesc).text()+"</option>")
     })
+
+
   }
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
