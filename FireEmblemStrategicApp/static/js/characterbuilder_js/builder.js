@@ -405,34 +405,27 @@ $(function() {
 
   // Lors d'un changement dans le select pour choisir le parent sous la liste des persos
   $(".formulaireRecherche").on('change','#myParent',function(){
+    // masque le message nous demandant de choisir un parent
     $('.chooseAParent').hide();
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
-    // On stocke le nom de l'enfant pour charger ses datas
-    var childName = $('.NomHerosBuilder').text();
-    // On charge toutes les datas du perso (enfant)
-    $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens/'+childName+'.txt', function(data){
-      data = data.split("/");
-      var childClass = data[1];
-      // On envoie le nom du parent, les classes de l'enfant à notre fonction pour récupérer les data du parent par la suite (à cause du asynchronous on charge les datas de l'enfant maintenant car pour l'instant nous ne l'avions pas fait (changement ordre code suite à la gestion des enfants (voir commits de la branch childrens_arc)))
-      getParentData(childName,parentName,childClass);
-    }, 'text');
+    getParentData(parentName);
   });
 
   // Cette fonction se chargera de récupérer les data du parent choisi depuis son text file
-  function getParentData(childName,parentName,childClass){
-    // On charge toutes les datas du parent
-    $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+parentName+'.txt', function(data) {
-      // On sépare le data brut du txt à l'endroit du / et on écrase le data pour le transformer en tableau
-      data = data.split("/");
-      // De ce tableau on prend la 2ème partie qui contient nos classes
-      var parentClass = data[1];
-      // On appelle notre fonction qui se chargera de donner un talent en héritage à l'enfant
-      legacy_of_Parent(parentName,parentClass);
-      // On envoie les 2 listes à notre fonction
-      completeChildTalent(childName,parentName,childClass,parentClass);
-    }, 'text');
-  }
+  // function getParentData(childName,parentName,childClass){
+  //   // On charge toutes les datas du parent
+  //   $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+parentName+'.txt', function(data) {
+  //     // On sépare le data brut du txt à l'endroit du / et on écrase le data pour le transformer en tableau
+  //     data = data.split("/");
+  //     // De ce tableau on prend la 2ème partie qui contient nos classes
+  //     var parentClass = data[1];
+  //     // On appelle notre fonction qui se chargera de donner un talent en héritage à l'enfant
+  //     legacy_of_Parent(parentName,parentClass);
+  //     // On envoie les 2 listes à notre fonction
+  //     completeChildTalent(childName,parentName,childClass,parentClass);
+  //   }, 'text');
+  // }
 
   function legacy_of_Parent(parentName,parentClass) {
     // Si il y a plus d'un seul select pour sélectionner le talent du parent alors on supprime le select (la multiplication des select arrivait si on changait de parent tout en restant sur le même perso)
