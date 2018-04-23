@@ -460,8 +460,14 @@ $(function() {
 
   // Permet de récupérer les 2 valeurs choisies de select pour appeler la fonction completeChildTalent
   function getBothSelectValue() {
-    console.log("#myGenitorLegacy : "+ $("#myGenitorLegacy option:selected").text())
-    console.log("#myparentLegacy : " + $("#myParentLegacy option:selected").text())
+    // console.log("#myGenitorLegacy : "+ $("#myGenitorLegacy option:selected").text())
+    // console.log("#myparentLegacy : " + $("#myParentLegacy option:selected").text())
+    // console.log($("#myGenitorLegacy").val())
+    // console.log($("#myParentLegacy").val())
+    // Si les 2 select ont une valeur et qu'ils ne sont pas sur le choix par default
+    if (($("#myGenitorLegacy option:selected").text() !="")&&!($("#myGenitorLegacy").val() === "default")&&($("#myParentLegacy option:selected").text() !="")&&!($("#myParentLegacy").val()==="default")){
+      console.log("Les 2 sont remplies");
+    }
   }
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
