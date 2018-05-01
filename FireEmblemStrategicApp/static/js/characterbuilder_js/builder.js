@@ -489,71 +489,40 @@ $(function() {
 
   // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui de ses parents qui donnent leurs classes et 1 talent chacun en héritage
   function completeChildTalent(genitorTalentGift,genitorTalentOrigin,genitorData,secondParentTalentGift,secondParentTalentOrigin,secondParentData){
-    
-    console.log(theChosenOne)
-    console.log(genitorTalentGift);
-    console.log(genitorTalentOrigin);
-    console.log(genitorData);
-    console.log(secondParentTalentGift);
-    console.log(secondParentTalentOrigin);
-    console.log(secondParentData);
 
-    // Ces variables servent à déterminer qui est un Homme ou une Femme parmis tous les personnages de Fire Emblem Awakening
-    var FEAMale = "Avatar(M),Basilio,Brady,Chrom,Donnel,Frederick,Gaius,Gangrel,Gerome,Gregor,Henry,Inigo,Kellam,Laurent,Libra,Lon'zu,Owain,Priam,Ricken,Stahl,Vaike,Virion,Walhart,Yarne,Yen'fay";
-    var FEAFemale = "Cynthia,Kjelle,Lucina,Nah,Noire,Severa";
-    // Pour avoir un retour des noms et vérifier si il n'y a pas d'erreurs
-    // console.log('Nom enfant : '+childName+" - Nom parent : "+parentName);
+    // console.log(theChosenOne)
+    // console.log(genitorTalentGift);
+    // console.log(genitorTalentOrigin);
+    // console.log(genitorData);
+    // console.log(secondParentTalentGift);
+    // console.log(secondParentTalentOrigin);
+    // console.log(secondParentData);
 
-    // On initalise ces variables à faux, elles passeront à vrai grâce aux if et nous indiquerons si l'enfant est M ou F
-    var childMale = false;
-    var childFemale = false;
-
-    // On vérifie si le nom de l'enfant est dans la liste des personnages M ou F
-    if((FEAMale.indexOf(childName))>=0){
-      childMale = true;
-    }else if((FEAFemale.indexOf(childName))>=0){
-      childFemale = true;
-    }
-
-    // On initalise ces variables à faux, elles passeront à vrai grâce aux if et nous indiquerons si le parent est M ou F
-    var parentMale = false;
-    var parentFemale = false;
-    // On vérifie si le nom du parent est dans la liste des personnages M ou F
-    if((FEAMale.indexOf(parentName))>=0){
-      parentMale = true;
-    }else if((FEAFemale.indexOf(parentName))>=0){
-      parentFemale = true;
-    }
-    // Pour avoir un retour et vérifier si pas de fautes
-    // console.log("parent M ? : "+parentMale+" - parent F ? : "+parentFemale);
-    // console.log("enfant M ? : "+childMale+" - enfant F ? : "+childFemale);
-
-    // On stocke chaque classes séparé par - dans un tableau
-    var listeClassesChild = rawChildClass.split('-');
-    var listeClassesParent = rawParentClass.split('-');
-    // console.log(listeClassesChild);
-    // console.log(listeClassesParent);
-
-    // On transmet notre liste à notre fonction fait tout qui va faire du nettoyage
-    var parentClassClean = listCleaner(listeClassesParent,childMale,childFemale,parentMale,parentFemale);
-
-    //console.log(parentClassClean)
-
-    for (var i = 0; i < listeClassesParent.length; i++){
-      // Si la classe n'est pas déjà dans la liste des classes de l'enfant
-      if (listeClassesChild.indexOf(parentClassClean[i])=== -1){
-        // On push la classe dans les classes de l'enfant
-        listeClassesChild.push(parentClassClean[i]);
-      }
-    }
-    // console.log(listeClassesChild);
+    // Les 2 variables vont stocker sous formes de tableau d'objet le contenu de chaque classes auquel l'enfant et le second parent ont accès. Il n'y en a pas besoin pour le genitor car il a déjà transmis ses classes qu'on retrouve plus ou moins dans l'arbre des classes de l'enfant de base
+    var childTalentsTree = searchMyData(theChosenOne);
+    var secondParentTalentsTree = searchMyData(secondParentData);
+    console.log(childTalentsTree);
+    console.log(secondParentTalentsTree);
+    // // On transmet notre liste à notre fonction fait tout qui va faire du nettoyage
+    // var parentClassClean = listCleaner(listeClassesParent,childMale,childFemale,parentMale,parentFemale);
+    //
+    // for (var i = 0; i < listeClassesParent.length; i++){
+    //   // Si la classe n'est pas déjà dans la liste des classes de l'enfant
+    //   if (listeClassesChild.indexOf(parentClassClean[i])=== -1){
+    //     // On push la classe dans les classes de l'enfant
+    //     listeClassesChild.push(parentClassClean[i]);
+    //   }
+    // }
+    // // console.log(listeClassesChild);
 
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
     $("#TalentsList table").remove();
     // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
     $("#TalentsList").hide();
     //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
-    TraitementData(listeClassesChild);
+    // TraitementData(listeClassesChild);
+
+    displayHeroData();
   }
 
 
