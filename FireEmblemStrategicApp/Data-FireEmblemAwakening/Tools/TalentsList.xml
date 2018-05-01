@@ -280,7 +280,7 @@
      <description>L'utilisateur regagne 50% de ses max HP s'il bat un ennemi ne marche pas lors du tour ennemi ou si l'unité est supportrice en Duo</description>
    </talent2>
   </class>
-  <class name="Cleric/Priest">
+  <class name="Cleric">
    <talent1 name="Miracle">
      <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Miracle.png</imagelink>
      <description>(Chance)% si HP > 1 Permet de survivre avec 1HP lors d'un coup fatal reçu</description>
@@ -290,7 +290,27 @@
      <description>Soigne 5HP supplémentaire lors d'un soin aux alliés</description>
    </talent2>
   </class>
-  <class name="War Cleric/War Monk">
+  <class name="Priest">
+   <talent1 name="Miracle">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Miracle.png</imagelink>
+     <description>(Chance)% si HP > 1 Permet de survivre avec 1HP lors d'un coup fatal reçu</description>
+   </talent1>
+   <talent2 name="Healtouch">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Healtouch.png</imagelink>
+     <description>Soigne 5HP supplémentaire lors d'un soin aux alliés</description>
+   </talent2>
+  </class>
+  <class name="War Cleric">
+   <talent1 name="Rally Luck">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Luck.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 Chance</description>
+   </talent1>
+   <talent2 name="Renewal">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Renewal.png</imagelink>
+     <description>Régénère 30% de ses max HP au début du tour du joueur</description>
+   </talent2>
+  </class>
+  <class name="War Monk">
    <talent1 name="Rally Luck">
      <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Luck.png</imagelink>
      <description>A l'activation confére aux alliés 3 cases autour +4 Chance</description>
