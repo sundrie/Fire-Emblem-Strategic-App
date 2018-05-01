@@ -503,42 +503,17 @@ $(function() {
     var secondParentTalentsTree = searchMyData(secondParentData);
     console.log(childTalentsTree);
     console.log(secondParentTalentsTree);
-    // // On transmet notre liste à notre fonction fait tout qui va faire du nettoyage
-    // var parentClassClean = listCleaner(listeClassesParent,childMale,childFemale,parentMale,parentFemale);
-    //
-    // for (var i = 0; i < listeClassesParent.length; i++){
-    //   // Si la classe n'est pas déjà dans la liste des classes de l'enfant
-    //   if (listeClassesChild.indexOf(parentClassClean[i])=== -1){
-    //     // On push la classe dans les classes de l'enfant
-    //     listeClassesChild.push(parentClassClean[i]);
-    //   }
-    // }
-    // // console.log(listeClassesChild);
-
-    // !!!!!! Pour éviter liste infinie !!!!!!!!!
-    $("#TalentsList table").remove();
-    // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
-    $("#TalentsList").hide();
-    //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
-    // TraitementData(listeClassesChild);
-
-    displayHeroData();
-  }
-
-
-  // Cette fonction va s'occuper de nettoyer les incohérences dût au règles du jeu (Une femme dans le jeu ne peut devenir barbarian par exemple) et nous renvoyer la liste corrigée
-  function listCleaner(listParent,childMale,childFemale,parentMale,parentFemale){
     /**
-     * liste des classes à Changer :
-     Priest <=> Cleric , War Monk <=> War Cleric
-     * liste des classes M only :
-     Barbarian , Berserker , Fighter , Warrior , Villager , Dread Fighter
-     * liste des classes F only :
-     Troubadour , Valkyrie , Pegasus Knight , Falcon Knight , Dark Flier , Manakete , Bride
+    * liste des classes à Changer :
+    Priest <=> Cleric , War Monk <=> War Cleric
+    * liste des classes M only :
+    Barbarian , Berserker , Fighter , Warrior , Villager , Dread Fighter
+    * liste des classes F only :
+    Troubadour , Valkyrie , Pegasus Knight , Falcon Knight , Dark Flier , Manakete , Bride
     */
     // Ceci va supprimer la dernière classe (Bride pour parent F et Dread Fighter pour parent M) car on les a déjà inclus dans les classes de base des enfants
     listParent.splice(-1,1);
-
+    
     if (parentMale == true){
       if (childFemale == true){
         if(listParent.indexOf("Priest")>=0){
@@ -562,12 +537,30 @@ $(function() {
       }
     }
     if (parentFemale == true){
-
     }
 
-    return listParent;
 
+    //
+    // for (var i = 0; i < listeClassesParent.length; i++){
+    //   // Si la classe n'est pas déjà dans la liste des classes de l'enfant
+    //   if (listeClassesChild.indexOf(parentClassClean[i])=== -1){
+    //     // On push la classe dans les classes de l'enfant
+    //     listeClassesChild.push(parentClassClean[i]);
+    //   }
+    // }
+    // // console.log(listeClassesChild);
+
+    // !!!!!! Pour éviter liste infinie !!!!!!!!!
+    $("#TalentsList table").remove();
+    // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
+    $("#TalentsList").hide();
+    //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
+    // TraitementData(listeClassesChild);
+
+    displayHeroData();
 
   }
+
+
 
 });
