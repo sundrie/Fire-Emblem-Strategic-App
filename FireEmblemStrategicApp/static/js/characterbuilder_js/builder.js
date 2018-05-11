@@ -517,34 +517,34 @@ $(function() {
     // console.log(secondParentTalentsTree);
 
     // Cette variable va contenir toutes les classes du parent qui vont être transmise à son enfant et pour celà il va y avoir des altérations (classse Priest transformée en Cleric si enfant fille par exemple)
-    var alteredParentTalentsTree = secondParentTalentsTree;
-
+    var alteredParentTalentsTree = [];
+    // Va contenir la valeur de retour de la fonction searchThisClass()
+    var replacementClass;
     // Si le sexe du second parent est Homme (obtenu à partir de PersosList.xml)
     if ($(secondParentData.children()[0]).text() === "Homme") {
-      // console.log("Son second parent était un Homme");
       if ($(theChosenOne.children()[0]).text() === "Femme") {
-        // console.log(theChosenOne)
-        // console.log("L'enfant est une fille")
         $.each((secondParentTalentsTree), function(i){
           // console.log(alteredParentTalentsTree[i].attr("name"))
-          if(alteredParentTalentsTree[i].attr("name") === "Priest"){
-            // On recherche les mot Priest dans notre tableau pour le supprimer et push la valeur Clericen remplacement
-            delete alteredParentTalentsTree[i];
+          if(secondParentTalentsTree[i].attr("name") === "Priest"){
             // On envoie à la fonction Cleric puisque c'est ce qui doit remplacer Priest
-            var replacementClass = searchThisClass("Cleric");
+            replacementClass = searchThisClass("Cleric");
             alteredParentTalentsTree.push(replacementClass);
           }
-          // if(listParent.indexOf("Barbarian")>=0){
-          //   listParent.splice($.inArray("Barbarian", listParent),1);
-          //   listParent.splice($.inArray("Berserker", listParent),1);
-          // }
-          // if (listParent.indexOf("Fighter")>=0){
-          //   listParent.splice($.inArray("Fighter", listParent),1);
-          // }
-          // // Cas spécial Warrior est une classe accessible à la fois par Barbarian et Fighter pour éviter les soucis on fait sa suppression à part plutôt que de faire comme les cas précédents
-          // if (listParent.indexOf("Warrior")>=0) {
-          //   listParent.splice($.inArray("Warrior", listParent),1);
-          // }
+          else if(secondParentTalentsTree[i].attr("name") === "War Monk"){
+            // On envoie à la fonction War Cleric puisque c'est ce qui doit remplacer War Monk
+            replacementClass = searchThisClass("War Cleric");
+            // On push la valeur War Cleric en remplacement
+            alteredParentTalentsTree.push(replacementClass);
+          } // Pour la suite des classes vu qu'on n'a pas besoin de remplacer par des classes ont les push juste pas vu que si c'est une femme elle ne peut avoir ces classes
+          else if(secondParentTalentsTree[i].attr("name") === "Barbarian"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Berserker"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Fighter"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Villager"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Warrior"){}
+          else {
+            // Si ce n'est pas une des classes précédente on push la valeur directement comme ça on a que les bonnes classes à insérer
+            alteredParentTalentsTree.push(secondParentTalentsTree[i])
+          }
         })
       }
       console.log(alteredParentTalentsTree)
