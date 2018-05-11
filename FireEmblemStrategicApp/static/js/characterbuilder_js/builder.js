@@ -502,7 +502,7 @@ $(function() {
     var childTalentsTree = searchMyData(theChosenOne);
     var secondParentTalentsTree = searchMyData(secondParentData);
     console.log(childTalentsTree);
-    console.log(secondParentTalentsTree);
+    // console.log(secondParentTalentsTree);
     /**
     * liste des classes à Changer :
     Priest <=> Cleric , War Monk <=> War Cleric
@@ -512,11 +512,13 @@ $(function() {
     Troubadour , Valkyrie , Pegasus Knight , Falcon Knight , Dark Flier , Manakete , Bride
     */
     // Ceci va supprimer la dernière classe (Bride pour parent F et Dread Fighter pour parent M) car on les a déjà inclus dans les classes de base des enfants
-    secondParentTalentsTree.pop()
+    secondParentTalentsTree.pop();
     //console.log($(secondParentTalentsTree).last());
     console.log(secondParentTalentsTree);
+    if ($(secondParentData.children()[0]).text() === "Homme") {
 
-    // if (parentMale == true){
+    if ($(secondParentData.children()[0]).text() === "Homme") {
+      console.log("Son second parent était un Homme")
     //   if (childFemale == true){
     //     if(listParent.indexOf("Priest")>=0){
     //       // On recherche les mot Priest et War Monk (vu qu'elles sont liées War Monk est l'une des upgrades possible de Priest) dans notre tableau pour les supprimer et push la valeur Cleric et War Cleric en remplacement
@@ -537,7 +539,7 @@ $(function() {
     //       listParent.splice($.inArray("Warrior", listParent),1);
     //     }
     //   }
-    // }
+    }
     // if (parentFemale == true){
     // }
 
