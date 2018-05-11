@@ -501,7 +501,7 @@ $(function() {
     // Les 2 variables vont stocker sous formes de tableau d'objet le contenu de chaque classes auquel l'enfant et le second parent ont accès. Il n'y en a pas besoin pour le genitor car il a déjà transmis ses classes qu'on retrouve plus ou moins dans l'arbre des classes de l'enfant de base
     var childTalentsTree = searchMyData(theChosenOne);
     var secondParentTalentsTree = searchMyData(secondParentData);
-    console.log(childTalentsTree);
+    // console.log(childTalentsTree);
     // console.log(secondParentTalentsTree);
     /**
     * liste des classes à Changer :
@@ -514,32 +514,41 @@ $(function() {
     // Ceci va supprimer la dernière classe (Bride pour parent F et Dread Fighter pour parent M) car on les a déjà inclus dans les classes de base des enfants
     secondParentTalentsTree.pop();
     //console.log($(secondParentTalentsTree).last());
-    console.log(secondParentTalentsTree);
+    // console.log(secondParentTalentsTree);
+
+    // Cette variable va contenir toutes les classes du parent qui vont être transmise à son enfant et pour celà il va y avoir des altérations (classse Priest transformée en Cleric si enfant fille par exemple)
+    var alteredParentTalentsTree = secondParentTalentsTree;
+
     // Si le sexe du second parent est Homme (obtenu à partir de PersosList.xml)
     if ($(secondParentData.children()[0]).text() === "Homme") {
-      console.log("Son second parent était un Homme");
+      // console.log("Son second parent était un Homme");
       if ($(theChosenOne.children()[0]).text() === "Femme") {
-        console.log(theChosenOne)
-        console.log("L'enfant est une fille")
-        // if(listParent.indexOf("Priest")>=0){
-        //   // On recherche les mot Priest et War Monk (vu qu'elles sont liées War Monk est l'une des upgrades possible de Priest) dans notre tableau pour les supprimer et push la valeur Cleric et War Cleric en remplacement
-        //   listParent.splice($.inArray("Priest", listParent),1);
-        //   listParent.push("Cleric");
-        //   listParent.splice($.inArray("War Monk", listParent),1);
-        //   listParent.push("War Cleric");
-        // }
-        // if(listParent.indexOf("Barbarian")>=0){
-        //   listParent.splice($.inArray("Barbarian", listParent),1);
-        //   listParent.splice($.inArray("Berserker", listParent),1);
-        // }
-        // if (listParent.indexOf("Fighter")>=0){
-        //   listParent.splice($.inArray("Fighter", listParent),1);
-        // }
-        // // Cas spécial Warrior est une classe accessible à la fois par Barbarian et Fighter pour éviter les soucis on fait sa suppression à part plutôt que de faire comme les cas précédents
-        // if (listParent.indexOf("Warrior")>=0) {
-        //   listParent.splice($.inArray("Warrior", listParent),1);
-        // }
+        // console.log(theChosenOne)
+        // console.log("L'enfant est une fille")
+        $.each((secondParentTalentsTree), function(i){
+          // console.log(alteredParentTalentsTree[i].attr("name"))
+          if(alteredParentTalentsTree[i].attr("name") === "Priest"){
+            // On recherche les mot Priest dans notre tableau pour le supprimer et push la valeur Clericen remplacement
+            delete alteredParentTalentsTree[i];
+            // listParent.splice($.inArray("Priest", listParent),1);
+            // listParent.push("Cleric");
+            // listParent.splice($.inArray("War Monk", listParent),1);
+            // listParent.push("War Cleric");
+          }
+          // if(listParent.indexOf("Barbarian")>=0){
+          //   listParent.splice($.inArray("Barbarian", listParent),1);
+          //   listParent.splice($.inArray("Berserker", listParent),1);
+          // }
+          // if (listParent.indexOf("Fighter")>=0){
+          //   listParent.splice($.inArray("Fighter", listParent),1);
+          // }
+          // // Cas spécial Warrior est une classe accessible à la fois par Barbarian et Fighter pour éviter les soucis on fait sa suppression à part plutôt que de faire comme les cas précédents
+          // if (listParent.indexOf("Warrior")>=0) {
+          //   listParent.splice($.inArray("Warrior", listParent),1);
+          // }
+        })
       }
+      console.log(alteredParentTalentsTree)
     }
     // if (parentFemale == true){
     // }
