@@ -530,10 +530,9 @@ $(function() {
           if(alteredParentTalentsTree[i].attr("name") === "Priest"){
             // On recherche les mot Priest dans notre tableau pour le supprimer et push la valeur Clericen remplacement
             delete alteredParentTalentsTree[i];
-            // listParent.splice($.inArray("Priest", listParent),1);
-            // listParent.push("Cleric");
-            // listParent.splice($.inArray("War Monk", listParent),1);
-            // listParent.push("War Cleric");
+            // On envoie à la fonction Cleric puisque c'est ce qui doit remplacer Priest
+            var replacementClass = searchThisClass("Cleric");
+            alteredParentTalentsTree.push(replacementClass);
           }
           // if(listParent.indexOf("Barbarian")>=0){
           //   listParent.splice($.inArray("Barbarian", listParent),1);
@@ -571,10 +570,19 @@ $(function() {
     //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
     // TraitementData(listeClassesChild);
 
-    displayHeroData();
+    displayHeroData(childTalentsTree);
 
   }
 
-
+  // Cette fonction va chercher parmis toutes les classes du jeu et retourner la classe trouvée
+  function searchThisClass(classeToFind) {
+    var getodaze;
+    $.each((allclassesList), function(i){
+      if ($(allclassesList[i]).attr('name') === classeToFind){
+        getodaze = allclassesList[i];
+      }
+    });
+    return getodaze;
+  }
 
 });
