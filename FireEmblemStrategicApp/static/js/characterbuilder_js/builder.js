@@ -547,13 +547,15 @@ $(function() {
           }
         })
       }
-      console.log(alteredParentTalentsTree)
+      // console.log(alteredParentTalentsTree)
     }
+    // Pour les second parents ça sera à faire concrétement ça concerne Lucina et Morgan(F) car Chrom et l'Avatar(M) sont les seuls à être genitor tous les autres enfants ont une mère en genitor
     // if (parentFemale == true){
     // }
+    if ($(secondParentData.children()[0]).text() === "Femme") {
+      console.log("Le second parent est une femme");
+    }
 
-
-    //
     // for (var i = 0; i < listeClassesParent.length; i++){
     //   // Si la classe n'est pas déjà dans la liste des classes de l'enfant
     //   if (listeClassesChild.indexOf(parentClassClean[i])=== -1){
@@ -561,7 +563,7 @@ $(function() {
     //     listeClassesChild.push(parentClassClean[i]);
     //   }
     // }
-    // // console.log(listeClassesChild);
+    // console.log(listeClassesChild);
 
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
     $("#TalentsList table").remove();
