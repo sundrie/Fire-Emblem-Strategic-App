@@ -515,30 +515,31 @@ $(function() {
     secondParentTalentsTree.pop();
     //console.log($(secondParentTalentsTree).last());
     console.log(secondParentTalentsTree);
+    // Si le sexe du second parent est Homme (obtenu à partir de PersosList.xml)
     if ($(secondParentData.children()[0]).text() === "Homme") {
-
-    if ($(secondParentData.children()[0]).text() === "Homme") {
-      console.log("Son second parent était un Homme")
-    //   if (childFemale == true){
-    //     if(listParent.indexOf("Priest")>=0){
-    //       // On recherche les mot Priest et War Monk (vu qu'elles sont liées War Monk est l'une des upgrades possible de Priest) dans notre tableau pour les supprimer et push la valeur Cleric et War Cleric en remplacement
-    //       listParent.splice($.inArray("Priest", listParent),1);
-    //       listParent.push("Cleric");
-    //       listParent.splice($.inArray("War Monk", listParent),1);
-    //       listParent.push("War Cleric");
-    //     }
-    //     if(listParent.indexOf("Barbarian")>=0){
-    //       listParent.splice($.inArray("Barbarian", listParent),1);
-    //       listParent.splice($.inArray("Berserker", listParent),1);
-    //     }
-    //     if (listParent.indexOf("Fighter")>=0){
-    //       listParent.splice($.inArray("Fighter", listParent),1);
-    //     }
-    //     // Cas spécial Warrior est une classe accessible à la fois par Barbarian et Fighter pour éviter les soucis on fait sa suppression à part plutôt que de faire comme les cas précédents
-    //     if (listParent.indexOf("Warrior")>=0) {
-    //       listParent.splice($.inArray("Warrior", listParent),1);
-    //     }
-    //   }
+      console.log("Son second parent était un Homme");
+      if ($(theChosenOne.children()[0]).text() === "Femme") {
+        console.log(theChosenOne)
+        console.log("L'enfant est une fille")
+        // if(listParent.indexOf("Priest")>=0){
+        //   // On recherche les mot Priest et War Monk (vu qu'elles sont liées War Monk est l'une des upgrades possible de Priest) dans notre tableau pour les supprimer et push la valeur Cleric et War Cleric en remplacement
+        //   listParent.splice($.inArray("Priest", listParent),1);
+        //   listParent.push("Cleric");
+        //   listParent.splice($.inArray("War Monk", listParent),1);
+        //   listParent.push("War Cleric");
+        // }
+        // if(listParent.indexOf("Barbarian")>=0){
+        //   listParent.splice($.inArray("Barbarian", listParent),1);
+        //   listParent.splice($.inArray("Berserker", listParent),1);
+        // }
+        // if (listParent.indexOf("Fighter")>=0){
+        //   listParent.splice($.inArray("Fighter", listParent),1);
+        // }
+        // // Cas spécial Warrior est une classe accessible à la fois par Barbarian et Fighter pour éviter les soucis on fait sa suppression à part plutôt que de faire comme les cas précédents
+        // if (listParent.indexOf("Warrior")>=0) {
+        //   listParent.splice($.inArray("Warrior", listParent),1);
+        // }
+      }
     }
     // if (parentFemale == true){
     // }
