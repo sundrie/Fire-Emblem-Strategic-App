@@ -549,12 +549,30 @@ $(function() {
       }
       // console.log(alteredParentTalentsTree)
     }
-    // Pour les second parents ça sera à faire concrétement ça concerne Lucina et Morgan(F) car Chrom et l'Avatar(M) sont les seuls à être genitor tous les autres enfants ont une mère en genitor
-    // if (parentFemale == true){
-    // }
-    if ($(secondParentData.children()[0]).text() === "Femme") {
-      console.log("Le second parent est une femme");
-    }
+
+    // Pour faire simple le code qui suit permet de dresser un tableau contenant les 2 arbres de talents fusionnés évitant ainsi les doublons
+    // J'ai cherché sur stackoverflow et bien d'autres sites toute l'après midi + soirée à faire fonctionner et imaginer du code pour faire et bien ce que le code suivant fait. Fusionner 2 tableaux d'objets en supprimant les doublons ça m'a l'air impossible ou extrêment compliqué en jquery javascript
+    // Liste le nom des classes du parent
+    var compareA = [];
+    $.each(alteredParentTalentsTree, function(i) {
+      compareA.push($(alteredParentTalentsTree)[i].attr("name"));
+    });
+    // Liste le nom des classes de l'enfant
+    var compareB = [];
+    $.each(childTalentsTree, function(i) {
+      compareB.push($(childTalentsTree)[i].attr("name"));
+    });
+    // on donne l'arbre de talent de l'enfant comme base
+    var cleanTalentsTreeList = compareB;
+    $.each(compareA,function(i) {
+      // Si la classe du parent n'est pas dans l'arbre de talents de l'enfant et bien on push
+      if($.inArray(compareA[i], compareB) === -1){
+        cleanTalentsTreeList.push(compareA[i])
+      }
+    })
+
+    // console.log(cleanTalentsTreeList);
+
 
     // for (var i = 0; i < listeClassesParent.length; i++){
     //   // Si la classe n'est pas déjà dans la liste des classes de l'enfant
