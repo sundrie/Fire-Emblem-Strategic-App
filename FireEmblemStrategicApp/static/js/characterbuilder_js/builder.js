@@ -175,7 +175,6 @@ $(function() {
       var theClassesList = searchMyData(theChosenOne);
       displayHeroData(theClassesList);
     }
-
     // On évite la multiplication des boutons
     $('.buildsave').remove();
     // On évite la multiplication des input
@@ -240,49 +239,22 @@ $(function() {
     var imagelink;
     var descTalent
     $(classes).each(function(i) {
-      // Si le nom de la classe issue du jeu contient un espace alors on supprime cet espace pour faire une seule classe et non 2 ou plus (ex : Great Knight donne normalement 2 class Great et Knight alors que l'on veut que ça soit une class unique GreatKnight)
-      // Sinon et bien on ajoute tout simplement sans traitement anti espace
-      if (/\s/.test(classes[i].attr("name"))) {
-        var removeSpace = classes[i].attr("name");
-        // On enlève les whitespace entre les mots (trim ne fonctionne qu'aux début et fin des strings)
-        removeSpace = removeSpace.replace(/\s/, '');
-        // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
-        talents = classes[i].children();
-        talent1 = talents[0];
-        talent2 = talents[1];
-        // On attribue a imagelink la première "case" de notre variable qui contient l'url de l'image ,pareil que $(talent1) on fait ceci pour pouvoir utiliser .text() sinon $(talent1).children()[0].text() nous renverrait une erreur
-        imagelink = $(talent1).children()[0];
-        // Affiche la description du talent
-        // On reprends le même principe que pour imagelink
-        descTalent = $(talent1).children()[1];
-        // Le $(talent1) est essentiel pour pouvoir intéragir avec cette variable objet
-        $("#TalentsList table tbody").append("<tr class="+removeSpace+"><td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
+      // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
+      talents = classes[i].children();
+      talent1 = talents[0];
+      talent2 = talents[1];
+      // Affiche l'image et nom du 1er talent de la classe du personnage
+      imagelink = $(talent1).children()[0];
+      // Affiche la description du talent
+      descTalent = $(talent1).children()[1];
+      $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
 
-        // On change juste le selecteur pour éviter de créer 2 variables imagelink
-        imagelink = $(talent2).children()[0];
-        // Affiche la description du talent
-        descTalent = $(talent2).children()[1];
-        // Affiche l'image et nom du 2ème talent de la classe du personnage
-        $("#TalentsList table tbody").append("<tr class="+removeSpace+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
-        $("#TalentsList ."+removeSpace).addClass("drag");
-      } else {
-        // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
-        talents = classes[i].children();
-        talent1 = talents[0];
-        talent2 = talents[1];
+      // Affiche l'image et nom du 2ème talent de la classe du personnage
+      imagelink = $(talent2).children()[0];
+      // Affiche la description du talent
+      descTalent = $(talent2).children()[1];
+      $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
 
-        // Affiche l'image et nom du 1er talent de la classe du personnage
-        imagelink = $(talent1).children()[0];
-        // Affiche la description du talent
-        descTalent = $(talent1).children()[1];
-        $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
-
-        // Affiche l'image et nom du 2ème talent de la classe du personnage
-        imagelink = $(talent2).children()[0];
-        // Affiche la description du talent
-        descTalent = $(talent2).children()[1];
-        $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
-      }
       $("#TalentsList ."+classes[i].attr("name")).addClass("drag");
       // Nous sommes obligé d'exécuter ce code ici au moment de la génération car en dehors ça ne fonctionne pas
       $("#TalentsList table tbody .drag").draggable({
@@ -437,24 +409,19 @@ $(function() {
     var talent2;
     // pour donner plus d'infos à l'utilisateur concernant les talents et ce qu'ils font
     var talentdesc;
-    var removeSpace;
+    var classNameOfTalent;
     $.each((parentTalents), function(i){
       talent1 = $(parentTalents)[i].children()[0];
       talent2 = $(parentTalents)[i].children()[1];
 
       talentdesc = $(talent1).children()[1];
-      if (/\s/.test($(parentTalents)[i].attr("name"))) {
-        removeSpace = $(parentTalents)[i].attr("name");
-        removeSpace = removeSpace.replace(/\s/, '');
-      } else {
-        removeSpace = $(parentTalents)[i].attr("name");
-      }
+      classNameOfTalent = $(parentTalents)[i].attr("name");
       // Pour chaque talent du parent on créé une option dans notre liste
-      $("#"+selectId).append("<option value="+removeSpace+">"+$(talent1).attr("name")+" - "+$(talentdesc).text()+"</option>");
+      $("#"+selectId).append("<option value="+classNameOfTalent+">"+$(talent1).attr("name")+" - "+$(talentdesc).text()+"</option>");
 
       talentdesc = $(talent2).children()[1];
       // Pour chaque talent du parent on créé une option dans notre liste
-      $("#"+selectId).append("<option value="+removeSpace+">"+$(talent2).attr("name")+" - "+$(talentdesc).text()+"</option>");
+      $("#"+selectId).append("<option value="+classNameOfTalent+">"+$(talent2).attr("name")+" - "+$(talentdesc).text()+"</option>");
 
     })
   }
@@ -479,7 +446,6 @@ $(function() {
     // Toutes les datas des personnages impliqués dans la conception de l'enfant sont récupérées
     var genitorData = searchThisName(genitorName)
     var secondParentData = searchThisName($("#myParent").val())
-
     // Si les 2 select ont une valeur et qu'ils ne sont pas sur le choix par default
     if (($("#myGenitorLegacy option:selected").text() !="")&&!($("#myGenitorLegacy").val() === "default")&&($("#myParentLegacy option:selected").text() !="")&&!($("#myParentLegacy").val()==="default")){
       completeChildTalent(genitorTalentGift,$("#myGenitorLegacy").val(),genitorData,secondParentTalentGift,$("#myParentLegacy").val(),secondParentData)
@@ -563,15 +529,17 @@ $(function() {
       compareB.push($(childTalentsTree)[i].attr("name"));
     });
     // on donne l'arbre de talent de l'enfant comme base
-    var cleanTalentsTreeList = compareB;
+    var mergedTalentsTreeList = compareB;
     $.each(compareA,function(i) {
       // Si la classe du parent n'est pas dans l'arbre de talents de l'enfant et bien on push
       if($.inArray(compareA[i], compareB) === -1){
-        cleanTalentsTreeList.push(compareA[i])
+        mergedTalentsTreeList.push(compareA[i])
       }
     })
-
-    // console.log(cleanTalentsTreeList);
+    // Nous renvoie la classe d'où provient le talent choisi
+    console.log(genitorTalentOrigin);
+    console.log(secondParentTalentOrigin);
+    console.log(mergedTalentsTreeList);
 
 
     // for (var i = 0; i < listeClassesParent.length; i++){
