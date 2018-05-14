@@ -541,6 +541,10 @@ $(function() {
           else if(secondParentTalentsTree[i].attr("name") === "Fighter"){}
           else if(secondParentTalentsTree[i].attr("name") === "Villager"){}
           else if(secondParentTalentsTree[i].attr("name") === "Warrior"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Lord"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Great Lord"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Tactician"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Great Tactician"){}
           else {
             // Si ce n'est pas une des classes précédente on push la valeur directement comme ça on a que les bonnes classes à insérer
             alteredParentTalentsTree.push(secondParentTalentsTree[i])
