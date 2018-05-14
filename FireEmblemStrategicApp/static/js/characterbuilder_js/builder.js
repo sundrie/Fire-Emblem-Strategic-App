@@ -494,9 +494,9 @@ $(function() {
             // On remplace l'attribut ("name") dans ce cas Priest par Cleric
             alteredParentTalentsTree.push(secondParentTalentsTree[i].attr("name","Cleric"));
           }
-          else if(secondParentTalentsTree[i].attr("name") === "War Monk"){
+          else if(secondParentTalentsTree[i].attr("name") === "War_Monk"){
             // On remplace l'attribut ("name") dans ce cas War Monk par War Cleric
-            alteredParentTalentsTree.push(secondParentTalentsTree[i].attr("name","War Cleric"));
+            alteredParentTalentsTree.push(secondParentTalentsTree[i].attr("name","War_Cleric"));
           } // Pour la suite des classes vu qu'on n'a pas besoin de remplacer par des classes ont les push juste pas vu que si c'est une femme elle ne peut avoir ces classes
           else if(secondParentTalentsTree[i].attr("name") === "Barbarian"){}
           else if(secondParentTalentsTree[i].attr("name") === "Berserker"){}
@@ -504,9 +504,9 @@ $(function() {
           else if(secondParentTalentsTree[i].attr("name") === "Villager"){}
           else if(secondParentTalentsTree[i].attr("name") === "Warrior"){}
           else if(secondParentTalentsTree[i].attr("name") === "Lord"){}
-          else if(secondParentTalentsTree[i].attr("name") === "Great Lord"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Great_Lord"){}
           else if(secondParentTalentsTree[i].attr("name") === "Tactician"){}
-          else if(secondParentTalentsTree[i].attr("name") === "Great Tactician"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Grandmaster"){}
           else {
             // Si ce n'est pas une des classes précédente on push la valeur directement comme ça on a que les bonnes classes à insérer
             alteredParentTalentsTree.push(secondParentTalentsTree[i])
@@ -536,9 +536,22 @@ $(function() {
         mergedTalentsTreeList.push(compareA[i])
       }
     })
+    // Ceci va nous permettre de voir si les talents donnés en héritages sont déjà présents ou non dans la liste des classes
+    $.each(mergedTalentsTreeList,function(i) {
+      // Si la classe dont le talent provient n'est pas déjà dans la liste alors on push (préviens de tout doublons de talents)
+      if($.inArray(genitorTalentOrigin, mergedTalentsTreeList) === -1){
+        mergedTalentsTreeList.push(genitorTalentGift)
+      }
+      // idem que pour le if du haut mais pour le second talent hérité
+      else if($.inArray(secondParentTalentOrigin, mergedTalentsTreeList) === -1){
+        mergedTalentsTreeList.push(secondParentTalentGift)
+        // C'est un break pour sortir de la loop
+        return false
+      }
+    });
     // Nous renvoie la classe d'où provient le talent choisi
-    console.log(genitorTalentOrigin);
-    console.log(secondParentTalentOrigin);
+    // console.log(genitorTalentOrigin);
+    // console.log(secondParentTalentOrigin);
     console.log(mergedTalentsTreeList);
 
 
