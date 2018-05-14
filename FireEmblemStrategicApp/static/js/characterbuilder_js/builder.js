@@ -524,17 +524,13 @@ $(function() {
     if ($(secondParentData.children()[0]).text() === "Homme") {
       if ($(theChosenOne.children()[0]).text() === "Femme") {
         $.each((secondParentTalentsTree), function(i){
-          // console.log(alteredParentTalentsTree[i].attr("name"))
           if(secondParentTalentsTree[i].attr("name") === "Priest"){
-            // On envoie à la fonction Cleric puisque c'est ce qui doit remplacer Priest
-            replacementClass = searchThisClass("Cleric");
-            alteredParentTalentsTree.push(replacementClass);
+            // On remplace l'attribut ("name") dans ce cas Priest par Cleric
+            alteredParentTalentsTree.push(secondParentTalentsTree[i].attr("name","Cleric"));
           }
           else if(secondParentTalentsTree[i].attr("name") === "War Monk"){
-            // On envoie à la fonction War Cleric puisque c'est ce qui doit remplacer War Monk
-            replacementClass = searchThisClass("War Cleric");
-            // On push la valeur War Cleric en remplacement
-            alteredParentTalentsTree.push(replacementClass);
+            // On remplace l'attribut ("name") dans ce cas War Monk par War Cleric
+            alteredParentTalentsTree.push(secondParentTalentsTree[i].attr("name","War Cleric"));
           } // Pour la suite des classes vu qu'on n'a pas besoin de remplacer par des classes ont les push juste pas vu que si c'est une femme elle ne peut avoir ces classes
           else if(secondParentTalentsTree[i].attr("name") === "Barbarian"){}
           else if(secondParentTalentsTree[i].attr("name") === "Berserker"){}
@@ -558,7 +554,7 @@ $(function() {
     // J'ai cherché sur stackoverflow et bien d'autres sites toute l'après midi + soirée à faire fonctionner et imaginer du code pour faire et bien ce que le code suivant fait. Fusionner 2 tableaux d'objets en supprimant les doublons ça m'a l'air impossible ou extrêment compliqué en jquery javascript
     // Liste le nom des classes du parent
     var compareA = [];
-    $.each(alteredParentTalentsTree, function(i) {
+    $.each(alteredParentTalentsTree, function(i){
       compareA.push($(alteredParentTalentsTree)[i].attr("name"));
     });
     // Liste le nom des classes de l'enfant
@@ -596,17 +592,6 @@ $(function() {
 
     displayHeroData(childTalentsTree);
 
-  }
-
-  // Cette fonction va chercher parmis toutes les classes du jeu et retourner la classe trouvée
-  function searchThisClass(classeToFind) {
-    var getodaze;
-    $.each((allclassesList), function(i){
-      if ($(allclassesList[i]).attr('name') === classeToFind){
-        getodaze = allclassesList[i];
-      }
-    });
-    return getodaze;
   }
 
 });
