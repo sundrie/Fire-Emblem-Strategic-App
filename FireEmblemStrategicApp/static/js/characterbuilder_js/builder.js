@@ -520,24 +520,27 @@ $(function() {
     // J'ai cherché sur stackoverflow et bien d'autres sites toute l'après midi + soirée à faire fonctionner et imaginer du code pour faire et bien ce que le code suivant fait. Fusionner 2 tableaux d'objets en supprimant les doublons ça m'a l'air impossible ou extrêment compliqué en jquery javascript
     // Liste le nom des classes du parent
     var compareA = [];
-    console.log(secondParentTalentsTree);
-    $.each(alteredParentTalentsTree, function(i){
-      compareA.push($(alteredParentTalentsTree)[i].attr("name"));
-    });
-    console.log(compareA);
+    // Ceci est un fix puisque alteredParentTalentsTree n'est rempli que si l'enfant est une femme sinon alteredParentTalentsTree est vide. Voila pourquoi secondParentTalentsTree est utilisé pour les enfant homme
+    if ($(theChosenOne.children()[0]).text() === "Femme"){
+      $.each(alteredParentTalentsTree, function(i){
+        compareA.push($(alteredParentTalentsTree)[i].attr("name"));
+      });
+    } else {
+      $.each(secondParentTalentsTree, function(i){
+        compareA.push($(secondParentTalentsTree)[i].attr("name"));
+      });
+    }
     // Liste le nom des classes de l'enfant
     var compareB = [];
     $.each(childTalentsTree, function(i) {
       compareB.push($(childTalentsTree)[i].attr("name"));
     });
-    console.log(compareB);
     // on donne l'arbre de talent de l'enfant comme base
     var mergedTalentsTreeList = compareB;
     $.each(compareA,function(i) {
       // Si la classe du parent n'est pas dans l'arbre de talents de l'enfant et bien on push
       if($.inArray(compareA[i], compareB) === -1){
         mergedTalentsTreeList.push(compareA[i])
-        console.log(compareA[i]);
       }
     })
     // Ceci va nous permettre de voir si les talents donnés en héritages sont déjà présents ou non dans la liste des classes
@@ -560,7 +563,7 @@ $(function() {
     // Nous renvoie la classe d'où provient le talent choisi
     // console.log(genitorTalentOrigin);
     // console.log(secondParentTalentOrigin);
-    console.log(mergedTalentsTreeList);
+    // console.log(mergedTalentsTreeList);
 
     // On déclare une variable de type Array pour pouvoir utiliser la méthode push() celle ci contiendra la liste finale a envoyer à displayHeroData()
     var finalList = [];
@@ -571,25 +574,12 @@ $(function() {
         finalList.push($(this));
       }
     })
-    console.log(finalList);
-
-
-    // for (var i = 0; i < listeClassesParent.length; i++){
-    //   // Si la classe n'est pas déjà dans la liste des classes de l'enfant
-    //   if (listeClassesChild.indexOf(parentClassClean[i])=== -1){
-    //     // On push la classe dans les classes de l'enfant
-    //     listeClassesChild.push(parentClassClean[i]);
-    //   }
-    // }
-    // console.log(listeClassesChild);
 
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
     $("#TalentsList table").remove();
     // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
     $("#TalentsList").hide();
-    //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
-    // TraitementData(listeClassesChild);
-
+    //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction displayHeroData()
     displayHeroData(finalList);
 
   }
