@@ -262,13 +262,14 @@ $(function() {
         console.log(legacyFirstTalent);
         var tmp = legacyFirstTalent.split('-');
         console.log(tmp);
-        $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+tmp[1]+".png'>"+tmp2[1]+"</td><td>"+tmp[2]+"</td></tr>");
+        $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp[1])+".png'>"+tmp2[1]+"</td><td>"+tmp[2]+"</td></tr>");
+        $("#TalentsList ."+tmp[0]).addClass("drag");
       }
       if (legacySecondTalent !== undefined) {
         console.log(legacySecondTalent);
         var tmp2 = legacySecondTalent.split('-');
         console.log(tmp2);
-        $("#TalentsList table tbody").append("<tr class="+tmp2[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+tmp2[1]+".png'>"+tmp2[1]+"</td><td>"+tmp2[2]+"</td></tr>");
+        $("#TalentsList table tbody").append("<tr class="+tmp2[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp2[1])+".png'>"+tmp2[1]+"</td><td>"+tmp2[2]+"</td></tr>");
         $("#TalentsList ."+tmp2[0]).addClass("drag");
       }
 
