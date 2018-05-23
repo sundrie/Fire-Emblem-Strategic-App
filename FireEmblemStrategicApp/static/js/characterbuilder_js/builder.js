@@ -520,20 +520,24 @@ $(function() {
     // J'ai cherché sur stackoverflow et bien d'autres sites toute l'après midi + soirée à faire fonctionner et imaginer du code pour faire et bien ce que le code suivant fait. Fusionner 2 tableaux d'objets en supprimant les doublons ça m'a l'air impossible ou extrêment compliqué en jquery javascript
     // Liste le nom des classes du parent
     var compareA = [];
+    console.log(secondParentTalentsTree);
     $.each(alteredParentTalentsTree, function(i){
       compareA.push($(alteredParentTalentsTree)[i].attr("name"));
     });
+    console.log(compareA);
     // Liste le nom des classes de l'enfant
     var compareB = [];
     $.each(childTalentsTree, function(i) {
       compareB.push($(childTalentsTree)[i].attr("name"));
     });
+    console.log(compareB);
     // on donne l'arbre de talent de l'enfant comme base
     var mergedTalentsTreeList = compareB;
     $.each(compareA,function(i) {
       // Si la classe du parent n'est pas dans l'arbre de talents de l'enfant et bien on push
       if($.inArray(compareA[i], compareB) === -1){
         mergedTalentsTreeList.push(compareA[i])
+        console.log(compareA[i]);
       }
     })
     // Ceci va nous permettre de voir si les talents donnés en héritages sont déjà présents ou non dans la liste des classes
@@ -541,10 +545,14 @@ $(function() {
       // Si la classe dont le talent provient n'est pas déjà dans la liste alors on push (préviens de tout doublons de talents)
       if($.inArray(genitorTalentOrigin, mergedTalentsTreeList) === -1){
         mergedTalentsTreeList.push(genitorTalentGift)
+        // Affiche le contenu du select choisi
+        console.log($("#myGenitorLegacy :selected").text());
       }
       // idem que pour le if du haut mais pour le second talent hérité
       else if($.inArray(secondParentTalentOrigin, mergedTalentsTreeList) === -1){
-        mergedTalentsTreeList.push(secondParentTalentGift)
+        // mergedTalentsTreeList.push(secondParentTalentGift)
+        // affiche le contenu du select choisi
+        console.log($("#myParentLegacy :selected").text());
         // C'est un break pour sortir de la loop
         return false
       }
@@ -553,6 +561,17 @@ $(function() {
     // console.log(genitorTalentOrigin);
     // console.log(secondParentTalentOrigin);
     console.log(mergedTalentsTreeList);
+
+    // On déclare une variable de type Array pour pouvoir utiliser la méthode push() celle ci contiendra la liste finale a envoyer à displayHeroData()
+    var finalList = [];
+    // On boucle sur chaque classes
+    $(allclassesList).each(function(i) {
+      // Si il trouve l'attribut name (correspond dans le fichier xml à <class name="">) alors il le stocke dans la variable classes
+      if($.inArray($(this).attr("name"), mergedTalentsTreeList) !== -1){
+        finalList.push($(this));
+      }
+    })
+    console.log(finalList);
 
 
     // for (var i = 0; i < listeClassesParent.length; i++){
@@ -571,7 +590,7 @@ $(function() {
     //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
     // TraitementData(listeClassesChild);
 
-    displayHeroData(childTalentsTree);
+    displayHeroData(finalList);
 
   }
 
