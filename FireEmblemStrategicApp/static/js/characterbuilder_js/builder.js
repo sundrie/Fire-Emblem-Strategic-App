@@ -251,14 +251,24 @@ $(function() {
       descTalent = $(talent1).children()[1];
       $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
 
-      console.log(legacyFirstTalent);
-      console.log(legacySecondTalent);
-
       // Affiche l'image et nom du 2ème talent de la classe du personnage
       imagelink = $(talent2).children()[0];
       // Affiche la description du talent
       descTalent = $(talent2).children()[1];
       $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
+
+      // Si le talent transmis a été défini (voir fonction completeChildTalent())
+      if (legacyFirstTalent !== undefined) {
+        console.log(legacyFirstTalent);
+        var tmp = legacyFirstTalent.split('-');
+        console.log(tmp);
+      }
+      if (legacySecondTalent !== undefined) {
+        console.log(legacySecondTalent);
+        var tmp2 = legacySecondTalent.split('-');
+        console.log(tmp2);
+      }
+
 
       $("#TalentsList ."+classes[i].attr("name")).addClass("drag");
       // Nous sommes obligé d'exécuter ce code ici au moment de la génération car en dehors ça ne fonctionne pas
