@@ -223,8 +223,8 @@ $(function() {
     // On appelle la fonction à ce moment pour que celle ci fonctionne sur l'élément généré via code
     saveMyBuild();
   });
-
-
+  // Cette variable va nous permettre d'insérer le talent transmis par héritage du second Parent
+  var legacySecondTalent;
   // Fonction qui va afficher les talents dans notre page pour cela on boucle sur notre variable array
   function displayHeroData(classes) {
     // On cache le bouton goback pour éviter les soucis
@@ -248,6 +248,8 @@ $(function() {
       // Affiche la description du talent
       descTalent = $(talent1).children()[1];
       $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
+
+      console.log(legacySecondTalent);
 
       // Affiche l'image et nom du 2ème talent de la classe du personnage
       imagelink = $(talent2).children()[0];
@@ -553,9 +555,8 @@ $(function() {
       }
       // idem que pour le if du haut mais pour le second talent hérité
       else if($.inArray(secondParentTalentOrigin, mergedTalentsTreeList) === -1){
-        // mergedTalentsTreeList.push(secondParentTalentGift)
         // affiche le contenu du select choisi
-        console.log($("#myParentLegacy :selected").text());
+        legacySecondTalent = secondParentTalentOrigin + " - " + $("#myParentLegacy :selected").text()
         // C'est un break pour sortir de la loop
         return false
       }
@@ -581,7 +582,6 @@ $(function() {
     $("#TalentsList").hide();
     //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction displayHeroData()
     displayHeroData(finalList);
-
   }
 
 });
