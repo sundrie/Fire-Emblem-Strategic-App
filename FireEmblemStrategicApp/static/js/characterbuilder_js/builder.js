@@ -223,6 +223,8 @@ $(function() {
     // On appelle la fonction à ce moment pour que celle ci fonctionne sur l'élément généré via code
     saveMyBuild();
   });
+  // Cette variable va nous permettre d'insérer le talent transmis par héritage du genitor
+  var legacyFirstTalent;
   // Cette variable va nous permettre d'insérer le talent transmis par héritage du second Parent
   var legacySecondTalent;
   // Fonction qui va afficher les talents dans notre page pour cela on boucle sur notre variable array
@@ -249,6 +251,7 @@ $(function() {
       descTalent = $(talent1).children()[1];
       $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
 
+      console.log(legacyFirstTalent);
       console.log(legacySecondTalent);
 
       // Affiche l'image et nom du 2ème talent de la classe du personnage
@@ -549,9 +552,8 @@ $(function() {
     $.each(mergedTalentsTreeList,function(i) {
       // Si la classe dont le talent provient n'est pas déjà dans la liste alors on push (préviens de tout doublons de talents)
       if($.inArray(genitorTalentOrigin, mergedTalentsTreeList) === -1){
-        mergedTalentsTreeList.push(genitorTalentGift)
         // Affiche le contenu du select choisi
-        console.log($("#myGenitorLegacy :selected").text());
+        legacyFirstTalent = genitorTalentOrigin + " - " + $("#myGenitorLegacy :selected").text()
       }
       // idem que pour le if du haut mais pour le second talent hérité
       else if($.inArray(secondParentTalentOrigin, mergedTalentsTreeList) === -1){
@@ -561,10 +563,6 @@ $(function() {
         return false
       }
     });
-    // Nous renvoie la classe d'où provient le talent choisi
-    // console.log(genitorTalentOrigin);
-    // console.log(secondParentTalentOrigin);
-    // console.log(mergedTalentsTreeList);
 
     // On déclare une variable de type Array pour pouvoir utiliser la méthode push() celle ci contiendra la liste finale a envoyer à displayHeroData()
     var finalList = [];
