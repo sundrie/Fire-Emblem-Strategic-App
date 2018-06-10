@@ -67,10 +67,10 @@ $(function() {
   var childTestResult;
 
   // retourne un booléen pour si le personnage cliqué est un enfant ou non
-  function childOrNot (TheChosenOne) {
-    var genitor = TheChosenOne.children()[2]
+  function childOrNot (heroChosen) {
+    var genitor = heroChosen.children()[2]
     genitorName = $(genitor).text();
-    var parentsList = TheChosenOne.children()[1]
+    var parentsList = heroChosen.children()[1]
     splittedParentsList = $(parentsList).text().split("-");
     // Si c'est vide alors ça veut dire que le personnage n'est pas un enfant car sinon il aurait le nom de sa mère généralement (par exemple le genitor de Severa est Cordelia, celui de Noire Tharja, celui de Yarne Palne, etc)
     if (genitorName === "") {
@@ -260,18 +260,18 @@ $(function() {
       // Affiche la description du talent
       descTalent = $(talent2).children()[1];
       $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
-
       // Si le talent transmis a été défini (voir fonction completeChildTalent())
-      if ((legacyFirstTalent !== undefined) && (useOnce === 0)) {
+      // On utilise la variable childTestResult pour éviter que les talents soient transmis à des personages parents. Ce problème arrivait si on faisait un build enfant puis qu'on cliquait directement sans refresh de page sur un perso parent
+      if ((legacyFirstTalent !== undefined) && (useOnce === 0) && (childTestResult === true)) {
         console.log(legacyFirstTalent);
         var tmp = legacyFirstTalent.split('-');
         console.log(tmp);
-        $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp[1])+".png'>"+tmp2[1]+"</td><td>"+tmp[2]+"</td></tr>");
+        $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp[1])+".png'>"+tmp[1]+"</td><td>"+tmp[2]+"</td></tr>");
         $("#TalentsList ."+tmp[0]).addClass("drag");
         // Comme ça plus de soucis des multiples doublons
         useOnce = 1;
       }
-      if ((legacySecondTalent !== undefined) && (useOnce2 === 0)) {
+      if ((legacySecondTalent !== undefined) && (useOnce2 === 0) && (childTestResult === true)) {
         console.log(legacySecondTalent);
         var tmp2 = legacySecondTalent.split('-');
         console.log(tmp2);
