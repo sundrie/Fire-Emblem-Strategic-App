@@ -262,25 +262,27 @@ $(function() {
       $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
       // Si le talent transmis a été défini (voir fonction completeChildTalent())
       // On utilise la variable childTestResult pour éviter que les talents soient transmis à des personages parents. Ce problème arrivait si on faisait un build enfant puis qu'on cliquait directement sans refresh de page sur un perso parent
-      if ((legacyFirstTalent !== undefined) && (useOnce === 0) && (childTestResult === true)) {
-        console.log(legacyFirstTalent);
-        var tmp = legacyFirstTalent.split('-');
-        console.log(tmp);
-        $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp[1])+".png'>"+tmp[1]+"</td><td>"+tmp[2]+"</td></tr>");
-        $("#TalentsList ."+tmp[0]).addClass("drag");
-        // Comme ça plus de soucis des multiples doublons
-        useOnce = 1;
+      if (childTestResult === true) {
+        // Si le talent transmis a été défini (voir fonction completeChildTalent())
+        if ((legacyFirstTalent !== undefined) && (useOnce === 0)) {
+          console.log(legacyFirstTalent);
+          var tmp = legacyFirstTalent.split('-');
+          console.log(tmp);
+          $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp[1])+".png'>"+tmp[1]+"</td><td>"+tmp[2]+"</td></tr>");
+          $("#TalentsList ."+tmp[0]).addClass("drag");
+          // Comme ça plus de soucis des multiples doublons
+          useOnce = 1;
+        }
+        if ((legacySecondTalent !== undefined) && (useOnce2 === 0)) {
+          console.log(legacySecondTalent);
+          var tmp2 = legacySecondTalent.split('-');
+          console.log(tmp2);
+          $("#TalentsList table tbody").append("<tr class="+tmp2[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp2[1])+".png'>"+tmp2[1]+"</td><td>"+tmp2[2]+"</td></tr>");
+          $("#TalentsList ."+tmp2[0]).addClass("drag");
+          // Comme ça plus de soucis des multiples doublons
+          useOnce2 = 1;
+        }
       }
-      if ((legacySecondTalent !== undefined) && (useOnce2 === 0) && (childTestResult === true)) {
-        console.log(legacySecondTalent);
-        var tmp2 = legacySecondTalent.split('-');
-        console.log(tmp2);
-        $("#TalentsList table tbody").append("<tr class="+tmp2[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp2[1])+".png'>"+tmp2[1]+"</td><td>"+tmp2[2]+"</td></tr>");
-        $("#TalentsList ."+tmp2[0]).addClass("drag");
-        // Comme ça plus de soucis des multiples doublons
-        useOnce2 = 1;
-      }
-
 
       $("#TalentsList ."+classes[i].attr("name")).addClass("drag");
       // Nous sommes obligé d'exécuter ce code ici au moment de la génération car en dehors ça ne fonctionne pas
@@ -570,12 +572,15 @@ $(function() {
         mergedTalentsTreeList.push(compareA[i])
       }
     })
+    // Permets de corriger le bug qui faisait que des talents d'héritage étaient transmis d'un enfant à l'autre si la page n'était pas rechargée (F5) à chaque changement de personnage
+    legacyFirstTalent = undefined;
+    legacySecondTalent = undefined;
     // Ceci va nous permettre de voir si les talents donnés en héritages sont déjà présents ou non dans la liste des classes
     $.each(mergedTalentsTreeList,function(i) {
       // Si la classe dont le talent provient n'est pas déjà dans la liste alors on push (préviens de tout doublons de talents)
       if($.inArray(genitorTalentOrigin, mergedTalentsTreeList) === -1){
         // Affiche le contenu du select choisi
-        legacyFirstTalent = genitorTalentOrigin + " - " + $("#myGenitorLegacy :selected").text()
+        legacyFirstTalent = genitorTalentOrigin + " - " + $("#myGenitorLegacy :selected").text();
       }
       // idem que pour le if du haut mais pour le second talent hérité
       else if($.inArray(secondParentTalentOrigin, mergedTalentsTreeList) === -1){
