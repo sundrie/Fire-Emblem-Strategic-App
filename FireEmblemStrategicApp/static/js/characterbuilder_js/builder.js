@@ -589,7 +589,7 @@ $(function() {
 
     // On déclare une variable de type Array pour pouvoir utiliser la méthode push() celle ci contiendra la liste finale a envoyer à displayHeroData()
     var finalList = [];
-    // On initialise cette variable à faux car de base on n'a pas besoin de trier et supprimer des doublons
+    // On initialise cette variable à faux car de base on n'a pas besoin de trier et supprimer des doublons en temps normal
     var sortMyList = false;
     // On boucle sur chaque classes
     $(allclassesList).each(function(i) {
@@ -598,7 +598,7 @@ $(function() {
         finalList.push($(this));
         //
         if (($(this).attr("name") === "Cleric") || ($(this).attr("name") === "Cleric")) {
-          sortMyList = true
+          sortMyList = true;
         }
       }
     })
@@ -612,13 +612,13 @@ $(function() {
         if (j === finalList.length) {
           break;
         }
+        // si l'index de j qui est de +1 par rapport à i possède la même valeur que i alors on supprime tout simplement
         if (finalList[j].attr("name") === finalList[i].attr("name")) {
-          // console.log(finalList[j].attr("name"));
-          console.log("doublon trouvé !");
+          // on éradique le doublon
+          finalList.splice(j,1)
         }
       }
     }
-    console.log(finalList);
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
     $("#TalentsList table").remove();
     // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
