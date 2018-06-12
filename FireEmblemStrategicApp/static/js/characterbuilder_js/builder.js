@@ -414,6 +414,8 @@ $(function() {
   }
   // Lors d'un changement dans le select pour choisir le parent sous la liste des persos
   $(".formulaireRecherche").on('change','#myParent',function(){
+    // On reset les zones de drop
+    $("#HeroBuild table tr").find("tr").replaceWith('<td></td>');
     $("#myParentLegacy").remove();
     // masque le message nous demandant de choisir un parent
     $('.chooseAParent').hide();
