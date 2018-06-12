@@ -10,7 +10,7 @@
     $message = "error=Cookies Error";
     // On utilise la methode GET pour transmettre notre code d'erreur
     // code trouvé sur https://stackoverflow.com/questions/8227844/pass-data-from-one-php-page-to-another-using-header
-    header('Location: http://alexandreblin.ovh/FireEmblemStrategicApp/pages/errorpage.php?'.$message.'');
+    header('Location: https://alexandreblin.ovh/FireEmblemStrategicApp/pages/errorpage.php?'.$message.'');
     die;
   }
 
@@ -32,7 +32,7 @@
     $message = "error=Fatal error";
     // On utilise la methode GET pour transmettre notre code d'erreur
     // code trouvé sur https://stackoverflow.com/questions/8227844/pass-data-from-one-php-page-to-another-using-header
-    header('Location: http://alexandreblin.ovh/FireEmblemStrategicApp/pages/errorpage.php?'.$message.'');
+    header('Location: https://alexandreblin.ovh/FireEmblemStrategicApp/pages/errorpage.php?'.$message.'');
     die;
     die;
   }

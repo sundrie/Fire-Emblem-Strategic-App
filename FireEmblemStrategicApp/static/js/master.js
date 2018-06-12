@@ -3,7 +3,7 @@ $(function() {
   //Ceci va générer notre liste de perso comme ça plus besoin de PHP qui n'était en soit suite aux changements plus très utile
 
   $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/',
+    url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/',
     success: function(data) {
        // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
        $(data).find("a:contains(.txt)").each(function () {
@@ -20,7 +20,7 @@ $(function() {
 
   //Concerne les enfants qui sont un cas à part
   $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens',
+    url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens',
     success: function(data) {
        // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
        $(data).find("a:contains(.txt)").each(function () {
@@ -66,18 +66,18 @@ $(function() {
     //On affiche notre image précedemment caché car pas de source (icone img link perdu)
     $(".imageHeros").css("display","block");
     // permet de dynamiquement afficher l'image du perso choisi
-    $("#HeroImg").attr('src','http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
+    $("#HeroImg").attr('src','https://alexandreblin.ovh/FireEmblemStrategicApp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
 
     // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
     if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
       // On charge toutes les datas du perso (enfant)
-      $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens/'+persoChoisi+'.txt', function(data) {
+      $.get('https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens/'+persoChoisi+'.txt', function(data) {
         gestionAffichageData(data);
         //$('#HeroDesc').html(data);
       }, 'text');
     }else{
       // On charge toutes les datas du perso
-      $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+persoChoisi+'.txt', function(data) {
+      $.get('https://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+persoChoisi+'.txt', function(data) {
         gestionAffichageData(data);
         //$('#HeroDesc').html(data);
       }, 'text');

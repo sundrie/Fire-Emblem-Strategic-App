@@ -12,7 +12,7 @@ $(function() {
 
   // Ce qui va charger et nous sortir une liste des personnages avec toutes leurs datas (sexe,parents,genitor,classlist,description)
   $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/PersosList.xml',
+    url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/PersosList.xml',
     datatype : 'xml',
     success: function(data){
       // Liste de tous les personnages
@@ -28,7 +28,7 @@ $(function() {
 
   // On charge notre document xml listant tous les talents
   $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/TalentsList.xml',
+    url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/TalentsList.xml',
     datatype : 'xml',
     success: function(data){
       // Variable qui liste toutes les classes
@@ -133,7 +133,7 @@ $(function() {
     // On met ceci à la place de .show() sinon le display flex n'est pas remis ce qui fait gros bug d'affichage
     $(".HeroBuildCard").css("display","flex");
     // permet de dynamiquement afficher l'image du perso choisi
-    $("#HeroImgBuilder").attr('src','http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
+    $("#HeroImgBuilder").attr('src','https://alexandreblin.ovh/FireEmblemStrategicApp/static/img/character_portrait/'+persoChoisi+'_portrait.png');
     // On met le nom du perso dans l'étiquette du builder
     $(".NomHerosBuilder").html(persoChoisi);
 
@@ -266,14 +266,14 @@ $(function() {
         // Si le talent transmis a été défini (voir fonction completeChildTalent())
         if ((legacyFirstTalent !== undefined) && (useOnce === 0)) {
           var tmp = legacyFirstTalent.split('-');
-          $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp[1])+".png'>"+tmp[1]+"</td><td>"+tmp[2]+"</td></tr>");
+          $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='https://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp[1])+".png'>"+tmp[1]+"</td><td>"+tmp[2]+"</td></tr>");
           $("#TalentsList ."+tmp[0]).addClass("drag");
           // Comme ça plus de soucis des multiples doublons
           useOnce = 1;
         }
         if ((legacySecondTalent !== undefined) && (useOnce2 === 0)) {
           var tmp2 = legacySecondTalent.split('-');
-          $("#TalentsList table tbody").append("<tr class="+tmp2[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp2[1])+".png'>"+tmp2[1]+"</td><td>"+tmp2[2]+"</td></tr>");
+          $("#TalentsList table tbody").append("<tr class="+tmp2[0]+"><td><img src='https://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp2[1])+".png'>"+tmp2[1]+"</td><td>"+tmp2[2]+"</td></tr>");
           $("#TalentsList ."+tmp2[0]).addClass("drag");
           // Comme ça plus de soucis des multiples doublons
           useOnce2 = 1;
@@ -391,12 +391,12 @@ $(function() {
       });
       // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
       $.ajax({
-        url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/php/savebuild.php',
+        url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/php/savebuild.php',
         method: 'POST',
         data:{build : encoderforAJAX},
         success : function(data){
           // Ceci est nécessaire pour que l'utilisateur sache que son build a été téléchargé sous format texte
-          window.location.replace("http://alexandreblin.ovh/FireEmblemStrategicApp/php/userdownloadfile.php");
+          window.location.replace("https://alexandreblin.ovh/FireEmblemStrategicApp/php/userdownloadfile.php");
 
           // Pour avoir un retour du script php
           // $('#message').html('voilà ce qui a été envoyé : '+ data);
