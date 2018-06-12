@@ -454,10 +454,14 @@ $(function() {
   }
 
   $(".formulaireRecherche").on('change','#myGenitorLegacy',function(){
+    // On reset les zones de drop
+    $("#HeroBuild table tr").find("tr").replaceWith('<td></td>');
     // On appelle cette fonction a chaque changement pour qu'elle "écoute" les 2 select
     getBothSelectValue()
   })
   $(".formulaireRecherche").on('change','#myParentLegacy',function(){
+    // On reset les zones de drop
+    $("#HeroBuild table tr").find("tr").replaceWith('<td></td>');
     // On appelle cette fonction a chaque changement pour qu'elle "écoute" les 2 select
     getBothSelectValue()
   })
