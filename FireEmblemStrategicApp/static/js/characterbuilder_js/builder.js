@@ -166,7 +166,7 @@ $(function() {
 
       /* Un message qui apparait pour indiquer à l'utilisateur ce qu'il doit faire */
       $('.chooseAParent').show();
-      $('.chooseAParent').append("<p class='messageChooseParent'>Veuillez choisir un parent dans la liste qui se trouve sous la liste des personnages pour continuer</p>");
+      $('.chooseAParent').append("<p class='messageChooseParent'>Veuillez choisir un parent dans la liste qui se trouve sous la liste des personnages pour continuer</p><p class='messageChooseParent'>Il faudra choisir aussi les talents qu'il recevra en héritage de ses parents</p>");
 
       // On appelle la fonction nous permettant de remplir dynamiquement le select
       fillSelectParent();
