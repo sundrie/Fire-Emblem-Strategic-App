@@ -265,18 +265,14 @@ $(function() {
       if (childTestResult === true) {
         // Si le talent transmis a été défini (voir fonction completeChildTalent())
         if ((legacyFirstTalent !== undefined) && (useOnce === 0)) {
-          console.log(legacyFirstTalent);
           var tmp = legacyFirstTalent.split('-');
-          console.log(tmp);
           $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp[1])+".png'>"+tmp[1]+"</td><td>"+tmp[2]+"</td></tr>");
           $("#TalentsList ."+tmp[0]).addClass("drag");
           // Comme ça plus de soucis des multiples doublons
           useOnce = 1;
         }
         if ((legacySecondTalent !== undefined) && (useOnce2 === 0)) {
-          console.log(legacySecondTalent);
           var tmp2 = legacySecondTalent.split('-');
-          console.log(tmp2);
           $("#TalentsList table tbody").append("<tr class="+tmp2[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp2[1])+".png'>"+tmp2[1]+"</td><td>"+tmp2[2]+"</td></tr>");
           $("#TalentsList ."+tmp2[0]).addClass("drag");
           // Comme ça plus de soucis des multiples doublons
@@ -593,14 +589,36 @@ $(function() {
 
     // On déclare une variable de type Array pour pouvoir utiliser la méthode push() celle ci contiendra la liste finale a envoyer à displayHeroData()
     var finalList = [];
+    // On initialise cette variable à faux car de base on n'a pas besoin de trier et supprimer des doublons
+    var sortMyList = false;
     // On boucle sur chaque classes
     $(allclassesList).each(function(i) {
       // Si il trouve l'attribut name (correspond dans le fichier xml à <class name="">) alors il le stocke dans la variable classes
       if($.inArray($(this).attr("name"), mergedTalentsTreeList) !== -1){
         finalList.push($(this));
+        //
+        if (($(this).attr("name") === "Cleric") || ($(this).attr("name") === "Cleric")) {
+          sortMyList = true
+        }
       }
     })
-
+    // Ce petit bout de code va supprimer les doublons trouvés par exemple avec Nah et un parent pouvant être Priest comme Kellam
+    if (sortMyList === true) {
+      // Cette variable va être à +1 par rapport à i pour pouvoir comparer la case de i et celle de
+      var j;
+      for (var i = 0; i < finalList.length; i++) {
+        j = i+1;
+        // pour empêcher j de dépasser la taille de finalList et donc de devenir undefined ce qui coupe le fonctionnement du code
+        if (j === finalList.length) {
+          break;
+        }
+        if (finalList[j].attr("name") === finalList[i].attr("name")) {
+          // console.log(finalList[j].attr("name"));
+          console.log("doublon trouvé !");
+        }
+      }
+    }
+    console.log(finalList);
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
     $("#TalentsList table").remove();
     // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
