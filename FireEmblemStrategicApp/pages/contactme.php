@@ -3,21 +3,21 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://alexandreblin.ovh/FireEmblemStrategicApp/static/css/normalize.css">
-		<link rel="stylesheet" href="https://alexandreblin.ovh/FireEmblemStrategicApp/static/css/master.min.css">
-		<link href="https://alexandreblin.ovh/FireEmblemStrategicApp/static/css/fontawesome-all.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/normalize.css">
+		<link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/master.min.css">
+		<link href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/fontawesome-all.min.css" rel="stylesheet">
 		<script src='https://www.google.com/recaptcha/api.js'></script>
 		<title>Fire Emblem Strategic App | Me contacter</title>
 	</head>
 	<body>
     <header class="headerwebsite headerwebsiteabout">
-      <a href="https://alexandreblin.ovh/index.html"><img src="https://alexandreblin.ovh/FireEmblemStrategicApp/static/img/FireEmblemLogo - Menu.png" alt="Retour Accueil" class="ImgBackHome"></a>
+      <a href="http://alexandreblin.ovh/index.html"><img src="http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/FireEmblemLogo - Menu.png" alt="Retour Accueil" class="ImgBackHome"></a>
       <h1>Fire Emblem Strategic App \ Me contacter</h1>
     </header>
     <div class="wrapper">
 			<div class="contactpagemaincontent">
 	      <p class="contactmeexplain">Vous souhaitez me contacter directement, remplissez le formulaire ci-dessous.</p>
-	      <form action="https://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php" method="post" id="contactForm" class="formulaireContact">
+	      <form action="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php" method="post" id="contactForm" class="formulaireContact">
 	        <p class="p-objectmsg"><span class="inputdesc">Objet de votre message : </span><input type="text" name="objectmsg" class="class-objectmsg" required></p>
 					<p class="p-email"><span class="inputdesc inputdescemail">Votre adresse mail : </span><input type="email" name="email" class="class-email" required></p>
 	        <p class="p-textmsg">Votre message : <textarea name="textmsg" class="class-textmsg" rows="8" cols="80" required></textarea></p>
@@ -37,14 +37,14 @@
 				<a href="https://github.com/sundrie"><i class="fab fa-github-square"></i></a>
 				<a href="https://www.facebook.com/alexandre.blin.18"><i class="fab fa-facebook-square"></i></a>
       </p>
-			<p><a href="https://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php">Me contacter</a></p>
+			<p><a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php">Me contacter</a></p>
     </footer>
 		<!-- Chargement de la librairie jQuery -->
-    <script type='text/javascript' src='https://alexandreblin.ovh/FireEmblemStrategicApp/libs/jquery-3.3.1.min.js'></script>
+    <script type='text/javascript' src='http://alexandreblin.ovh/FireEmblemStrategicApp/libs/jquery-3.3.1.min.js'></script>
     <!-- Chargement de la librairie jQuery UI -->
-    <link rel="stylesheet" href="https://alexandreblin.ovh/FireEmblemStrategicApp/libs/jquery-ui.min.css">
-<script src="https://alexandreblin.ovh/FireEmblemStrategicApp/libs/jquery-ui.min.js"></script>
-		<script src="https://alexandreblin.ovh/FireEmblemStrategicApp/static/js/formValidator.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/libs/jquery-ui.min.css">
+<script src="http://alexandreblin.ovh/FireEmblemStrategicApp/libs/jquery-ui.min.js"></script>
+		<script src="http://alexandreblin.ovh/FireEmblemStrategicApp/static/js/formValidator.js" charset="utf-8"></script>
 	</body>
 </html>
 <?php
