@@ -158,11 +158,11 @@ $(function() {
     // On test si le personnage cliqué par l'utilisateur est un enfant
     if (childTestResult === true){
       // On ajoute un select permettant de choisir 1er talent d'héritage (celui du parent inchangeable Cordelia pour Severa, Chrom pour Lucina, etc)
-      $('.formulaireRecherche').append("<select id='myGenitorLegacy' class='myParentclass myGenitorLegacyclass'><option value='default' selected>1er talent hérité</option></select>");
+      $('.formulaireRecherche .legacyArea').append("<select id='myGenitorLegacy' class='myParentclass myGenitorLegacyclass'><option value='default' selected>1er talent hérité</option></select>");
       legacy_of_Parent(genitorName,"myGenitorLegacy")
 
       // On ajoute un select permettant de choisir le parent
-      $('.formulaireRecherche').append("<select id='myParent' class='myParentclass'><option value='default' selected>Choisir parent</option></select>");
+      $('.formulaireRecherche .legacyArea').append("<select id='myParent' class='myParentclass'><option value='default' selected>Choisir parent</option></select>");
 
       /* Un message qui apparait pour indiquer à l'utilisateur ce qu'il doit faire */
       $('.chooseAParent').show();
@@ -421,7 +421,7 @@ $(function() {
     $('.chooseAParent').hide();
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
-    $('.formulaireRecherche').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
+    $('.formulaireRecherche .legacyArea').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
     legacy_of_Parent(parentName,"myParentLegacy");
   });
 

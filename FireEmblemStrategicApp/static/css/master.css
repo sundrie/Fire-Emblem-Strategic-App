@@ -242,6 +242,14 @@ footer a:hover{
   text-decoration: none;
 }
 
+/* Concerne les select pour choisir les talents d'héritages (enfants uniquement) */
+.myParentclass {
+  
+}
+.myParentLegacyclass {
+
+}
+
 /* L'image du perso*/
 .imageHeros {
   display: none;
