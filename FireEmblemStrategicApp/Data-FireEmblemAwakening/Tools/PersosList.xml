@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PersosList>
+  <personnage name="Anna">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Thief-Assassin-Trickster-Archer-Sniper-Bow_Knight-Mage-Sage-Dark_Knight-Bride</classlist>
+    <description>Anna est une vendeuse ayant de très très nombreux doubles (elle apparait dans tous les jeux je crois), après avoir été sauvé plusieurs fois des bandits elle décide de rejoindre les rangs de Chrom.
+    C'est un personnage assez équilibré, Lifetaker lui offre une regen de HP, elle peut attaquer physiquement ou magiquement ses deux stats étant à peut près pareil. Elle possède pas mal de talents intéressants (Lethality, Bowbreaker,Lucky Seven) mais son pool de classes n'est pas le meilleur.</description>
+  </personnage>
+  <personnage name="Avatar(F)">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Tactician-Grandmaster-Cavalier-Paladin-Great_Knight-Knight-General-Myrmidon-Swordmaster-Assassin-Thief-Trickster-Mercenary-Hero-Bow_Knight-Archer-Sniper-Mage-Sage-Dark_Knight-Dark_Mage-Sorcerer-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Cleric-War_Cleric-Troubadour-Valkyrie-Pegasus_Knight-Falcon_Knight-Dark_Flier-Bride</classlist>
+    <description>C'est vous ! Chrom vous réveille, bien qu'amnésique vous vous souvenez de son nom ce qui est étrange aux yeux des autres.
+    Mais Chrom vous fait confiance et vous permets de gérer la tactique à sa place (en même temps c'est vous qui jouez au jeu :p).
+    Vous avez pouvoir de vie ou de mort sur vos alliés, un proche dérangeant envoyez le seul au milieu des ennemis ! Une personne vous tappe à l'oeil vous pouvez la séduire puisque vous gérez tout. Vos choix détermineront si vous êtes plus un héros stratège ou un piètre meneur qui envoie ses alliés au casse-pipe.
+    En tant que héros vous avez accès à TOUTES les classes jouables (à part Manakete et Taguels bah oui vous êtes humain après tout) ce qui vous offre un très large panel de choix d'orientation pour votre build.
+    Beaucoup de vos alliés aimerait avoir cette chance ;) (Tharja adorerait avoir Galeforce ^^)</description>
+  </personnage>
+  <personnage name="Avatar(M)">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Tactician-Grandmaster-Cavalier-Paladin-Great_Knight-Knight-General-Myrmidon-Swordmaster-Assassin-Thief-Trickster-Mercenary-Hero-Bow_Knight-Archer-Sniper-Mage-Sage-Dark_Knight-Dark_Mage-Sorcerer-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Priest-War_Monk-Fighter-Warrior-Barbarian-Berserker-Dread_Fighter</classlist>
+    <description>C'est vous ! Chrom vous réveille, bien qu'amnésique vous vous souvenez de son nom ce qui est étrange aux yeux des autres.
+    Mais Chrom vous fait confiance et vous permets de gérer la tactique à sa place (en même temps c'est vous qui jouez au jeu :p).
+    Vous avez pouvoir de vie ou de mort sur vos alliés, un proche dérangeant envoyez le seul au milieu des ennemis ! Une personne vous tappe à l'oeil vous pouvez la séduire puisque vous gérez tout. Vos choix détermineront si vous êtes plus un héros stratège ou un piètre meneur qui envoie ses alliés au casse-pipe.
+    En tant que héros vous avez accès à TOUTES les classes jouables (à part Manakete et Taguels bah oui vous êtes humain après tout) ce qui vous offre un très large panel de choix d'orientation pour votre build.
+    Beaucoup de vos alliés aimerait avoir cette chance ;)</description>
+  </personnage>
+  <personnage name="Aversa">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Pegasus_Knight-Falcon_Knight-Dark_Flier-Dark_Mage-Sorcerer-Dark_Knight-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Bride</classlist>
+    <description>Aversa peut être jouable via un DLC (gratuit).
+    Aversa est une personne servant Plegia et utilise la magie noire.
+    Elle possède énormément de bon talents tel que Galeforce, Lifetaker et de nombreux talents Breaker ce qui l'oriente sur un rôle d'assassin tapant magique et ou physique ce qui est appréciable.</description>
+  </personnage>
+  <personnage name="Basilio">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Barbarian-Warrior-Berserker-Fighter-Hero-Knight-General-Great_Knight-Dread_Fighter</classlist>
+    <description>L'un des 2 Khans dirigeant Ragna Ferox, un royaume allié situé au Nord d'Ylisse.Il sera avec Flavia des alliés de poids fournissant troupes et bon soldats à Chrom (Olivia et Lon'zu notamment).
+    Basilio possède des classes intéressantes lui permettant d'être soit un assassin puissant avec beaucoup de critique(grâce à Gamble,Wrath et Zeal), soit un tank redoutable (avec Pavise).
+    En bref lui et Flavia se ressemble beaucoup sur beaucoup de points.</description>
+  </personnage>
+  <personnage name="Brady">
+    <sexe>Homme</sexe>
+    <parents>Avatar(M)-Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Maribelle</genitor>
+    <classlist>Priest-War_Monk-Sage-Cavalier-Paladin-Great_Knight-Mage-Dark_Knight-Dread_Fighter</classlist>
+    <description>Brady est le fils de Maribelle</description>
+  </personnage>
+  <personnage name="Chrom">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Lord-Great_Lord-Cavalier-Paladin-Great_Knight-Archer-Sniper-Bow_Knight-Dread_Fighter</classlist>
+    <description>Prince d'Ylisse, personnage central de l'histoire ayant hérité d'une lourde destinée, Chrom est un véritable monstre de puissance autant sur le plan offensif que défensif notamment grâce au talent Aether.
+    Le moindre ennemi l'affrontant au corps à corps risque d'y laisser des plumes car Chrom possède une chance élevée lui donnant plus de chance d'infliger des coups critiques.
+    Son seul point faible est le combat à distance car il ne peut activé son talent régénérateur de HP</description>
+  </personnage>
+  <personnage name="Cordelia">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Pegasus_Knight-Falcon_Knight-Dark_Flier-Mercenary-Hero-Bow_Knight-Dark_Mage-Sorcerer-Dark_Knight-Bride</classlist>
+    <description>Cordelia est l'unique survivante de son unité de Chevaliers pégases, ses camarades se sont sacrifiées pour la sauver et lui permettre de prévenir Chrom de la menace qui arrivait. Elle est très attentionnée envers ses camarades Veilleurs et aime secrétement Chrom (même si aucun dialogue de soutien ni ranking de soutien n'est disponible pour eux).
+    Cordelia comme tous les personnages féminins possède le talent Galeforce ce qui la propulse vers les tops.
+    A celà s'ajoute de nombreuses autres bonnes classes lui permettant par exemple d'obtenir du self heal avec Sol ou Lifetaker, des talents breaker pour s'avantager face aux arcs, tomes, haches ou même un moyen d'économiser ses armes avec Armsthrift.
+    Elle peut attaquer soit sur le physique soit le magique (même si des boosters de magies seront surêment requis vu que sa magie est faible) ou même les deux ce qui est vraiment une bonne chose.</description>
+  </personnage>
+  <personnage name="Cynthia">
+    <sexe>Femme</sexe>
+    <parents>Avatar(M)-Chrom-Frederick-Gaius-Henry</parents>
+    <genitor>Sumia</genitor>
+    <classlist>Pegasus_Knight-Falcon_Knight-Dark_Flier-Knight-General-Great_Knight-Cleric-War_Cleric-Sage-Bride</classlist>
+    <description>Cynthia est la fille de Sumia</description>
+  </personnage>
+  <personnage name="Donnel">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Villager-Mercenary-Hero-Bow_Knight-Fighter-Warrior-Dread_Fighter</classlist>
+    <description>Sauvé par les Veilleurs d'un raid de bandits, Donnel est le pécore qui décide de rejoindre Chrom pour voir du pays (mais aussi de résoudre le mystère entourant la pierre donné par son défunt père). Il promet à sa mère de revenir en héros.
+    Malgrés son accent et sa dégaine c'est un garçon courageux et gentil qui n'hésite pas à aider son prochain.
+    Donnel est un personnage qui  à accès à prodigue lui donnant un boost pour améliorer ses stats mais ... il y a un prix à celà. Son choix de classes est très limité.
+    Ceci impacte donc ses choix de talents ont nottera toutefois l'accès à Sol, Axebreaker, Bowbreaker et Armsthrift ainsi que les talents du Dread_Fighter. A part ça et bien pas grand chose de vraiment fou ainsi c'est assez dure de le considérer comme un bon personnage par rapport à ses compères qui eux ont plus de possibilités.</description>
+  </personnage>
+  <personnage name="Emmeryn">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Cleric-War_Cleric-Sage-Troubadour-Valkyrie-Pegasus_Knight-Falcon_Knight-Dark_Flier-Bride</classlist>
+    <description>Emmeryn peut être jouable via un DLC (gratuit).
+    Emmeryn dirige Ylisse et est la soeur de Chrom et Lissa.C'est une pacifique et sous son règne paix et prospérité sont de mmises.
+    Elle partage le même arbre de talents que Lissa (Lissa a sans doute été fortement inspirée par elle ;) ).
+    Emmeryn peut faire un excellent support boostant les stats de ses alliés ou une magicienne décimant ses ennemis avec notamment Galeforce.</description>
+  </personnage>
+  <personnage name="Flavia">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Mercenary-Hero-Bow_Knight-Thief-Assassin-Trickster-Knight-General-Great_Knight-Bride</classlist>
+    <description>L'un des 2 Khans dirigeant Ragna Ferox, un royaume allié situé au Nord d'Ylisse.Elle sera avec Basilio des alliés de poids fournissant troupes et bon soldats à Chrom (Olivia et Lon'zu notamment).
+    Flavia possède d'excellent choix de classes lui permettant d'être soit un assassin puissant (mais manquants de certains talents forts comme Astra), soit un tank redoutable (avec Pavise).
+    Un bon personnage en soit, équilibré.</description>
+  </personnage>
+  <personnage name="Frederick">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Cavalier-Paladin-Great_Knight-Knight-General-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Dread_Fighter</classlist>
+    <description>Serviteur de la famille royale d'Ylisse, il est la seule unité de classe avancé au début du jeu (Il est préférable de ne pas l'utiliser au début car les classes avancés ne gagne pas beaucoup d'xp, donner l'xp aux autres persos de classe basique est plus avisé car eux vont gagner bien plus d'xp que lui).
+    Frederick est comme vous pouvez le deviner un pur tank (surtout sur les dégâts physique), il est capable d'avoir les talents Aegis et Pavise qui lui permette d'être encore plus intuable si ils s'activent.
+    Il peut aussi avoir accès à du burst grâce à Luna</description>
+  </personnage>
+  <personnage name="Gaius">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Thief-Assassin-Trickster-Myrmidon-Swordmaster-Fighter-Warrior-Hero-Dread_Fighter</classlist>
+    <description>Voleur accro au sucre qui décide de rejoindre Chrom car il n'est pas venu pour assassiner Emmeryn et que Chrom peut lui offrir des sucreries.
+    Bien qu'étant un voleur il possède un bon fond même si parfois sa tenue est négligée et son attitude loin d'être aimable.
+    Gaius est un perso très puissant de 1 il a accès au combo Astra + Lethality mais aussi à du self healing avec Sol son seul problème est qu'il est assez fragile, mais son rôle n'est pas de tanker mais d'executer n'importe qui (ce qu'il fait à merveille ;))</description>
+  </personnage>
+  <personnage name="Gangrel">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Thief-Assassin-Trickster-Barbarian-Warrior-Berserker-Dark_Mage-Sorcerer-Dark_Knight-Dread_Fighter</classlist>
+    <description>Gangrel peut être jouable via un DLC (gratuit).
+    Gangrel dirige Plegia une nation belliqeuse envers Ylisse suite à l'oppression des différents predécesseurs d'Emmeryn.
+    C'est un excellent personnage qui grâce à ses stats peu être joué soit sur les dégâts magiques ou physiques.
+    Lifetaker lui permet de se soigner.</description>
+  </personnage>
+  <personnage name="Gerome">
+    <sexe>Homme</sexe>
+    <parents>Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Zelcher</genitor>
+    <classlist>Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Fighter-Warrior-Hero-Priest-War_Monk-Sage-Dread_Fighter</classlist>
+    <description>Gerome est le fils de Zelcher</description>
+  </personnage>
+  <personnage name="Gregor">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Mercenary-Hero-Bow_Knight-Barbarian-Warrior-Berserker-Myrmidon-Swordmaster-Assassin-Dread_Fighter</classlist>
+    <description>Gregor est le nom de son défunt frère mort d'une attaque de bandits, triste de ne pas avoir pût le sauver il a décider de remplacer sa vrai identité par celle de son frère.
+    Ainsi il parcourt le monde en tant que mercenaire, il croise la route d'une petite appeurée (Nowi) et décide de la protéger. Il sera aidé par Chrom et les Veilleurs qui passèrent par là et il décida de les rejoindre.
+    C'est un sacré gaillard qui malgrés un air de roublard est un type bien cherchant à aider ses alliés en difficultés.
+    Gregor est un excellent personnage possédant lui aussi la combo Astra + Lethality, Sol pour se soigner et Armsthrift pour économiser sur ses charges d'armes.
+    Il est ainsi plus orienté sur l'offensif même si il peu bien encaisser les coups (beaucoup moins ceux magiques).</description>
+  </personnage>
+  <personnage name="Henry">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Dark_Mage-Sorcerer-Dark_Knight-Barbarian-Warrior-Berserker-Thief-Assassin-Trickster-Dread_Fighter</classlist>
+    <description>Personnage assez bizarre, sadique sur les bords, malgrés son sourire. Il est du pays ennemi mais décide de rejoindre les rangs de Chrom.
+    C'est un mage essentiellement mais il peut aussi utiliser des classes plus guerrières, il est assez équilibré mais seul le rôle d'assassin lui permet de briller</description>
+  </personnage>
+  <personnage name="Inigo">
+    <sexe>Homme</sexe>
+    <parents>Avatar(M)-Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Olivia</genitor>
+    <classlist>Mercenary-Hero-Bow_Knight-Myrmidon-Swordmaster-Assassin-Barbarian-Berserker-Warrior-Dread_Fighter</classlist>
+    <description>Inigo est le fils de Olivia</description>
+  </personnage>
+  <personnage name="Kellam">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Knight-General-Great_Knight-Thief-Assassin-Trickster-Priest-War_Monk-Sage-Dread_Fighter</classlist>
+    <description>Personnage qui malgrès sa carrure et son armure a bon fond. Etrangement les autres ne le voit pas, ne le remarque pas a moins de rester concentré énormément  sur lui.
+    C'est lui aussi un tank même si son arbre de classes est ... étrange.
+    Il a une branche Tank, une branche Assassin et une branche Support\Magie alors que son potentiel magique est ... quasi nul.
+    Le meilleur pour lui est d'en faire un assassin un peu plus tanky que la moyenne</description>
+  </personnage>
+  <personnage name="Kjelle">
+    <sexe>Femme</sexe>
+    <parents>Avatar(M)-Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Sully</genitor>
+    <classlist>Knight-General-Great_Knight-Cavalier-Paladin-Myrmidon-Swordmaster-Assassin-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Bride</classlist>
+    <description>Kjelle est la fille de Sully</description>
+  </personnage>
+  <personnage name="Laurent">
+    <sexe>Homme</sexe>
+    <parents>Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Miriel</genitor>
+    <classlist>Mage-Sage-Dark_Knight-Barbarian-Berserker-Warrior-Dark_Mage-Sorcerer-Dread_Fighter</classlist>
+    <description>Laurent est le fils de Miriel</description>
+  </personnage>
+  <personnage name="Libra">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Priest-War_Monk-Sage-Mage-Dark_Knight-Dark_Mage-Sorcerer-Dread_Fighter</classlist>
+    <description>Libra bien que son apparence suggère une femme est en réalité un homme.
+    C'est un prêtre toujours prêt à aider son prochain, sa gentilesse est grande contrairement à son nombre de classes....
+    En effet il n'a le choix qu'entre 7 classes alors que ses camarades en ont généralement 9 ou 10.
+    Ses choix son limités en build, il possède cependant 2 choix de regen de HP.Le jouer en support attaquant soit sur le physique, soit sur la magie est quasi sa seul possibilité. Le jouer en assassin peut être possible mais pas grand chose vient l'aider dans ce rôle.</description>
+  </personnage>
+  <personnage name="Lissa">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Cleric-War_Cleric-Sage-Troubadour-Valkyrie-Pegasus_Knight-Falcon_Knight-Dark_Flier-Bride</classlist>
+    <description>Soeur de Chrom, princesse d'Ylisse elle sera votre support principal pour la quasi totalité du jeu et donc ne brillera pas de ses capacités de combat contrairement à son frère.
+    Lissa est en revanche doté d'énormément de potentiel, elle peut faire un excellent support boostant les stats de ses alliés ou une magicienne décimant ses ennemis avec notamment Galeforce</description>
+  </personnage>
+  <personnage name="Lon'zu">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Myrmidon-Swordmaster-Assassin-Thief-Trickster-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Dread_Fighter</classlist>
+    <description>Lon'zu (Lon'qu en anglais) est un combattant d'une nation alliée à Ylisse, il est mal à l'aise avec les femmes (néanmoins il peut se marier et avoir des enfants ;) ).
+    C'est un excellent spadassin maniant l'épée comme personne ce qui fait de lui un excellent assassin mais contrairement à la majorité des autres assassins du jeu lui n'a aucun talent lui permettant de régénérer ses HP il aura donc besoin d'un support au cul si ses PV tombent. Il possède une très grande vitesse qui peut l'aider à esquiver mais aussi à effectuer des doubles frappes plus aisément que d'autres.
+    Il possède énormément de bon talents offensifs mais surtout la combo Astra + Lethality, qui  si Astra s'active lui permet d'effectuer 5 attaques ce qui augmentent les chances que Lethality s'active.</description>
+  </personnage>
+  <personnage name="Lucina">
+    <sexe>Femme</sexe>
+    <parents>Avatar(F)-Sumia-Maribelle-Sully-Olivia</parents>
+    <genitor>Chrom</genitor>
+    <classlist>Lord-Great_Lord-Cavalier-Paladin-Great_Knight-Archer-Sniper-Bow_Knight-Bride</classlist>
+    <description>Lucina est la fille de Chrom</description>
+  </personnage>
+  <personnage name="Maribelle">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Troubadour-Valkyrie-War_Cleric-Mage-Sage-Dark_Knight-Pegasus_Knight-Falcon_Knight-Dark_Flier-Bride</classlist>
+    <description>Maribelle est une noble et la meilleure amie de Lissa.
+    Elle aime aider les personnes à utiliser leur plein potentiel quitte à les froissé.
+    Maribelle est un excellent personnage pour supporter ses alliés. Elle peut aussi être jouée en assassin avec Galeforce et possède son propre moyen de se soigner (Lifetaker). A vous de choisir comment vous voulez la jouer vu ses possibilités, elle ne sera cependant pas un très bon tank.</description>
+  </personnage>
+  <personnage name="Miriel">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Mage-Sage-Dark_Knight-Dark_Mage-Sorcerer-Troubadour-Valkyrie-War_Cleric-Bride</classlist>
+    <description>Miriel est une mage qui est très difficile à cerner, discuter avec elle peut être difficile vu l'utilisation de mots compliqués ou de sujets de discussion étrange.
+    Miriel est une magicienne très puissante disposant de moyen de se soigner elle même mais aussi de soigner ses alliés. A part ça elle n'a pas vraiment d'autre possibilités de jeu vu son arbre de classes.</description>
+  </personnage>
+  <personnage name="Morgan(F)">
+    <sexe>Femme</sexe>
+    <parents>Lissa-Sully-Miriel-Sumia-Maribelle-Palne-Cordelia-Nowi-Tharja-Anna-Olivia-Zelcher-Lucina-Say'ri-Tiki-Flavia-Kjelle-Cynthia-Severa-Noire-Nah-Emmeryn-Aversa</parents>
+    <genitor>Avatar(M)</genitor>
+    <classlist>Tactician-Grandmaster-Cavalier-Paladin-Great_Knight-Knight-General-Myrmidon-Swordmaster-Assassin-Thief-Trickster-Mercenary-Hero-Bow_Knight-Archer-Sniper-Mage-Sage-Dark_Knight-Dark_Mage-Sorcerer-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Troubadour-Valkyrie-War_Cleric-Pegasus_Knight-Falcon_Knight-Dark_Flier-Cleric-Bride</classlist>
+    <description>Morgan est votre fille</description>
+  </personnage>
+  <personnage name="Morgan(M)">
+    <sexe>Homme</sexe>
+    <parents>Chrom-Frederick-Virion-Stahl-Vaike-Kellam-Donnel-Lon'zu-Ricken-Gaius-Gregor-Libra-Henry-Basilio-Owain-Inigo-Brady-Gerome-Yarne-Laurent-Gangrel-Walhart-Yen'fay-Priam</parents>
+    <genitor>Avatar(F)</genitor>
+    <classlist>Tactician-Grandmaster-Cavalier-Paladin-Great_Knight-Knight-General-Myrmidon-Swordmaster-Assassin-Thief-Trickster-Mercenary-Hero-Bow_Knight-Archer-Sniper-Mage-Sage-Dark_Knight-Dark_Mage-Sorcerer-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Fighter-Warrior-Barbarian-Berserker-Priest-War_Monk-Dread_Fighter</classlist>
+    <description>Morgan est votre fils</description>
+  </personnage>
+  <personnage name="Nah">
+    <sexe>Femme</sexe>
+    <parents>Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Nowi</genitor>
+    <classlist>Manakete-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Mage-Sage-Dark_Knight-Bride</classlist>
+    <description>Nah est la fille de Nowi</description>
+  </personnage>
+  <personnage name="Noire">
+    <sexe>Femme</sexe>
+    <parents>Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Tharja</genitor>
+    <classlist>Archer-Sniper-Bow_Knight-Knight-General-Great_Knight-Dark_Mage-Sorcerer-Dark_Knight-Bride</classlist>
+    <description>Noire est la fille de Tharja</description>
+  </personnage>
+  <personnage name="Nowi">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Manakete-Mage-Sage-Dark_Knight-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Bride</classlist>
+    <description>Ne vous fiez pas à son physique, derrière ces traits enfantins se cachent un Manakete qui à déjà de nombreux siècles d'existence et de la puissance en réserve (à condition d'avoir une Dracopierre).
+    Elle sera aidé par Gregor et ensemble ils rejoindront les rangs des Veilleurs de Chrom.
+    C'est une personne très joyeuse et joueuse mais aussi très émotive rien d'étonnant vu son apparence (ce qui contraste avec son grand âge) Un conseil mettez les voix en japonais la doubleuse est excellente.
+    Passons à son pool de classes comme tous personnage ayant une classe spéciale ses choix sont très limités.
+    Cependant elle a accès à Lifetaker et surtout à Swordbreaker ce qui l'aide contre les épées Dracocides vu que ça l'affecte peut importe sa classe.
+    Elle peut tapper soit sur le physique, soit le magique ce qui n'est pas dégueu.
+    En bref c'est un bon perso qui est seulement limité par ses choix de classes</description>
+  </personnage>
+  <personnage name="Olivia">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Dancer-Myrmidon-Swordmaster-Assassin-Pegasus_Knight-Falcon_Knight-Dark_Flier-Bride</classlist>
+    <description>Olivia est une charmante danseuse qui malgrès tout est timide, étrangement ça ne la dérange pas pour danser :p, c'est elle aussi une personne issu d'un royaume allié d'Ylisse (le même que celui de Lon'zu).
+    Ses stats et ses classes possibles ne lui permettent pas d'être un personnage qui prendra bien les coups, elle n'a aucun talent régénérateur de HP.
+    Cependant elle a accés à un arbre de talents absolument MONSTRUEUX pour n'importe quel combattant voulant casser des bouches. La combo Astra + Lethality (comme Lon'zu étonnament) mais aussi à THE talent totalement OP Galeforce qui si elle tue un ennemi lui permet de rejouer immédiatement après.
+    Un excellent assassin donc même si sa force n'est pas très élevée.</description>
+  </personnage>
+  <personnage name="Owain">
+    <sexe>Homme</sexe>
+    <parents>Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Lissa</genitor>
+    <classlist>Myrmidon-Swordmaster-Assassin-Priest-War_Monk-Sage-Barbarian-Warrior-Berserker-Dread_Fighter</classlist>
+    <description>Owain est le fils de Lissa</description>
+  </personnage>
+  <personnage name="Palne">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Taguel-Thief-Assassin-Trickster-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Bride</classlist>
+    <description>Palne (Panne en anglais) est la dernière Taguel à priori du monde après que sa garenne se soit faite décimée par des humains. Elle plaça cependant sa confiance en Emmeryn et rejoindra les Veilleurs.
+    Elle a beaucoup de méfiance envers les humains mais réalisera au fil du temps au sein des Veilleurs qu'ils ne sont pas tous mauvais et qu'elle n'a plus à affronter la solitude.
+    Palne à un pool de classes assez faible, elle n'a aucun self heal mais ce n'est pas trop dérangeant car elle à de bonnes défenses. Lancebreaker lui permet de se protéger mieux des lances Besticides qui l'affecte peu importe sa classe.
+    Elle a accès à Lethality mais pas à Astra malheureusement.
+    Au final c'est une bonne unité qui tappe fort mais encaisse bien.</description>
+  </personnage>
+  <personnage name="Priam">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Mercenary-Hero-Bow_Knight-Fighter-Warrior-Hero-Myrmidon-Swordmaster-Assassin-Dread_Fighter</classlist>
+    <description>Priam peut être jouable via un DLC (gratuit).
+    Priam prétend être un descendant de Ike car il possède son épée et son bandeau.
+    Il est un excellent assassin possédant Sol pour se soigner, Astra + Lethality que demander de plus pour un personnage censé assassiner ses victimes.</description>
+  </personnage>
+  <personnage name="Ricken">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Mage-Sage-Dark_Knight-Cavalier-Paladin-Great_Knight-Archer-Sniper-Bow_Knight-Dread_Fighter</classlist>
+    <description>Ricken est possiblement le plus jeune des Veilleurs, issu d'une famille noble qui a perdu son prestige de même que sa richesse. Il espère redorer le nom de sa famille en rejoignant les rangs de Chrom qu'il admire tel un héros depuis que celui ci l'a aidé à plusieurs reprises.
+    Ricken est un excellent personnage qui peut partir dans toutes les directions de build.
+    Déjà il possède Lifetaker pour se soigner, Luna pour faire plus de dégâts  mais aussi Aegis pour renforcer ses défenses magiques donc possiblement en faire un excellent tank selon la classe choisie.
+    Un aspect magicien devastateur avec du soin pour ses alliés grâce à la classe Sage.
+    Et un attaquant physique au corps à corps ou à distance avec des arcs.</description>
+  </personnage>
+  <personnage name="Say'ri">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Myrmidon-Swordmaster-Assassin-Pegasus_Knight-Falcon_Knight-Dark_Flier-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Bride</classlist>
+    <description>Say'ri était princesse de Chon'sin, une petite nation de Valm. Avant que Walhart ne domine sa région et force Yen'fay son frère à rejoindre ses rangs.
+    Elle décida de créer une resistance pour espérer reprendre le contrôle de sa nation et vaincre Walhart.
+    Après avoir été sauvé par Chrom et ses alliés, elle les rejoindra ainsi que sa resistance pour affronter Walhart.
+    Say'ri est un assassin monstrueux avec Galeforce, le combo  Astra + Lethality des talents Breaker pour se donner des avantages contre des lances par exemple si elle utilise des lames.</description>
+  </personnage>
+  <personnage name="Severa">
+    <sexe>Femme</sexe>
+    <parents>Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Cordelia</genitor>
+    <classlist>Mercenary-Hero-Bow_Knight-Dark_Mage-Sorcerer-Dark_Knight-Pegasus_Knight-Falcon_Knight-Dark_Flier-Bride</classlist>
+    <description>Severa est la fille de Cordelia</description>
+  </personnage>
+  <personnage name="Stahl">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Cavalier-Paladin-Great_Knight-Myrmidon-Swordmaster-Assassin-Archer-Sniper-Bow_Knight-Dread_Fighter</classlist>
+    <description>Stahl est un chevalier d'Ylisse au caractère sympathique.
+    Il possède le combo Astra + Lethality et Luna lui permet de compenser sa force moins élevées comparé à ses camarades.
+    Il est possible d'en faire un cavalier tank qui resistera bien aux mages si Aegis proc.Il n'a que Bowbreaker de disponible ce qui peut être gênant si il n'a pas l'avantage des armes par rapport à l'adversaire.</description>
+  </personnage>
+  <personnage name="Sully">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Cavalier-Paladin-Great_Knight-Myrmidon-Swordmaster-Assassin-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Bride</classlist>
+    <description>Sully est une femme chevalier, elle n'aime pas être traitée comme une dame préfèrant manier les armes et s'entrainer plutôt que de parader en robe à la cour.
+    Elle est gênée lorsqu'il s'agit de sentiments dont elle n'a pas l'habitude (amour,etc.), Sully est cependant quelqu'un de bon qui est heureuse à l'idée d'affronter en duel ou s'entrainer avec quelq'un.
+    Sully bien qu'ayant de nombreuses classes avec montures elle n'a que l'arbre des wyvernes et du cavalier plutôt que celui des pégases célèbres pour le talent Galeforce.
+    Elle a cependant accès au combo Astra + Lethality, possède de nombreux excellents talents (Aegis, Luna, Lancebreaker et Swordbreaker) mais pas de self heal.</description>
+  </personnage>
+  <personnage name="Sumia">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Pegasus_Knight-Falcon_Knight-Dark_Flier-Knight-General-Great_Knight-Cleric-War_Cleric-Sage-Bride</classlist>
+    <description>Sumia est une guerrière qui bien que maladroite, possède pourtant de bonnes classes et donc de bons talents.
+    Son seul point faible est sa faible force mais grâce à Luna elle peut s'en sortir si ce talent s'active tout du moins ou sinon la mettre en duo avec quelqu'un ayant une grande force peut l'aider.
+    Elle a accès à Galeforce ce qui est plus que bon, elle n'a cependant que Renewal pour régénérer ses HP ce qui peut être chaud si l'ennemi la focus.
+    Elle peut adopter plusieurs style de jeux (assassin, tank ou support) ce qui est plutôt intéressant.
+    Un perso équilibré au final, ni trop fort, ni trop faible.</description>
+  </personnage>
+  <personnage name="Tharja">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Dark_Mage-Sorcerer-Dark_Knight-Knight-General-Great_Knight-Archer-Sniper-Bow_Knight-Bride</classlist>
+    <description>Tharja la jolie stalkeuse décide de rejoindre les rangs de Chrom car l'Avatar (vous) l'intéresse énormément. Elle adore lancer des malédictions et est très spéciale niveau caractère.
+    Tharja est un véritable monstre niveau défensif, aussi bien physique que magique et sa magie est loin d'être innofensive.
+    Elle a accès à Lifetaker lui conférant une manière de régen ses HP, couplé à ses excellentes stats il sera difficile de la faire tomber.
+    Son seul bémol est qu'elle n'a pas accés à Galeforce :(.</description>
+  </personnage>
+  <personnage name="Tiki">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Manakete-Mage-Sage-Dark_Knight-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Bride</classlist>
+    <description>Tiki est une protagoniste présente dans plusieurs jeux Fire Emblem. Tout comme Nowi c'est une Manakete qui vit depuis très longtemps, elle a par exemple connu Marth il y a 1000 ans de celà et avait à cette époque la même apparence que Nowi (petite fille).
+    C'est l'oracle du dragon divin Naga c'est donc elle qui transmet les divines paroles aux mortels.
+    Elle sera sauvé de serviteurs de Grima par Chrom et ses Veilleurs et décidera de les épauler.
+    Pour ce qui est de ses capacités elle est forte en magie et force ce qui est un bon point, malheureusement comme toute classe spéciale elle manque de choix.
+    Cependant elle a accès à Lifetaker et surtout à Swordbreaker ce qui l'aide contre les épées Dracocides vu que ça l'affecte peut importe sa classe.</description>
+  </personnage>
+  <personnage name="Vaike">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Fighter-Warrior-Hero-Thief-Assassin-Trickster-Barbarian-Berserker-Dread_Fighter</classlist>
+    <description>Vaike est un membre des Veilleurs, rival autoproclamé de Chrom il n'aspire qu'a devenir un combattant surpassant les autres.
+    Vaike est très mauvais sur les choses magiques sa magie et sa résistance sont très mauvaises par conséquent les mages peuvent fortement le blesser.
+    Cependant Vaike peut grâce à sa chance et ses talents gagner énormément de chances de faire des critiques coupler à sa force monstrueuse le moindre critique peut signifier une mort en un coup selon l'ennemi.
+    Il bénéficie de Sol pour se régen ses HP mais ne posséde aucun talent défensif à proprement parler.
+    C'est donc un assassin qui tappe comme un sourd mais qu'il convient de savoir bien placer car le moindre mage peut lui signer sa perte.</description>
+  </personnage>
+  <personnage name="Virion">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Archer-Sniper-Bow_Knight-Mage-Sage-Dark_Knight-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Dread_Fighter</classlist>
+    <description>Virion est originaire de Valm mais a du quitter so pays suite à l'avancée de Walhart.Zelcher sa subordonnée l'a suivie dans sa fuite.
+    Virion est un charmeur qui court après les filles ce qui énerve la gente féminine.
+    Virion est un bon personnage possèdant Lifetaker et possédant de nombreux talents Breaker.
+    Virion est jouable en assassin pouvant utiliser les avantages de ses talents Breaker pour contrer ses adversaires.
+    Il peut utiliser sa magie mais son potentiel est nulle et il faudrait investir en objet pour l'aider à augmenter cette stat.</description>
+  </personnage>
+  <personnage name="Walhart">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Conqueror-Knight-General-Great_Knight-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Dread_Fighter</classlist>
+    <description>Walhart le conquérant peut être jouable via un DLC (gratuit).
+    Walhart est l'empereur de Valm suite à sa conquête ecrasante .
+    Il possède de nombreuses bonnes classes lui permettant d'être un tank monstrueux selon les talents choisis (Pavise aide beaucoup) à noter qu'il n'a pas de self-heal il faudra donc faire attention.
+    Sa force lui permet avec Luna de pouvoir infliger de gros dommages.</description>
+  </personnage>
+  <personnage name="Yarne">
+    <sexe>Homme</sexe>
+    <parents>Avatar(M)-Frederick-Virion-Stahl-Vaike-Kellam-Lon'zu-Ricken-Gaius-Donnel-Gregor-Libra-Henry</parents>
+    <genitor>Palne</genitor>
+    <classlist>Taguel-Thief-Assassin-Trickster-Barbarian-Warrior-Berserker-Dread_Fighter</classlist>
+    <description>Yarne est le fils de Palne</description>
+  </personnage>
+  <personnage name="Yen'fay">
+    <sexe>Homme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Myrmidon-Swordmaster-Assassin-Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Archer-Sniper-Bow_Knight-Dread_Fighter</classlist>
+    <description>Yen'fay peut être jouable via un DLC (gratuit).
+    Yen'fay est le frère de Say'ri, vaincu par Walhart il le rejoindra dans ses rangs et sera à la tête d'une des armées de l'empereur.
+    Il possède le combo Astra + Lethality ainsi que de nombreux talents Breaker lui permettant de dominer sur certains matchups.
+    Un excellent assassin ayant toutefois besoin d'un support en cas de coups dur.</description>
+  </personnage>
+  <personnage name="Zelcher">
+    <sexe>Femme</sexe>
+    <parents></parents>
+    <genitor></genitor>
+    <classlist>Wyvern_Rider-Wyvern_Lord-Griffon_Rider-Cleric-War_Cleric-Sage-Troubadour-Valkyrie-Bride</classlist>
+    <description>Zelcher (Cherche en anglais) est originaire d'un royaume à l'ouest d'Ylisse et est une subordonnée de Virion.
+    Elle chevauche lors des combats Minerva sa wyverne qu'elle adore bien que ces créatures soit loin d'être aussi douces que des chevaux ou des pegases ils semblent être complices l'un pour l'autre.
+    Zelcher est un perso avec une grande force mais un potentiel magique quasi nul, ce dernier point est d'ailleurs un problème car 4 de ses 9 classes sont des classes ayant besoin de bonne stats de magie pour attaquer, soigner.Bride et War_Cleric peuvent s'en sortir car elle peut utiliser des armes utilisant sa stat force.
+    Elle a accès à un moyen de se regénérer ses HP avec Renewal mais aussi à des talents Breaker qui peuvent l'aider face à des armes faisant des dégats bonus aux dragons ou bêtes.
+    A part ça il sera difficile de faire de Zelcher un assassin dévastateur (pas de Galeforce notamment), elle peut s'orienter vers la branche support vu le nombre de classes dans cette branche mais il faudra s'aider d'objet boostant la magie car il est rare que cette stat augmente lors de gain de niveau.</description>
+  </personnage>
+</PersosList>

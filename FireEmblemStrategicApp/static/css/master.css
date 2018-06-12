@@ -176,6 +176,7 @@ footer a:hover{
 
 .formulaireRecherche {
   padding-right: 10px;
+  min-width: 300px;
 }
 
 .charaSearch {
@@ -240,6 +241,21 @@ footer a:hover{
   font-size: 20px;
   color: rgb(62, 41, 12);
   text-decoration: none;
+}
+
+/* Concerne les select pour choisir les talents d'héritages (enfants uniquement) */
+.legacyArea {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+}
+.myParentclass {
+  margin-top: 5px;
+  max-width: 300px;
+}
+.myParentLegacyclass {
+  margin-top: 5px;
+  max-width: 300px;
 }
 
 /* L'image du perso*/
@@ -357,12 +373,13 @@ footer a:hover{
   max-width: 400px;
   min-width: 400px;
 }
-
+/* logo et nom du talent drop */
 .TalentsChoosenBuilder .drop tr td:first-child {
   min-height: 25px;
 }
+/* Cible le logo du talent drop */
  .TalentsChoosenBuilder .drop img{
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 /* Propre à la classe drag pour modifier le pointeur de la souris */
@@ -655,9 +672,6 @@ footer a:hover{
   .listeHeros {
     width: 130px;
   }
-  .myParentclass {
-    width: 130px;
-  }
 
   /* La carte où on place les talents choisis */
   .HeroBuildCard{
@@ -745,11 +759,6 @@ footer a:hover{
   .formulaireRecherche {
     width: 200px;
     margin: 0 auto;
-  }
-  .myParentclass {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 10px;
   }
 
   .HeroBuildCard{
@@ -857,7 +866,6 @@ footer a:hover{
   .headerwebsite a{
     margin: 0;
   }
-
   /* Concerne index.html */
   .FELogo{
     max-width: 300px;
@@ -900,11 +908,6 @@ footer a:hover{
   }
   .formulaireRecherche {
     margin: 0 auto;
-  }
-  .myParentclass {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 10px;
   }
   /* On modifie l'ordre pour que les 2 listes se regroupent */
   .TalentsListclass{

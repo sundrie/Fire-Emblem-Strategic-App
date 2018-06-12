@@ -4,48 +4,47 @@ Code js spécifique à la page character builder
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 $(function() {
-  // code trouvé sur http://stackoverflow.com/questions/22061073/how-do-i-get-images-file-name-from-a-given-folder
-  //Ceci va générer notre liste de perso comme ça plus besoin de PHP qui n'était en soit suite aux changements plus très utile
 
+  // On récupère dans ces variables la liste des personnages pour heroesList et la liste des classes (et ce qu'elles contiennent à savoir des talents) pour allclassesList. attention ajax est async donc il peut arriver que undefined arrive selon l'endroit où on utilise ces variables
+  var heroesList;
+  var allclassesList;
+
+
+  // Ce qui va charger et nous sortir une liste des personnages avec toutes leurs datas (sexe,parents,genitor,classlist,description)
   $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/',
-    success: function(data) {
-       // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
-       $(data).find("a:contains(.txt)").each(function () {
-         //this correspond aux a href trouvé qui contiennent .txt
-         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-         var nomPerso = filename.split(/[\/+.]/g);
-         $("#charList").append("<li><a href=#>"+nomPerso[2]+"</a></li>");
-       });
-     }
+    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/PersosList.xml',
+    datatype : 'xml',
+    success: function(data){
+      // Liste de tous les personnages
+      var characterList = $(data).children().children();
+      //Ceci va générer notre liste de perso
+      $(characterList).each(function(i) {
+        $("#charList").append("<li><a href=#>"+$(this).attr("name")+"</a></li>");
+      });
+      // On rend "global" le résultat de notre requête ajax
+      heroesList = characterList;
+    }
   });
 
-  // stocke tous les noms provenant du folder Childrens
-  var itsAChild = [];
-
-  //Concerne les enfants qui sont un cas à part
+  // On charge notre document xml listant tous les talents
   $.ajax({
-    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens',
-    success: function(data) {
-       // on cherche tous les éléments qui contiennent .txt (donc logiquement seul le nom de fichier est trouvé) le a fait référence au href où on trouve cette info (voir console.log(data))
-       $(data).find("a:contains(.txt)").each(function () {
-         //this correspond aux a href trouvé qui contiennent .txt
-         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-         var nomPerso = filename.split(/[\/+.]/g);
-         $("#charList").append("<li><a href=#>"+nomPerso[2]+"</a></li>");
-         //On push le nom de l'enfant dans la variable définie plus haut
-         itsAChild.push(nomPerso[2]);
-       });
-     }
+    url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/Tools/TalentsList.xml',
+    datatype : 'xml',
+    success: function(data){
+      // Variable qui liste toutes les classes
+      var allclasses = $(data).children().children();
+      // On rend "global" le résultat de notre requête ajax
+      allclassesList = allclasses;
+    }
   });
 
+  // Le code suivant gère la saisie dans le champ de recherche au dessus de la liste des personnages
   $("#searchchar").on("click",function(){
     // On "nettoie" l'input
     $('#searchchar').val('');
     // On remontre toute la liste qui aurait pût être diminué selon la saisie de l'utilisateur
     $("#charList li").show();
   });
-
   $("#searchchar").on("keyup", function(){
     // On passe la saisie en minuscule pour éviter les soucis
     var saisieUser = $(this).val().toLowerCase();
@@ -59,6 +58,61 @@ $(function() {
       }
     });
   });
+
+  // Cette variable contiens le nom du genitor dans notre PersosList.xml (souvent la mère)
+  var genitorName;
+  // Cette variable contiens les noms des parents possibles pour le personnage choisi
+  var splittedParentsList;
+  // stocke le booléen nous indiquant si c'est un enfant (true) ou pas un enfant (false)
+  var childTestResult;
+
+  // retourne un booléen pour si le personnage cliqué est un enfant ou non
+  function childOrNot (heroChosen) {
+    var genitor = heroChosen.children()[2]
+    genitorName = $(genitor).text();
+    var parentsList = heroChosen.children()[1]
+    splittedParentsList = $(parentsList).text().split("-");
+    // Si c'est vide alors ça veut dire que le personnage n'est pas un enfant car sinon il aurait le nom de sa mère généralement (par exemple le genitor de Severa est Cordelia, celui de Noire Tharja, celui de Yarne Palne, etc)
+    if (genitorName === "") {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  // fonction qui va s'occuper de récupérer les datas du perso choisi
+  function searchMyData(theChosen){
+    var classList = theChosen.children()[3];
+    // On stocke dans une var chaque classe séparée par un -
+    var splittedClassList = $(classList).text().split("-");
+    // On déclare une variable de type Array pour pouvoir utiliser la méthode push()
+    var classes = [];
+    // On boucle sur chaque classes
+    $(allclassesList).each(function(i) {
+      // Si il trouve l'attribut name (correspond dans le fichier xml à <class name="">) alors il le stocke dans la variable classes
+      if($.inArray($(this).attr("name"), splittedClassList) !== -1){
+        classes.push($(this));
+      }
+    });
+    return classes
+  }
+
+  // C'est le contenu xml correspondant au personnage choisi par l'utilisateur
+  var theChosenOne;
+
+  // fonction qui parcourt la variable heroesList qui a été alimentée par notre requête ajax
+  function searchThisName(findhim) {
+    // Va contenir toutes les infos sur le personnage a trouver
+    var targetLocked;
+    // fonction qui va parcourir la liste des personnages et sauvegarder toutes ses données
+    $(heroesList).each(function(i) {
+      if ($(this).attr("name") === findhim) {
+        targetLocked = $(this);
+      }
+    });
+    return targetLocked;
+  }
+
 
   // Fonction qui s'active lors d'un clic sur un personnage
   $('#charList').on("click", "a", function(){
@@ -89,36 +143,38 @@ $(function() {
     $("#TalentsList").hide();
     // On évite la multiplication des select
     $("#myParent").remove();
+    $("#myParentLegacy").remove();
+    $("#myGenitorLegacy").remove();
     // On évite la multiplication du message
     $('.chooseAParent').hide();
     $('.chooseAParent p').remove();
 
-    // Si le nom que l'utilisateur a cliqué apparait dans le tableau listant les enfants
-    if (jQuery.inArray(persoChoisi, itsAChild) !== -1){
-      var nameChild = persoChoisi;
+    // On appelle la fonction qui va chercher le personnage choisi dans la liste et on stocke le résultat dans la variable
+    theChosenOne = searchThisName(persoChoisi);
+
+    // On appelle la fonction qui va tester si le personnage est un enfant ou non et on stocke le résultat dans la variable
+    childTestResult = childOrNot(theChosenOne);
+
+    // On test si le personnage cliqué par l'utilisateur est un enfant
+    if (childTestResult === true){
+      // On ajoute un select permettant de choisir 1er talent d'héritage (celui du parent inchangeable Cordelia pour Severa, Chrom pour Lucina, etc)
+      $('.formulaireRecherche .legacyArea').append("<select id='myGenitorLegacy' class='myParentclass myGenitorLegacyclass'><option value='default' selected>1er talent hérité</option></select>");
+      legacy_of_Parent(genitorName,"myGenitorLegacy")
+
       // On ajoute un select permettant de choisir le parent
-      $('.formulaireRecherche').append("<select id='myParent' class='myParentclass'><option value='default' selected>Choisir parent</option></select>");
+      $('.formulaireRecherche .legacyArea').append("<select id='myParent' class='myParentclass'><option value='default' selected>Choisir parent</option></select>");
 
       /* Un message qui apparait pour indiquer à l'utilisateur ce qu'il doit faire */
       $('.chooseAParent').show();
-      $('.chooseAParent').append("<p class='messageChooseParent'>Veuillez choisir un parent dans la liste qui se trouve sous la liste des personnages pour continuer</p>");
+      $('.chooseAParent').append("<p class='messageChooseParent'>Veuillez choisir un parent dans la liste qui se trouve sous la liste des personnages pour continuer</p><p class='messageChooseParent'>Il faudra choisir aussi les talents qu'il recevra en héritage de ses parents</p>");
 
-      // On appelle la fonction nous permettant de remplir dynamiquement la liste depuis un fichier txt ()
-      fillParentList(nameChild);
+      // On appelle la fonction nous permettant de remplir dynamiquement le select
+      fillSelectParent();
     }else{
-      // On charge toutes les datas du perso
-      $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+persoChoisi+'.txt', function(data) {
-        // Dans le doc texte ont a séparé chaque catégorie par un '/' donc nous séparons chaque partie grâce à la fonction split()
-        var dataduHerosSplit = data.split('/');
-        var listeClassesBrut = dataduHerosSplit[1];
-
-        // Dans le doc texte chaque classes est séparé par un '-'
-        var listeClasses = listeClassesBrut.split('-');
-        TraitementData(listeClasses);
-        //$('#HeroDesc').html(data);
-      }, 'text');
+      // contient un tableau d'objet qui sont les classes disponibles du personnage
+      var theClassesList = searchMyData(theChosenOne);
+      displayHeroData(theClassesList);
     }
-
     // On évite la multiplication des boutons
     $('.buildsave').remove();
     // On évite la multiplication des input
@@ -167,97 +223,82 @@ $(function() {
     // On appelle la fonction à ce moment pour que celle ci fonctionne sur l'élément généré via code
     saveMyBuild();
   });
-
-  // Ici on gère tout l'affichage du contenu brut obtenu par le document texte
-  function TraitementData(listeClasses){
+  // Cette variable va nous permettre d'insérer le talent transmis par héritage du genitor
+  var legacyFirstTalent;
+  // Cette variable va nous permettre d'insérer le talent transmis par héritage du second Parent
+  var legacySecondTalent;
+  // Fonction qui va afficher les talents dans notre page pour cela on boucle sur notre variable array
+  function displayHeroData(classes) {
     // On cache le bouton goback pour éviter les soucis
     $(".goback").hide();
-    // $(".TalentsChoosenBuilder").html('<tbody><tr class="drop"><td>Uno</td></tr><tr class="drop"><td>Dos</td></tr><tr class="drop"><td>Tres</td></tr><tr class="drop"><td>Quatro</td><tr class="drop"><td>Cinquo</td></tr></tbody>');
-    // On fait la requête pour récupérer la page html contenant le tableau des talents par classes
-    $.ajax({
-      url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/pages/class_talents_list.html',
-      type: 'GET',
-      success: function(res){
-        var tableau = res
-        // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
-        $('#TalentsList').append(tableau);
-        $('#TalentsList').show();
-        //On créé 2 tableaux qui recevront les futurs skills 1 et 2
-        $('#TalentsList').append("<table class='tableskill2 drag'><tbody></tbody></table>");
-        $('#TalentsList').append("<table class='tableskill1 drag'><tbody></tbody></table>");
-        // On ajoute une bordure pour bien identifier la zone où on peut interragir
-        $(".TalentsListclass").css("border","2px solid rgb(110, 108, 93)");
-        // Pour éviter qu'on voit les 12 px manquant une fois la barre disparant du coup bah elle disparait plus comme ça
-        $(".TalentsListclass").css("overflow-y", "scroll");
+    $('#TalentsList').show();
+    $('#TalentsList').append("<table class='drag'><tbody></tbody></table>");
+    // console.log(classes[0].attr("name"))
+    // On déclare nos variables ici en dehors de la boucle pour éviter de la génération inutile de variable en boucle et consommer inutilement nos ressources en calcul
+    var talents;
+    var talent1;
+    var talent2;
+    var imagelink;
+    var descTalent
 
-        // Cette fonction nous permet de faire 2 tableaux 1 pour chaque skill
-        $('#TalentsList table tr').each(function(){
-          //Ok alors pour decrypter .children() nous renvoie un tableau contenant chaque td de notre tr actuelle on sélectionne le 3ème et 4ème enfant grâce à eq()
-          var tdskill2 = $(this).children('td').eq(3);
-          var tdskill2desc = $(this).children('td').eq(4);
+    // Ces variables sont utilisées pour utiliser les instructions dans le if une seule fois
+    var useOnce = 0;
+    var useOnce2 = 0;
+    $(classes).each(function(i) {
+      // Pour plus de visibilité j'ai attribué à nos variables les talents qu'ils représentent c'est plus clair que classes[i].children()[0] et plus concis
+      talents = classes[i].children();
+      talent1 = talents[0];
+      talent2 = talents[1];
+      // Affiche l'image et nom du 1er talent de la classe du personnage
+      imagelink = $(talent1).children()[0];
+      // Affiche la description du talent
+      descTalent = $(talent1).children()[1];
+      $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent1).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
 
-          // Pour info $(this).attr('class') nous donne la class de la tr en cours
-          $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill2.html()+"</td><td>"+tdskill2desc.html()+"</td></tr>").appendTo(".tableskill2 tbody");
-
-          // On supprime les lignes du tableau original vu que le déplacement a été fait histoire de pas avoir de doublons
-          tdskill2.remove();
-          tdskill2desc.remove();
-
-          // ~~~~~~ A partir d'ici on fait la même chose qu'au dessus mais pour le skill 1 cette fois. /!\ IMPORTANT /!\ On fait dans le sens inverse car dans l'autre sens le code fonctionnerait pas comme on le voudrait.
-
-          //Ok alors pour decrypter .children() nous renvoie un tableau contenant chaque td de notre tr actuelle on sélectionne le 1er et 2ème enfant grâce à eq()
-          var tdskill1 = $(this).children('td').eq(1);
-          var tdskill1desc = $(this).children('td').eq(2);
-
-          // Pour info $(this).attr('class') nous donne la class de la tr en cours
-          $("<tr class='"+$(this).attr('class')+"'><td>"+tdskill1.html()+"</td><td>"+tdskill1desc.html()+"</td></tr>").appendTo(".tableskill1 tbody");
-
-          // On supprime les lignes du tableau original vu que le déplacement a été fait histoire de pas avoir de doublons
-          tdskill1.remove();
-          tdskill1desc.remove();
-        });
-
-        // On cache tout le tableau car on ne souhaite pas que toutes les classes apparaissent pour le perso, seulement celles qu'il peut avoir
-        $("#TalentsList table tr").hide();
-        // la variable qui récupèrera les classes que le perso peut avoir
-        var classe;
-        // Petite boucle pour parcourir le array des classes possibles pour le perso (souvent 9 classes excepté pour des persos spéciaux)
-        for (var i = 0; i < listeClasses.length; i++) {
-          // ici on enlève les espaces de nos strings pour pouvoir rechercher la classes correspondante (ex: Great Knight dans la variable classe or la class en html se nomme GreatKnight)
-          classe = listeClasses[i].split(" ").join("");
-          // Si notre page html contient une classe correspondant à la liste du perso alors on affichera cette classe qui était au départ masquée
-          if ($("tableau:contains('."+classe+"')")){
-            //console.log($("#message ."+classe));
-            $("#TalentsList ."+classe).show();
-            // On ajoute la classe drag pour changer les icônes du pointeur de la souris dans notre master.css
-            $("#TalentsList ."+classe).addClass("drag");
-            // Nous sommes obligé d'exécuter ce code ici au moment de la génération car en dehors ça ne fonctionne pas
-            $("#TalentsList ."+classe).draggable({
-              containment : '.wrapper',
-              helper: "clone",    // Ne pas supprimer sinon le drag ne fonctionne pas
-              start: function (){
-                var row_index1 = $(this).parent().index();
-                var col_index1 = $(this).index();
-                //console.log("row_index1 : "+row_index1+" col_index1 : "+col_index1 )
-                $(this).animate({
-                  opacity: '0.5'
-                }, 1000);
-              },
-              stop: function () {
-                $(this).animate({
-                  opacity: '1'
-                }, 1000);
-              }
-            });
-          }
+      // Affiche l'image et nom du 2ème talent de la classe du personnage
+      imagelink = $(talent2).children()[0];
+      // Affiche la description du talent
+      descTalent = $(talent2).children()[1];
+      $("#TalentsList table tbody").append("<tr class="+classes[i].attr("name")+"><td><img src='"+$(imagelink).text()+"'>"+$(talent2).attr("name")+"</td><td>"+$(descTalent).text()+"</td></tr>");
+      // Si le talent transmis a été défini (voir fonction completeChildTalent())
+      // On utilise la variable childTestResult pour éviter que les talents soient transmis à des personages parents. Ce problème arrivait si on faisait un build enfant puis qu'on cliquait directement sans refresh de page sur un perso parent
+      if (childTestResult === true) {
+        // Si le talent transmis a été défini (voir fonction completeChildTalent())
+        if ((legacyFirstTalent !== undefined) && (useOnce === 0)) {
+          var tmp = legacyFirstTalent.split('-');
+          $("#TalentsList table tbody").append("<tr class="+tmp[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp[1])+".png'>"+tmp[1]+"</td><td>"+tmp[2]+"</td></tr>");
+          $("#TalentsList ."+tmp[0]).addClass("drag");
+          // Comme ça plus de soucis des multiples doublons
+          useOnce = 1;
         }
-        //Utilisé lors du debug pour séparer les classes entre chaque perso
-        //console.log('------------------------')
-        // On enlève le premier tableau contenant le nom des classes
-        $("#TalentsList table").first().remove();
+        if ((legacySecondTalent !== undefined) && (useOnce2 === 0)) {
+          var tmp2 = legacySecondTalent.split('-');
+          $("#TalentsList table tbody").append("<tr class="+tmp2[0]+"><td><img src='http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/"+$.trim(tmp2[1])+".png'>"+tmp2[1]+"</td><td>"+tmp2[2]+"</td></tr>");
+          $("#TalentsList ."+tmp2[0]).addClass("drag");
+          // Comme ça plus de soucis des multiples doublons
+          useOnce2 = 1;
+        }
       }
+
+      $("#TalentsList ."+classes[i].attr("name")).addClass("drag");
+      // Nous sommes obligé d'exécuter ce code ici au moment de la génération car en dehors ça ne fonctionne pas
+      $("#TalentsList table tbody .drag").draggable({
+        containment : '.wrapper',
+        helper: "clone",    // Ne pas supprimer sinon le drag ne fonctionne pas
+        start: function (){
+          $(this).animate({
+            opacity: '0.5'
+          }, 1000);
+        },
+        stop: function () {
+          $(this).animate({
+            opacity: '1'
+          }, 1000);
+        }
+      });
     });
   }
+
 
   // fonction nous permettant de rendre les zones droppables si la class est drop
   function dropTalents(){
@@ -265,22 +306,11 @@ $(function() {
       accept: '.drag',
       drop: function (event,ui) {
         var droppable = $(this);
-        // console.log(droppable);
         var draggable = ui.draggable;
-        // console.log(draggable);
         var droppablechild = $(droppable).children();
-        // console.log(droppablechild);
-
 
         // Si la zone de drop contient un td (donc aucun autre talent(pour rappel sans ce test on pouvait mettre plusieurs talents dans une seule zone de drop ce qui était très problématique)) alors tout s'effectue normalement sinon et bien le talent retourne avec les autres, si on voulait gérer le sinon alors il faut ajouter ceci if ($(droppablechild[0]).is(':not(td)'))
         if($(droppablechild[0]).is('td')){
-          var row_index = $(draggable).parent().index();
-          var col_index = $(draggable).index();
-          // Nous donne la classe de la table d'où provient l'élément
-          var tableOrigin = $(draggable).closest('table').attr('class').split(' ')[0];
-          //console.log(tableOrigin);
-          //console.log("row_index : "+row_index+" col_index : "+col_index);
-
           // Move draggable into droppable
           $(droppable).find('td').remove()
           draggable.appendTo(droppable);
@@ -291,25 +321,18 @@ $(function() {
           $(draggable).removeClass("drag");
           // On ajoute un bouton pour pouvoir modifier les talents de la zone de drop
           $($(draggable).children().first()).append("<i class='fas fa-times goback'></i>");
-          //$("<i class='fas fa-times goback'></i>").insertAfter($());
           // On affiche le bouton goback précedemment masqué plus haut dans le code pour éviter qu'ils aparaissent lorsqu'on choisi un autre perso alors qu'on a pas vidé la zone de drop
           $(".goback").show();
 
           // Fonction qui s'active lors d'un clic sur la classe goback (qui sert à enlever un talent de la zone de drop pour qu'il revienne dans le tableau avec tous les autres talents)
           $(".goback").on("click",function(){
-
-            // var tableOrigin2 = $(draggable).closest('table').attr('class').split(' ')[0];
-            // console.log(tableOrigin2);
             var trVoyager = $(this).parent().parent();
             var trDropOriginelle = $(this).parent().parent().parent();
 
             //supprime le bouton goback
             $(this).remove();
 
-            //console.log(trVoyager);
-            // console.log(("."+tableOrigin+" tbody"))
-
-            $("."+tableOrigin+" tbody").append(trVoyager[0]);
+            $(".drag tbody").append(trVoyager[0]);
             // On réactive la fonction draggable après que celui ci soit retourné avec ses autres amis talents
             $(trVoyager[0]).draggable('enable');
             $(draggable).addClass("drag");
@@ -382,164 +405,232 @@ $(function() {
     });
   }
 
-  // Cette fonction va nous extraire les parents du fichier parentsList.txt pour remplir le select sous la liste des personnages
-  function fillParentList(nameChild){
-    var Parents;
-    $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Tools/parentsList.txt', function(data) {
-      // On sépare chaque ligne du doc txt
-      var lignes = data.split("+")
-      for (var i = 0; i < lignes.length; i++) {
-        // Si on trouve le prénom du Héros parmis le tableau des lignes du doc txt
-        if (lignes[i].indexOf(nameChild) !== -1){
-          // Dans le doc texte chaque parent est séparé par un '-'
-          Parents = lignes[i].split('-');
-        }
-      }
-
-      // Petit fix pour enlever ce qui précède le ":" (le nom du perso) (par exemple avant ça nous faisait Lucina:Avatar(F))
-      var removeMyName = Parents[0].split(":");
-      // On écrase le contenu par notre fix
-      Parents[0] = removeMyName[1];
-
-      // Pour chaque parent on créé une option dans notre liste
-      $.each((Parents), function(i){
-        $("#myParent").append("<option value="+Parents[i]+">"+Parents[i]+"</option>")
-      })
-    }, 'text');
+  // Cette fonction va nous remplir le select sous la liste des personnages avec les noms des parents possibles
+  function fillSelectParent(){
+    // Pour chaque parent on créé une option dans notre liste
+    $.each((splittedParentsList), function(i){
+      $("#myParent").append("<option value="+splittedParentsList[i]+">"+splittedParentsList[i]+"</option>")
+    })
   }
-
   // Lors d'un changement dans le select pour choisir le parent sous la liste des persos
-  $(".formulaireRecherche").on('change','#myParent',function() {
-
+  $(".formulaireRecherche").on('change','#myParent',function(){
+    // On reset les zones de drop
+    $("#HeroBuild table tr").find("tr").replaceWith('<td></td>');
+    $("#myParentLegacy").remove();
+    // masque le message nous demandant de choisir un parent
     $('.chooseAParent').hide();
     // On récupère le nom du parent choisi dans la liste
     var parentName = $(this).val();
-    // On stocke le nom de l'enfant pour charger ses datas
-    var childName = $('.NomHerosBuilder').text();
-    // On charge toutes les datas du perso (enfant)
-    $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/Childrens/'+childName+'.txt', function(data){
-      data = data.split("/");
-      var childClass = data[1];
-      // On envoie le nom du parent, les classes de l'enfant à notre fonction pour récupérer les data du parent par la suite (à cause du asynchronous on charge les datas de l'enfant maintenant car pour l'instant nous ne l'avions pas fait (changement ordre code suite à la gestion des enfants (voir commits de la branch childrens_arc)))
-      getParentData(childName,parentName,childClass);
-    }, 'text');
+    $('.formulaireRecherche .legacyArea').append("<select id='myParentLegacy' class='myParentLegacyclass'><option value='default' selected>Choisir talent donné par "+parentName+"</option></select>");
+    legacy_of_Parent(parentName,"myParentLegacy");
   });
 
-  // Cette fonction se chargera de récupérer les data du parent choisi depuis son text file
-  function getParentData(childName,parentName,childClass){
-    // On charge toutes les datas du parent
-    $.get('http://alexandreblin.ovh/FireEmblemStrategicApp/HeroesData/'+parentName+'.txt', function(data) {
-      // On sépare le data brut du txt à l'endroit du / et on écrase le data pour le transformer en tableau
-      data = data.split("/");
-      // De ce tableau on prend la 2ème partie qui contient nos classes
-      var parentClass = data[1];
-      // On envoie les 2 listes à notre fonction
-      completeChildTalent(childName,parentName,childClass,parentClass);
-    }, 'text');
+  var parentTalents;
+  // Cette fonction va créer un select pour permettre de choisir le talent hérité du parent
+  function legacy_of_Parent(parentName,selectId) {
+    // On stocke les datas du parent
+    var dataParent = searchThisName(parentName);
+    // On utilise cette fonction qui renvoie a chaque fois les talents disponibles pour le personnage entré et on stocke le retour dans une variable
+    parentTalents = searchMyData(dataParent);
+    var talent1;
+    var talent2;
+    // pour donner plus d'infos à l'utilisateur concernant les talents et ce qu'ils font
+    var talentdesc;
+    var classNameOfTalent;
+    $.each((parentTalents), function(i){
+      talent1 = $(parentTalents)[i].children()[0];
+      talent2 = $(parentTalents)[i].children()[1];
+
+      talentdesc = $(talent1).children()[1];
+      classNameOfTalent = $(parentTalents)[i].attr("name");
+      // Pour chaque talent du parent on créé une option dans notre liste
+      $("#"+selectId).append("<option value="+classNameOfTalent+">"+$(talent1).attr("name")+" - "+$(talentdesc).text()+"</option>");
+
+      talentdesc = $(talent2).children()[1];
+      // Pour chaque talent du parent on créé une option dans notre liste
+      $("#"+selectId).append("<option value="+classNameOfTalent+">"+$(talent2).attr("name")+" - "+$(talentdesc).text()+"</option>");
+
+    })
   }
 
-  // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui du parent qui donne ses classes en héritage
-  function completeChildTalent(childName,parentName,rawChildClass, rawParentClass){
-    // Ces variables servent à déterminer qui est un Homme ou une Femme parmis tous les personnages de Fire Emblem Awakening
-    var FEAMale = "Avatar(M),Basilio,Brady,Chrom,Donnel,Frederick,Gaius,Gangrel,Gerome,Gregor,Henry,Inigo,Kellam,Laurent,Libra,Lon'zu,Owain,Priam,Ricken,Stahl,Vaike,Virion,Walhart,Yarne,Yen'fay";
-    var FEAFemale = "Cynthia,Kjelle,Lucina,Nah,Noire,Severa";
-    // Pour avoir un retour des noms et vérifier si il n'y a pas d'erreurs
-    // console.log('Nom enfant : '+childName+" - Nom parent : "+parentName);
+  $(".formulaireRecherche").on('change','#myGenitorLegacy',function(){
+    // On reset les zones de drop
+    $("#HeroBuild table tr").find("tr").replaceWith('<td></td>');
+    // On appelle cette fonction a chaque changement pour qu'elle "écoute" les 2 select
+    getBothSelectValue()
+  })
+  $(".formulaireRecherche").on('change','#myParentLegacy',function(){
+    // On reset les zones de drop
+    $("#HeroBuild table tr").find("tr").replaceWith('<td></td>');
+    // On appelle cette fonction a chaque changement pour qu'elle "écoute" les 2 select
+    getBothSelectValue()
+  })
 
-    // On initalise ces variables à faux, elles passeront à vrai grâce aux if et nous indiquerons si l'enfant est M ou F
-    var childMale = false;
-    var childFemale = false;
+  // Permet de récupérer les 2 valeurs choisies de select pour appeler la fonction completeChildTalent
+  function getBothSelectValue() {
+    // On récupère le nom du talent choisi
+    var tmp = $("#myGenitorLegacy option:selected").text().split('-');
+    var genitorTalentGift = tmp[0];
+    var tmp = $("#myParentLegacy option:selected").text().split('-');
+    var secondParentTalentGift = tmp[0];
 
-    // On vérifie si le nom de l'enfant est dans la liste des personnages M ou F
-    if((FEAMale.indexOf(childName))>=0){
-      childMale = true;
-    }else if((FEAFemale.indexOf(childName))>=0){
-      childFemale = true;
+    // Toutes les datas des personnages impliqués dans la conception de l'enfant sont récupérées
+    var genitorData = searchThisName(genitorName)
+    var secondParentData = searchThisName($("#myParent").val())
+    // Si les 2 select ont une valeur et qu'ils ne sont pas sur le choix par default
+    if (($("#myGenitorLegacy option:selected").text() !="")&&!($("#myGenitorLegacy").val() === "default")&&($("#myParentLegacy option:selected").text() !="")&&!($("#myParentLegacy").val()==="default")){
+      completeChildTalent(genitorTalentGift,$("#myGenitorLegacy").val(),genitorData,secondParentTalentGift,$("#myParentLegacy").val(),secondParentData)
     }
 
-    // On initalise ces variables à faux, elles passeront à vrai grâce aux if et nous indiquerons si le parent est M ou F
-    var parentMale = false;
-    var parentFemale = false;
-    // On vérifie si le nom du parent est dans la liste des personnages M ou F
-    if((FEAMale.indexOf(parentName))>=0){
-      parentMale = true;
-    }else if((FEAFemale.indexOf(parentName))>=0){
-      parentFemale = true;
+  }
+
+  // fonction qui se chargera de concevoir l'arbre de talents de l'enfant à partir du sien de base et de celui de ses parents qui donnent leurs classes et 1 talent chacun en héritage
+  function completeChildTalent(genitorTalentGift,genitorTalentOrigin,genitorData,secondParentTalentGift,secondParentTalentOrigin,secondParentData){
+
+    // console.log(theChosenOne)
+    // console.log(genitorTalentGift);
+    // console.log(genitorTalentOrigin);
+    // console.log(genitorData);
+    // console.log(secondParentTalentGift);
+    // console.log(secondParentTalentOrigin);
+    // console.log(secondParentData);
+
+    // Les 2 variables vont stocker sous formes de tableau d'objet le contenu de chaque classes auquel l'enfant et le second parent ont accès. Il n'y en a pas besoin pour le genitor car il a déjà transmis ses classes qu'on retrouve plus ou moins dans l'arbre des classes de l'enfant de base
+    var childTalentsTree = searchMyData(theChosenOne);
+    var secondParentTalentsTree = searchMyData(secondParentData);
+    // console.log(childTalentsTree);
+    // console.log(secondParentTalentsTree);
+    /**
+    * liste des classes à Changer :
+    Priest <=> Cleric , War Monk <=> War Cleric
+    * liste des classes M only :
+    Barbarian , Berserker , Fighter , Warrior , Villager , Dread Fighter
+    * liste des classes F only :
+    Troubadour , Valkyrie , Pegasus Knight , Falcon Knight , Dark Flier , Manakete , Bride
+    */
+    // Ceci va supprimer la dernière classe (Bride pour parent F et Dread Fighter pour parent M) car on les a déjà inclus dans les classes de base des enfants
+    secondParentTalentsTree.pop();
+    //console.log($(secondParentTalentsTree).last());
+    // console.log(secondParentTalentsTree);
+
+    // Cette variable va contenir toutes les classes du parent qui vont être transmise à son enfant et pour celà il va y avoir des altérations (classse Priest transformée en Cleric si enfant fille par exemple)
+    var alteredParentTalentsTree = [];
+    // Va contenir la valeur de retour de la fonction searchThisClass()
+    var replacementClass;
+    // Si le sexe du second parent est Homme (obtenu à partir de PersosList.xml)
+    if ($(secondParentData.children()[0]).text() === "Homme") {
+      if ($(theChosenOne.children()[0]).text() === "Femme") {
+        $.each((secondParentTalentsTree), function(i){
+          if(secondParentTalentsTree[i].attr("name") === "Priest"){
+            // On remplace l'attribut ("name") dans ce cas Priest par Cleric
+            alteredParentTalentsTree.push(secondParentTalentsTree[i].attr("name","Cleric"));
+          }
+          else if(secondParentTalentsTree[i].attr("name") === "War_Monk"){
+            // On remplace l'attribut ("name") dans ce cas War Monk par War Cleric
+            alteredParentTalentsTree.push(secondParentTalentsTree[i].attr("name","War_Cleric"));
+          } // Pour la suite des classes vu qu'on n'a pas besoin de remplacer par des classes ont les push juste pas vu que si c'est une femme elle ne peut avoir ces classes
+          else if(secondParentTalentsTree[i].attr("name") === "Barbarian"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Berserker"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Fighter"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Villager"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Warrior"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Lord"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Great_Lord"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Tactician"){}
+          else if(secondParentTalentsTree[i].attr("name") === "Grandmaster"){}
+          else {
+            // Si ce n'est pas une des classes précédente on push la valeur directement comme ça on a que les bonnes classes à insérer
+            alteredParentTalentsTree.push(secondParentTalentsTree[i])
+          }
+        })
+      }
+      // console.log(alteredParentTalentsTree)
     }
-    // Pour avoir un retour et vérifier si pas de fautes
-    // console.log("parent M ? : "+parentMale+" - parent F ? : "+parentFemale);
-    // console.log("enfant M ? : "+childMale+" - enfant F ? : "+childFemale);
 
-    // On stocke chaque classes séparé par - dans un tableau
-    var listeClassesChild = rawChildClass.split('-');
-    var listeClassesParent = rawParentClass.split('-');
-    // console.log(listeClassesChild);
-    // console.log(listeClassesParent);
+    // Pour faire simple le code qui suit permet de dresser un tableau contenant les 2 arbres de talents fusionnés évitant ainsi les doublons
+    // J'ai cherché sur stackoverflow et bien d'autres sites toute l'après midi + soirée à faire fonctionner et imaginer du code pour faire et bien ce que le code suivant fait. Fusionner 2 tableaux d'objets en supprimant les doublons ça m'a l'air impossible ou extrêment compliqué en jquery javascript
+    // Liste le nom des classes du parent
+    var compareA = [];
+    // Ceci est un fix puisque alteredParentTalentsTree n'est rempli que si l'enfant est une femme sinon alteredParentTalentsTree est vide. Voila pourquoi secondParentTalentsTree est utilisé pour les enfant homme
+    if ($(theChosenOne.children()[0]).text() === "Femme"){
+      $.each(alteredParentTalentsTree, function(i){
+        compareA.push($(alteredParentTalentsTree)[i].attr("name"));
+      });
+    } else {
+      $.each(secondParentTalentsTree, function(i){
+        compareA.push($(secondParentTalentsTree)[i].attr("name"));
+      });
+    }
+    // Liste le nom des classes de l'enfant
+    var compareB = [];
+    $.each(childTalentsTree, function(i) {
+      compareB.push($(childTalentsTree)[i].attr("name"));
+    });
+    // on donne l'arbre de talent de l'enfant comme base
+    var mergedTalentsTreeList = compareB;
+    $.each(compareA,function(i) {
+      // Si la classe du parent n'est pas dans l'arbre de talents de l'enfant et bien on push
+      if($.inArray(compareA[i], compareB) === -1){
+        mergedTalentsTreeList.push(compareA[i])
+      }
+    })
+    // Permets de corriger le bug qui faisait que des talents d'héritage étaient transmis d'un enfant à l'autre si la page n'était pas rechargée (F5) à chaque changement de personnage
+    legacyFirstTalent = undefined;
+    legacySecondTalent = undefined;
+    // Ceci va nous permettre de voir si les talents donnés en héritages sont déjà présents ou non dans la liste des classes
+    $.each(mergedTalentsTreeList,function(i) {
+      // Si la classe dont le talent provient n'est pas déjà dans la liste alors on push (préviens de tout doublons de talents)
+      if($.inArray(genitorTalentOrigin, mergedTalentsTreeList) === -1){
+        // Affiche le contenu du select choisi
+        legacyFirstTalent = genitorTalentOrigin + " - " + $("#myGenitorLegacy :selected").text();
+      }
+      // idem que pour le if du haut mais pour le second talent hérité
+      else if($.inArray(secondParentTalentOrigin, mergedTalentsTreeList) === -1){
+        // affiche le contenu du select choisi
+        legacySecondTalent = secondParentTalentOrigin + " - " + $("#myParentLegacy :selected").text()
+        // C'est un break pour sortir de la loop
+        return false
+      }
+    });
 
-    // On transmet notre liste à notre fonction fait tout qui va faire du nettoyage
-    var parentClassClean = listCleaner(listeClassesParent,childMale,childFemale,parentMale,parentFemale);
-
-    //console.log(parentClassClean)
-
-    for (var i = 0; i < listeClassesParent.length; i++){
-      // Si la classe n'est pas déjà dans la liste des classes de l'enfant
-      if (listeClassesChild.indexOf(parentClassClean[i])=== -1){
-        // On push la classe dans les classes de l'enfant
-        listeClassesChild.push(parentClassClean[i]);
+    // On déclare une variable de type Array pour pouvoir utiliser la méthode push() celle ci contiendra la liste finale a envoyer à displayHeroData()
+    var finalList = [];
+    // On initialise cette variable à faux car de base on n'a pas besoin de trier et supprimer des doublons en temps normal
+    var sortMyList = false;
+    // On boucle sur chaque classes
+    $(allclassesList).each(function(i) {
+      // Si il trouve l'attribut name (correspond dans le fichier xml à <class name="">) alors il le stocke dans la variable classes
+      if($.inArray($(this).attr("name"), mergedTalentsTreeList) !== -1){
+        finalList.push($(this));
+        //
+        if (($(this).attr("name") === "Cleric") || ($(this).attr("name") === "Cleric")) {
+          sortMyList = true;
+        }
+      }
+    })
+    // Ce petit bout de code va supprimer les doublons trouvés par exemple avec Nah et un parent pouvant être Priest comme Kellam
+    if (sortMyList === true) {
+      // Cette variable va être à +1 par rapport à i pour pouvoir comparer la case de i et celle de
+      var j;
+      for (var i = 0; i < finalList.length; i++) {
+        j = i+1;
+        // pour empêcher j de dépasser la taille de finalList et donc de devenir undefined ce qui coupe le fonctionnement du code
+        if (j === finalList.length) {
+          break;
+        }
+        // si l'index de j qui est de +1 par rapport à i possède la même valeur que i alors on supprime tout simplement
+        if (finalList[j].attr("name") === finalList[i].attr("name")) {
+          // on éradique le doublon
+          finalList.splice(j,1)
+        }
       }
     }
-    // console.log(listeClassesChild);
-
     // !!!!!! Pour éviter liste infinie !!!!!!!!!
     $("#TalentsList table").remove();
     // Pour éviter l'apparition de la barre de scroll si on passait d'un perso non enfant à un enfant
     $("#TalentsList").hide();
-    //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction TraitementData()
-    TraitementData(listeClassesChild);
-  }
-
-  // Cette fonction va s'occuper de nettoyer les incohérences dût au règles du jeu (Une femme dans le jeu ne peut devenir barbarian par exemple) et nous renvoyer la liste corrigée
-  function listCleaner(listParent,childMale,childFemale,parentMale,parentFemale){
-    /**
-     * liste des classes à Changer :
-     Priest <=> Cleric , War Monk <=> War Cleric
-     * liste des classes M only :
-     Barbarian , Berserker , Fighter , Warrior , Villager , Dread Fighter
-     * liste des classes F only :
-     Troubadour , Valkyrie , Pegasus Knight , Falcon Knight , Dark Flier , Manakete , Bride
-    */
-    // Ceci va supprimer la dernière classe (Bride pour parent F et Dread Fighter pour parent M) car on les a déjà inclus dans les classes de base des enfants
-    listParent.splice(-1,1);
-
-    if (parentMale == true){
-      if (childFemale == true){
-        if(listParent.indexOf("Priest")>=0){
-          // On recherche les mot Priest et War Monk (vu qu'elles sont liées War Monk est l'une des upgrades possible de Priest) dans notre tableau pour les supprimer et push la valeur Cleric et War Cleric en remplacement
-          listParent.splice($.inArray("Priest", listParent),1);
-          listParent.push("Cleric");
-          listParent.splice($.inArray("War Monk", listParent),1);
-          listParent.push("War Cleric");
-        }
-        if(listParent.indexOf("Barbarian")>=0){
-          listParent.splice($.inArray("Barbarian", listParent),1);
-          listParent.splice($.inArray("Berserker", listParent),1);
-        }
-        if (listParent.indexOf("Fighter")>=0){
-          listParent.splice($.inArray("Fighter", listParent),1);
-        }
-        // Cas spécial Warrior est une classe accessible à la fois par Barbarian et Fighter pour éviter les soucis on fait sa suppression à part plutôt que de faire comme les cas précédents
-        if (listParent.indexOf("Warrior")>=0) {
-          listParent.splice($.inArray("Warrior", listParent),1);
-        }
-      }
-    }
-    if (parentFemale == true){
-
-    }
-
-    return listParent;
-
-
+    //Une fois le traitement fini ont envoi notre liste de classe finale de l'enfant à la fonction displayHeroData()
+    displayHeroData(finalList);
   }
 
 });

@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassList>
+  <class name="Lord">
+   <talent1 name="Dual Strike+">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Dual Strike+.png</imagelink>
+     <description>Augmente de 10% les chances de frappes combinées</description>
+   </talent1>
+   <talent2 name="Charm">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Charm.png</imagelink>
+     <description>Toutes les unités alliées à 3 cases gagne +5% en précision et esquive</description>
+   </talent2>
+  </class>
+  <class name="Great_Lord">
+   <talent1 name="Aether">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Aether.png</imagelink>
+     <description>(Tec/2)% de faire 2 attaques consécutives, la première bénéficie de Sol et la seconde de Luna</description>
+   </talent1>
+   <talent2 name="Rightful King">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rightful King.png</imagelink>
+     <description>Augmente de 10% les chances d'activer les talents</description>
+   </talent2>
+  </class>
+  <class name="Tactician">
+   <talent1 name="Veteran">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Veteran.png</imagelink>
+     <description>Si en Duo +50% expérience gagné</description>
+   </talent1>
+   <talent2 name="Solidarity">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Solidarity.png</imagelink>
+     <description>+10% en critique et esquive critique aux alliés adjacents</description>
+   </talent2>
+  </class>
+  <class name="Grandmaster">
+   <talent1 name="Ignis">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Ignis.png</imagelink>
+     <description>(Tec)% Ajoute la moitié de la stat Magie à la Force si utilisation d'une arme physique et inversement si l'unité utilise un tome ou arme magique</description>
+   </talent1>
+   <talent2 name="Rally Spectrum">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Spectrum.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 à toutes leurs stats</description>
+   </talent2>
+  </class>
+  <class name="Cavalier">
+   <talent1 name="Discipline">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Discipline.png</imagelink>
+     <description>Double le montant d'xp gagné par les armes</description>
+   </talent1>
+   <talent2 name="Outdoor Fighter">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Outdoor Fighter.png</imagelink>
+     <description>Précision et Esquive +10 lors de combats sur des maps à l'extérieur</description>
+   </talent2>
+ </class>
+ <class name="Paladin">
+   <talent1 name="Defender">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Defender.png</imagelink>
+     <description>Si unité en Duo +1 à toutes ses stats</description>
+   </talent1>
+   <talent2 name="Aegis">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Aegis.png</imagelink>
+     <description>(Tec)% Dégâts reçus par Arcs, Tomes et Dracopierres /2</description>
+   </talent2>
+ </class>
+ <class name="Knight">
+   <talent1 name="Defense+2">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Defense+2.png</imagelink>
+     <description>Defense+2</description>
+   </talent1>
+   <talent2 name="Indoor Fighter">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Indoor Fighter.png</imagelink>
+     <description>Précision et Esquive +10 lors de combats sur des maps à l'intérieur</description>
+   </talent2>
+ </class>
+ <class name="General">
+   <talent1 name="Rally Defense">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Defense.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 Defense</description>
+   </talent1>
+   <talent2 name="Pavise">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Pavise.png</imagelink>
+     <description>(Tec)% Dégâts reçus par Epées, lances, haches, armes monstres et Bestipierre /2</description>
+   </talent2>
+ </class>
+ <class name="Great_Knight">
+   <talent1 name="Luna">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Luna.png</imagelink>
+     <description>(Tec)% Défense et Resistance ennemie /2</description>
+   </talent1>
+   <talent2 name="Dual Guard+">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Dual Guard+.png</imagelink>
+     <description>Ajoute 10% à la double garde</description>
+   </talent2>
+  </class>
+  <class name="Myrmidon">
+   <talent1 name="Avoid+10">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Avoid+10.png</imagelink>
+     <description>Esquive+10</description>
+   </talent1>
+   <talent2 name="Vantage">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Vantage.png</imagelink>
+     <description>Permet d'attaquer en premier durant le tour de l'ennemi si les HP sont inférieurs à la moitié</description>
+   </talent2>
+  </class>
+  <class name="Swordmaster">
+   <talent1 name="Astra">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Astra.png</imagelink>
+     <description>(Tec/2)% Permet de faire 5 attaques d'affillées mais avec les dégâts /2</description>
+   </talent1>
+   <talent2 name="Swordfaire">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Swordfaire.png</imagelink>
+     <description>Force+5 tant qu'une épée est équipée</description>
+   </talent2>
+  </class>
+  <class name="Thief">
+   <talent1 name="Locktouch">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Locktouch.png</imagelink>
+     <description>Permet de déverouiller les coffres et portes sans utiliser de clés</description>
+   </talent1>
+   <talent2 name="Movement+1">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Movement+1.png</imagelink>
+     <description>Mouvement+1</description>
+   </talent2>
+  </class>
+  <class name="Trickster">
+   <talent1 name="Lucky Seven">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Lucky Seven.png</imagelink>
+     <description>Pendant les 7 premiers tours Précision et Esquive +20</description>
+   </talent1>
+   <talent2 name="Acrobat">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Acrobat.png</imagelink>
+     <description>Le déplacement sur tous types de terrain devient 1</description>
+   </talent2>
+  </class>
+  <class name="Assassin">
+   <talent1 name="Lethality">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Lethality.png</imagelink>
+     <description>(Tec/4)% Tue instantanément un ennemi</description>
+   </talent1>
+   <talent2 name="Pass">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Pass.png</imagelink>
+     <description>Permet de passer au travers des unités</description>
+   </talent2>
+  </class>
+  <class name="Barbarian">
+   <talent1 name="Despoil">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Despoil.png</imagelink>
+     <description>(Cha)% de gagner un lingot d'or si l'unité bat un ennemi</description>
+   </talent1>
+   <talent2 name="Gamble">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Gamble.png</imagelink>
+     <description>Précision -5 et Critique +10</description>
+   </talent2>
+  </class>
+  <class name="Berserker">
+   <talent1 name="Wrath">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Wrath.png</imagelink>
+     <description>Si HP inférieurs à 50% Critique+20</description>
+   </talent1>
+   <talent2 name="Axefaire">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Axefaire.png</imagelink>
+     <description>Force+5 tant qu'une hache est équipée</description>
+   </talent2>
+  </class>
+  <class name="Fighter">
+   <talent1 name="HP+5">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/HP+5.png</imagelink>
+     <description>HP+5</description>
+   </talent1>
+   <talent2 name="Zeal">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Zeal.png</imagelink>
+     <description>Critique+5</description>
+   </talent2>
+  </class>
+  <class name="Warrior">
+   <talent1 name="Rally Strength">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Strength.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 Force</description>
+   </talent1>
+   <talent2 name="Counter">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Counter.png</imagelink>
+     <description>Renvoie les dégâts infligé par l'ennemi adjacent. Ne marche pas lors d'attaque Duo ou si l'attaquant tue l'utilisateur</description>
+   </talent2>
+  </class>
+  <class name="Mercenary">
+   <talent1 name="Armsthrift">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Armsthrift.png</imagelink>
+     <description>(Cha*2)% de ne pas utiliser une charge d'arme</description>
+   </talent1>
+   <talent2 name="Patience">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Patience.png</imagelink>
+     <description>Précision Esquive +10 quand l'ennemi initie le combat</description>
+   </talent2>
+  </class>
+  <class name="Hero">
+   <talent1 name="Sol">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Sol.png</imagelink>
+     <description>(Tec)% de régénérer ses HP de la moitié des dégats infligés</description>
+   </talent1>
+   <talent2 name="Axebreaker">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Axebreaker.png</imagelink>
+     <description>Précision et Esquive +50 si ennemi équipé d'une hache</description>
+   </talent2>
+  </class>
+  <class name="Archer">
+   <talent1 name="Skill+2">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Skill+2.png</imagelink>
+     <description>Technique+2</description>
+   </talent1>
+   <talent2 name="Prescience">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Prescience.png</imagelink>
+     <description>Précision et Esquive +15 si l'utilisateur initie le combat</description>
+   </talent2>
+  </class>
+  <class name="Sniper">
+   <talent1 name="Hit Rate+20">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Hit Rate+20.png</imagelink>
+     <description>Précision+20</description>
+   </talent1>
+   <talent2 name="Bowfaire">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Bowfaire.png</imagelink>
+     <description>Force+5 tant qu'un arc est équipé</description>
+   </talent2>
+  </class>
+  <class name="Bow_Knight">
+   <talent1 name="Rally Skill">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Skill.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 Technique</description>
+   </talent1>
+   <talent2 name="Bowbreaker">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Bowbreaker.png</imagelink>
+     <description>Précision et Esquive +50 si ennemi équipé d'un arc</description>
+   </talent2>
+  </class>
+  <class name="Dark_Mage">
+   <talent1 name="Hex">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Hex.png</imagelink>
+     <description>Esquive -15 aux ennemis adjacents</description>
+   </talent1>
+   <talent2 name="Anathema">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Anathema.png</imagelink>
+     <description>Esquive et Esquive critique -10 aux ennemis 3 cases autour</description>
+   </talent2>
+  </class>
+  <class name="Sorcerer">
+   <talent1 name="Vengeance">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Vengeance.png</imagelink>
+     <description>(Tec*2)% Ajoute la moitié de la différence entre les max Hp et les Hp actuels de l'utilisateur à ses attaques</description>
+   </talent1>
+   <talent2 name="Tomebreaker">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Tomebreaker.png</imagelink>
+     <description>Précision et Esquive +50 si ennemi équipé d'un tome</description>
+   </talent2>
+  </class>
+  <class name="Mage">
+   <talent1 name="Magic+2">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Magic+2.png</imagelink>
+     <description>Magie+2</description>
+   </talent1>
+   <talent2 name="Focus">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Focus.png</imagelink>
+     <description>Critique+10 si aucun allié 3 cases autour</description>
+   </talent2>
+  </class>
+  <class name="Sage">
+   <talent1 name="Rally Magic">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Magic.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 Magie</description>
+   </talent1>
+   <talent2 name="Tomefaire">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Tomefaire.png</imagelink>
+     <description>Magie+5 tant qu'un tome est équipé</description>
+   </talent2>
+  </class>
+  <class name="Dark_Knight">
+   <talent1 name="Slow Burn">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Slow Burn.png</imagelink>
+     <description>Précision et Esquive +1 pour chaque tour jusqu'à un maximum de +15</description>
+   </talent1>
+   <talent2 name="Lifetaker">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Lifetaker.png</imagelink>
+     <description>L'utilisateur regagne 50% de ses max HP s'il bat un ennemi ne marche pas lors du tour ennemi ou si l'unité est supportrice en Duo</description>
+   </talent2>
+  </class>
+  <class name="Cleric">
+   <talent1 name="Miracle">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Miracle.png</imagelink>
+     <description>(Chance)% si HP > 1 Permet de survivre avec 1HP lors d'un coup fatal reçu</description>
+   </talent1>
+   <talent2 name="Healtouch">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Healtouch.png</imagelink>
+     <description>Soigne 5HP supplémentaire lors d'un soin aux alliés</description>
+   </talent2>
+  </class>
+  <class name="Priest">
+   <talent1 name="Miracle">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Miracle.png</imagelink>
+     <description>(Chance)% si HP > 1 Permet de survivre avec 1HP lors d'un coup fatal reçu</description>
+   </talent1>
+   <talent2 name="Healtouch">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Healtouch.png</imagelink>
+     <description>Soigne 5HP supplémentaire lors d'un soin aux alliés</description>
+   </talent2>
+  </class>
+  <class name="War_Cleric">
+   <talent1 name="Rally Luck">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Luck.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 Chance</description>
+   </talent1>
+   <talent2 name="Renewal">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Renewal.png</imagelink>
+     <description>Régénère 30% de ses max HP au début du tour du joueur</description>
+   </talent2>
+  </class>
+  <class name="War_Monk">
+   <talent1 name="Rally Luck">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Luck.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 Chance</description>
+   </talent1>
+   <talent2 name="Renewal">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Renewal.png</imagelink>
+     <description>Régénère 30% de ses max HP au début du tour du joueur</description>
+   </talent2>
+  </class>
+  <class name="Troubadour">
+   <talent1 name="Resistance+2">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Resistance+2.png</imagelink>
+     <description>Resistance+2</description>
+   </talent1>
+   <talent2 name="Demoiselle">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Demoiselle.png</imagelink>
+     <description>Esquive et Esquive critique +10 aux alliés masculins 3 cases autour</description>
+   </talent2>
+  </class>
+  <class name="Valkyrie">
+   <talent1 name="Rally Resistance">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Resistance.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 Resistance</description>
+   </talent1>
+   <talent2 name="Dual Support+">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Dual Support+.png</imagelink>
+     <description>Augmente le bonus des supports</description>
+   </talent2>
+  </class>
+  <class name="Pegasus_Knight">
+   <talent1 name="Speed+2">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Speed+2.png</imagelink>
+     <description>Vitesse+2</description>
+   </talent1>
+   <talent2 name="Relief">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Relief.png</imagelink>
+     <description>Régénère 20% des HP si aucune unité n'est 3 cases autour</description>
+   </talent2>
+  </class>
+  <class name="Falcon_Knight">
+   <talent1 name="Rally Speed">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Speed.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +4 Vitesse</description>
+   </talent1>
+   <talent2 name="Lancefaire">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Lancefaire.png</imagelink>
+     <description>Force+5 tant qu'une lance est équipée</description>
+   </talent2>
+  </class>
+  <class name="Dark_Flier">
+   <talent1 name="Rally Movement">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Movement.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +1 Mouvement</description>
+   </talent1>
+   <talent2 name="Galeforce">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Galeforce.png</imagelink>
+     <description>Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu</description>
+   </talent2>
+  </class>
+  <class name="Wyvern_Rider">
+   <talent1 name="Strength+2">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Strength+2.png</imagelink>
+     <description>Force+2</description>
+   </talent1>
+   <talent2 name="Tantivy">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Tantivy.png</imagelink>
+     <description>Précision et Esquive +10 si aucun alliés 3 cases autour</description>
+   </talent2>
+  </class>
+  <class name="Wyvern_Lord">
+   <talent1 name="Quick Burn">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Quick Burn.png</imagelink>
+     <description>Précision et Esquive +15 diminue de 1 à chaque tour passé</description>
+   </talent1>
+   <talent2 name="Swordbreaker">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Swordbreaker.png</imagelink>
+     <description>Précision et Esquive +50 si ennemi équipé d'une épée</description>
+   </talent2>
+  </class>
+  <class name="Griffon_Rider">
+   <talent1 name="Deliverer">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Deliverer.png</imagelink>
+     <description>Mouvement+2 si l'unité est en Duo</description>
+   </talent1>
+   <talent2 name="Lancebreaker">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Lancebreaker.png</imagelink>
+     <description>Précision et Esquive +50 si ennemi équipé d'une lance</description>
+   </talent2>
+  </class>
+  <class name="Villager">
+   <talent1 name="Aptitude">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Aptitude.png</imagelink>
+     <description>La chance pour chaque stats de monter est augmenté de 20% à chaque level up</description>
+   </talent1>
+   <talent2 name="Underdog">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Underdog.png</imagelink>
+     <description>Précision et Esquive +15 lorsque le niveau de l'ennemi est supérieur à celui de l'unité</description>
+   </talent2>
+  </class>
+  <class name="Dancer">
+   <talent1 name="Luck+4">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Luck+4.png</imagelink>
+     <description>Chance+4</description>
+   </talent1>
+   <talent2 name="Special Dance">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Special Dance.png</imagelink>
+     <description>Force, Magie, Defense et Resistance +2 pour un tour à l'unité bénéficiant de la danse</description>
+   </talent2>
+  </class>
+  <class name="Taguel">
+   <talent1 name="Even Rhythm">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Even Rhythm.png</imagelink>
+     <description>Précision et Esquive +10 durant les tours pairs</description>
+   </talent1>
+   <talent2 name="Beastbane">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Beastbane.png</imagelink>
+     <description>L'unité Taguel inflige des dégâts bonus aux bêtes et chevaux</description>
+   </talent2>
+  </class>
+  <class name="Manakete">
+   <talent1 name="Odd Rhythm">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Odd Rhythm.png</imagelink>
+     <description>Précision et Esquive +10 durant les tours impairs</description>
+   </talent1>
+   <talent2 name="Wyrmsbane">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Wyrmsbane.png</imagelink>
+     <description>L'unité Manakete inflige des dégâts bonus aux dragons</description>
+   </talent2>
+  </class>
+  <class name="Dread_Fighter">
+   <talent1 name="Resistance+10">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Resistance+10.png</imagelink>
+     <description>Resistance+10</description>
+   </talent1>
+   <talent2 name="Aggressor">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Aggressor.png</imagelink>
+     <description>Attaque+10 pendant le tour du joueur</description>
+   </talent2>
+  </class>
+  <class name="Bride">
+   <talent1 name="Rally Heart">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Rally Heart.png</imagelink>
+     <description>A l'activation confére aux alliés 3 cases autour +2 à toutes leurs stats et +1 Mouvement</description>
+   </talent1>
+   <talent2 name="Bond">
+     <imagelink>http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/Bond.png</imagelink>
+     <description>Régénère 10HP à tous les alliés 3 cases autour</description>
+   </talent2>
+ </class>
+</ClassList>

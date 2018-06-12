@@ -40,9 +40,10 @@
 			<p><a href="https://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php">Me contacter</a></p>
     </footer>
 		<!-- Chargement de la librairie jQuery -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='http://alexandreblin.ovh/FireEmblemStrategicApp/libs/jquery-3.3.1.min.js'></script>
     <!-- Chargement de la librairie jQuery UI -->
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/libs/jquery-ui.min.css">
+<script src="http://alexandreblin.ovh/FireEmblemStrategicApp/libs/jquery-ui.min.js"></script>
 		<script src="https://alexandreblin.ovh/FireEmblemStrategicApp/static/js/formValidator.js" charset="utf-8"></script>
 	</body>
 </html>
