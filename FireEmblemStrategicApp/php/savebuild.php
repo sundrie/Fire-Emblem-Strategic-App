@@ -18,6 +18,11 @@ $hauteur_destination = imagesy($destination);
 $destination_x = 0;
 $destination_y = 0;
 
+// On définit juste la couleur noire pour imagestring
+$noir = imagecolorallocate($destination, 0, 0, 0);
+// Ceci créé une chaîne de caractères avec le nom du personnage
+imagestring($destination, 5, 320, 15, "Cordelia", $noir);
+
 // On met le portrait dans l'image de destination (la carte du personnage)
 imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
 
