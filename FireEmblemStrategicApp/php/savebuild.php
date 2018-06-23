@@ -16,20 +16,22 @@ $hauteur_destination = imagesy($destination);
 
 // On veut placer le portrait du personnage à gauche en haut
 $destination_x = 0;
-$destination_y = 0;
+$destination_y = 50;
 
 // On définit juste la couleur noire pour imagestring
 $noir = imagecolorallocate($destination, 0, 0, 0);
+// On définit juste la couleur pour nos fonds des talents
+$beige = imagecolorallocate($destination, 241, 218, 168);
 // Ceci créé une chaîne de caractères avec le nom du personnage
 imagestring($destination, 5, 320, 15, "Cordelia", $noir);
 
 // Un rectangle noir se créé qui accueillera les talents
 // Il y a 80px en x pour chaque talent par rapport à son voisin du dessus
-ImageRectangle ($destination, 180, 50, 610, 120, $noir);
-ImageRectangle ($destination, 180, 130, 610, 200, $noir);
-ImageRectangle ($destination, 180, 210, 610, 280, $noir);
-ImageRectangle ($destination, 180, 290, 610, 360, $noir);
-ImageRectangle ($destination, 180, 370, 610, 440, $noir);
+ImagefilledRectangle ($destination, 180, 50, 610, 120, $beige);
+ImagefilledRectangle ($destination, 180, 130, 610, 200, $beige);
+ImagefilledRectangle ($destination, 180, 210, 610, 280, $beige);
+ImagefilledRectangle ($destination, 180, 290, 610, 360, $beige);
+ImagefilledRectangle ($destination, 180, 370, 610, 440, $beige);
 
 
 
