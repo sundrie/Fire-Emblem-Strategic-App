@@ -24,7 +24,12 @@ $noir = imagecolorallocate($destination, 0, 0, 0);
 imagestring($destination, 5, 320, 15, "Cordelia", $noir);
 
 // Un rectangle noir se créé qui accueillera les talents
+// Il y a 80px en x pour chaque talent par rapport à son voisin du dessus
 ImageRectangle ($destination, 180, 50, 610, 120, $noir);
+ImageRectangle ($destination, 180, 130, 610, 200, $noir);
+ImageRectangle ($destination, 180, 210, 610, 280, $noir);
+ImageRectangle ($destination, 180, 290, 610, 360, $noir);
+ImageRectangle ($destination, 180, 370, 610, 440, $noir);
 
 
 
