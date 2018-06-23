@@ -1,10 +1,27 @@
 <?php
+// code et tuto trouvé sur https://openclassrooms.com/courses/concevez-votre-site-web-avec-php-et-mysql/creer-des-images-en-php
+
 // On indique que c'est une image qui est envoyée (ici png mais ça peut être jpeg aussi si photo par exemple)
 header ("Content-type: image/png");
 // On créé l'image avec 600 de large et 400 de haut
 $image = imagecreate(600,400);
 // Permet de faire le fond de notre image comme celle de la carte sur le website
 imagecolorallocate($image, 204, 164, 79);
+
+// On charge d'abord les images
+$source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/character_portrait/Cordelia_portrait.png"); // Le logo est la source
+// Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
+$largeur_source = imagesx($source);
+$hauteur_source = imagesy($source);
+$largeur_destination = imagesx($image);
+$hauteur_destination = imagesy($image);
+
+// On veut placer le logo à gauche en haut
+$destination_x = 0;
+$destination_y = 0;
+
+// On met le logo (source) dans l'image de destination (la photo)
+imagecopymerge($image, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source, 100);
 
 imagepng($image);
 
