@@ -32,20 +32,27 @@ imagefttext($destination, 18, 0, 320, 30, $noir, $font, $nomHero);
 // Un rectangle noir se créé qui accueillera les talents
 // Il y a 80px en x pour chaque talent par rapport à son voisin du dessus
 ImagefilledRectangle ($destination, 180, 50, 610, 120, $beige);
-
-
-// imagestring($destination, 6, 210, 60, "Galeforce", $noir);
-// imagestring($destination, 2, 210, 90, "Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu", $noir);
-
 $nomTalent = "Galeforce";
 // Le utf 8 n'étant pas géré par imagestring (merci l'anglais qui n'a pas d'accent) cette fonction imagefttext le gère
 // Le texte du talent. 12 correspond à la taille de font (police), 0 à l'angle, 210 à là où commence le texte (axe x (largeur)) et 70 (axe y (hauteur)) 
 imagefttext($destination, 12, 0, 210, 70, $noir, $font, $nomTalent);
 $descTalent = "Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu";
 imagefttext($destination, 10, 0, 210, 90, $noir, $font, $descTalent);
+
+
 ImagefilledRectangle ($destination, 180, 130, 610, 200, $beige);
+$nomTalent = "Sol";
+imagefttext($destination, 12, 0, 210, 150, $noir, $font, $nomTalent);
+$descTalent = "(Tec)% de régénérer ses HP de la moitié des dégats infligés";
+imagefttext($destination, 10, 0, 210, 170, $noir, $font, $descTalent);
+
+
 ImagefilledRectangle ($destination, 180, 210, 610, 280, $beige);
+
+
 ImagefilledRectangle ($destination, 180, 290, 610, 360, $beige);
+
+
 ImagefilledRectangle ($destination, 180, 370, 610, 440, $beige);
 
 
