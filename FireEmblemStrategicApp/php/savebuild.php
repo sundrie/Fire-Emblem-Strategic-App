@@ -28,6 +28,9 @@ imagestring($destination, 5, 320, 15, "Cordelia", $noir);
 // Un rectangle noir se créé qui accueillera les talents
 // Il y a 80px en x pour chaque talent par rapport à son voisin du dessus
 ImagefilledRectangle ($destination, 180, 50, 610, 120, $beige);
+// Le texte du talent 5 correspond à la font (police), 210 à là où commence le texte (axe x (largeur)) et 75 (axe y (hauteur)) 
+imagestring($destination, 6, 210, 60, "Galeforce", $noir);
+imagestring($destination, 2, 210, 90, "Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu", $noir);
 ImagefilledRectangle ($destination, 180, 130, 610, 200, $beige);
 ImagefilledRectangle ($destination, 180, 210, 610, 280, $beige);
 ImagefilledRectangle ($destination, 180, 290, 610, 360, $beige);
