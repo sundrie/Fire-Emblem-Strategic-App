@@ -26,7 +26,8 @@ $noir = imagecolorallocate($destination, 0, 0, 0);
 // On définit juste la couleur pour nos fonds des talents
 $beige = imagecolorallocate($destination, 241, 218, 168);
 // Ceci créé une chaîne de caractères avec le nom du personnage
-imagestring($destination, 5, 320, 15, "Cordelia", $noir);
+$nomHero = "Cordelia";
+imagefttext($destination, 18, 0, 320, 30, $noir, $font, $nomHero);
 
 // Un rectangle noir se créé qui accueillera les talents
 // Il y a 80px en x pour chaque talent par rapport à son voisin du dessus
