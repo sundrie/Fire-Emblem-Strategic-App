@@ -48,6 +48,10 @@ imagefttext($destination, 10, 0, 210, 170, $noir, $font, $descTalent);
 
 
 ImagefilledRectangle ($destination, 180, 210, 610, 280, $beige);
+$nomTalent = "Armsthrift";
+imagefttext($destination, 12, 0, 210, 230, $noir, $font, $nomTalent);
+$descTalent = "(Cha*2)% de ne pas utiliser une charge d'arme";
+imagefttext($destination, 10, 0, 210, 250, $noir, $font, $descTalent);
 
 
 ImagefilledRectangle ($destination, 180, 290, 610, 360, $beige);
