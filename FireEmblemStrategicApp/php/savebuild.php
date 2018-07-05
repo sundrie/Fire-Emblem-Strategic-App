@@ -18,6 +18,9 @@ $hauteur_destination = imagesy($destination);
 $destination_x = 0;
 $destination_y = 50;
 
+// La font utilisée le lien est relatif car absolu ça voulait pas (http://alex...)
+$font = '../fonts/FOT-ChiaroStd-B.otf';
+
 // On définit juste la couleur noire pour imagestring
 $noir = imagecolorallocate($destination, 0, 0, 0);
 // On définit juste la couleur pour nos fonds des talents
@@ -28,9 +31,17 @@ imagestring($destination, 5, 320, 15, "Cordelia", $noir);
 // Un rectangle noir se créé qui accueillera les talents
 // Il y a 80px en x pour chaque talent par rapport à son voisin du dessus
 ImagefilledRectangle ($destination, 180, 50, 610, 120, $beige);
-// Le texte du talent 5 correspond à la font (police), 210 à là où commence le texte (axe x (largeur)) et 75 (axe y (hauteur)) 
-imagestring($destination, 6, 210, 60, "Galeforce", $noir);
-imagestring($destination, 2, 210, 90, "Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu", $noir);
+
+
+// imagestring($destination, 6, 210, 60, "Galeforce", $noir);
+// imagestring($destination, 2, 210, 90, "Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu", $noir);
+
+$nomTalent = "Galeforce";
+// Le utf 8 n'étant pas géré par imagestring (merci l'anglais qui n'a pas d'accent) cette fonction imagefttext le gère
+// Le texte du talent. 12 correspond à la taille de font (police), 0 à l'angle, 210 à là où commence le texte (axe x (largeur)) et 70 (axe y (hauteur)) 
+imagefttext($destination, 12, 0, 210, 70, $noir, $font, $nomTalent);
+$descTalent = "Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu";
+imagefttext($destination, 10, 0, 210, 90, $noir, $font, $descTalent);
 ImagefilledRectangle ($destination, 180, 130, 610, 200, $beige);
 ImagefilledRectangle ($destination, 180, 210, 610, 280, $beige);
 ImagefilledRectangle ($destination, 180, 290, 610, 360, $beige);
