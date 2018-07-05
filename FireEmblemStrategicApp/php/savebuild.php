@@ -31,6 +31,8 @@ imagefttext($destination, 18, 0, 320, 30, $noir, $font, $nomHero);
 
 // Un rectangle noir se créé qui accueillera les talents
 // Il y a 80px en x pour chaque talent par rapport à son voisin du dessus
+// 180 c'est l'axe x du 1er point, 50 l'axe y du 1er, 610 x 2ème point, 120 y 2ème point
+// Ces 2 points une fois reliés font un rectangle
 ImagefilledRectangle ($destination, 180, 50, 610, 120, $beige);
 $nomTalent = "Galeforce";
 // Le utf 8 n'étant pas géré par imagestring (merci l'anglais qui n'a pas d'accent) cette fonction imagefttext le gère
@@ -60,8 +62,12 @@ imagefttext($destination, 12, 0, 210, 310, $noir, $font, $nomTalent);
 $descTalent = "Précision et Esquive +50 si ennemi équipé d'un arc";
 imagefttext($destination, 10, 0, 210, 330, $noir, $font, $descTalent);
 
-ImagefilledRectangle ($destination, 180, 370, 610, 440, $beige);
 
+ImagefilledRectangle ($destination, 180, 370, 610, 440, $beige);
+$nomTalent = "Axebreaker";
+imagefttext($destination, 12, 0, 210, 390, $noir, $font, $nomTalent);
+$descTalent = "Précision et Esquive +50 si ennemi équipé d'une hache";
+imagefttext($destination, 10, 0, 210, 410, $noir, $font, $descTalent);
 
 
 // On met le portrait dans l'image de destination (la carte du personnage)
