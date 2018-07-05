@@ -55,7 +55,10 @@ imagefttext($destination, 10, 0, 210, 250, $noir, $font, $descTalent);
 
 
 ImagefilledRectangle ($destination, 180, 290, 610, 360, $beige);
-
+$nomTalent = "Bowbreaker";
+imagefttext($destination, 12, 0, 210, 310, $noir, $font, $nomTalent);
+$descTalent = "Précision et Esquive +50 si ennemi équipé d'un arc";
+imagefttext($destination, 10, 0, 210, 330, $noir, $font, $descTalent);
 
 ImagefilledRectangle ($destination, 180, 370, 610, 440, $beige);
 
