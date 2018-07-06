@@ -78,12 +78,18 @@ $destination_x = 185;
 $destination_y = 233.5;  // L'image du talent fait 23x23, sachant que le bloc 70 donc au centre c'est y départ + 23.5  
 imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
 
+
 ImagefilledRectangle ($destination, 180, 290, 610, 360, $beige);
 $nomTalent = "Bowbreaker";
 imagefttext($destination, 12, 0, 210, 310, $noir, $font, $nomTalent);
 $descTalent = "Précision et Esquive +50 si ennemi équipé d'un arc";
 imagefttext($destination, 10, 0, 210, 330, $noir, $font, $descTalent);
-
+$source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
+$largeur_source = imagesx($source);
+$hauteur_source = imagesy($source);
+$destination_x = 185;
+$destination_y = 313.5;  // L'image du talent fait 23x23, sachant que le bloc 70 donc au centre c'est y départ + 23.5  
+imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
 
 ImagefilledRectangle ($destination, 180, 370, 610, 440, $beige);
 $nomTalent = "Axebreaker";
