@@ -37,27 +37,29 @@
         // Ceci créé une chaîne de caractères avec le nom du personnage
         $nomHero = $data[0];
         imagefttext($destination, 18, 0, 320, 30, $noir, $font, $nomHero);
-
+        
         // Un rectangle noir se créé qui accueillera les talents
         // Il y a 80px en x pour chaque talent par rapport à son voisin du dessus
         // 180 c'est l'axe x du 1er point, 50 l'axe y du 1er, 610 x 2ème point, 120 y 2ème point
         // Ces 2 points une fois reliés font un rectangle
         // Actuellement le rectangle fait 70px de haut (y)
         ImagefilledRectangle ($destination, 180, 50, 610, 120, $beige);
-        $nomTalent = "Galeforce";
-        // Le utf 8 n'étant pas géré par imagestring (merci l'anglais qui n'a pas d'accent) cette fonction imagefttext le gère
-        // Le texte du talent. 12 correspond à la taille de font (police), 0 à l'angle, 210 à là où commence le texte (axe x (largeur)) et 70 (axe y (hauteur)) 
-        imagefttext($destination, 12, 0, 210, 70, $noir, $font, $nomTalent);
-        $descTalent = "Si l'unité bat un ennemi elle bénéficie d'un nouveau tour de jeu";
-        imagefttext($destination, 10, 0, 210, 90, $noir, $font, $descTalent);
-        // Concerne l'image du talent
-        $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
-        $largeur_source = imagesx($source);
-        $hauteur_source = imagesy($source);
-        $destination_x = 185;
-        $destination_y = 73.5;  // L'image du talent fait 23x23, sachant que le bloc 70 donc au centre c'est y départ + 23.5  
-        imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
-
+        // Si il y a eu un talent dans la première zone de drop alors on le remplit sinon ça restera un rectangle vide
+        if (isset($data[2])) {
+            $nomTalent = $data[2];
+            // Le utf 8 n'étant pas géré par imagestring (merci l'anglais qui n'a pas d'accent) cette fonction imagefttext le gère
+            // Le texte du talent. 12 correspond à la taille de font (police), 0 à l'angle, 210 à là où commence le texte (axe x (largeur)) et 70 (axe y (hauteur)) 
+            imagefttext($destination, 12, 0, 210, 70, $noir, $font, $nomTalent);
+            $descTalent = $data[3];
+            imagefttext($destination, 10, 0, 210, 90, $noir, $font, $descTalent);
+            // Concerne l'image du talent
+            $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
+            $largeur_source = imagesx($source);
+            $hauteur_source = imagesy($source);
+            $destination_x = 185;
+            $destination_y = 73.5;  // L'image du talent fait 23x23, sachant que le bloc 70 donc au centre c'est y départ + 23.5  
+            imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
+        }    
 
         ImagefilledRectangle ($destination, 180, 130, 610, 200, $beige);
         $nomTalent = "Sol";
