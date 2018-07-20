@@ -1,6 +1,8 @@
 <?php
 // code et tuto trouvé sur https://openclassrooms.com/courses/concevez-votre-site-web-avec-php-et-mysql/creer-des-images-en-php
 
+// Ceci va forcer le download
+header('Content-Disposition: Attachment;filename=image.png'); 
 // On indique que c'est une image qui est envoyée (ici png mais ça peut être jpeg aussi si photo par exemple)
 header ("Content-type: image/png");
 // On créé l'image avec 600 de large et 400 de haut
