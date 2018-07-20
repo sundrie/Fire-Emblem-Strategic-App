@@ -389,17 +389,14 @@ $(function() {
       $(chosenOnes.children('td')).each(function() {
         encoderforAJAX.push($(this).text());
       });
-      // Notre requête Ajax qui envoie toutes les données à notre script savebuild.php
+      // WIP pour faire dl l'image 
       $.ajax({
         url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/php/savebuild.php',
         method: 'POST',
-        data:{build : encoderforAJAX},
+        data:{data : encoderforAJAX},
         success : function(data){
           // Ceci est nécessaire pour que l'utilisateur sache que son build a été téléchargé sous format texte
-          window.location.replace("http://alexandreblin.ovh/FireEmblemStrategicApp/php/userdownloadfile.php");
-
-          // Pour avoir un retour du script php
-          // $('#message').html('voilà ce qui a été envoyé : '+ data);
+          window.location.replace("http://alexandreblin.ovh/FireEmblemStrategicApp/php/savebuild.php");
         }
       });
     });
