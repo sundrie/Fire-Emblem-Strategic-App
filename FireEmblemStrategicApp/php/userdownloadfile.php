@@ -3,7 +3,7 @@
   $message;
   // Si js a créé le cookie on récupère le nom du fichier
   if(isset($_COOKIE['filename'])){
-    $file = "toto.png";
+    $file = $_COOKIE['filename'].".png";
   }
   else{
     // On transmet à la page d'erreur que c'est une erreur liée aux cookies

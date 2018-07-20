@@ -113,7 +113,7 @@
         imagefttext($destination, 8, 0, 210, 460, $noir, $font, $signature);
 
 
-        $path = "toto.png";
+        $path = $file = $_COOKIE['filename'].".png";
         // Cette fonction envoie l'image une fois tout nos traitements faits
         imagepng($destination,$path);
         // imagepng($destination);
