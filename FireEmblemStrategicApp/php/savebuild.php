@@ -1,6 +1,8 @@
 <?php
     if($_POST){
         var_dump($_POST);
+        // On récupère les datas venant de l'ajax de builder.min.js
+        $data = $_POST['data'];
         // code et tuto trouvé sur https://openclassrooms.com/courses/concevez-votre-site-web-avec-php-et-mysql/creer-des-images-en-php
 
         // Ceci va forcer le download
@@ -11,7 +13,7 @@
         $destination = imagecreatefromjpeg("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/background.jpg");
 
         // On charge d'abord les images
-        $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/character_portrait/Cordelia_portrait.png");
+        $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/character_portrait/".$data[0]."_portrait.png");
         // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
         $largeur_source = imagesx($source);
         $hauteur_source = imagesy($source);
@@ -33,7 +35,7 @@
         // On définit juste la couleur pour nos fonds des talents
         $beige = imagecolorallocate($destination, 241, 218, 168);
         // Ceci créé une chaîne de caractères avec le nom du personnage
-        $nomHero = "Cordelia";
+        $nomHero = $data[0];
         imagefttext($destination, 18, 0, 320, 30, $noir, $font, $nomHero);
 
         // Un rectangle noir se créé qui accueillera les talents
