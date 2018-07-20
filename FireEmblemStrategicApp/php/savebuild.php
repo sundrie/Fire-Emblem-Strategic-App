@@ -76,17 +76,18 @@
         }
 
         ImagefilledRectangle ($destination, 180, 210, 610, 280, $beige);
-        $nomTalent = "Armsthrift";
-        imagefttext($destination, 12, 0, 210, 230, $noir, $font, $nomTalent);
-        $descTalent = "(Cha*2)% de ne pas utiliser une charge d'arme";
-        imagefttext($destination, 10, 0, 210, 250, $noir, $font, $descTalent);
-        $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
-        $largeur_source = imagesx($source);
-        $hauteur_source = imagesy($source);
-        $destination_x = 185;
-        $destination_y = 233.5;  // L'image du talent fait 23x23, sachant que le bloc 70 donc au centre c'est y départ + 23.5  
-        imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
-
+        if (isset($data[6])){
+            $nomTalent = $data[6];
+            imagefttext($destination, 12, 0, 210, 230, $noir, $font, $nomTalent);
+            $descTalent = $data[7];
+            imagefttext($destination, 10, 0, 210, 250, $noir, $font, $descTalent);
+            $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
+            $largeur_source = imagesx($source);
+            $hauteur_source = imagesy($source);
+            $destination_x = 185;
+            $destination_y = 233.5;  // L'image du talent fait 23x23, sachant que le bloc 70 donc au centre c'est y départ + 23.5  
+            imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
+        }
 
         ImagefilledRectangle ($destination, 180, 290, 610, 360, $beige);
         $nomTalent = "Bowbreaker";
