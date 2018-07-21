@@ -59,7 +59,7 @@
             $destination_x = 185;
             $destination_y = 73.5;  // L'image du talent fait 23x23, sachant que le bloc 70 donc au centre c'est y départ + 23.5  
             imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
-        }    
+        }  
 
         ImagefilledRectangle ($destination, 180, 130, 610, 200, $beige);
         if (isset($data[4])) {

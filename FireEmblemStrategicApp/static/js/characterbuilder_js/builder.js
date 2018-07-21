@@ -398,7 +398,7 @@ $(function() {
           // Ceci est nécessaire pour que l'utilisateur sache que son build a été téléchargé sous format texte
           window.location.replace("http://alexandreblin.ovh/FireEmblemStrategicApp/php/userdownloadfile.php");
           // Pour avoir un retour du script php
-          // $('#message').html('voilà ce qui a été envoyé : '+ data);
+          $('#message').html('voilà ce qui a été envoyé : '+ data);
         }
       });
     });
