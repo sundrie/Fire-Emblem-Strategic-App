@@ -46,12 +46,16 @@
         ImagefilledRectangle ($destination, 180, 50, 610, 120, $beige);
         // Si il y a eu un talent dans la première zone de drop alors on le remplit sinon ça restera un rectangle vide
         if (isset($data[2])) {
-            $nomTalent = $data[2];
+            $nomTalent = $data[2];                  
             // Le utf 8 n'étant pas géré par imagestring (merci l'anglais qui n'a pas d'accent) cette fonction imagefttext le gère
             // Le texte du talent. 12 correspond à la taille de font (police), 0 à l'angle, 210 à là où commence le texte (axe x (largeur)) et 70 (axe y (hauteur)) 
             imagefttext($destination, 12, 0, 210, 70, $noir, $font, $nomTalent);
             $descTalent = $data[3];
             imagefttext($destination, 10, 0, 210, 90, $noir, $font, $descTalent);
+            // Si il y a un espace dans le nom du talent alors on le supprime car ça fait bugger
+            if (preg_match('/\s/',$nomTalent) === 1) {
+                $nomTalent = preg_replace('/\s+/', '', $nomTalent);
+            }      
             // Concerne l'image du talent
             $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
             $largeur_source = imagesx($source);
