@@ -71,6 +71,9 @@
             imagefttext($destination, 12, 0, 210, 150, $noir, $font, $nomTalent);
             $descTalent = $data[5];
             imagefttext($destination, 10, 0, 210, 170, $noir, $font, $descTalent);
+            if (preg_match('/\s/',$nomTalent) === 1) {
+                $nomTalent = preg_replace('/\s+/', '', $nomTalent);
+            }
             $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
             $largeur_source = imagesx($source);
             $hauteur_source = imagesy($source);
@@ -85,6 +88,9 @@
             imagefttext($destination, 12, 0, 210, 230, $noir, $font, $nomTalent);
             $descTalent = $data[7];
             imagefttext($destination, 10, 0, 210, 250, $noir, $font, $descTalent);
+            if (preg_match('/\s/',$nomTalent) === 1) {
+                $nomTalent = preg_replace('/\s+/', '', $nomTalent);
+            }
             $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
             $largeur_source = imagesx($source);
             $hauteur_source = imagesy($source);
@@ -99,6 +105,9 @@
             imagefttext($destination, 12, 0, 210, 310, $noir, $font, $nomTalent);
             $descTalent = $data[9];
             imagefttext($destination, 10, 0, 210, 330, $noir, $font, $descTalent);
+            if (preg_match('/\s/',$nomTalent) === 1) {
+                $nomTalent = preg_replace('/\s+/', '', $nomTalent);
+            }
             $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
             $largeur_source = imagesx($source);
             $hauteur_source = imagesy($source);
@@ -113,6 +122,9 @@
             imagefttext($destination, 12, 0, 210, 390, $noir, $font, $nomTalent);
             $descTalent = $data[11];
             imagefttext($destination, 10, 0, 210, 410, $noir, $font, $descTalent);
+            if (preg_match('/\s/',$nomTalent) === 1) {
+                $nomTalent = preg_replace('/\s+/', '', $nomTalent);
+            }
             $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
             $largeur_source = imagesx($source);
             $hauteur_source = imagesy($source);
