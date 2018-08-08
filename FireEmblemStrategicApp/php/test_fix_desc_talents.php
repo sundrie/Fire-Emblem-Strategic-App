@@ -36,6 +36,11 @@ $nomTalent = "Lifetaker";
 // Le texte du talent. 12 correspond à la taille de font (police), 0 à l'angle, 210 à là où commence le texte (axe x (largeur)) et 70 (axe y (hauteur)) 
 imagefttext($destination, 12, 0, 210, 70, $noir, $font, $nomTalent);
 $descTalent = "L'utilisateur regagne 50% de ses max HP s'il bat un ennemi ne marche pas lors du tour ennemi ou si l'unité est supportrice en Duo";
+// Au delà de 58 caractères ça dépasse le cadre donc on mets le signe qui indique qu'une phrase a été coupée
+// substr() indique qu'on prends le string uniquement de 0 à 58 caractères le reste on garde pas
+$rest = substr($descTalent, 0, 58);
+$rest = $rest."[…]";
+$descTalent = $rest;
 imagefttext($destination, 10, 0, 210, 90, $noir, $font, $descTalent);
 // Concerne l'image du talent
 $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
@@ -67,9 +72,9 @@ $destination_x = 185;
 $destination_y = 233.5;  // L'image du talent fait 23x23, sachant que le bloc 70 donc au centre c'est y départ + 23.5  
 imagecopy($destination, $source, $destination_x, $destination_y, 0, 0, $largeur_source, $hauteur_source);
 ImagefilledRectangle ($destination, 180, 290, 610, 360, $beige);
-$nomTalent = "Bowbreaker";
+$nomTalent = "Ignis";
 imagefttext($destination, 12, 0, 210, 310, $noir, $font, $nomTalent);
-$descTalent = "Précision et Esquive +50 si ennemi équipé d'un arc";
+$descTalent = "(Tec)% Ajoute la moitié de la stat Magie à la Force si utilisation d'une arme physique et inversement si l'unité utilise un tome ou arme magique";
 imagefttext($destination, 10, 0, 210, 330, $noir, $font, $descTalent);
 $source = imagecreatefrompng("http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/talents_icons/".$nomTalent.".png");
 $largeur_source = imagesx($source);
