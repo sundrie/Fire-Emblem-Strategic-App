@@ -3,7 +3,7 @@
   $message;
   // Si js a créé le cookie on récupère le nom du fichier
   if(isset($_COOKIE['filename'])){
-    $file = $_COOKIE['filename'].".txt";
+    $file = $_COOKIE['filename'].".png";
   }
   else{
     // On transmet à la page d'erreur que c'est une erreur liée aux cookies
@@ -24,8 +24,8 @@
     header('Pragma: public');
     header('Content-Length: ' . filesize($file));
     readfile($file);
-    //exécute le fichier cleartxt.php pour supprimer le fichier et éviter de surcharger notre espace avec des milliards de fichiers txt
-    include("cleartxt.php");
+    //exécute le fichier clearpng.php pour supprimer le fichier et éviter de surcharger notre espace avec des milliards de fichiers png
+    include("clearpng.php");
     exit;
   } else {
     // On transmet à la page d'erreur que c'est une erreur liée au fichier créé en lui même
