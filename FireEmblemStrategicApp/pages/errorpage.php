@@ -3,19 +3,19 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/normalize.css">
-		<link rel="stylesheet" href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/master.css">
-		<link href="http://alexandreblin.ovh/FireEmblemStrategicApp/static/css/fontawesome-all.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://alexandreblin.ovh/FireEmblemStrategicApp/static/css/normalize.css">
+		<link rel="stylesheet" href="https://alexandreblin.ovh/FireEmblemStrategicApp/static/css/master.min.css">
+		<link href="https://alexandreblin.ovh/FireEmblemStrategicApp/static/css/fontawesome-all.min.css" rel="stylesheet">
 		<title></title>
 	</head>
 	<body>
     <header class="headerwebsite">
-      <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/FEAHome.html"><img src="http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/FireEmblemAwakeningLogo.png" alt="Retour Accueil" class="ImgBackHome"></a>
+      <a href="https://alexandreblin.ovh/FireEmblemStrategicApp/pages/FEAHome.html"><img src="https://alexandreblin.ovh/FireEmblemStrategicApp/static/img/FireEmblemAwakeningLogo.png" alt="Retour Accueil" class="ImgBackHome"></a>
       <h1>Fire Emblem Strategic App \ Fire Emblem Awakening \ Builder Error</h1>
       <nav>
-				<a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/characterbuilder.html">Character Builder</a>
-        <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/characterinfos.html">Character Infos</a>
-        <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/about.html">À propos</a>
+				<a href="https://alexandreblin.ovh/FireEmblemStrategicApp/pages/characterbuilder.html">Character Builder</a>
+        <a href="https://alexandreblin.ovh/FireEmblemStrategicApp/pages/characterinfos.html">Character Infos</a>
+        <a href="https://alexandreblin.ovh/FireEmblemStrategicApp/pages/about.html">À propos</a>
       </nav>
     </header>
     <div class="wrapper">
@@ -40,7 +40,7 @@
 				<a href="https://github.com/sundrie"><i class="fab fa-github-square"></i></a>
 				<a href="https://www.facebook.com/alexandre.blin.18"><i class="fab fa-facebook-square"></i></a>
       </p>
-			<p><a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php">Me contacter</a></p>
+			<p><a href="https://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php">Me contacter</a></p>
     </footer>
 	</body>
 </html>
