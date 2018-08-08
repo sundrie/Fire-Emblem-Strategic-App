@@ -75,8 +75,6 @@
             $nomTalent = $data[4];
             imagefttext($destination, 12, 0, 210, 150, $noir, $font, $nomTalent);
             $descTalent = $data[5];
-            // Au delà de 58 caractères ça dépasse le cadre donc on mets le signe qui indique qu'une phrase a été coupée
-            // substr() indique qu'on prends le string uniquement de 0 à 58 caractères le reste on garde pas
             $rest = substr($descTalent, 0, 58);
             $rest = $rest."[…]";
             $descTalent = $rest;
@@ -97,8 +95,6 @@
             $nomTalent = $data[6];
             imagefttext($destination, 12, 0, 210, 230, $noir, $font, $nomTalent);
             $descTalent = $data[7];
-            // Au delà de 58 caractères ça dépasse le cadre donc on mets le signe qui indique qu'une phrase a été coupée
-            // substr() indique qu'on prends le string uniquement de 0 à 58 caractères le reste on garde pas
             $rest = substr($descTalent, 0, 58);
             $rest = $rest."[…]";
             $descTalent = $rest;
@@ -119,8 +115,6 @@
             $nomTalent = $data[8];
             imagefttext($destination, 12, 0, 210, 310, $noir, $font, $nomTalent);
             $descTalent = $data[9];
-            // Au delà de 58 caractères ça dépasse le cadre donc on mets le signe qui indique qu'une phrase a été coupée
-            // substr() indique qu'on prends le string uniquement de 0 à 58 caractères le reste on garde pas
             $rest = substr($descTalent, 0, 58);
             $rest = $rest."[…]";
             $descTalent = $rest;
@@ -141,8 +135,6 @@
             $nomTalent = $data[10];
             imagefttext($destination, 12, 0, 210, 390, $noir, $font, $nomTalent);
             $descTalent = $data[11];
-            // Au delà de 58 caractères ça dépasse le cadre donc on mets le signe qui indique qu'une phrase a été coupée
-            // substr() indique qu'on prends le string uniquement de 0 à 58 caractères le reste on garde pas
             $rest = substr($descTalent, 0, 58);
             $rest = $rest."[…]";
             $descTalent = $rest;
