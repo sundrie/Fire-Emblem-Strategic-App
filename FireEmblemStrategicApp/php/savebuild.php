@@ -1,6 +1,6 @@
 <?php
     if($_POST){
-        var_dump($_POST);
+        // var_dump($_POST);
         // On récupère les datas venant de l'ajax de builder.min.js
         $data = $_POST['data'];
         // code et tuto trouvé sur https://openclassrooms.com/courses/concevez-votre-site-web-avec-php-et-mysql/creer-des-images-en-php
