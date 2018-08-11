@@ -30,8 +30,11 @@
 					Pas envie d'utiliser le formulaire ? Voici mon adresse mail
 					<button class="showemail">Voir adresse email</button>					
 				</p>
-				<div class="validationform captchashowemail">
-					<div class="g-recaptcha" data-sitekey="6LeCAkgUAAAAAM1LmVGYFYnL8hkpOjg_fjDBeZs-"></div>
+				<div class="validationform captchashowemail">										
+					<form action="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php" id="givemyemail" method="post">
+						<p>Veuillez valider le reCAPTCHA du dessus pour vérifier que vous n'êtes pas un robot, avant d'appuyer sur le bouton ci-dessous</p>
+						<input type="submit" value="Afficher">
+					</form>
 				</div>
 				<div id="message" class="emailmessage"></div>
 			</div>

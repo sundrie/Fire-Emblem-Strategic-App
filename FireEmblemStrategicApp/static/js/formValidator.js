@@ -1,19 +1,15 @@
 $(function() {
   $(".captchashowemail").hide();
+  $("#givemyemail").hide();
   // S'active lors d'un clic sur le bouton pour afficher mon adresse email
   $(".showemail").on("click",function(){
     $(".captchashowemail").show();
-    $("#givemyemail").remove();
-    $(".captchashowemail").append('<form id="givemyemail"><input type="submit" value="Envoyer"></form>');       
+    $("#givemyemail").show();
   });
 
   $(document).on("submit","#givemyemail", function(e){
     e.preventDefault();
-    console.log(grecaptcha.getResponse());
-    
-    if (grecaptcha.getResponse() === '') {
-      $("#message").html("<p>Veuillez valider le reCAPTCHA pour vérifier que vous n'êtes pas un robot s'il vous plaît</p>");
-    } else {
+    if (grecaptcha.getResponse() != '') {      
       $("#message").html("<a href='blin.alexandre76@gmail.com'>blin.alexandre76@gmail.com</a>");
     }
   });
@@ -43,6 +39,8 @@ $(function() {
           success: function(data){
             // console.log(data);
             $("#message").html("<p><h2>Votre message a été correctement envoyé</h2></p>");
+            var response = grecaptcha.getResponse();
+    console.log(response);
           }
         });
       }
