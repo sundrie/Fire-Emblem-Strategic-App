@@ -51,11 +51,13 @@
             // Le texte du talent. 12 correspond à la taille de font (police), 0 à l'angle, 210 à là où commence le texte (axe x (largeur)) et 70 (axe y (hauteur)) 
             imagefttext($destination, 12, 0, 210, 70, $noir, $font, $nomTalent);
             $descTalent = $data[3];
-            // Au delà de 58 caractères ça dépasse le cadre donc on mets le signe qui indique qu'une phrase a été coupée
-            // substr() indique qu'on prends le string uniquement de 0 à 58 caractères le reste on garde pas
-            $rest = substr($descTalent, 0, 58);
-            $rest = $rest."[…]";
-            $descTalent = $rest;
+            if (strlen($descTalent) > 58) {
+                // Au delà de 58 caractères ça dépasse le cadre donc on mets le signe qui indique qu'une phrase a été coupée
+                // substr() indique qu'on prends le string uniquement de 0 à 58 caractères le reste on garde pas
+                $rest = substr($descTalent, 0, 58);
+                $rest = $rest."[…]";
+                $descTalent = $rest;
+            }            
             imagefttext($destination, 10, 0, 210, 90, $noir, $font, $descTalent);
             // Si il y a un espace dans le nom du talent alors on le supprime car ça fait bugger
             if (preg_match('/\s/',$nomTalent) === 1) {
@@ -75,9 +77,11 @@
             $nomTalent = $data[4];
             imagefttext($destination, 12, 0, 210, 150, $noir, $font, $nomTalent);
             $descTalent = $data[5];
-            $rest = substr($descTalent, 0, 58);
-            $rest = $rest."[…]";
-            $descTalent = $rest;
+            if (strlen($descTalent) > 58) {
+                $rest = substr($descTalent, 0, 58);
+                $rest = $rest."[…]";
+                $descTalent = $rest;
+            }  
             imagefttext($destination, 10, 0, 210, 170, $noir, $font, $descTalent);
             if (preg_match('/\s/',$nomTalent) === 1) {
                 $nomTalent = preg_replace('/\s+/', '', $nomTalent);
@@ -95,9 +99,11 @@
             $nomTalent = $data[6];
             imagefttext($destination, 12, 0, 210, 230, $noir, $font, $nomTalent);
             $descTalent = $data[7];
-            $rest = substr($descTalent, 0, 58);
-            $rest = $rest."[…]";
-            $descTalent = $rest;
+            if (strlen($descTalent) > 58) {
+                $rest = substr($descTalent, 0, 58);
+                $rest = $rest."[…]";
+                $descTalent = $rest;
+            }  
             imagefttext($destination, 10, 0, 210, 250, $noir, $font, $descTalent);
             if (preg_match('/\s/',$nomTalent) === 1) {
                 $nomTalent = preg_replace('/\s+/', '', $nomTalent);
@@ -115,9 +121,11 @@
             $nomTalent = $data[8];
             imagefttext($destination, 12, 0, 210, 310, $noir, $font, $nomTalent);
             $descTalent = $data[9];
-            $rest = substr($descTalent, 0, 58);
-            $rest = $rest."[…]";
-            $descTalent = $rest;
+            if (strlen($descTalent) > 58) {
+                $rest = substr($descTalent, 0, 58);
+                $rest = $rest."[…]";
+                $descTalent = $rest;
+            }  
             imagefttext($destination, 10, 0, 210, 330, $noir, $font, $descTalent);
             if (preg_match('/\s/',$nomTalent) === 1) {
                 $nomTalent = preg_replace('/\s+/', '', $nomTalent);
@@ -135,9 +143,11 @@
             $nomTalent = $data[10];
             imagefttext($destination, 12, 0, 210, 390, $noir, $font, $nomTalent);
             $descTalent = $data[11];
-            $rest = substr($descTalent, 0, 58);
-            $rest = $rest."[…]";
-            $descTalent = $rest;
+            if (strlen($descTalent) > 58) {
+                $rest = substr($descTalent, 0, 58);
+                $rest = $rest."[…]";
+                $descTalent = $rest;
+            }  
             imagefttext($destination, 10, 0, 210, 410, $noir, $font, $descTalent);
             if (preg_match('/\s/',$nomTalent) === 1) {
                 $nomTalent = preg_replace('/\s+/', '', $nomTalent);
