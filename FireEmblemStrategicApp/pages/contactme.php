@@ -16,7 +16,11 @@
     </header>
     <div class="wrapper">
 			<div class="contactpagemaincontent">
-	      <p class="contactmeexplain">Vous souhaitez me contacter directement, remplissez le formulaire ci-dessous.</p>
+				<p class="contactmeexplain">Vous souhaitez me contacter directement, remplissez le formulaire ci-dessous.</p>
+				<p class="contactmeexplain">
+					Pas envie d'utiliser le formulaire ? Voici mon adresse mail
+					<button class="showemail">Voir adresse email</button>
+				</p>
 	      <form action="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php" method="post" id="contactForm" class="formulaireContact">
 	        <p class="p-objectmsg"><span class="inputdesc">Objet de votre message : </span><input type="text" name="objectmsg" class="class-objectmsg" required></p>
 					<p class="p-email"><span class="inputdesc inputdescemail">Votre adresse mail : </span><input type="email" name="email" class="class-email" required></p>
