@@ -3,10 +3,18 @@ $(function() {
   // S'active lors d'un clic sur le bouton pour afficher mon adresse email
   $(".showemail").on("click",function(){
     $(".captchashowemail").show();
+    $("#givemyemail").remove();
+    $(".captchashowemail").append('<form id="givemyemail"><input type="submit" value="Envoyer"></form>');       
+  });
+
+  $(document).on("submit","#givemyemail", function(e){
+    e.preventDefault();
+    console.log(grecaptcha.getResponse());
+    
     if (grecaptcha.getResponse() === '') {
       $("#message").html("<p>Veuillez valider le reCAPTCHA pour vérifier que vous n'êtes pas un robot s'il vous plaît</p>");
     } else {
-      
+      $("#message").html("<a href='blin.alexandre76@gmail.com'>blin.alexandre76@gmail.com</a>");
     }
   });
 

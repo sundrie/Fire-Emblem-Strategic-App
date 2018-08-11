@@ -35,7 +35,7 @@
 				</div>
 				<div id="message" class="emailmessage"></div>
 			</div>
-    </div>
+		</div>		
 		<footer>
       <p>Made with love by Alexandre Blin</p>
       <p>
