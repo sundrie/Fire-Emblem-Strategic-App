@@ -1,10 +1,9 @@
 $(function() {
-
+  $(".captchashowemail").hide();
   // S'active lors d'un clic sur le bouton pour afficher mon adresse email
   $(".showemail").on("click",function(){
-    console.log("Tu a cliqué :o");    
+    $(".captchashowemail").show();
   });
-
 
   // S'active lors de la validation du formulaire
   $("#contactForm").submit(function(e){
