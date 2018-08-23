@@ -10,11 +10,11 @@
 	</head>
 	<body>
     <header class="headerwebsite">
-      <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/FEAHome.html"><img src="http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/FireEmblemAwakeningLogo.png" alt="Retour Accueil" class="ImgBackHome"></a>
+      <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/pages/FEAHome.html"><img src="http://alexandreblin.ovh/FireEmblemStrategicApp/static/img/FireEmblemAwakeningLogo.png" alt="Retour Accueil" class="ImgBackHome"></a>
       <h1>Fire Emblem Strategic App \ Fire Emblem Awakening \ Builder Error</h1>
       <nav>
-				<a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/characterbuilder.html">Character Builder</a>
-        <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/characterinfos.html">Character Infos</a>
+				<a href="http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/pages/characterbuilder.html">Character Builder</a>
+        <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/Data-FireEmblemAwakening/pages/characterinfos.html">Character Infos</a>
         <a href="http://alexandreblin.ovh/FireEmblemStrategicApp/pages/about.html">À propos</a>
       </nav>
     </header>
