@@ -809,6 +809,7 @@ footer a:hover{
   .formulaireRecherche {
     width: 200px;
     margin: 0 auto;
+    margin-bottom: 20px;
   }
 
   .HeroBuildCard{
@@ -958,6 +959,7 @@ footer a:hover{
   }
   .formulaireRecherche {
     margin: 0 auto;
+    margin-bottom: 20px;
   }
   /* On modifie l'ordre pour que les 2 listes se regroupent */
   .TalentsListclass{
