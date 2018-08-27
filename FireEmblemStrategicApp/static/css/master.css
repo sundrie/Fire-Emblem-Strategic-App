@@ -181,6 +181,7 @@ footer a:hover{
 
 .charaSearch {
   display: block;
+  margin: 0 auto;
   width: 200px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -218,6 +219,7 @@ footer a:hover{
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 .listeHeros {
+  margin: 0 auto;
   margin-top: 0;
   padding: 0;
   width: 200px;
