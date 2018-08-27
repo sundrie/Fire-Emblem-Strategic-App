@@ -993,7 +993,7 @@ footer a:hover{
   /* Le tableau pour recevoir les talents choisis */
   .TalentsChoosenBuilder {
     min-width: 375px;
-    max-width: 375px;
+    max-width: 375px;    
   }
   .TalentsChoosenBuilder tr{
     min-width: 375px;
@@ -1029,6 +1029,9 @@ footer a:hover{
       min-width: 320px;
       max-width: 320px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
     }
+    .TalentsChoosenBuilder td{
+      font-size: 10px;
+    }
     .TalentsChoosenBuilder td:nth-child(2){
       max-width: 320px;
       min-width: 320px;
@@ -1054,8 +1057,8 @@ footer a:hover{
 
       /* Le tableau pour recevoir les talents choisis */
       .TalentsChoosenBuilder {
-        min-width: 300px;
-        max-width: 300px;
+        min-width: 320px;
+        max-width: 320px;
       }
       .TalentsChoosenBuilder td{
         font-size: 10px;
