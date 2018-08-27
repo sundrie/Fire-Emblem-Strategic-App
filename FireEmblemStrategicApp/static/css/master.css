@@ -670,6 +670,46 @@ footer a:hover{
 
 /*
 -------------------------------------------------
+ pour gérer entre l'affichage pc fixe et pc portable
+-------------------------------------------------
+*/
+@media (min-width: 1466px) and (max-width: 1600px){
+/* Le tableau contenant les talents était rogné en même temps c'est une tranche peu utilisée mais je dois corriger sait-on jamais */
+
+  /* La carte où on place les talents choisis */  
+  .HeroBuildCard{    
+    min-width: 600px;
+    max-width: 600px;
+    max-height: 1080px;
+  }
+  .HeroImgBuilderContainer{
+    min-width: 100px;
+    min-height: 250px;
+    max-height: 250px;
+    margin-top: 53px;
+  }
+  .imageHerosBuilder {
+    max-width: 100px;
+  }
+  .TalentsCardContainer{
+    margin-right: 10px;
+  }
+  /* Le tableau pour recevoir les talents choisis */
+  .TalentsChoosenBuilder {
+    min-width: 475px;
+    max-width: 475px;
+  }
+  .TalentsChoosenBuilder tr{
+    min-width: 475px;
+    max-width: 475px; /* C'est la taille qu'on a donné à nos zone de drop donc penser à changer la taille dans .TalentsListclass table tr */
+  }
+  .TalentsChoosenBuilder td:nth-child(2){
+    max-width: 460px;
+    min-width: 460px;
+  }
+}
+/*
+-------------------------------------------------
  deuxième level affichage
 -------------------------------------------------
 */
