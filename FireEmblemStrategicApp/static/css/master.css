@@ -32,6 +32,14 @@ footer {
   padding: 20px;
   color: rgb(252, 240, 187);
 }
+
+/* Devrait coriger les soucis de footer pas tout en bas (c'était surtout visible sur écran à 1080px de haut classique du pc fixe) */
+@media (min-height: 900px){
+  footer{
+    margin-top: 300px;
+  }
+}
+
 footer a{
   text-decoration: none;
   color: rgb(252, 240, 187);
@@ -667,7 +675,7 @@ footer a:hover{
 */
 /* C'est à partir de 1465px que la barre horizontale apparait sur notre liste des talents ce qui indique que à partir de là notre liste va avoir des soucis (A vérifier une fois sur plus grand écran) */
 @media (min-width: 1070px) and (max-width: 1465px){
-  /* concerne le champ de recherche, la liste des héros et le select du choix de parent */
+  /* concerne le champ de recherche, la liste des héros et le select du choix de parent */  
   .charaSearch {
     width: 130px;
   }
@@ -675,8 +683,8 @@ footer a:hover{
     width: 130px;
   }
 
-  /* La carte où on place les talents choisis */
-  .HeroBuildCard{
+  /* La carte où on place les talents choisis */  
+  .HeroBuildCard{    
     min-width: 500px;
     max-width: 500px;
     max-height: 1080px;
