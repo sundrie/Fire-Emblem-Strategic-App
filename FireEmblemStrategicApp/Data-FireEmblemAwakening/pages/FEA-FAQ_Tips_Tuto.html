@@ -25,14 +25,15 @@
                 <p>Une fois tout ceci prêt et bien le site vous sera vraient utile.</p>
                 <p>Pour plus de clarté voici la liste de tout ce qu'il est bon à savoir sur le jeu.</p>
                 <ul class="cat_FAQ">
-                    <li><a href="#bases">bases</a></li>
+                    <li><a href="#bases_reclassement">bases reclassements</a></li>
+                    <li><a href="#bases_talents">fonctionnement des talents</a></li>
                 </ul>
             </div>
-            <div class="FAQ_bloc_bases" id="bases">
+            <div class="FAQ_bloc_bases">
                 <p>Dans un premier temps je ne vais pas reproduire les bons tutos déjà présents dans le jeu tel que le triangle des armes (épée, hache, lance), non je vais plutôt vous expliquer les choses qui ne sont pas montrées dans le jeu.</p>
                 <p>Des mécaniques cachées en quelques sortes. Par exemple l'ordre des talents, quand utiliser au mieux certains objets, etc.</p>
                 <p>Place aux explications !!!</p>
-                <div>
+                <div id="bases_reclassement">
                     <h3>Utiliser au mieux le système de reclassement</h3>
 
                     <p>Comme expliqué plus haut je ne vais pas expliquer ce que Intelligent System a bien fait si vous voulez encore plus d'infos de nombreux sites vous en apprendrons plus et le wiki est votre meilleur ami (surtout celui en anglais ;) ).</p>
@@ -44,6 +45,21 @@
                     <p>Severa : Hero -> Great Knight -> Bow Knight -> Assassin -> Dark Knight -> Sorcerer -> Bride</p>
                     <p>L'idéal quand on fait cela c'est d'avoir le tableau de toutes les classes et des talents qu'ils ont (d'où la création de mon builder)</p>
                     <p>la <a href="http://fireemblem.wikia.com/wiki/List_of_classes_in_Fire_Emblem_Awakening">liste</a> des classes et talents que j'ai utilisé pour concevoir mon site</p>
+                </div>
+                <div id="bases_talents">
+                    <h3>Fonctionnement des talents</h3>
+                    <p>Concernant les talents il en existe 3 types :
+                        <ul>
+                            <li>effets passifs</li>
+                            <li>semi-passifs (activation selon calcul basé sur une stats (%))</li>
+                            <li>activables</li>
+                        </ul>
+                    </p>
+                    <p>Celui qui va nous intéresser est le type que j'ai nommé semi-passif, et pour illustrer je vais prendre celui qui est l'un des plus puissant j'ai nommé Astra </p>
+                    <p>Il permet de faire 5 attaques consecutives avec les dégâts divisés par 2, il s'active en fonction de la technique/2, ça nous renvoie un pourcentage d'activation</p>
+                    <p>Imaginons que le talent Astra se soit activé et que nous avons un autre talent équipé comme Luna qui lui aussi se base sur un pourcentage de chance de se lancer et bien il ne pourra pas se lancer durant les 5 attaques.</p>
+                    <p>Pourquoi ? Et bien simplement qu'il ne peut y avoir <span>qu'un seul talent actif à la fois dans le combat</span> ainsi on ne peut pas cumuler plusieurs talents en une seule attaque. Si imaginons on a équipé Astra et Sol la priorité pour déterminer laquelle s'active est effectué ainsi :</p>
+                    <p>Lethality > Aether > Astra > Sol > Luna > Ignis > Vengeance</p>
                 </div>
             </div>
         </div>
