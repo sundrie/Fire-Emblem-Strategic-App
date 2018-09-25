@@ -550,7 +550,7 @@ footer a:hover{
   margin-bottom: 10px;
 }
 
-/*--------------------- Propre à la page about.html ----------------------*/
+/*--------------------- Propre à la page  ----------------------*/
 
 .headerwebsiteabout{
   height: 164px;
@@ -572,6 +572,11 @@ footer a:hover{
   font-family: Verdana;
   font-weight: 100;
   padding-bottom: 20px;
+}
+.mon_avatar{
+  max-width: 200px;
+  float: left;
+  margin: 10px;
 }
 .icondefault {
   color: rgb(38, 31, 29);
@@ -859,7 +864,7 @@ footer a:hover{
     }
   }
 
-  /* ~~~~~~~~~ page about.html ~~~~~~~~~~*/
+  /* ~~~~~~~~~ page  ~~~~~~~~~~*/
 
   .wrapperabout{
     max-width: 600px;
@@ -944,7 +949,7 @@ footer a:hover{
     }
   }
 
-  /* Concerne la page about.html */
+  /* Concerne la page  */
   .wrapperabout {
     flex-direction: column;
   }
@@ -1092,7 +1097,15 @@ footer a:hover{
     .class-objectmsg, .class-email{
       min-width: 300px; /* Pour écraser la valeur fixée au début à 350px */
       max-width: 300px;
+    }    
+  }
+  /* Concerne l'image de mon avatar */
+  /* Au delà de cette taille le texte à droite de l'image devient trop coupé pour être correctement lu */
+  @media(max-width:490px) {
+    .mon_avatar{
+      float: none;
+      display: block;
+      margin: 0 auto;
     }
   }
-
 }
