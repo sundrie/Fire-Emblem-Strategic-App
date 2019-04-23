@@ -38,9 +38,7 @@
 				Retrouvez moi sur :
         <a href="https://www.linkedin.com/in/alexandre-blin-bb637ab7/"><i class="fab fa-linkedin"></i></a>
 				<a href="https://github.com/sundrie"><i class="fab fa-github-square"></i></a>
-				<a href="https://www.facebook.com/alexandre.blin.18"><i class="fab fa-facebook-square"></i></a>
       </p>
-			<p><a href="https://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php">Me contacter</a></p>
     </footer>
 	</body>
 </html>
