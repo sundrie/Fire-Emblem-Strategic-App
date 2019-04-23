@@ -29,7 +29,7 @@ $(function() {
         $("#message").html("<p><h2>Veuillez valider le reCAPTCHA pour vérifier que vous n'êtes pas un robot s'il vous plaît</h2></p>");
       } else {
         $.ajax({
-          url: 'http://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php',
+          url: 'https://alexandreblin.ovh/FireEmblemStrategicApp/pages/contactme.php',
           method: 'POST',
           data:{
             objmsg: $("input[name='objectmsg']").val(),
